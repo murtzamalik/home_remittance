@@ -1,0 +1,14 @@
+.git
+**/.git
+**/node_modules
+**/target
+**/build
+**/.idea
+**/.vscode
+**/*.zip
+**/Home_Remittance_FrontEnd.zip
+agent-transcripts
+docs
+*.md
+!Home_Remittance_FrontEnd/package.json
+!Home_Remittance_FrontEnd/package-lock.json

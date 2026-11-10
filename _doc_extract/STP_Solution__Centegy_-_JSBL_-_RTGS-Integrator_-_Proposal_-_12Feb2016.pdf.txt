@@ -1,0 +1,328 @@
+PDF_PAGES=8
+PDF_META={'/Producer': 'Nitro PDF PrimoPDF', '/CreationDate': "D:20160212155129-05'00'", '/ModDate': "D:20160212155129-05'00'", '/Title': 'Microsoft Word - Centegy - JSBL - RTGS-Integrator - Proposal - 12Feb2016', '/Creator': 'PrimoPDF http://www.primopdf.com', '/Author': 'Taufiq.Ahmed'}
+
+===== PAGE 1 =====
+JSBL  
+Centegy Technologies   
+ 
+ 
+ 
+Technical & Financial Proposal 
+ 
+JSBL  
+ RTGS 
+ 
+Technical & Financial Proposal  
+12 Feb 2016  
+Banking Solutions 
+Centegy Technologies (Pvt) Ltd 
+www.centegytechnologies.com 
+RTGS -Integrator  
+Page: 1  
+ 
+Banking Solutions  
+Centegy Technologies (Pvt) Ltd  
+www.centegytechnologies.com  
+===== PAGE 2 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 2 
+ 
+ 
+ 
+Table of Contents 
+ 
+1 Technical Proposal  .............................................................................................................. 3 
+1.1  Requirement Finalization  ............................................................................................. 3 
+1.2  Scope of Work  .............................................................................................................. 3 
+1.3  Centegy Offer  ............................................................................................................... 4 
+1.4  Specific/Customized Integration  .................................................................................. 4 
+1.5  Project Time Estimates  ................................................................................................ 5 
+2 Financials  ............................................................................................................................. 6 
+2.1  Fee Quotation  .............................................................................................................. 6 
+2.2  Other Fee’s  ................................................................................................................... 6 
+2.3  Payment Terms  ............................................................................................................ 7 
+3 Other Matters  ...................................................................................................................... 8 
+3.1  Specific  ......................................................................................................................... 8 
+3.2  General ......................................................................................................................... 8 
+ 
+  
+===== PAGE 3 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 3 
+ 
+ 
+1 Technical Proposal 
+ 
+1.1  Requirement Finalization 
+ 
+1.1.1  The BRD was received from JSBL on 02 Feb 2016. 
+ 
+1.1.2  The request for proposal was received from JSBL on 08 Feb 2016. 
+ 
+1.1.3  The requirement specification sent to JSBL on 12 Feb 2016. 
+ 
+1.2  Scope of Work 
+ 
+1.2.1  The scope of this proposal is to provide licensing of ‘RTGS-Integrator’ for the interfacing 
+requirements which includes; 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Note: The scope of this interfacing includes integration with SBP-RTGS by means of using RCCC 
+mechanism provided by SBP/RTGS and able to interpret and transmit swift messages which 
+includes MT-102/103/202/296/299/900/910. 
+ 
+1.2.2  The scope of work includes development of ten (‘10’ ) Reports and/or Inquiries free of charge 
+conditional that the report/inquiry does not requires any additional data entry, process or 
+incorporation of an entire new functionality. 
+ 
+1.2.3  The scope of work includes application  
+• One-time Deployment 
+• Configuration 
+• Training 
+• Implementation Support 
+ 
+1.2.4  The scope of work does not include the following fe atures: 
+• Dash Board/BI Reporting 
+• SMS/Email Transmission  
+• ISO messages based integration 
+ 
+1.2.5  The scope of work does not include the following in tegrations: 
+• Integration with Bank Own Core Banking Application 
+• Integration with Bank AML Software  
+• Integration with Remitting Entities /Agents (MTOs) through APIs 
+• Integration with Bank SWITCH for IBFT 
+ 
+1.2.6  The scope, time and fee for any additional scope of work will be determined separately. 
+ 
+ 
+Ref  Interfacing  Scope Requirement  
+A Integration with Banking 
+modules 
+Home Remit  - APIs (Integrator’s own)  
+Treasury  - APIs (Integrator’s own)  
+ 
+B Integration with Financial 
+System  
+API (Bank’s provided)  
+ 
+C Integration with SBP -
+RTGS(PRISM) 
+Through RCCC/API provided by SBP  
+ 
+===== PAGE 4 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 4 
+ 
+ 
+1.3  Centegy Offer 
+ 
+1.3.1  Our offer is the licensing of ‘RTGS-Integrator’ application to one legal entity (which is JS Bank 
+Limited (JSBL) operating in Pakistan) as per the agreed scope of work (refer section 1.2).  
+ 
+1.3.2  Centegy technologies grants to the client a perpetual, personal, non-transferable and non-
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+represents warrants and agrees that the Software will be used only at such location(s) and 
+only for the benefit of the client.  
+ 
+1.3.3  Centegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost).  
+ 
+1.3.4  Provision is available to embed End to End SSL encryption with the application. 
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+responsibility. 
+ 
+1.3.5  The application shall be installed and implemented at Bank’s site in Karachi, Pakistan and may 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+provided in the Agreement. However, we are not responsible for the re-installation, 
+configuration, training or implementation at any new location. 
+ 
+1.4  Specific/Customized Integration 
+ 
+1.4.1  The Time and Fee to complete the scope covered under enhancements/customization will 
+determined after analyzing scope.  
+ 
+1.4.2  The scope includes review, development, deployment/configuration, user acceptance testing 
+and pilot support assistance. 
+ 
+  
+===== PAGE 5 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 5 
+ 
+ 
+1.5  Project Time Estimates 
+ 
+1.5.1  The calendar time estimates to complete the assignment will be two (02) calendar months (as 
+per the scope mentioned in section 1.2) provided that the purchase order received by 18 Feb 
+2016. 
+ 
+No  Stage/Activity  Weeks  From Date  To Date  
+01  Requirement Finalization  02  01 -Feb -2016  11 -Feb -2016  
+02  In -house Design & Development  04  14 -Feb -2016  08 -Mar -2016  
+03  Client/SBP Site – Changes/Verification  03  25 -Feb -2016  15 -Mar -2016  
+04  Deployment & Configuration  01  11 -Mar -2016  15 -Mar -2016  
+05  System Integrat ion Testing   01  18 -Mar -2016  22 -Mar -2016  
+06  User  Acceptance Testing  (SBP/JSBL)  02  25 -Mar -2016  29 -Mar -2016  
+07  Walk through/ Dress Rehearsal 01  30 -Mar -2016  31 -Mar -2016  
+08  Live Cut -Over   01 -Apr -2016   
+ 
+1.5.2  The pilot support assistance will commence after UAT Sign-Off and will be for a period of one 
+calendar month.  
+ 
+1.5.3  Implementation time given is based on the assumption that the configuration, static data and 
+other resource required from the Bank for setting up the application will be provided in time.  
+ 
+1.5.4  The free warranty period of three (03) calendar months will be commenced from the time of 
+application UAT completion. 
+ 
+1.5.5  The maintenance period of twelve (12) calendar months (under a separate agreement) will be 
+started soon after completion of warranty period. 
+ 
+ 
+ 
+  
+===== PAGE 6 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 6 
+ 
+ 
+2 Financials 
+ 
+2.1  Fee Quotation 
+ 
+2.1.1  The total product fee according to the scope of work will be Rs. 4,750,000/- as per the scope 
+mentioned in section 1.2. 
+ 
+2.1.2  The fee of the assignment does not include the cost of Hardware, Operating System License 
+fee, Database Engine License Fee, and Front-End Tool Software License.  
+ 
+2.1.3  As per CENTEGY’s general policy, we do not provide source code; therefore, the fee 
+mentioned above is without source code. 
+ 
+2.1.4  The product license fee paid and related enhancements/customization will be add-up with the 
+current License + Enhancement Fee for calculating maintenance fee (bugs and error fixing only) 
+which will be eighteen (18%) on yearly basis in advance. 
+ 
+2.1.5  The fee is exclusive of all local taxes/duties and would be adjustable subject to changes in the 
+scope of work. Further, any future taxation or change in government policy may affect the 
+current pricing.  
+ 
+2.2  Other Fee’s 
+ 
+2.2.1  If the Bank requires enhancement or customization or integration at any time, a ‘BRD – 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+provide ‘Change Request – CRF’ having scope and cost estimate and will commence work as 
+soon as possible after the CRF has been accepted by the client. The development charges (per 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+any review, enhancement, customization, integration, etc. 
+ 
+Note:  The mode of payment will be 50 percent at the time receipt of purchase order (PO) where 
+as remaining 50 percent will be at the time of UAT approval (before deployment in LIVE 
+environment). 
+ 
+2.2.2  If the CLIENT requires the services of our firm to provide configuration, training and 
+implementation support assistance after the specified calendar months or at other branches also 
+(other than the pilot branch), then this will be charged for, on the basis of number of calendar 
+days/months support required and number of branches cover respectively. A separate 
+implementation fee @ Rs. 1200/- per man hour in addition, the traveling, boarding and lodging 
+and other related costs will be charged on actual basis. A full day charge (8 man hours) will apply 
+for all visits & stays.  
+ 
+Note: The mode of payment will be monthly based upon number of actual hours spend during a 
+calendar month. 
+ 
+===== PAGE 7 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 7 
+ 
+ 
+2.2.3  Additional fee will be charged for the specific Integration with Other Software Applications 
+which are not covered under agreed scope of work like SWITCH Interfacing, AML Interfacing, 
+SMS Interfacing, etc. The review, customization, configuration, support fee will be charged as 
+per the agreed chargeable rate (per man day) separately, depending on the nature of work 
+and man days efforts involved.  
+ 
+Note:  The mode of payment will be 50 percent at the time receipt of purchase order (PO) where 
+as remaining 50 percent will be at the time of UAT approval (before deployment in LIVE 
+environment). 
+ 
+2.2.4  In addition, we will charge out of pocket expenses (for visits outside Karachi), if any, which 
+includes traveling, boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/- 
+per person per day for our staff traveling during the period of this assignment and extended 
+support period.  The ‘OOP’ fee for any international visit will be determined separately (if 
+required). 
+ 
+2.3  Payment Terms 
+ 
+No. Schedule  Per (%)  Fee  
+ RTGS -Integrator License Fee   
+01. Upon Acceptance of Proposal 25%  
+02. Upon Installation/Deployment  25%  
+03. Upon Completion of UAT  25%  
+04. Upon LIVE Commencement  25%  
+   
+ RTGS -Integrator Change Request    
+A Upon Acceptance of CRF  50%   
+B Upon Completion of UAT  50%   
+ 
+  
+===== PAGE 8 =====
+JSBL   RTGS-Integrator  
+Centegy Technologies   
+ 
+Page: 8 
+ 
+ 
+3 Other Matters 
+ 
+3.1  Specific 
+ 
+3.1.1  The proposal is valid for acceptance until a period of One (01) month from the proposal date. 
+ 
+3.1.2  We will be in a position to commence work on the assignment within four weeks after receipt 
+of Purchase Order. 
+ 
+3.2  General 
+ 
+3.2.1  The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the responsibility of 
+the client. 
+ 
+3.2.2  The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+our employees, either those working on the assignment or otherwise.  
+ 
+3.2.3  We would recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+completion of the assignment. 
+ 
+3.2.4  We do not make any warranties, expressed or implied, towards successful implementation of 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+tradition and practice our best efforts & resources will be deployed towards generation of 
+desired results.  
+ 
+3.2.5  For multi-location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 
+optimization will also be handled by the client resources.  
+ 
+ 

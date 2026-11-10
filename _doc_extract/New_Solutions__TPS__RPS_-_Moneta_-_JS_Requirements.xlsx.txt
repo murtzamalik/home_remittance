@@ -1,0 +1,34 @@
+
+===== SHEET: Sheet1 =====
+S.no | Basic Features | Compliance
+1 | Overseas Remitting Entities management | Available
+2 | For Anti Money Laundering customer identification verification through OFAC and other sanctions list | Available
+3 | Full control over multiple currencies, Exchange Rates and countries through parameterized flexible configuration Engine | Available
+4 | Customer Relationship Management through Unique Identification with KYC compliance | Available
+5 | Comprehensive web-based Acquisition Module to provide Agents access world-wide | Available
+6 | Support data conversion received through web after bulk file downloading and SWIFT MT-103 transformation. | Available
+7 | Product based Transactions management for : | Available
+8 | Cash Transactions | Available
+9 | Bank Own Transactions | Available
+10 | IBFT(Through Bank SWITCH) | Available
+11 | PRI Transactions | Available
+12 | Non-PRI Transactions(Draft) | Available
+13 | 4eye Principle for Security controls | Available
+14 | Online Tracking of Transaction status | Available
+15 | Extensive reporting Module covering all kinds of Reports for | Available
+16 | Number of Outstanding / Paid Transactions | Available
+17 | Exchange Co Statement Of Account (Recon) | Available
+18 | Total Volume of each entity/Customer/Currency | Available
+19 | Customer Volume and Velocity checks reports | Available
+20 | Regulatory Reports | Available
+21 | Supports both off-line Mode as Standalone application and On-line mode as integrated with Bank Core Banking Applications for real time processing | Available
+22 | Event based SMS and Emails generations to F.Is and individual Customers | Available
+23 | Event based Financial Vouchers generation | N/A
+24 | Application Security Management through Audit Trail, Users Logs and Transaction Tracking Logs | Available
+Extended Features |  | 
+S.no | Details | 
+1 | iPark - Pre import staging area of transactions. | 
+2 | Multiple API support including Pull and Push | 
+3 | 50+ exchange house company integration available out of the box. | 
+3 | Express APIs for Domestic remittance | 
+4 | Multiple disbursement options available including Own Accounts, IBFT, Mobile Account or Over the counter. | 

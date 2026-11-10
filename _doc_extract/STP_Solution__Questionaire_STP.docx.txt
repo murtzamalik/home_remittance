@@ -1,0 +1,8 @@
+
+===== TABLE 1 =====
+Ref | Module |  | Option-1 | Option-2 | Option-3 | Option-4 | Select/  Not Required
+A | Integration with Banking modules |  | PUSH model APIs (Integrator’s own) | PULL model APIs (Client/Bank own) | File based for both (IN and OUT) | ISO messages (Phase 2) | 
+B | Integration with Financial System | xxxxxxxxx | PUSH model APIs (Integrator’s own) | PULL model APIs (Client/Bank own) | File based for both (IN and OUT) | ISO messages (Phase 2) | xxxxxxx
+C | Integration with SBP/RTGS/PRISM |  | Through RCCC/API provided by SBP | File based for both (IN and Out) |  |  | Option- 1
+D | Integration with Third Party Application | CMS | PUSH model APIs (Integrator’s own) | PULL model APIs (Client/Bank own) | File based for both (IN and OUT) | Option 4: ISO messages (Phase 2) | Option-1
+E | Integration with AML software | xxxxxxx | Internal through OFAC/UNSC | Client’s own (SAFEWATCH, WORLD Check) (Customization required) |  |  | xxxxxxxxx

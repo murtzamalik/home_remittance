@@ -1,0 +1,53 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+.idea/workspace.xml
+*.xml
+.idea/workspace.xml
+*.xml
+.idea/compiler.xml
+.idea/workspace.xml
+*.xml
+TransProcess.iml
+.idea/workspace.xml
+.idea/artifacts/TransProcess_war_exploded.xml
+.idea/workspace.xml
+target/classes/application-local.properties
+.idea/workspace.xml
+.idea/workspace.xml
+*.xml
+target/classes/application-dev.properties
+target/classes/application-local.properties
+target/classes/application.properties
+target/login-0.0.1-SNAPSHOT.war.original
+target/login-0.0.1-SNAPSHOT/WEB-INF/classes/application-dev.properties
+target/login-0.0.1-SNAPSHOT/WEB-INF/classes/application-local.properties
+target/login-0.0.1-SNAPSHOT/WEB-INF/classes/application-prod.properties
+target/login-0.0.1-SNAPSHOT/WEB-INF/classes/application.properties
+target/login-0.0.1-SNAPSHOT/WEB-INF/classes/banner.txt
+target/login-0.0.1-SNAPSHOT/WEB-INF/classes/mynewfile.xsd
+target/maven-archiver/pom.properties
+target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+*.xml
+.idea/workspace.xml

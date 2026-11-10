@@ -1,0 +1,8 @@
+PDF_PAGES=1
+PDF_META={'/Title': 'Slide 1', '/Author': 'Angel HY Cham', '/CreationDate': "D:20160113185354+05'00'", '/ModDate': "D:20160113185354+05'00'", '/Producer': 'Microsoft® Office PowerPoint® 2007', '/Creator': 'Microsoft® Office PowerPoint® 2007'}
+
+===== PAGE 1 =====
+© Copyright InsiteMY 2014 
+Confidential 
+Customer References - INGateway 
+1 

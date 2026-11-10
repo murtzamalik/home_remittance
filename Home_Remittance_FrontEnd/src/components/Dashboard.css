@@ -1,0 +1,141 @@
+.remit-dashboard {
+    font-family: "Poppins", sans-serif;
+    color: #191919;
+}
+
+.remit-dashboard__title {
+    margin: 0 0 0.35rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #191919;
+}
+
+.remit-dashboard__subtitle {
+    margin: 0 0 1.25rem;
+    font-size: 0.875rem;
+    color: #5c6b6a;
+}
+
+.remit-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.remit-kpi {
+    background: #ffffff;
+    border: 1px solid #d9e5e4;
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 1px 4px rgba(47, 127, 123, 0.06);
+}
+
+.remit-kpi__label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #5c6b6a;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+}
+
+.remit-kpi__value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #191919;
+    line-height: 1.2;
+}
+
+.remit-kpi__hint {
+    margin-top: 0.35rem;
+    font-size: 0.75rem;
+    color: #2f7f7b;
+}
+
+.remit-kpi--teal .remit-kpi__value {
+    color: #2f7f7b;
+}
+
+.remit-kpi--success .remit-kpi__value {
+    color: #1f9d7a;
+}
+
+.remit-kpi--warn .remit-kpi__value {
+    color: #d4a017;
+}
+
+.remit-kpi--danger .remit-kpi__value {
+    color: #d64545;
+}
+
+.remit-chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.remit-chart-card {
+    background: #ffffff;
+    border: 1px solid #d9e5e4;
+    border-radius: 12px;
+    padding: 1rem 1.15rem 1.25rem;
+    box-shadow: 0 1px 4px rgba(47, 127, 123, 0.06);
+}
+
+.remit-chart-card--wide {
+    grid-column: 1 / -1;
+}
+
+.remit-chart-card__header {
+    margin-bottom: 0.85rem;
+}
+
+.remit-chart-card__title {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #191919;
+}
+
+.remit-chart-card__desc {
+    margin: 0.25rem 0 0;
+    font-size: 0.75rem;
+    color: #5c6b6a;
+}
+
+.remit-chart-wrap {
+    position: relative;
+    min-height: 240px;
+}
+
+.remit-chart-wrap--tall {
+    min-height: 280px;
+}
+
+.remit-dashboard__note {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    color: #5c6b6a;
+    text-align: center;
+}
+
+@media (max-width: 992px) {
+    .remit-kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .remit-chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .remit-chart-card--wide {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .remit-kpi-grid {
+        grid-template-columns: 1fr;
+    }
+}

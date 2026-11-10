@@ -1,0 +1,969 @@
+PDF_PAGES=49
+PDF_META={'/Author': 'Naveen.Anwar', '/Creator': 'Microsoft® Office Word 2007', '/CreationDate': 'D:20160121051904', '/ModDate': 'D:20160121051904', '/Producer': 'Microsoft® Office Word 2007'}
+
+===== PAGE 1 =====
+   
+   
+ 
+ 
+JS Bank 
+ 
+ 
+ 
+ 
+ 
+ 
+Home Remittance 
+  
+ 
+Version 1.0 
+ 
+4th Jan 2016 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Centegy Technologies  (Pvt) Ltd. 
+ 
+6th Floor, Beaumont Plaza, Beaumont Road, Karachi-75530, Pakistan 
+Phone: 5693521-30, Fax: (92-21) 568 5625 
+Website: www.sidathyder.com.pk
+
+===== PAGE 2 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 2 
+ 
+ 
+TABLE OF CONTENT 
+Module: ..................................................................................................................................................... 3 
+Home Remit: ............................................................................................................................................. 3 
+1) COTC Transactions for Pull: ............................................................................................................... 3 
+2)     API Authorize: .................................................................................................................................. 12 
+RHAPI: ..................................................................................................................................................... 21 
+1) API Setup ............................................................................................................................................. 21 
+1.1. API Settings: .................................................................................................................................... 21 
+1.1.1. Activity: ............................................................................................................................... 23 
+1.1.2. PRI Fields: ............................................................................................................................ 24 
+1.1.3. Responses: .......................................................................................................................... 25 
+1.2. Remitter Settings: ........................................................................................................................... 26 
+1.2.1. API Settings ......................................................................................................................... 27 
+1.2.2. Details: ................................................................................................................................ 28 
+1.2.3. Mapping: ............................................................................................................................. 29 
+1.2.4. Response: ............................................................................................................................ 31 
+1.3. Credential Settings: ......................................................................................................................... 32 
+2) Transactions ........................................................................................................................................ 33 
+2.1   Blocked Transaction .................................................................................................................... 33 
+2.2   Blocked Transactions Approval ................................................................................................... 35 
+2.3   Error Transactions ....................................................................................................................... 35 
+2.4   Error Transactions Pull A/C ......................................................................................................... 39 
+3) Inquiry ................................................................................................................................................. 42 
+3.1 Error Transactions ......................................................................................................................... 42 
+3.2   Transaction Activity Pull .............................................................................................................. 43 
+3.3 AML Inquiry ................................................................................................................................... 45 
+3.4 API Quick Search ........................................................................................................................... 47 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 3 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 3 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Module:  
+- Home Remit 
+- RHAPI 
+ 
+Home Remit:  
+1) COTC Transactions for Pull: 
+ 
+Details: A new interface for COTC online has been given for cash transactions. This interface 
+will be operated by the teller, when the beneficiary is going to visit the cash counter to 
+collect remittance then he/she will give the teller a security pin which we call as unique 
+reference number. 
+ 
+Menu Path: Home Remittance>> Transaction >> COTC Online 
+ 
+===== PAGE 4 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 4 
+ 
+ 
+ 
+Now user will go on to the COTC online interface. User select the remitter, also enter the unique 
+reference no. given by the beneficiary and press go button. 
+ 
+ 
+
+===== PAGE 5 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 5 
+ 
+ 
+ As User press Go button, as shown above new GET Transaction request has been 
+created at back end db. 
+ As new Transaction GET request created back end Engine grabs the transaction for 
+processing. 
+ When user hit “GO” button if transaction is under processing than “Under Processing” 
+message appears. If transaction gets stuck in “AML” than “Stuck in Block” alert appears. 
+User need to release the transaction from Block Transactions interface and retry. 
+ Teller need to hit go button till message pops up that “Transaction is ready for 
+Payment”. It means engine retrieves transaction, grab all the information and makes 
+transaction available for payment. Below I mentioned screen view: 
+ 
+ 
+ 
+ 
+ 
+Now teller can see all the information about transaction.  
+ 
+ 
+ 
+
+===== PAGE 6 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 6 
+ 
+ 
+ 
+Now it’s the time to do processing of transaction and hit the “Process” button.  When user hits 
+“Process” button “JSBL and exchange company payment flow” will get executed. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 7 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 7 
+ 
+ 
+ As Transaction gets ready for Payment and user hits process system first it checks that 
+user is authorized to process transaction of following “xyz” figure amount.  If the login 
+user or teller is authorized to do Payment of available “xyz” figure amount than 
+following described flow of payment will be executed.  Vice-versa scenario will be 
+analyzed later. 
+ 
+ As user is authorized, So Initially Fund Transfer performed through “JSBL Web Service 
+“at its own end.  
+ 
+ At COTC Interface initially JSBL Web Service performs Fund Transfer call from 
+“Remitting Entity NR Account” to “JSBL Payable Account”. This fund transfer call is 
+basically transfer the Funds from available remitting entity account to JSBL payable. 
+  
+ At back end data base “Message LOG “updated that logs the information that COTC 
+interface sent to JSBL Web Service and also the response that JSBL web service returns. 
+  
+ If response from JSBL web service is positive (successful) than only transaction is 
+forwarded to remitting entity’s Web Service to do payment at its own end,  otherwise 
+unsuccessful response from  JSBL Web Service halts further processing and message 
+pops up at the screen  that “JSBL web service fund transfer failed due to xyz reason”. 
+Screen View is available below: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 8 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 8 
+ 
+ 
+ 
+ In this scenario teller needs to retry. Because until unless JSBL Web Service not respond 
+successfully transaction will not allow to proceed further. 
+ 
+ As JSBL Web Service showed successful response transaction transferred at remitting 
+entity web service end and COTC interface wait till remitting entity paid the transaction. 
+ 
+ 
+ 
+
+===== PAGE 9 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 9 
+ 
+ 
+ 
+
+===== PAGE 10 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 10 
+ 
+ 
+ 
+ As teller now see “Transaction was paid: it means JSBL Web Service  web service and Exchange 
+Company’s  web Service both provide successful response. (Payment from remitting entity side 
+also executed successfully), Engine has created General transaction at back end DB and new 
+record logged in PRI marked as “Paid” and transaction get paid successfully.  
+ 
+ If remitting entity couldn’t able to process fund transfer successfully than reason of failure 
+displayed at the interface, and in this case JSBL Fund Transfer reversal call occurred against the 
+previous successful attempt.  Message log get updated against reversal at back end db. In the 
+root’s web.config  file following key needed to place:  
+<add key="revrsalAttempt" value="3"/> 
+The reason for this flag is if reversal atttempt is not successful once than we do more than one 
+attempts to do reversal. 
+ Also add the key mentioned below in the application web. config file to set expiry time for cash 
+transactions. Value for pay timeout will be in minutes. In case of transaction expiry transaction 
+will be once again created. 
+       <add key="Paytimeout" value="15"/> 
+ 
+
+===== PAGE 11 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 11 
+ 
+ Below I show the screen view for unsuccessful fund transfer at remitting entity’s end. 
+ 
+ 
+ 
+ 
+ 
+ Above screen view displayed reason of Fund Transfer failure at remitting entity end and it also 
+shows that Local FT means FT done through JSBL Web Service previously also get reversed.  
+ 
+ In  the above case transaction also marked expired at back end db and use needs to recreate 
+transaction by restoring session , at COTC interface provide unique reference no and remitting 
+entity name again and hitting Go button again. 
+ 
+ Now we discuss vice-versa scenario in which when user hits “Process” button and the teller is 
+not authorized to do transaction for give “xyz” figure amount. In that scenario an unauthorized 
+payment request is created at back end DB. No Fund Transfer performed at JSBL Web Service 
+end remitting entity fund transfer end and Transaction will be seen at “API Authorize” 
+interface. Below I showed the screen view: 
+ 
+
+===== PAGE 12 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 12 
+ 
+ AT COTC interface message pops up “unauthorized user limit and transaction payment request 
+has created please wait”. Screen view provided below; 
+ 
+ 
+ An Unauthorized payment request has been created at back end DB and Transaction will move 
+to “API Authorize” interface. 
+ 
+2)   API Authorize: 
+Details: This Interface is used for either payment or rejection of transactions that were not allowed 
+to proceed from above interface due to user amount limit. User when hit process above flow will 
+executed for payment. And “Reject” marked transaction as “Expired”. 
+ 
+Menu Path: Home Remittance>> Authorization>> API Authorization 
+ 
+ 
+ 
+
+===== PAGE 13 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 13 
+ 
+ 
+ 
+
+===== PAGE 14 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 14 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ As User now see Transactions available at API Authorize Interface. In this Interface user has two 
+options either to process transaction or reject transaction. 
+ If user hits process button same mentioned flow that described above regarding JSBL Web 
+Service and remitting entity web Service get executed. In Reject case transaction marked 
+expired and rejected at back end DB. 
+
+===== PAGE 15 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 15 
+ 
+ 
+ 
+
+===== PAGE 16 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 16 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ Same cycle as mentioned above performed. At the hit of “Process” Initially Fund Transfer 
+performed by JSBL Web Service form remitting entity NR Account to JSBL Payable Account,  than 
+remitting entity do payment at its own end and in return gives message that “Transaction was 
+Paid” Process executed successfully. 
+ If in case Remitting Entity cannot do payment than previous FT Attempt by JSBL Web Service get 
+reversed and response get executed. 
+ For “Reject” execution transaction marked “Expired” at back end DB. And no fund transfer 
+attempts either from JSBL Web Service or at Remitting Entity end get executed. 
+ Screen View  for Reject: 
+
+===== PAGE 17 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 17 
+ 
+  
+ 
+ 
+
+===== PAGE 18 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 18 
+ 
+ 
+ 
+ Hen Transaction marked expired and gets rejected. Process executed successfully. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 19 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 19 
+ 
+ 
+ 
+In order to change the authority criteria see snap shots below: 
+ 
+ 
+ 
+Select system code ‘HRM’ on the selection criteria and select system code ‘001’ that is 
+for cash transactions. 
+ 
+
+===== PAGE 20 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 20 
+ 
+ 
+
+===== PAGE 21 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 21 
+ 
+ 
+ 
+Select the user level and increase the amount value. 
+ 
+ 
+ 
+ RHAPI:  
+ 
+1) API Setup 
+ 
+Remitting Entities have exposed there Web Service which needs to be integrated with 
+Remit Home Web Service.  
+ 
+1.1. API Settings: 
+ 
+This interface would be only used for general settings for integration. For e.g. set of PRI 
+fields for mapping, list of response code. 
+ 
+
+===== PAGE 22 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 22 
+ 
+Menu Path: RH API >> API Setup >> API Settings 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+===== PAGE 23 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 23 
+ 
+1.1.1. Activity: 
+This interface is used to display the flow of transaction whether it is for receive 
+transaction or payment of transaction.  
+ 
+                
+ 
+ 
+ 
+ 
+Through this option, user can enter the following details: 
+ 
+ 
+     Attribute                          Description Sample Values 
+Activity Code User will enter a new code GT 
+ 
+Activity Method It is the description of activity code  Get Transaction 
+ 
+Activity Flag  User will select yes or no. Y 
+Activity Fields User will enter the fields where the data will 
+be saved 
+UniqueRefNo 
+ 
+ 
+
+===== PAGE 24 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 24 
+ 
+1.1.2. PRI Fields: 
+Remit Home has provided general set of fields, which will be used for mapping with 
+fields those are provided by Remitter Entity API document. 
+ 
+ 
+ 
+Through this option, user can enter the following details: 
+ 
+     Attribute                          Description Sample Values 
+Field Name User will enter a field name MBM_UNIQUEREFNO 
+Active User will mark active yes or no.  Y 
+ 
+Data Type User will select the data type. String 
+Field Nature User will have to select the field nature.  
+Dynamic : Field Mapping with Third Party 
+API fields. 
+Fixed: Fixed values will be used. 
+Query: Single value will be return against the 
+query. 
+Dynamic/Fixed/Query 
+Field value A value will be entered for the above field. If 
+field nature query then query will be entered  
+PKR 
+Query Parameter field If a query is entered in the field value then 
+its required field will be entered. 
+Remitter id 
+Database Field Is this field a Database Field or not. Possible 
+Values are ‘Y’ and ‘N’ 
+Y/N 
+
+===== PAGE 25 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 25 
+ 
+Required Mapping Some field may or may not required 
+mapping with third party API. Po ssible 
+Values are ‘Y’ and ‘N’ 
+Y/N 
+ 
+ 
+1.1.3. Responses: 
+ 
+Remit Home has provided general response codes. These response codes will be used to 
+display proper response messages to end user on executing COTC transaction. 
+          
+ 
+ 
+Through this option, user can enter the following details: 
+ 
+     Attribute                          Description Sample Values 
+Response Code User will enter a response code 1000 
+ 
+Response Message It is the description of response code  Successful 
+ 
+Response Type User will select Response or error. R 
+Response Default User will select Yes or No. Y 
+ 
+ 
+ 
+
+===== PAGE 26 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 26 
+ 
+1.2. Remitter Settings: 
+Remitter Settings Provides a complete setup for integrating the Remit Home Web Service with 
+Web Service Introduced by remitting entities for PULL model. Here Remitting Entities 
+information is stored and there setups are validated to be mapped with Remit Home Web 
+Service. 
+ 
+Menu Path: RH API >> API Setup >> Remitter Settings 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+
+===== PAGE 27 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 27 
+ 
+1.2.1. API Settings 
+By using this option system administration will configure the API/Web Service integration 
+with respect to specific Remitting Entity API. On this interface user will also setup User 
+credential as required by Remitter API. 
+  
+ 
+  
+Through this option, user can enter the following details: 
+ 
+     Attribute                          Description Sample Values 
+API Model Exchange company Web service would be 
+considering as Pull Model of API. 
+Pull 
+Remitter ID/No  Uniquely identified number provided by 
+User. 
+1 
+ 
+Provider It is the name of the provider which will be 
+entered by the user.  
+Coin Start API/Money 
+Gram 
+ 
+Detail  User will enter details of the provider. Coinstar Money 
+Transfer/Money Gram 
+Active Activate or Deactivate the API settings by 
+this flag. 
+Y/N 
+===== PAGE 28 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 28 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1.2.2. Details: 
+Remitting Entities Provide the options of Cash over counter (OC) which is managed in 
+detail tab, where requested information can be stored accordingly. 
+ API Details: 
+ 
+ 
+Through this option, user can enter the following details: 
+   
+Remit Code A remit code for a provider will be given. CS,RI 
+Fin. Institute 
+code 
+A financial institute code will be selected. 
+With this code API Settings will be mapped 
+with F.I Setup of exchange co. 
+ALRJHI 
+     Attribute                          Description Sample Values 
+Remit ID ID selected on API Setup interface.  
+Remitting Mode  Integration with Third Party API is categorized on 
+Remitting Mode of Transaction. 
+OC/AC 
+ 
+Web Service Url Web Service URL to access the third party web 
+methods. 
+http://stagingfxglobalwebsvc.
+abcenvia.net:9999/FXGlobalS
+===== PAGE 29 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 29 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+1.2.3. Mapping: 
+Each Remitter method is returning set of fields as defined in provided API 
+Document. All fields returning for each remitter method will be mapped with PRI 
+Fields as you defined in PRI Fields TAB. 
+ 
+ 
+Through this option, user can enter the following details: 
+ 
+ 
+ 
+ 
+ending.svc?wsdl 
+Validate IP N/A for Pull Mode.  Y/N 
+IP Address Comma separated IP(s) to validate 128.1.1.25,128.12.12 
+Agent ID Agent ID is required for establishing the 
+connection with API. Part of Credential 
+Information 
+1001 
+User ID User ID is required for establish the connection 
+with API ,Part of Credential Information 
+UAEXCH001 
+Class Name Only applicable for Pull Model, In order to 
+integrate Designated DLL file of Third Party API, 
+Fully Qualified Class name is required 
+here.[DLLName,ClassName] 
+APIRERIA,APIBaseLib.APIRERI
+A.FxGlobal 
+Active Activate or Deactivate the current selected API 
+detail record. 
+Y/N 
+===== PAGE 30 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 30 
+ 
+ 
+ 
+     Attribute                          Description Sample Values 
+Remitter Name Selected Remitter ID on API Settings interface Ria Exchange 
+ 
+Sr. No. A new serial no for remitter method.  1 
+ 
+Activity Method Selected activity method. Get Transactions 
+Field No. User will enter some required fields a particular 
+method. 
+MBM_UNIQUEREFNO 
+Field Type User will select field type either dynamic or fixed 
+or query. 
+Dynamic 
+Field Value A value for the selected field should be given. TMTNumber 
+Active Active yes or no will be selected. Y 
+Query Param. Field For query a parameter is entered for a  required 
+field. 
+Remitter ID 
+Query Param. Value A value for query parameter is entered. 3 
+Record Set Record set should be entered here as per 
+document provided by API. 
+Payoutqueryresponse 
+entity 
+Record Set Index Record Index should be entered here as per 
+document provided by the API 
+0 
+Remit Mode Define Remit Mode for Field Mapping OC/AC 
+ 
+  
+===== PAGE 31 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 31 
+ 
+ 
+1.2.4. Response: 
+Remitter entity has provided their list of response codes which will be returned after 
+making call to their API/Web Service methods. As this API/Web Service is integrated 
+with Remit Home, so each response code must be mapped with Remit Home Response 
+codes. 
+ 
+Through this option, user can enter the following details: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+     Attribute                          Description Sample Values 
+Remitter Response 
+Code 
+User will enter Remitter response code 1999 
+ 
+Remitter Message A remitter message will be entered here.  System/Network error 
+ 
+Response Code User will select Response code. 1006 
+===== PAGE 32 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 32 
+ 
+1.3.  Credential Settings: 
+Credential Settings will be used to update or modify credentials of Remitters. Initially it is 
+provided with change password setup for Remitting Institutes. 
+ 
+Menu Path: RH API >> API Setup >> Credential Settings 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 33 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 33 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+2) Transactions 
+               2.1   Blocked Transaction  
+ 
+Menu Path: RHAPI>>Transactions>>Blocked Transactions  
+ 
+Details:  Transactions that gets blocked in AML at COTC Interface will be available at “Blocked 
+Transactions” Interface. 
+ Forward :  Forward action will move transaction to the  Blocked Transaction approval  
+Interface.  
+ Release:  Transaction gets unblocked, and will be available for further processing at 
+COTC Interface. 
+ Change Password button 
+will update the password. 
+===== PAGE 34 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 34 
+ 
+ 
+ 
+ 
+ 
+Forward : 
+Transaction will 
+forward for 
+Approval 
+Release: 
+Transaction 
+will be Unblock 
+===== PAGE 35 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 35 
+ 
+ 
+ 
+2.2   Blocked Transactions Approval  
+ 
+Menu Path: RHAPITransactionsBlocked Transactions Approval 
+ 
+Details:  Transactions has been forwarded to “Blocked Transactions Approval” Interface from 
+the “Blocked Transactions” Interface. At this Interface finally either transaction gets rejected or 
+gets released. 
+ 
+ 
+ Reject :  Transaction get rejected. 
+ Release:  Transaction gets unblocked, and will be available for further processing at 
+COTC Interface. 
+2.3   Error Transactions  
+ 
+Menu Path: RHAPI>>Transactions>>Error Transactions  
+ 
+Reject: 
+Transaction 
+will be 
+Rejected 
+Release: 
+Transaction 
+will be 
+Unblock 
+===== PAGE 36 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 36 
+ 
+Details:   COTC Transactions to whom AOI gives Positive Response but General Transaction not 
+get created due to certain set up issue will be visible in this interface.  This Interface create 
+General Transaction. 
+ 
+ 
+
+===== PAGE 37 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 37 
+ 
+ 
+ 
+ 
+
+===== PAGE 38 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 38 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 39 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 39 
+ 
+ 
+2.4   Error Transactions Pull A/C  
+ 
+Menu Path: RHAPI>>Transactions>> Error Transactions Pull A/C  
+ 
+Details:   Account Transactions (remit mode “AC”) that are not able to get downloaded to PRI 
+from Engine will be shown at below Interface. User fixes the error in Modify Data Column and 
+then Process again to get transaction downloaded in PRI.  
+
+===== PAGE 40 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 40 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 41 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 41 
+ 
+ 
+ 
+
+===== PAGE 42 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 42 
+ 
+ 
+ 
+ 
+ 
+3) Inquiry 
+ 
+                        3.1 Error Transactions  
+Menu Path: RHAPI InquiryError Transactions 
+ 
+Details:     Below Interface shows all “OC” mode COTC Transactions that stuck in error. 
+
+===== PAGE 43 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 43 
+ 
+  
+ 
+ 
+3.2   Transaction Activity Pull 
+ 
+Menu Path: RHAPI>>Inquiry>>Transaction Activity Pull 
+ 
+Details:   Below Interface shows all COTC Transactions (remit mode OC) Activity from Pull. 
+
+===== PAGE 44 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 44 
+ 
+ 
+ 
+
+===== PAGE 45 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 45 
+ 
+ 
+ 
+ 
+3.3 AML Inquiry 
+ 
+Menu Path: RHAPI>>Inquiry>>AML Inquiry 
+ 
+Details:     Below Interface shows all COTC Transactions (remit mode OC) Transaction’s that 
+stuck in AML. 
+
+===== PAGE 46 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 46 
+ 
+ 
+ 
+ 
+
+===== PAGE 47 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 47 
+ 
+ 
+ 
+ 
+                        3.4 API Quick Search 
+ 
+Menu Path: RHAPI>>Inquiry>>API Quick Search 
+ 
+Details:     Below Interface shows COTC Transaction (remit mode OC) details.  User need to 
+provide Unique Reference No. 
+ 
+
+===== PAGE 48 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 48 
+ 
+ 
+ 
+
+===== PAGE 49 =====
+RemitHome                                Release Note-Home Remittance 
+Centegy Technologies  Release Note 4th January 2016 Page 49 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       
+ 
+ 
+ 

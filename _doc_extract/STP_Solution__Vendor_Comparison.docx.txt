@@ -1,0 +1,27 @@
+
+===== TABLE 1 =====
+JS Bank Requirements | Centegy | Infobits
+Demo | None | YES
+Complete Web Based application on latest IIS version | 7.0 IIS, Dot net 4.0 | Dot net 4.0, 7.0 IIS
+Data Base | Oracle | Oracle, SQL
+Support of I.E, Chrome & Firefox Browsers IE | I.E 11.0 | I.E, Chrome
+Encrypted files | YES | YES
+Role Management Module | YES | YES
+User Management Module | YES | YES
+Compliance of Penetration Testing Results | Chargeable / non-chargeable | YES
+Audit logging | YES | YES
+Reporting | YES | YES
+Controller | YES | YES
+Dashboard | N/a | N/A
+Security Requirements | YES | YES
+SSL Support TLS v1.2 (bank will acquire certificate) | YES | YES
+Active Active Cluster | NO | No
+Email Transmission | NO | YES
+Reconciliation | NO | YES
+Remit Home Development | YES | NO
+Experienced in STP | None | 1 year in HBL Pakistan           5 years in HBL Dubai
+Warranty | 3 Months | 1 YEAR
+Yearly Software Technical Support % of total project cost | 18 % | 20 %
+Time Estimates | 8 To 10 weeks | 8 To 10 weeks
+Alternate plan if Annexure-B  is discontinued after march 31 2016 | NO | Yes
+PROJECT COST | PKR 4,750,000 | PKR 3,000,000

@@ -1,0 +1,496 @@
+PDF_PAGES=13
+PDF_META={'/Author': 'Muhammad Zeeshan', '/CreationDate': "D:20130214144613+05'00'", '/Creator': 'Microsoft® Word 2010', '/ModDate': "D:20130214155847+05'00'", '/Producer': 'Microsoft® Word 2010', '/Title': 'EPS Payment Web Service'}
+
+===== PAGE 1 =====
+  
+EPS Payment API 
+Reliable Money Transfer  
+Disclaimer: This document contains confidential information about EPS Payment API, which 
+is provided for the purpose of permitting the recipient to evaluate the proposal submitted 
+herewith. In consideration of the recipient of this document, the recipient agrees to maintain 
+such information in confidence and to not reproduce or otherwise disclose this information to 
+any person outside of the recipient’s employees directly responsible for the evaluation of its 
+contents. There is no obligation to maintain the confidentiality of any information from EPS 
+Payment API or becomes publicly known through no fault of the recipient, or is received 
+without obligation of confidentiality from a third party owing no obligation of c onfidentiality 
+to EPS Payment API. 
+2011  
+===== PAGE 2 =====
+  EPS Payment API.    P a g e  | 1 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+Document Revision History 
+ 
+Date Interface 
+Version 
+Document 
+Version 
+Description Author 
+12/12/2011 1.0 1.0 Newly written document Muhammad Haseeb Bhatti 
+15/12/2011 1.0 1.1  AgentCode, IdNumber & 
+PayBy information added in 
+GetPaymentDetails 
+response. 
+Waqas Tariq Dar 
+22-05-2012 1.0 1.1.1  Explanation added for 
+Sample Response Codes. 
+Waqas Tariq Dar 
+13-06-2012 1.0 1.1.2  PayBy attribute in 
+GetPaymentDetails is 
+replaced by 
+PayDescription attribute.  
+ PayBy attribute is 
+removed from the 
+REQUEST of PayMoney 
+operation. 
+ ReceiverName attribute 
+added in the REQUEST of 
+PayMoney. Response 
+Code(211)  also added for 
+this attribute. 
+ Size of ReceiverName in 
+GetPaymentDetails & 
+PayMoney is 150 
+characters now. 
+ Size of BranchCode 
+attribute in 
+GetBranchNetwork is 20 
+characters now. 
+Waqas Tariq Dar 
+===== PAGE 3 =====
+  EPS Payment API.    P a g e  | 2 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+Table of Contents 
+1. Electronic Payment System (EPS) .............................................................................. 4 
+2. EPS Payment API ........................................................................................................ 4 
+3. Connectivity................................................................................................................. 4 
+4. Security ........................................................................................................................ 4 
+5. Flow of a Transaction .................................................................................................. 4 
+6. API URL ...................................................................................................................... 6 
+7. API Operations ............................................................................................................ 6 
+7.1 Get Payment Details ............................................................................................. 6 
+7.2 Pay Money............................................................................................................ 7 
+7.3 Get Branch Network............................................................................................. 9 
+7.4 Change Password ............................................................................................... 10 
+8. Sample Response Codes ............................................................................................ 11 
+9. Contact Details .......................................................................................................... 11 
+ 
+===== PAGE 4 =====
+  EPS Payment API.    P a g e  | 3 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+EPS Payment API 
+1. Electronic Payment System (EPS) 
+Electronic Payment System is a fast, reliable and secure system to transfer money worldwide. 
+EPS is a complete web-based, end-to-end, multi-currency and multi-country money transfer 
+software system. 
+2. EPS Payment API 
+This document provides an overview of Electronic Payment System ’s Payment API . EPS 
+Payment API provides fea tures for payment detail check,  pay money  against a particular 
+payment, get branch n etwork and change password . The system is exposed via a web service 
+that operates in real time. 
+3. Connectivity 
+The service is made available to the Payee Party systems via a Web Service. To acc ess this 
+web service the Payee Party  is provided a user name and a password which is required to be 
+supplied for each transaction request. Because of the fact that web services are platform 
+independent, the system allows for integration with heterogeneous systems developed in any 
+technology. 
+It has a SOAP based interface which is a worldwide standard. 
+4. Security 
+Payee Party is provided a user name  (Agent Code) and a password which is manda tory for 
+every transaction and  transactions are carried out only after the Payee Agent is authenticated 
+using the provided Agent Code and Password. Following are the salient security features of 
+the system.  
+ 
+ The system employs industry standard security techniques to prevent disclosure of 
+sensitive data and to avoid malicious attacks. 
+ The system is capable of using public -private key encr yption between the client and 
+the server. 
+ The public / private key pairs are changed periodically. 
+ All user passwords are encrypted using one way encryption. 
+ All communication is done over Secure Socket Layer (SSL). 
+ Values input into every field are validated before use. 
+ The data access layer will be responsible for SQL injection attacks(i.e., hackers 
+attempting to enter SQL statements through application UI fields) (By Using 
+Hibernate) 
+ 
+===== PAGE 5 =====
+  EPS Payment API.    P a g e  | 4 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+5. Flow of a Transaction 
+Given below is the flow of EPS Payment Web Service initiated by the Payee Party. 
+ 
+ 
+Process Flow – Get Payment Details 
+ 
+ 
+ 
+ 
+Process Flow – Pay Money 
+ 
+ 
+===== PAGE 6 =====
+  EPS Payment API.    P a g e  | 5 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+Process Flow – Get Branch Network 
+ 
+ 
+ 
+ 
+Process Flow – Change Password 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 7 =====
+  EPS Payment API.    P a g e  | 6 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+6. API URL 
+ http://server2.dex-intl.com/branches/eps/pay/service.php?wsdl 
+7. API Operations 
+Following is the detailed description of all operations implemented in the API along with the 
+length and types of their parameters. With the help of these operations payee party can e asily 
+get the payment details, pay money, get branch network, and change their password. 
+7.1 Get Payment Details 
+The use of this operation is  to get the detail of a particular payment. This will help the payee 
+party to see the payment details which they want to pay. A success/failure message along with 
+Response Code and some other payment credentials will be sent to the payee party  as a 
+response of this operation. 
+ 
+7.1.1 Sample Input 
+ GetPaymentDetails  Request from Payee Party to EPS 
+ 
+<SOAP-ENV:Body> 
+<ns1:GetPaymentDetails> 
+<AgentInfo xsi:type="ns2:AgentInfo"> 
+<AgentCode xsi:type="xsd:string">PK003</AgentCode>  
+<Password xsi:type="xsd:string">1</Password> 
+</AgentInfo> 
+<PaymentNumber xsi:type="xsd:string">0307101050086</PaymentNumber> 
+</ns1:GetPaymentDetails> 
+</SOAP-ENV:Body> 
+ 
+Agent Info Field Name Size Type Description O/M 
+AgentCode 20 String Agent Code given to Payee Party M 
+Password 20 String Password of Agent given to Payee Party M 
+ PaymentNumber 20 String Unique Payment Number M 
+ 
+7.1.2 Sample Output 
+ GetPaymentDetails  Response from the EPS to the Payee Party 
+ 
+<SOAP-ENV:Body> 
+<ResponseCode xsi:type="xsd:numeric">208</ResponseCode>  
+   <Message xsi:type="xsd:string">Payment Found</Message> 
+ <ns1:PaymentDetail xmlns:ns1="urn:GetPaymentDetails">  
+   <PaymentNumber xsi:type="xsd:string">0307101050086</PaymentNumber >   
+<Status xsi:type="xsd:string">Payment Already Paid</Status > 
+<AgentCode xsi:type="xsd:string">PK003</AgentCode> 
+<IdNumber xsi:type="xsd:string">123</IdNumber> 
+<PayBy xsi:type="xsd:string">0001</PayBy> 
+<TransactionDate xsi:type="xsd:datetime">2011-06-06</TransactionDate >  
+   <Amount xsi:type="xsd:string">20290</Amount> 
+ </ns1: PaymentDetail >  
+===== PAGE 8 =====
+  EPS Payment API.    P a g e  | 7 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+<ns1:SenderDetail xmlns:ns1="urn:GetPaymentDetails"> 
+<SenderName xsi:type="xsd:string">Mohsin</ SenderName >  
+   <SenderPhone xsi:type="xsd:numeric">03457895854</ SenderPhone >  
+   <SenderAddress xsi:type="xsd:string">Model Town</ SenderAddress >  
+   <SenderCountry xsi:type="xsd:string">Pakistan</ SenderCountry >  
+  </ns1: SenderDetail > 
+<ns1: ReceiverDetail xmlns:ns1="urn:GetPaymentDetails"> 
+<ReceiverName xsi:type="xsd:string">Haseeb</ ReceiverName >  
+   <ReceiverAddress xsi:type="xsd:string">Wapda Town</ ReceiverAddress >  
+   <ReceiverPhone xsi:type="xsd:numeric">03456250585</ ReceiverPhone >  
+<ReceiverCNIC xsi:type="xsd:numeric">3410139904569</ ReceiverCNIC > 
+   </ns1: ReceiverDetail > 
+   </SOAP-ENV:Body> 
+ 
+ 
+Field Name Size Type Description O/M 
+ResponseCode 3 Numeric Response Code explaining result of 
+request 
+M 
+Message 100 String Text to describe t he response of the 
+request 
+M 
+Payment Detail 
+PaymentNumber 20 String Unique payment number M 
+Status 100 String Current Status of the payment. M 
+AgentCode 20 String Agent Code of Payee Party M 
+IdNumber 30 String Id Number of the Payee M 
+PayDescription 30 String Payee Branch Code. M 
+Transaction Date  DateTime Date of the Transaction M 
+Amount 15 Numeric Amount payable by the payee party M 
+Sender Detail SenderName 50 String Name of the Sender M 
+SenderPhone 30 String Phone Number of the Sender M 
+SenderAddress 40 String Address of the Sender M 
+SenderCountry 30 String Country Name of the Sender M 
+Receiver Detail ReceiverName 150 String Name of the Receiver M 
+ReceiverAddress 50 String Address of the Receiver M 
+ReceiverPhone 30 String Phone Number of the Receiver M 
+ReceiverCNIC 30 String CNIC Number of the Receiver M 
+7.2 Pay Money 
+Payee party will use this operation to pay the payment of EPS . A success/failure message 
+along with the Response Code and Payment Number will be sent to the payee part y as a 
+response of this operation. 
+===== PAGE 9 =====
+  EPS Payment API.    P a g e  | 8 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+ 
+7.2.1 Sample Input 
+ PayMoney  Request from Payee Party to EPS 
+ 
+<SOAP-ENV:Body> 
+<ns1:PayMoney> 
+<AgentInfo xsi:type="ns2:AgentInfo">  
+   <AgentCode xsi:type="xsd:string">PK003</AgentCode>  
+   <Password xsi:type="xsd:string">1</Password>  
+</AgentInfo> 
+  <PayoutPaymentInfo xsi:type="ns2:PayoutPaymentInfo"> 
+  <PaymentNumber xsi:type="xsd:string">0307101050086</PaymentNumber>  
+   <PayDescription xsi:type="xsd:string">bank</PayDescription>  
+<IdNumber xsi:type="xsd:string">123</IdNumber> 
+<PayBy xsi:type="xsd:string">0001</PayBy> 
+  </PayoutPaymentInfo> 
+  </ns1:PayMoney> 
+  </SOAP-ENV:Body> 
+ 
+Agent Info Field Name Size Type Description O/M 
+AgentCode 20 String Agent Code given to Payee Party M 
+Password 20 String Password of Agent given to Payee Party M 
+Payout Payment 
+Info 
+PaymentNumber 20 String Unique Payment Number M 
+PayDescription 30 String Payee Branch Code. M 
+IdNumber 30 String Id Number of the Payee M 
+ReceiverName 150 String Name of the Receiver M 
+ 
+7.2.2 Sample Output 
+ PayMoney  Response from EPS to Payee Party 
+ 
+<SOAP-ENV:Body> 
+<ns1:PayMoneyResponse xmlns:ns1="urn:PayMoney"> 
+   <ResponseCode xsi:type="xsd:numeric">104</ResponseCode>  
+<Message xsi:type="xsd:string">Error: System Can't pay this payment, please call 
+GetPaymentDetails for more details</Message>  
+  <PaymentNumber xsi:type="xsd:string">0307101050086</PaymentNumber>  
+  </ns1:PayMoneyResponse> 
+  </SOAP-ENV:Body> 
+ 
+Pay 
+Money 
+Response Field Name Size Type Description O/M 
+ResponseCode 3 Numeric Response Code explaining result 
+of request 
+M 
+Message 100 String Text to describe the response of the M 
+===== PAGE 10 =====
+  EPS Payment API.    P a g e  | 9 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+request 
+PaymentNumber 20 String Unique Payment Number M 
+7.3 Get Branch Network 
+This operation is used to see a list of branches of a Payee Agent. 
+ 
+7.3.1 Sample Input 
+ GetBranchNetwork  Request from Payee Party to EPS 
+ 
+<SOAP-ENV:Body> 
+<ns1:GetBranchNetwork> 
+<AgentInfo xsi:type="ns2:AgentInfo"> 
+<AgentCode xsi:type="xsd:string">PK003</AgentCode>  
+<Password xsi:type="xsd:string">1</Password> 
+</AgentInfo> 
+</ns1:GetBranchNetwork> 
+</SOAP-ENV:Body> 
+ 
+Agent Info Field Name Size Type Description O/M 
+AgentCode 20 String Agent Code given to Payee Party M 
+Password 20 String Password of Agent given to Payee Party M 
+ 
+7.3.2 Sample Output 
+ GetBranchNetwork  Response from EPS to Payee Party 
+ 
+<SOAP-ENV:Body> 
+<ns1:Array xmlns:ns1="urn:Array"> 
+   <BranchCode xsi:type="xsd:string">104</BranchCode>  
+  <BranchName xsi:type="xsd:string">Bank Square Branch</BranchName>  
+  </ns1:Array> 
+  </SOAP-ENV:Body> 
+ 
+Array Field Name Size Type Description O/M 
+BranchCode 20 String Branch Code of the Payee Party M 
+BranchName 30 String Branch Name of the Payee Party M 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 11 =====
+  EPS Payment API.    P a g e  | 10 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+7.4 Change Password 
+This operation is used to change  the password of  the Payee Party . A success or failure 
+message will be sent to the payee party in response of this operation. 
+ 
+7.4.1 Sample Input 
+ ChangePassword  Request from Payee Party to EPS 
+ 
+<SOAP-ENV:Body> 
+<ns1: ChangePassword> 
+<AgentInfo xsi:type="ns2:AgentInfo"> 
+<AgentCode xsi:type="xsd:string">PK003</AgentCode>  
+<Password xsi:type="xsd:string">1</Password> 
+</AgentInfo> 
+<CurrentPassword xsi:type="xsd:string">123</CurrentPassword> 
+<NewPassword xsi:type="xsd:string">456</NewPassword> 
+<ConfirmPassword xsi:type="xsd:string">456</ConfirmPassword> 
+</ns1: ChangePassword> 
+</SOAP-ENV:Body> 
+ Agent Info Field Name Size Type Description O/M 
+AgentCode 20 String Agent Code given to Payee Party M 
+Password 20 String Password of Agent given to Payee Party M 
+ChangePassword 
+Info 
+CurrentPassw
+ord 
+20 String Password of the Payee Party to interact with  the 
+EPS Payment System. 
+M 
+NewPassword 20 String New Password to replace with the old Password M 
+ConfirmPassw
+ord 
+20 String Re-Type the New Password M 
+ 
+7.4.2 Sample Output 
+ ChangePassword  Response from EPS to Payee Party 
+ 
+<SOAP-ENV:Body> 
+   <ResponseCode xsi:type="xsd:numeric">210</ResponseCode>  
+<Message xsi:type="xsd:string">Password Changed Successfully </Message>   
+  </SOAP-ENV:Body> 
+ 
+ 
+Field Name Size Type Description O/M 
+ResponseCode 3 Numeric Response Code explaining result of request M 
+Message 100 String Text to describe the response of the request M 
+ 
+ 
+ 
+===== PAGE 12 =====
+  EPS Payment API.    P a g e  | 11 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+8. Sample Response Codes 
+ 
+Response Code Message Explanation 
+100 Query Successful. Request processed successfully. 
+102 Payment Number Not Found. Payment not found in our 
+system. 
+103 Client Input Error* Any error in the web service 
+request message will be 
+considered a Client Input Error, 
+i-e "Please provide Agent 
+Password for login" and 
+"PaymentNumber is INVALID. 
+Please provide VALID 
+PaymentNumber to view its 
+Status" are examples of Client 
+Input Error. 
+104 Server Side Error* Any error/restriction in our 
+system which can stop the 
+processing of your request is 
+considered as Server Side Error, 
+like "Error while running query 
+in database". 
+200 Payment is paid successfully Payment is marked as Paid in 
+our system. 
+206 Not ready for payment. Please 
+contact to Customer Service 
+Centre. 
+It indicates that there is some 
+problem with the Payment 
+which you are going to pay. 
+207 Ready to be Paid. This message means that 
+everything seems OK, you can 
+make a Payment request to our 
+web service with the desired 
+Payment Number. 
+208 Payment is Paid Already. Payment is already marked as 
+Paid in our system. 
+209 Kindly Change Your Password. Indication to change your 
+password. 
+210 Password Changed Successfully. Your password changed 
+successfully in our system. 
+211 ReceiverName mismatched. If the ReceiverName has been 
+changed in our system. 
+ 
+Note: * sign means that Description might be changed upon the type of error.
+===== PAGE 13 =====
+  EPS Payment API.    P a g e  | 12 
+ 
+A Product of SoftShack(Pvt) Ltd. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Contact Details: 
+SoftShack (Pvt) Ltd. 
+http://softshack.com.pk 
+ 
+Software Project Manager 
+Hafiz Tariq Aziz 
+Email: hafiztariq@gmail.com 
+Phone: +92-302-8743535 

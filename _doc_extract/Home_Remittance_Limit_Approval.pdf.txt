@@ -1,0 +1,4 @@
+PDF_PAGES=1
+PDF_META={'/CreationDate': "D:20170508141214+00'00'", '/Creator': 'PaperPort 11.0', '/Producer': 'PaperPort 11.0'}
+
+===== PAGE 1 =====

@@ -1,0 +1,74 @@
+PDF_PAGES=1
+PDF_META={'/Producer': 'doPDF Ver 7.3 Build 394 (Windows XP Professional Edition  (SP 3) - Version: 5.1.2600 (x86))', '/CreationDate': "D:20170529155656+05'00'"}
+
+===== PAGE 1 =====
+Remit Home 
+Scope of work 
+Proprietary & Confidential  
+ 
+ Page: 1/1 
+ 
+ 
+ 
+Business Requirement  
+ 
+Change Requirements:  
+ 
+From: Saad Sarwar Mirza [mailto:Saad.Mirza@jsbl.com]  
+Sent: Monday, April 03, 2017 5:24 PM 
+To: Yousuf Nasir 
+Cc: 'ADC Support'; 'Kazim Raza'; 'Naveen Anwar'; 'Raheel Ahmed'; 'Taimoor Ali'; 'CENTEGY Taufiq Ahmed' 
+Subject: RE:JSBL-RH- Tracker request for website 
+ 
+ 
+Scope of Work 
+ 
+1. A Web API will be exposed or provided to JSBL. 
+2. JSBL will further expose it to the internet based web application or interface (remittance tracker). 
+3. Upon calling that particular method, transaction’s information will be provided in the form of JSON. 
+4. JSBL IT will parse that JSON according to their requirements and will display the contents on their interface. 
+5. Remit application/exposed API will work in the background and have nothing to do with any sort of front 
+layout/interface presentation. 
+6. API’s job will be to get request process it and return back the response to the caller. 
+ 
+Flow: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Caller interface 
+R 
+E 
+M 
+I 
+T 
+ 
+A 
+P 
+I 
+Remit Home 
+Database 

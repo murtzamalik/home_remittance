@@ -1,0 +1,334 @@
+Check List for Agent Integration through IC Web Service for Receive agents
+Version No.
+Version 1.0.3
+10/02/2015
+Document Name
+Check list for Agent Integration(Receive) through IC Web Service (ICWS)
+Company
+Instant Cash World Wide Ltd. UK
+Prepared by
+IT Dept.
+Reviewed By
+Instant Cash Operation Dept.
+              
+Version History
+Version
+Description
+15/08/2010
+Created
+26/12/2013
+Modified, removed GetOutstandingRemittance  method and replace with ReceivePayment 
+Added GetOutstandingRemittance  method 
+Modified contents are in green color.
+Objective:
+Check list form to be filed by agent
+s authorized person.
+Intended Audience:
+This check list to be filled by authorized person required for integration.
+Detail Description:
+S. No.
+Process
+Activity
+Description 
+Completed (Yes/No) Need to filled by Agent
+Remarks
+How to read outstanding transaction with cash mode from IC system and insert into agent
+s system?
+Read the outstanding transaction using ReceivePayment method from IC system.
+Read the first transaction and update the transaction starts as 
+ (downloaded) in IC system, upon true successful return flag, insert into agent system.
+In case false flag generate exception alert or report for concern users in agent
+s system.
+Refer flowchart number 1.
+1). Yes
+2). Yes
+3). Yes
+3). Incase if transaction is unable to mark 
+, JSBL will re push the transaction to IC system. In case of any issue JSBL Opps team will send email to IC Opps team. 
+How to read outstanding transactions with account transfer mode from IC system and insert into agent
+Read the outstanding transactions using GetOutstanding method from IC system.
+ (downloaded) in IC system, upon true successful return flag insert into agent system.
+Apply the steps number 3 and 4 for all outstanding transactions till last transaction completed.
+Refer flowchart number 2.
+, JSBL Opps team will send email to IC Opps team for manual marking. 
+How to update status 
+ (paid) in IC system?
+Read the Paid transaction from agent
+s system and update the status as 
+ (Paid) in IC system.
+Already updated paid status in IC system should not read again from agent
+The settlement accounting entries will be generated in IC system.  After updating the paid(Y) in IC system.
+Generate settlement accounting entries in agent system.
+Refer flowchart number 3.
+4). Yes
+5). Yes
+Cash Over Counter:
+2). After downloading the transaction in system, we have to mark the specific transaction 
+ i.e. paid so upon that confirmation we can only be provide the Funds to beneficiary on counter. Incase due to any issue transaction is not marked as 
+ in IC system than bank will hold that transaction and highlight/ generate the alert through email to IC to mark the same manually at IC system before proceeding further.  
+Account To Account Transfer:
+2). After downloading the transactions in our system, we will initiate internal FT Transactions and after the successful attempts we will provide acknowledgement to IC system by the marking the same as Paid in IC system.  Incase if any transaction is unable to marked as 
+ in their system then these specific transactions can only be reconciled manually on agreed SOP. i.e. JSBL Opps team will send email to IC Opps team for manual marking.
+How to reconcile transactions in agent
+s system and IC system?
+After executing above two processes, agent
+s system can retrieve all transactions for the any duration by calling Reconcile method.
+Always send value 
+ in Report_Level input parameter.
+In case any variance in number of transactions, status, Beneficiary name or amount should be escalated to your concern department in order to report to IC operation department.
+The reconciliation must be performed for every day after day end.
+1). No
+2). No
+3). No
+4). No
+IC provided reporting module with Admin ID will be used for report extraction  and the same will be used by JSBL for reconciliation.
+Flowchart number 1: Reading outstanding transaction with cash mode
+Flowchart number 2: Reading outstanding transaction with account transfer mode
+Flowchart number 3: Updating status of transaction as Paid
+Name of Agent
+Authorized Staff
+Department   
+Authorized Public IP
+Check list for Agent Integration (Receive)                   
+subsidiary of 
+Confidential, Instant Cash World Wide Ltd.                                                
+ PAGE 
+ NUMPAGES 
+dudC2d
+weVE4&
+veTeTB0
+yl_RH9
+vraSa>a>+>
+ $.' ",#
+(7),01444
+'9=82<.342
+!22222222222222222222222222222222222222222222222222
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+[x~RwHA q
+=pOOze
+4M0@ou[8<
+uTiNZ[
+^[G2@K
+?1~DIw1
+Ws$0F2
+ 9v9gbr
+7 `u=+N
+/}siyqmo
+ZrdHcX
+Kx^-Ag
+3XVPK}
+Z\_h>E
+3 V&Bp
+734%-4U
+>_w}?-
+VWMisx!S
+RW/{{}w
+UEq6^=
+lc,0A9
+]2[sq-
+d)#dyrK
+w!Uv.Kn'
+uI/u{=2
+u=],^;hak
+$^`dnwd
+-^{DeT*
+7w^#%4
+aYm`hU
+bBe~lll
+r0Fx<pjK
+CVm4=[N
+R0r@9'
+&xd7qo
+""")))UUUMMMBBB999
+33333f33
+f33f3ff3
+3f33ff3f
+ff3fffff
+!___www
+IDATx^
+7WD,l|
+5'6dPx
+[,_6u!E
+4~%J:zvxuH
+|V?dk*
++Cox5J{
+i+`s3}
+ea;^"3.
+oPc|v<?
+H'2{*k
+-!pKuYdca
+n,|P1:\L
+1x$!2G
+){49td
+}~z~ZG
+jGUS(u<6
+ym-'aCk
+pacacD
+"8FI5s K<
+{(wx+d;x
+Bf.i1@K.
+2cZu[U
+-iPll5
+s@5tBL
+w2d86<
+A9?G2>
+/uD!|P&
+2NAdi_
+Uhl6kR
+jS2H&0
+cz$jp<
+5pT4r80
+`alQ+ 0
+]Sc-8hq5
+&*wpId
+TzOL]Sq'
+8} sduB
+9#r>P;
+}zVl`N
+V+GTG|
+=zLeo)M
+nj;(r8
+Bi,6Rr
+UhhU?C,
+\8)K+`kg
+81"(j7
+4Rq}1x
+e^6F]Hn
+q*#.cW
+MsFGsV
+3u4ub1
+xEK!~J:
+ npo:>t&
+gD<>up
+h6n7\y;X
+%|,J-r
+%iV|D;
+>W-;o<#
+jm]wGck
+2y_{-nY=
+DAUy*~-s1x
+hpAu(M
+m//P`M4
+7DVGc4
+Cw]g;4
+NgpSdp!
+(O+l29
+8$R bH0
+'_<=5S
+w46Dcb
+Cw]m;4
+qsS0vhu
+wda<7r
+.)V,zB
+T\bmnBfT
+)VG$h w
+,M|Iw#
+]&Ry@"
+N2!Art@
+Cgc$)(
+mWmk4f
+-N~EB[
+@pcC(5.t
+>]`c7x;q
+q{7h0o
+iFJ6}[
+vF;p3P*
+2?@"r;"
+J=FF,%I
+}9i_ac4
+^h0;$|
+alORe`
+[GZCtf
+:r:$2N[
+=]Ap:H
+0s(eOE
+.iYn5/
+cmPPJCmp0712
+FF??!*pkjj
+$1ttrL
+|Z`\6@l
+$SY\'8
+<ux\,8|
+trl=G|
+Y`d3?t
+,trd,2
+<<Bt<B
+/IDATHKU
+NUUmH{
+DPnSemS`
+IDATHK
+c8>xL 
+;rHij_
+m \R}I
+CPkO)6(<^O
+*R_Q_A
+[Content_Types].xml
+_rels/.rels
+theme/theme/themeManager.xml
+theme/theme/theme1.xml
+w toc'v
+3Vq%'#q
+:\TZaG
+Qg20pp
+theme/theme/_rels/themeManager.xml.rels
+K(M&$R(.1
+[Content_Types].xmlPK
+_rels/.relsPK
+theme/theme/themeManager.xmlPK
+theme/theme/theme1.xmlPK
+theme/theme/_rels/themeManager.xml.relsPK
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<a:clrMap xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/>
+urn:schemas-microsoft-com:office:smarttags
+country-region
+};(!Bs
+Py%o1`E
+5F0YPT
+62%U7U
+O?;w7`
+u{7B\EBP
+quXIU{Av
+nJo1`E
+2KOoUNN
+YGfO?f
+D|X%U7U
+!Y:7]!
+R%%hS~o
+XjUe|M
+]f>kU{Av
+U&v%U7U
+'P}\f@
+Emirates Post PC Authentication Module
+Normal
+Saad Mirza
+Microsoft Office Word
+Microsoft Word 97-2003 Document
+MSWordDoc
+Word.Document.8
+outstandingtransaction_C_1_0_1
+InstantCashLogo1
+empost2
+Heading 2
+Default Paragraph Font
+Table Normal
+No List
+Heading 2 Char
+Table Grid
+Header
+Footer
+Balloon Text
+Hyperlink
+List Bullet
+FollowedHyperlink
+HTML Preformatted
+Emphasis
+Default
+_Toc129433066
+_PictureBullets
+Root Entry
+1Table
+WordDocument
+SummaryInformation
+DocumentSummaryInformation
+CompObj

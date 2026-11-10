@@ -1,0 +1,126 @@
+PDF_PAGES=4
+PDF_META={'/Title': 'SECTION TWO:  RESPONSE GUIDE', '/Author': 'syah', '/Creator': 'Microsoft® Office Word 2007', '/CreationDate': "D:20160309025132+05'00'", '/ModDate': "D:20160309025132+05'00'", '/Producer': 'Microsoft® Office Word 2007'}
+
+===== PAGE 1 =====
+ 
+ 
+© Copyright Insite MY Systems Sdn Bhd 2008 Confidential 
+ 
+ 
+ 
+ 
+and  
+ 
+ 
+Original Copy 
+ 
+A REVISED FINANCIAL PROPOSAL  
+FOR  
+JS BANK LIMITED 
+ 
+IMPLEMENTATION OF STRAIGHT THROUGH 
+PROCESSING (STP) FOR RTGS 
+ 
+Submitted: Syed Saqib Ahmed, Chief Executive Officer, D Voyager 
+ 
+ 
+Confidentiality Statement 
+All information contained in this document and/or other related media is strictly confidential and must not be 
+disclosed to any other party without prior consent in writing from Insite MY Systems Sdn Bhd  
+===== PAGE 2 =====
+ 
+ 
+© Copyright Insite MY Systems Sdn Bhd 2008 Confidential 
+ 
+ 
+HIGHLIGHT OF 
+PROPOSAL 
+ 
+Better 
+REVISED Proposal for JS Bank 
+ 
+------xxxxx------ 
+ 
+In Malaysia 
+LIVE in 18 x commercial 
+banks for STP with RTGS 
+ 
+------xxxxx------ 
+ 
+SWIFT Certified Solution 
+ 
+------xxxxx------ 
+ 
+Vast knowledge of expertise in SWIFT & RTGS 
+domain 
+ 
+------xxxxx------ 
+ 
+Malaysian joint presence with partner in Pakistan 
+for implementation 
+ 
+ 
+    
+===== PAGE 3 =====
+ 
+ 
+© Copyright Insite MY Systems Sdn Bhd 2008 Confidential 
+ 
+REVISED PRICING INFORMATION 
+Date: March 9, 2016 
+    Quotation for JS Bank Limited, Pakistan   
+ENTERPRISE LICENSE 
+D Voyager / InsiteMY Solutions 
+1 INCHEQS  Qty Unit Price 
+(USD) Discount 
+Discounted 
+Unit Price 
+(USD) 
+Total 
+Discounted 
+Price (USD) 
+AMC (USD) 
+  Software License 
+I-A INGateway Base License  1 USD 50,000.00 0.00% USD 50,000.00 USD 50,000.00 USD 12,500.00 
+II-A Module - STP for RTGS  1 USD 35,000.00 100.00% USD 0.00 USD 0.00 USD 0.00 
+III-A Bank Host Interface (C, JAVA, 
+FTP, MQ) for Remittance 1 USD 20,000.00 100.00% USD 0.00 USD 0.00 USD 0.00 
+IV-A Bank Host Interface (C, JAVA, 
+FTP, MQ) for Trade Finance 1 USD 20,000.00 100.00% USD 0.00 USD 0.00 USD 0.00 
+V-A Bank Host Interface (C, JAVA, 
+FTP, MQ) for Forex 1 USD 20,000.00 100.00% USD 0.00 USD 0.00 USD 0.00 
+VI-A DR STP Replication 1 USD 10,000.00 100.00% USD 0.00 USD 0.00 USD 0.00 
+License Sub Total:     USD 50,000.00 USD 12,500.00 
+  Professional Services 
+VII-B 
+Implementation, Project 
+Management and QA (based on 
+6 Months) 
+1 USD 100,000.00 40.00% USD 60,000.00 USD 60,000.00   
+Professional Service Sub Total:     USD 60,000.00 USD 0.00 
+Grand Total: USD 110,000.00 USD 12,500.00 
+  
+  
+  
+  
+ Notes/Terms 
+1 The quotation does not include: 
+  -          Consultancy or Advisory Services 
+  -          Network Costs 
+  -          Internal Network and cabling 
+  -          Firewall and other internal devices required by the banks 
+  -          Hardware and system software required for connection to RTGS 
+2 Validity : 30 days from date of quotation 
+3 Any cancellation on the PO will incurred a penalty of 30% on PO value. 
+4 Payment Terms: 
+   Application Software: 100% Upon Purchase Order (PO) 
+  Professional Works: 50% Upon Purchase Order (PO), 50% Upon User Acceptance Test (UAT) Sign Off  
+5 Price is inclusive of any applicable taxes, duties, GST, fees or other government levies or charges.  
+6  Annual Maintenance : 100% upon expiry of 90 days (Warranty) upon UAT sign off date  
+7 Customization and Implementation Additional Manday charges (if any) will be charged USD 1500 per day 
+===== PAGE 4 =====
+ 
+ 
+© Copyright Insite MY Systems Sdn Bhd 2008 Confidential 
+ 
+ 

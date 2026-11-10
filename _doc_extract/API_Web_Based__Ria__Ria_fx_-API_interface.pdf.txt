@@ -1,0 +1,1663 @@
+PDF_PAGES=33
+PDF_META={'/Producer': 'PDF Printer / www.bullzip.com / CP / Freeware Edition', '/CreationDate': "D:20130926091911-07'00'", '/ModDate': "D:20130926091911-07'00'", '/Title': 'Microsoft Word - FXGlobalWebservice_RiaAsSenderInterface_1.13.doc', '/Author': 'deanv'}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+RIA envía 
+ 
+FXGlobal Webservice 
+ 
+ 
+Technical Specifications 
+for 
+Paying Correspondents 
+(RiaAsSender Interface) 
+ 
+ 
+ 
+(See Appendix A for Additions/Modifications specific to this version) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Author   : D. Ventre 
+Revised : September 26, 2013 
+Version : 1.13 
+===== PAGE 2 =====
+Version 1.13 2. 
+Table of Contents           
+ 
+Main Heading Topic Page  
+Section 1:   Overview of FXGlobal Webservice  3 
+ Purpose of Webservice 4 
+Definition of Terms 4 
+Authentication/Security 4 
+Webservice Description (WSDL) 4 
+Webservice Interface Overview 5 
+Open Payment  Feature 6 
+Generic Response Layout Superstructures 7 
+ 
+Section 2:   Interface Methods – Input and Response XML Structures 8 
+ Method: OP_VerifyOrderForPayout() 9 
+Method: OP_ConfirmOrderPaid()  12 
+Method: OP_VoidOrderPaidConfirmation() 14 
+Method: GetSendersCustSvcMsgs() 16 
+Method: GetCancelationRequests() 17 
+Method: GetOrdersForDownload() 18 
+Method: InputPayersCustSvcMsgs() 22 
+Method: InputOrderStatusNotices() 24 
+Method: InputCancelRequestResponses()      (New to ver 1.10) 27 
+   
+Appendix A Additions/Modifications Included In This Version 30 
+ 
+===== PAGE 3 =====
+Version 1.13 3. 
+Section 1     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Overview 
+of 
+FXGlobal Webservice  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 4 =====
+Version 1.13 4. 
+Section 1 (Cont.) 
+ 
+Purpose of Webservice 
+ 
+The FXGlobal webservice is a comprehensive money transfer service that can be used to send money 
+transfer orders to Ria for payment or, conversely, to retreive orders owned by Ria that are awaiting 
+payment by outside paying correspondents.  All order-related features such as cancelation requests, bi-
+directional customer service message exchange, order status inquiries, catalogs of information such as 
+locations, rates, commissions, etc are supported.  
+ 
+FXGlobal is a dual-interface webservice: One interface is used by sending correspondents and the other 
+by those that would like to payout orders owned by Ria. The interfaces are named after the role Ria  plays 
+in the business relationship. For example, those sending an order to Ria will use the “Paying” interface 
+since in that scenario Ria is the paying correspondent. Likewise, those that want to payout orders owned 
+by Ria will implement the “Sending” interface since in that case Ria is sending  the order for payment. 
+This document describes the functionality in the interface used by the paying correspondents only 
+(referred to as the “Sending Interface”). 
+ 
+ 
+Definition of Terms 
+Term  Definition  
+SC Acronym for “Sending Correspondent” (which in th e context of this interface is always Ria) 
+PC Acronym for “Paying Correspondent”. 
+ 
+ 
+Authentication/ Security 
+Authentication and security will be managed by means of x509 certificates. These will be used to 
+establish a peer-to-peer trust relationship.  By means of these certificates all incoming and outgoing XML 
+messages will be encrypted/decrypted and sent by way of HTTP for efficiency.   
+ 
+Test Environment: 
+You have the option of either having Ria generate a certificate for you or purchasing one from a reputable 
+certification authority  such as VeriSign®.  A purchased certificate could also be used in the production 
+environment. 
+ 
+Production Environment: 
+You will need to purchase a Class 3 (Secure Server) certificate from VeriSign® or some other publicly 
+known and trusted Security Issuer.  The certificate should be in DER encoded binary X.509 format 
+(having a  .cer or .crt file extension).  You would then need to send us your public key contained in the 
+.cer certificate file as well as any other certificates for certificate authorities that were used to sign your 
+client certificate. 
+ 
+ 
+Webservice Description (WSDL) 
+ 
+The webservice description can be accessed at the following url: 
+http://stagingfxglobalwebsvc.riaenvia.net:9770/FXGlobalSending.svc?wsdl  
+ 
+ 
+Note: For clients who would have difficulty managing x509 certificates we also offer the option of establishing a 
+VPN tunnel. A unique URL will be provided to those clients after the VPN tunnel is established. 
+ 
+===== PAGE 5 =====
+Version 1.13 5. 
+Section 1 (Cont.) 
+ 
+Webservice Interface Overview: 
+ 
+All methods in the Sending interface of the FXGlobal webservice fall into one of three categories: Get , 
+Input and  Open Payment (OP) methods. Get  refers to requests made by the Paying Correspondent such 
+as for any orders available for downloading , outstanding cancellation requests or customer service 
+messages Ria is holding for the Paying Correspondent. Input  refers to customer service notices or  
+OrderStatus notifications that the Paying Correspondent wants to submit to Ria for processing.  Lastly, the 
+three Open Payment  methods (whose names are all prefixed with “OP_”) as their name implies are for 
+paying out orders that are still in Ria’s control at the request of the beneficiary.   
+ 
+I/O Parameters: 
+All methods in the webservice interface will have a single input parameter. This will be in the form of an 
+XML document.  All methods will return a single XML document containing Ria’s response to the 
+request or input. The structure of these input and output documents will be specific to the method called. 
+All incoming XML will be validated against schema (XSD) files for accuracy of structure and content.  
+Ria will provide to all clients a set of schema (XSD) files that describe all of the possible responses from 
+the webservice. 
+ 
+NOTE:  All values should be represented using ASCII characters only. 
+ 
+Category  Method  Name  Purpose  
+Open Payout OP_VerifyOrderForPayout Inquire whether  order is valid for payout and retrieve basic order info. 
+Open Payout OP_ConfirmOrderPaid Confirm that order has been paid out to beneficiary and supply BenID info. 
+Open Payout OP_VoidOrderPaidConfirmation Void Order Paid confirmation if necessary (within 2 minutes of confirming) 
+Get GetOrdersForDownload Retrieve all orders flagge d for export to the specific PC calling. 
+Get GetCancellationRequests Retrieve outstanding ca ncelation requests for orders already downloaded. 
+Get GetSendersCustSvcMsgs Retrieve Ria’s outstandin g customer service messages. 
+Input InputPayersCustSvcMsgs Submit customer servic e messages for orders received by PC from Ria. 
+Input InputOrderStatusNotices Submit OrderStatus no tices for orders received by PC from Ria. 
+ 
+===== PAGE 6 =====
+Version 1.13 6. 
+Section 1 (Cont.) 
+ 
+Open Payment Feature 
+ 
+The FXGlobal webservice makes possible the paying out of orders still in Ria’s control that have been 
+earmarked for “Open Payment”.  The flowchart below describes the interface steps in this process: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 7 =====
+Version 1.13 7. 
+Section 1 (Cont.) 
+ 
+Generic Response Layout Superstructures 
+ 
+Each call to the webservice will receive a response from Ria in the form of an XML document.  All 
+responses are ultimately specific to the method called however all response structures will be 
+encapsulated within one of two different superstructures depending on the category the call falls within. 
+ 
+“Open Payout” and  “Get” Category Method Calls 
+ 
+The response node structure will be specific to the method called however all responses will be contained 
+within the same general superstructure below: 
+ 
+General structure of Ria’s response to requests: 
+ 
+<Root > 
+   <ResponseLayoutVersion /> 
+  <RequestType  /> 
+  <RequestResponses >  
+ (Request-specific response nodes will go here) 
+  </ RequestResponses >  
+  <RequestErrors >  
+ (Any error message nodes will go here) 
+  </ RequestErrors >  
+</ Root > 
+ 
+ 
+ “Input” Category Method Calls 
+ 
+Every input will receive an acknowledgement from Ria.  The acknowledgement structure will be specific 
+to the method called however they will all be contained within the same general superstructure below: 
+ 
+General structure of Ria’s response to inputs: 
+ 
+ < Root > 
+  <ResponseLayoutVersion />   
+   <InputType /> 
+   <ItemsProcessed />    
+     < Acknowledgements > 
+ (InputType-specific acknowledgement nodes will go here) 
+   </ Acknowledgements > 
+   <InputErrors >  
+ (Any error message nodes will go here) 
+   </ InputErrors >  
+ </ Root > 
+ 
+ 
+ 
+ 
+===== PAGE 8 =====
+Version 1.13 8. 
+  Section 2 
+ 
+ 
+ 
+ 
+Interface Methods 
+ 
+ 
+Input and Response XML Structures 
+ 
+===== PAGE 9 =====
+Version 1.13 9. 
+Section 2 (Cont.) 
+ 
+MethodName: OP_VerifyOrderForPayout  () 
+ 
+Description:  
+Used to verify that the PIN and amount the beneficiary is requesting be paid out is legitimate and that the 
+order is still available for payout.  If the order is available to be paid the basic order info is returned to 
+enable the PC to verify the beneficiary is legit, etc. NOTE:  This method MUST be called before calling 
+the OP_ConfirmOrderPaid method and the returned <TransRefID >value passed as an input through the 
+<VerifyOrderTransRefID > element . 
+ 
+Input Structure (including sample data)  
+ 
+  <?xml version="1.0" encoding="utf-8" ?>   
+  < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <RequestLayoutVersion >1.0 </ RequestLayoutVersion >  
+   <DateTimeLocal>20110504005959 </ DateTimeLocal>  
+   <DateTimeUTC >20110504151612 </ DateTimeUTC >  
+   <PIN >11199683316 </ PIN >  
+   <BeneAmount >76.20 </ BeneAmount >  
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+RequestLayoutVersion  Layout Version  Decimal 3,1  Yes 
+DateTimeLocal Local Datetime Text 14 yyyyMMddHHmmss  Yes 
+DateTimeUTC  UTC Datetime Text 14 yyyyMMddHHmmss  Yes 
+PIN PIN # supplied by Beneficiary Text 20  Yes 
+BeneAmount  Beneficiary Amount Decimal 8,2 (decimals optional)  * Yes 
+* new to version 1.5 
+ 
+Response Structure (including sample data)  
+ 
+ < Root xsi:noNamespaceSchemaLocation =" VerifyOrder_Response_1.2.xsd "    
+   xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.2</ ResponseLayoutVersion >  
+   <RequestType >VerifyOrder </ RequestType >  
+    <RequestResponses > 
+  < VerifyOrderResponse > 
+    <TransRefID >18551 </ TransRefID >  
+    <OrderFound >true </ OrderFound >  
+    <PIN >11219362665 </ PIN >  
+    <OrderNo >UK665091977 </ OrderNo >  
+   <SeqIDRA >36959 </ SeqIDRA >  
+    < SeqIDPA >854312 </ SeqIDPA >   (New to Version 1.11 [response layout 1.2]) 
+   <OrderDate >20110809 </ OrderDate >  
+     < CountryFrom >US </ CountryFrom >   
+    <CustNameFirst >test </ CustNameFirst >  
+    <CustNameLast1 >test </ CustNameLast1 >  
+    <CustAddress >13 Perry Vale </ CustAddress>  
+    <CustCity >London </ CustCity >  
+    <CustState >LND </ CustState >  
+    <CustCountry >UK </ CustCountry >  
+    <CustZip >SE23 2NE </ CustZip >  
+    <CustTelNo >44-44 6232247 </ CustTelNo >  
+===== PAGE 10 =====
+Version 1.13 10. 
+    <BeneNameFirst >Rocio </ BeneNameFirst >  
+    <BeneNameLast1 >Vegas </ BeneNameLast1 >  
+    <BeneAddress >1111 Sun </ BeneAddress >  
+    <BeneCity >San Miguel </ BeneCity >  
+    <BeneState >SM </ BeneState >  
+    <BeneCountry >SV </ BeneCountry >  
+    <BeneZip >12345 </ BeneZip >  
+    <BeneTelNo >57- 575757 </ BeneTelNo >  
+    <BeneCurrency >AUD </ BeneCurrency >  
+    <BeneAmount >1242.50 </ BeneAmount >  
+    <ResponseDateTimeUTC >20110810005924 </ ResponseDateTimeUTC >  
+    <ResponseCode >1000 </ ResponseCode >  
+    <ResponseText >Order is available for payout </ ResponseText >  
+   </ VerifyOrderResponse > 
+   </ RequestResponses > 
+   <RequestErrors  />   
+ </ Root > 
+ 
+ 
+Possible Response Codes: 
+Code Text 
+1000 Order is available for payout. 
+2001 No order found matching supplied PIN and Benef iciaryAmount. 
+2002 Order has already been marked as paid to benef iciary. 
+2003 Order has been cancelled. 
+2004 Order exists but is not currently available fo r payout. Contact RIA Customer Service department for explanation. 
+2005 The Order's delivery method does not allow for  Open Payout. It must be downloaded. (New to ver 1.4)  
+2006 Order Is Not Assigned To Paying Correspondent' s Country  (New to ver 1.5)  
+5000 Input XML is Invalid. Mandatory <PayingCorresp ID> element not found or contains an invalid value. 
+5001 Input XML is Invalid. Schema Messages: <Messag es> 
+5002 Exception occurred while doing generic input d ocument validation. 
+5003 Invalid Client Certificate Thumbprint Presente d 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+TransRefID  Unique transaction reference ID Integer   Yes 
+OrderFound  Whether order was located by Ria Boolean  “true”, “false” Yes 
+PIN  The order’s unique PIN Text 20  *  
+OrderNo  Ria’s order number Text 20  *  
+SeqIDRA   Originating agent’s sequence ID Integer   *  
+SeqIDPA 
+(New to version 1.11) 
+Paying agent’s sequence ID Integer   * 
+OrderDate  Order date Text 8 yyyyMMdd *  
+CountryFrom   Receiving Agent’s Country Text 2  * 
+CustNameFirst  (Self-explanatory) Text 50  * 
+CustNameLast1  (Self-explanatory) Text 50   * 
+CustNameLast2  (Self-explanatory) Text 50   No *  
+CustAddress  (Self-explanatory) Text 255  No *  
+CustCity  (Self-explanatory) Text 50  No *  
+CustState  (Self-explanatory) Text 50  No *  
+CustCountry  (Self-explanatory) Text 2  No *  
+CustZip  (Self-explanatory) Text 20  No *  
+CustTelNo  (Self-explanatory) Text  20  No *  
+BeneNameFirst  (Self-explanatory) Text  50   *  
+BeneNameLast1  (Self-explanatory) Text  50   *  
+BeneNameLast2  (Self-explanatory) Text  50   No *  
+BeneAddress  (Self-explanatory) Text  255  No *  
+BeneCity  (Self-explanatory) Text  50  No *  
+BeneState  (Self-explanatory) Text  50  No *  
+BeneCountry  (Self-explanatory) Text  2  No *  
+BeneZip  (Self-explanatory) Text  20  No *  
+BeneTelNo  (Self-explanatory) Text  20  No *  
+BeneCurrency Beneficiary Currency Text  3  No * 
+BeneAmount  Beneficiary Amount Decimal 8,2  *  
+ResponseDateTimeUTC  UTC Datetime Text 14 yyyyMMddHHmmss Yes 
+===== PAGE 11 =====
+Version 1.13 11. 
+ResponseCode  (Self-explanatory) Integer   Yes 
+ResponseText  (Self-explanatory) Text 500  Yes 
+ 
+* These fields will be returned only if ResponseCode = 1000 (“Order Is Available For Payout”).  Those not required will be  
+   supplied only if data is available. 
+===== PAGE 12 =====
+Version 1.13 12. 
+Section 2 (Cont.) 
+ 
+MethodName: OP_ConfirmOrderPaid  () 
+ 
+Description:  
+Used to Confirm that the order is being paid out to the beneficiary and to supply Ria with the 
+beneficiary’s ID  info. NOTE:  This method reconfirms that the order is still available for payout so it 
+should be called just PRIOR to handing any monies to the beneificiary.  
+ 
+Input Structure (including sample data)  
+ 
+ 
+  <?xml version="1.0" encoding="utf-8" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <RequestLayoutVersion >1.0 </ RequestLayoutVersion >  
+   <DateTimeLocal>20110725214057 </ DateTimeLocal>  
+   <DateTimeUTC >20110725234057 </ DateTimeUTC >  
+   <VerifyOrderTransRefID >18551 </ VerifyOrderTransRefID >  
+   <OrderNo >US874005480 </ OrderNo >  
+   <PIN >11199683316 </ PIN >  
+   <BeneCurrency >EUR </ BeneCurrency >  
+   <BeneAmount >76.20 </ BeneAmount >  
+   <PaidDateTimeLocal>20110728030823 </ PaidDateTimeLocal>  
+   <PaidDateTimeUTC >20110727160823 </ PaidDateTimeUTC >  
+   <CorrespLocID >65153 </ CorrespLocID >  
+   <BeneIDType >Drivers License </ BeneIDType >  
+   <BeneIDNumber >N0368532 </ BeneIDNumber >  
+   <BeneIDIssuedByCountry >US </ BeneIDIssuedByCountry >  
+   <BeneIDIssuedByState >CA </ BeneIDIssuedByState >  
+   <BeneIDExpirationDate >20120622 </ BeneIDExpirationDate >  
+  </ Root > 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+RequestLayoutVersion  Layout Version  Decimal 3,1  Yes 
+DateTimeLocal Local Datetime Text 14 yyyyMMddHHmmss Yes 
+DateTimeUTC  UTC Datetime Text 14 yyyyMMddHHmmss Yes 
+VerifyOrderTransRefID  Unique transaction reference ID Integer   Yes 
+OrderNo Ria’s order number Text 20  Yes 
+PIN The order’s unique PIN Text 20  Yes 
+BeneCurrency Beneficiary Currency Text 3  Yes 
+BeneAmount  Beneficiary Amount Decimal 8,2  Yes 
+PaidDateTimeLocal Local Datetime Text 14 yyyyMMddHHmmss Yes 
+PaidDateTimeUTC UTC Datetime Text 14 yyyyMMddHHmmss Yes 
+CorrespLocID PC’s unique location ID Text * 20  No 
+BeneIDType Beneficiaries’ ID Type Text 50  Yes  
+BeneIDNumber Beneficiaries’ ID Number Text 50  Yes  
+BeneIDIssuedByCountry ID Issued by Country Text 2  Yes  
+BeneIDIssuedByState ID Issued by State Text 50  Yes  
+BeneIDExpirationDate ID Expiration Date Text 0/8 Blank or yyyyMMdd Yes 
+ 
+ 
+*Changed from Integer to Text (20) in version 1.9 
+===== PAGE 13 =====
+Version 1.13 13. 
+Response Structure (including sample data)  
+ 
+ < Root xsi:noNamespaceSchemaLocation =" ConfirmOrderPaid_Response_1.0.xsd "  
+  xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <RequestType >ConfirmOrderPaid </ RequestType >  
+ < RequestResponses > 
+    < ConfirmOrderPaidResponse > 
+         <TransRefID >322 </ TransRefID >  
+    <OrderNo >UK665091977 </ OrderNo >  
+    <PIN >11199683316 </ PIN >  
+    <BeneCurrency >EUR </ BeneCurrency >  
+    <BeneAmount >76.20 </ BeneAmount >  
+    <PCCommissionCurrency >GBP </ PCCommissionCurrency >  (New to ver 1.4)  
+    <PCCommissionAmount >3.20 </ PCCommissionAmount >     (New to ver 1.4) 
+    <ResponseDateTimeUTC >20110810010709 </ ResponseDateTimeUTC >  
+    <ResponseCode >1000 </ ResponseCode >  
+    <ResponseText >Order confirmed as paid. </ ResponseText >  
+   </ ConfirmOrderPaidResponse > 
+  </ RequestResponses > 
+   <RequestErrors  />   
+  </ Root > 
+ 
+ 
+Possible Response Codes: 
+Code Text 
+1000 Order confirmed as paid. 
+2000 Invalid CorrespID Value 
+2001 No order found matching supplied PIN and Benef iciaryAmount. 
+2002 Order has already been marked as paid to benef iciary. 
+2003 Order has been cancelled. 
+2004 Order exists but is not currently available fo r payout. Contact RIA Customer Service department for explanation. 
+2005 Order must be successfully verified using the VerifyOrderForPayout method prior to confirming payment. 
+2006 One or both paid datetime values are illegitim ate. 
+2007 One or both paid datetime values differ by mor e than 24 hours from current UTC time. 
+2008 Order could not be marked paid. Please contact  RIA Customer Service department for assistance. 
+2009 Beneficiary Currency And/Or Amount Is Incorrec t.  (New to ver 1.5)  
+5000 Input XML is Invalid. Mandatory <PayingCorresp ID> element not found or contains an invalid value. 
+5001 Input XML is Invalid. Schema Messages: <Messag es> 
+5002 Exception occurred while doing generic input d ocument validation. 
+5003 Invalid Client Certificate Thumbprint Presente d 
+ 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+TransRefID Unique transaction reference ID Integer   Yes 
+OrderNo Ria’s order number Text 20  *  
+PIN The order’s unique PIN Text 20  *  
+BeneCurrency Beneficiary Currency  Text 3  * 
+BeneAmount  Beneficiary  Amount  Decimal 8,2  * 
+PCCommissionCurrency Payer’s Commission Currency Te xt 3  # 
+PCCommissionAmount Payer’s Commission Amount Decima l 8,2  # 
+ResponseDateTimeUTC  UTC Datetime Text 14 yyyyMMddHHmmss  Yes 
+ResponseCode  (Self-explanatory) Integer   Yes 
+ResponseText (Self-explanatory) Text 500  Yes 
+ 
+* These fields will be returned only if request passes minimum validation such as Valid CorrespID, proper XML, etc. 
+# These fields will be returned only if order is successfully confirmed as PAID. 
+===== PAGE 14 =====
+Version 1.13 14. 
+Section 2 (Cont.) 
+ 
+MethodName: OP_VoidOrderPaidConfirmation () 
+ 
+Description:  
+Used to reverse a paid confirmation that was made by calling the OP_ConfirmOrderPaid method.  This 
+method is provided as a convenience in the event that the PC feels confirming the order as paid was a 
+mistake or they experience a timeout when calling to confirm the order as paid. It can only be used within 
+2 minutes of the initial call to the OP_ConfirmOrderPaid method.  
+ 
+Input Structure (including sample data)  
+ 
+  <?xml version="1.0" encoding="utf-8" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <RequestLayoutVersion >1.0 </ RequestLayoutVersion >  
+   <DateTimeLocal>20110727075959 </ DateTimeLocal>  
+   <DateTimeUTC >20110727152612 </ DateTimeUTC >  
+   <OrderPaidTransRefID >18951 </ OrderPaidTransRefID >  
+   <OrderNo >US874005480 </ OrderNo >  
+   <PIN >11199683316 </ PIN >  
+   <BeneCurrency >EUR </ BeneCurrency >  
+   <BeneAmount >76.20 </ BeneAmount >  
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+RequestLayoutVersion  Layout Version  Decimal 3,1  Yes 
+DateTimeLocal Local Datetime Text 14 yyyyMMddHHmmss Yes 
+DateTimeUTC  UTC Datetime Text 14 yyyyMMddHHmmss Yes 
+OrderPaidTransRefID  The TransRefID value returned by 
+the ConfirmPaid method OR  the 
+VerifyOrderForPayout method. 
+Integer   Yes 
+OrderNo Ria’s order number Text 20  Yes 
+PIN The order’s unique PIN Text 20  Yes 
+BeneCurrency Beneficiary Currency Text 3  Yes 
+BeneAmount  Beneficiary Amount Decimal 8,2  Yes 
+ 
+Response Structure (including sample data)  
+ 
+ < Root xsi:noNamespaceSchemaLocation =" VoidOrderPaidConfirmation_Response_1.0.xsd "  
+  xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <RequestType >VoidOrderPaidConfirmation </ RequestType >  
+    <RequestResponses > 
+          < VoidOrderPaidConfirmResponse > 
+    <TransRefID >522 </ TransRefID >  
+    <OrderNo > US874005480 </ OrderNo >  
+    <PIN >11199683316 </ PIN >  
+    <BeneCurrency >EUR </ BeneCurrency >  
+    <BeneAmount >76.20 </ BeneAmount >  
+    <ResponseDateTimeUTC >20110810010858 </ ResponseDateTimeUTC >  
+    <ResponseCode >1000 </ ResponseCode >  
+    <ResponseText >Paid confirmation has been voided successfully. </ ResponseText >  
+         </ VoidOrderPaidConfirmResponse > 
+   </ RequestResponses > 
+   <RequestErrors  />   
+  </ Root > 
+===== PAGE 15 =====
+Version 1.13 15. 
+ 
+ 
+ 
+Possible Response Codes: 
+Code Text 
+1000 Paid confirmation has been voided successfully . 
+2000 Invalid CorrespID Value 
+2010 Order cannot be confirmed as having been paid.  Please contact Ria Customer Service department. 
+2011 Payment confirmations can only be voided withi n two minutes of their receipt. Please contact Ria Customer Service 
+department. 
+2012 Paid confirmation could not be voided. Please contact RIA Customer Service department for assistance. 
+5000 Input XML is Invalid. Mandatory <PayingCorresp ID> element not found or contains an invalid value. 
+5001 Input XML is Invalid. Schema Messages: <Messag es> 
+5002 Exception occurred while doing generic input d ocument validation. 
+5003 Invalid Client Certificate Thumbprint Presente d 
+ 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+TransRefID Unique transaction reference ID Integer   Yes 
+OrderNo Ria’s order number Text 20  Yes  
+PIN The order’s unique PIN Text 20  Yes  
+BeneCurrency Beneficiary Currency Text 3  Yes  
+BeneAmount Beneficiary Amount Decimal 8,2  Yes  
+ResponseDateTimeUTC UTC Datetime Text 14 yyyyMMddHH mmss Yes 
+ResponseCode (Self-explanatory) Integer   Yes 
+ResponseText (Self-explanatory) Text 500  Yes 
+ 
+===== PAGE 16 =====
+Version 1.13 16. 
+Section 2 (Cont.) 
+ 
+MethodName: GetSendersCustSvcMsgs  () 
+ 
+Description:  
+Used to retrieve Ria’s outstanding customer service messages for orders previously sent to the PC for 
+payment. 
+ 
+ 
+Input Structure (including sample data)  
+ 
+  <?xml version="1.0" encoding="utf-8" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <RequestLayoutVersion >1.0 </ RequestLayoutVersion >  
+   <RequestType >SendersCustSvcMsgs </ RequestType >  
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+RequestLayoutVersion  Layout Version  Decimal 3,1  Yes 
+RequestType  Literal value (enumeration) 
+(see DataRequestType in 
+GenericTypes.xsd file) 
+Text (varies) "SendersCustSvcMsgs" 
+ 
+Yes 
+ 
+ 
+Response Structure (including sample data)  
+ 
+ < Root xsi:noNamespaceSchemaLocation =" SendersCustSvcMsgs_1.0.xsd " xmlns =""  
+ xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <RequestType >SendersCustSvcMsgs </ RequestType >  
+    < RequestResponses > 
+          < CSMessage > 
+    <SCOrderNo >ES874073080 </ SCOrderNo >  
+    <MessageID >5197812 </ MessageID >  
+    <MessageText >Message content goes here </ MessageText >  
+    <EnteredBy >Igor Valdez </ EnteredBy >  
+         </ CSMessage > 
+          < CSMessage > 
+    <SCOrderNo >ES874073080 </ SCOrderNo >  
+    <MessageID >5197912 </ MessageID >  
+    <MessageText >Another test message’s content goes here </ MessageText >  
+    <EnteredBy >Dina Ferraro </ EnteredBy >  
+   </ CSMessage > 
+   </ RequestResponses > 
+   <RequestErrors  />   
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+ResponseLayoutVersion  Layout version Decimal 3,1  Yes 
+RequestType  (Same Enumeration as Request layout) Text (varies)  Yes  
+SCOrderNo  Ria’s order number Text 20  Yes  
+MessageID  Ria’s Message ID Integer   Yes  
+MessageText  Message content Text 1000  Yes  
+EnteredBy  Name of user who entered message Text 30  Yes  
+Section 2 (Cont.) 
+===== PAGE 17 =====
+Version 1.13 17. 
+ 
+MethodName: GetCancelationRequests () 
+ 
+Description:  
+Used to retrieve Ria’s outstanding cancelation requests for orders previously sent to the PC for payment. 
+ 
+Input Structure (including sample data)  
+ 
+  <?xml version="1.0" encoding="utf-8" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <RequestLayoutVersion >1.0 </ RequestLayoutVersion >  
+   <RequestType >CancelationRequests </ RequestType >  
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+RequestLayoutVersion  Layout Version  Decimal 3,1  Yes 
+RequestType  Literal value (enumeration) 
+(see DataRequestType in 
+GenericTypes.xsd file) 
+Text (varies) "CancelationRequests" Yes 
+ 
+ 
+Response Structure (including sample data)  
+ 
+ <Root xsi:noNamespaceSchemaLocation =" CancelationRequests_1.0.xsd " xmlns =""  
+ xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+      <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <RequestType >CancelationRequests </ RequestType >  
+    < RequestResponses > 
+          <CancellationRequest  SCOrderNo =" ES873815680 " />   
+        <CancellationRequest  SCOrderNo =" ES873815780 " />   
+      <CancellationRequest  SCOrderNo =" IT873815880 " />   
+   </ RequestResponses > 
+   <RequestErrors  />   
+  </ Root > 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+ResponseLayoutVersion  Layout version Decimal 3,1  Yes 
+RequestType  (Same Enumeration as Request layout) Text (Varies)   Yes 
+SCOrderNo (Attribute)  Ria’s order number Text 20  Yes  
+ 
+===== PAGE 18 =====
+Version 1.13 18. 
+Section 2 (Cont.) 
+ 
+MethodName: GetOrdersForDownload () 
+ 
+Description:  
+Used to retrieve all previously unsent orders flagged for payment at locations owned or controlled by the 
+specific PC calling. NOTE:  A call to the InputOrderStatusNotices() method should be made within 5 
+minutes of downloading the orders with a value of RECEIVED for each order downloaded. 
+ 
+Input Structure (including sample data)  
+ 
+  <?xml version="1.0" encoding="utf-8" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <RequestLayoutVersion >1.0 </ RequestLayoutVersion >  
+   <RequestType >OrdersForDownload </ RequestType >  
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+RequestLayoutVersion  Layout Version  Decimal 3,1  Yes 
+RequestType  Literal value (enumeration) 
+(see DataRequestType in 
+GenericTypes.xsd file) 
+Text (Varies) “OrdersForDownload” Yes 
+ 
+ 
+Response Structure (including sample data)  
+ 
+ <Root xsi:noNamespaceSchemaLocation =" DownloadedOrders_1.4.xsd " xmlns =""  
+ xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+      <ResponseLayoutVersion >1.4</ ResponseLayoutVersion >  
+   <RequestType >OrdersForDownload </ RequestType >  
+    < RequestResponses > 
+         < Order > 
+    <OrderNo >DE12545295 </ OrderNo >  
+    <PIN >1166836282 </ PIN >  
+    <PayingCorrespSeqID >606082 </ PayingCorrespSeqID >  
+    <SalesDate >20110806 </ SalesDate >  
+    <SalesTime >082918 </ SalesTime >  
+    <CountryFrom >DE </ CountryFrom >  
+    <CountryTo >BR </ CountryTo >  
+   <SendingCorrespSeqID >36959 </ SendingCorrespSeqID > (New to Version 1.11 [response layout 1.4])  
+     <PayingCorrespLocID >26451 </ PayingCorrespLocID >  
+    <SendingCorrespBranchNo >DE6</ SendingCorrespBranchNo >  
+    <BeneQuestion  />   
+    <BeneAnswer  />   
+    <PmtInstructions  />   
+    <BeneficiaryCurrency >EUR </ BeneficiaryCurrency >  
+    <BeneficiaryAmount >100.00 </ BeneficiaryAmount >  
+    <DeliveryMethod >1</ DeliveryMethod >  
+    <PaymentCurrency >EUR </ PaymentCurrency >  
+    <PaymentAmount >100.00 </ PaymentAmount >  
+    <CommissionCurrency >EUR </ CommissionCurrency >  
+    <CommissionAmount >1.30 </ CommissionAmount >  
+    <CustomerChargeCurrency />  
+    <CustomerChargeAmount />   
+    <BeneID >29235119 </ BeneID >  
+===== PAGE 19 =====
+Version 1.13 19. 
+    <BeneFirstName >INNA </ BeneFirstName >  
+    <BeneLastName >BURKUT OLEXANDRIVNA </ BeneLastName >  
+    <BeneLastName2  />   
+    <BeneAddress >123 Anywhere Street </ BeneAddress >  
+    <BeneCity >CHERKASSY </ BeneCity >  
+    <BeneState >CHERKASSY </ BeneState >  
+    <BeneZipCode  />   
+    <BeneCountry >UA </ BeneCountry >  
+    <BenePhoneNo >80931537873 </ BenePhoneNo >  
+    <BeneMessage  />   
+    <CustID >70890495 </ CustID >  
+    <CustFirstName >OLENA </ CustFirstName >  
+    <CustLastName >HAMMERSTEIN </ CustLastName >  
+    <CustLastName2  />   
+    <CustCountry >DE </ CustCountry >  
+    <CustID1Type >Reisepass </ CustID1Type >  
+   <CustID1No >5AK536901 </ CustID1No >  
+    <CustID1IssuedBy >DMV </ CustID1IssuedBy >  
+<CustID1IssuedByState >Florence </CustID1IssuedByState >      (New to response layout 1.3)          
+<CustID1IssuedByCountry >AL </CustID1IssuedByCountry >         (New to response layout 1.3)  
+<CustID1IssuedDate >20100101 </CustID1IssuedDate >      (New to response layout 1.3)  
+    <CustID1ExpirationDate >20161108 </ CustID1ExpirationDate >  
+    <CustID2Type  />   
+    <CustID2No  />   
+    <CustID2IssuedBy  />   
+   <CustID2IssuedByState />        (New to response layout 1.3)  
+   <CustID2IssuedByCountry />        (New to response layout 1.3)  
+   <CustID2IssuedDate />        (New to response layout 1.3)  
+    <CustID2ExpirationDate  />   
+    <CustTaxID >555555555 </ CustTaxID >  
+    <CustTaxCountry >DE </ CustTaxCountry >  
+  <CustCountryOfBirth >IT </CustCountryOfBirth >   (New to response layout 1.3)  
+  <CustNationality >DZ </CustNationality >      (New to response layout 1.3)  
+  <CustDateOfBirth >19841031</ CustDateOfBirth >  
+    <CustOccupation >Clerical </ CustOccupation >  
+    <CustSourceOfFunds >Occupation <CustSourceOfFunds >  
+  <CustPaymentMethod >Cash </CustPaymentMethod >   (New to response layout 1.3)  
+    <TransferReason >Family Assistance </ TransferReason >  
+   <BankName >BANCO ABN AMRO S A </ BankName >  
+      <BankAccountType >Checking </ BankAccountType >  
+      <BankAccountNo >47356371</ BankAccountNo >  
+  <BeneIDType >CPF </ BeneIDType >     (New to response layout 1.3)  
+      <BeneIDNo >04225512606 </ BeneIDNo > 
+  <BeneTaxID >987654321 </ BeneTaxID >     (New to response layout 1.3)  
+      <BankCity >Rio de Janeiro </ BankCity >  
+      <BankBranchNo >611 </ BankBranchNo >  
+      <BankBranchName >Banco Paulista </ BankBranchName >  
+      <BankBranchAddress >Av Brigadeiro Faria Lima </ BankBranchAddress >  
+      <BankCode >611 </ BankCode > 
+<BankRoutingCode >RO72RNCB0221040587290004 </BankRoutingCode > (New to layout 1.3)  
+<BankRoutingType >ABA </BankRoutingType >     (New to response layout 1.3)  
+<BIC_SWIFT >PRDTNGLA </BIC_SWIFT >     (New to response layout 1.3)  
+<UnitaryBankAccountNo />       (New to response layout 1.3)  
+<UnitaryType />         (New to response layout 1.3)  
+<Valuetype >Same  Day </Valuetype >      (New to response layout 1.3)  
+       </ Order > 
+   </ RequestResponses > 
+   <RequestErrors  />   
+===== PAGE 20 =====
+Version 1.13 20. 
+  </ Root > 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+ResponseLayoutVersion  Layout version Decimal 3,1  Yes 
+RequestType  (Same Enumeration as Request 
+layout) 
+Text (varies)  Yes  
+ResponseLayoutVersion  Ria’s Unique Order Number Text 20  Yes 
+RequestType  Unique PIN number Text 20  Yes 
+SendingCorrespSeqID  
+(New to version 1.11) 
+SC’s Sequential orderID Integer 10 (0 if not req’d by SC) Yes 
+PayingCorrespSeqID  PC’s Sequential orderID Integer 10 (0 if not req’d by PC) Yes 
+SalesDate  Ria’s Order Sales Date Text 8 YYYYMMDD Yes 
+SalesTime  Ria’s Order Sales Time Text 6 HHMMSS Yes 
+CountryFrom  Country From (ISO code) Text 2  Yes 
+CountryTo  Country To (ISO code) Text 2  Yes 
+PayingCorrespLocID  PC’s LocationID. (External LocID to 
+Ria) 
+Text  20  Yes 
+SendingCorrespBranchNo  SC’s LocationID where the order 
+was received. 
+Text 20   
+BeneQuestion  Beneficiary Question Text 50   
+BeneAnswer  Beneficiary Answer Text 50   
+PmtInstructions  Payment Instructions Text 100   
+BeneficiaryCurrency  Payment Currency to Beneficiary 
+ 
+Text 3  Yes 
+ 
+BeneficiaryAmount  Payment Amount to Beneficiary 
+ 
+Decimal 13 ZZZZZZZZZ9.99  
+(2 decimals) 
+Yes 
+DeliveryMethod  DeliveryMethod Codes: 
+2 = Bank Deposit 
+3 = Home Delivery 
+30 = Debit Card 
+31 = Bank Transfer 
+32 = ATM Pickup 
+Integer 
+ 
+  Yes 
+ 
+PaymentCurrency  Payment  Currency (ISO) to PC 
+ 
+Text 3  Yes 
+ 
+PaymentAmount  Payment Amount to PC 
+ 
+Decimal 13 ZZZZZZZZZ9.99 
+(2 decimals) 
+Yes 
+CommissionCurrency  Currency Ria will Pay PC in. 
+ 
+Text 3 Currency ISO Symbol  
+ 
+Yes 
+ 
+CommissionAmount  Commission Amount RIA will pay 
+to PC. 
+Decimal 13 ZZZZZZZZZ9.99 
+ (2 decimals) 
+Yes 
+CustomerChargeCurrency Currency Customer Paid Ria In Text 3  Conditional 
+CustomerChargeAmount  Amount Customer Paid Ria Decimal 13 ZZZZZZZZZ9.99 
+ (2 decimals) 
+Conditional 
+BeneID  Ria’s Beneficiary ID Text 20   
+BeneFirstName  Beneficiary First Name Text 50  Yes 
+BeneLastName  Beneficiary Last Name Text 50  Yes 
+BeneLastName2  Beneficiary Second Last Name Text 50   
+BeneAddress  Beneficiary Address Text 255   
+BeneCity  Beneficiary City Text 50   
+BeneState  Beneficiary State Text 20  Yes 
+BeneZipCode  Beneficiary Zip Code Text 20   
+BeneCountry  Beneficiary Country (ISO Code) Text 2  Yes 
+BenePhoneNo  Beneficiary Phone No. Text 20   
+BeneMessage  Beneficiary Message Text 255   
+CustID  Ria’s Customer ID Text 20  Yes 
+CustFirstName  Customer First Name Text 50  Yes 
+CustLastName  Customer Last Name Text 50  Yes 
+CustLastName2  Customer Second Last Name Text 50   
+CustAddress  Customer Address Text 255   
+CustCity  Customer City Text 50   
+CustState  Customer State Text 20   
+CustZipCode  Customer Zip Code Text 20   
+CustCountry  Customer Country (ISO Code)  Text 2  Yes 
+CustPhoneNo  Customer Phone No Text 20   
+CustID1Type  Customer ID Type Text 50   
+CustID1No  Customer ID No Text 20   
+CustID1IssuedBy  Customer ID Issued by Agency Text 50   
+CustID1IssuedByState  Customer ID Issued by State  Text  20   
+CustID1IssuedByCountry  Customer ID Issued by Country  Text  2   
+CustID1IssuedDate  Customer ID Issued Date  Text  8 YYYYMMDD   
+===== PAGE 21 =====
+Version 1.13 21. 
+CustID1ExpirationDate  Customer ID Expiration Text 8 YYYYMMDD  
+CustID2Type  Customer ID2 Type Text 50   
+CustID2No  Customer ID2 No Text 20   
+CustID2IssuedBy  Customer ID2 Issued by Agency Text 50   
+CustID2IssuedByState  Customer ID2 Issued by State  Text  20   
+CustID2IssuedByCountry  Customer ID2 Issued by Country  Text  2   
+CustID2IssuedDate  Customer ID2 Issued Date  Text  8 YYYYMMDD   
+CustID2ExpirationDate  Customer ID2 Expiration 
+ 
+Text 8 YYYYMMDD  
+CustTaxID  Customer SSN or TAX id Text 30   
+CustTaxCountry  Customer TAX Country 
+ 
+Text 2   
+CustCountryOfBirth Customer Country of Birth Text 2   
+CustNationality Customer Nationality Text 2   
+CustDateOfBirth  Customer Date Of Birth Text 8 YYYYMMDD  
+CustOccupation  Customer Occupation Text 50   
+CustSourceOfFunds  Customer Source Of Funds Text 50   
+CustPaymentMethod Customer Payment Method Text  Enumeration: 
+Cash, 
+Check, 
+Bank Deposit, 
+Credit Card, 
+Debit Card, 
+PayPal 
+ 
+TransferReason  Transfer Reason Text 100   
+BankName  Bank Name 
+ 
+Text 50  Yes if 
+Delivery 
+Method = 2 
+or 31 
+BankAccountType  Bank Account Type Text  Enumeration: 
+Checking, 
+Savings, 
+Credit, 
+Loan 
+Yes if 
+Delivery 
+Method =2 
+or 31 
+BankAccountNo  Account No. Text 50  * 
+BeneIDType  Beneficiary ID Type Text 50  * 
+BeneIDNo  Beneficiary ID Number.  Text 50  * 
+BeneTaxID  Beneficiary Tax ID Text 50  * 
+BankCity  Bank City 
+ 
+Text 50  * 
+BankBranchNo 
+ 
+Bank Branch Number 
+ 
+Text 20  * 
+BankBranchName 
+ 
+Bank Branch Name 
+ 
+Text 100  *  
+BankBranchAddress 
+ 
+Bank Branch Address 
+ 
+Text 50  *  
+BankCode 
+ 
+Bank Code Text  20  * 
+BankRoutingCode  Bank Routing Code Text 50  * 
+BankRoutingType  Bank Routing Type   Enumeration: 
+ABA, 
+ABI/CAB, 
+ABM, 
+BankCode, 
+Bankleitzahl, 
+Banque/Guichet 
+BIC, 
+BLZ, 
+BSB, 
+Country, 
+KND Banky, 
+Konstant Symbol, 
+Sort Code, 
+Transit Code  
+* 
+BIC_SWIFT  BIC or SWIFT number Text 20  * 
+UnitaryBankAccountNo  Unitary Account Number Text 50  * 
+UnitaryType  Unitary Account Type Text  Enumeration: 
+IBAN,  
+Clave 
+* 
+Valuetype  Value Type Text  Enumeration: 
+Next Business Day, 
+Same Day 
+* 
+ 
+===== PAGE 22 =====
+Version 1.13 22. 
+* Conditional if Delivery Method is 2, 31 or 32. 
+Section 2 (Cont.) 
+ 
+MethodName: InputPayersCustSvcMsgs  () 
+ 
+Description:  
+Used to submit the PC’s outstanding customer service messages for orders previously received from Ria 
+for payment. 
+ 
+Input Structure (including sample data)  
+ 
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <InputLayoutVersion >1.0 </ InputLayoutVersion >  
+    < CSMessages > 
+         < CSMessage > 
+    <PCOrderNo >234621580 </ PCOrderNo >  
+    <SCOrderNo >IT66625199 </ SCOrderNo >  
+    <MessageID >5193612 </ MessageID >  
+    <MessageText >A CSMessage for FXGlobal </ MessageText >  
+    <EnteredBy >Tony Messina </ EnteredBy >  
+        </ CSMessage > 
+         < CSMessage > 
+    <PCOrderNo >84621580 </ PCOrderNo >  
+    <SCOrderNo >US809196297 </ SCOrderNo >  
+    <MessageID >5193712 </ MessageID >  
+    <MessageText >A second message for Ria </ MessageText >  
+    <EnteredBy >Anthony Vasilli </ EnteredBy >  
+        </ CSMessage > 
+      </ CSMessages > 
+  </ Root > 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+InputLayoutVersion  Layout Version  Decimal 3,1  Yes 
+PCOrderNo  PC’s order number Text 20  Yes 
+SCOrderNo Ria’s order number Text 20  Yes 
+MessageID PC’s MessageID Integer   No 
+MessageText Message content Text 1000  Yes 
+EnteredBy  Name of user who entered msg Text 30  Yes 
+ 
+ 
+===== PAGE 23 =====
+Version 1.13 23. 
+Response Structure (including sample data)  
+ 
+ 
+ < Root xsi:noNamespaceSchemaLocation =" Ack_PayersCustSvcMsgs_1.0.xsd "  
+  xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <InputType >PayersCustSvcMsgs </ InputType >  
+   <ItemsProcessed >5</ ItemsProcessed >  
+    < Acknowledgements > 
+  < CSMessageAcknowledgement > 
+    <PCOrderNo >237621580 </ PCOrderNo >  
+    <SCOrderNo >UK665091977 </ SCOrderNo >  
+    <PCMessageID >5193412 </ PCMessageID >  
+    <ProcessDate >20110809 </ ProcessDate >  
+    <ProcessTime >181742 </ ProcessTime >  
+    <NotificationCode >1000 </ NotificationCode >  
+    <NotificationDesc >Success </ NotificationDesc >  
+  </ CSMessageAcknowledgement > 
+ 
+  . . . . 
+ 
+   </ Acknowledgements > 
+   <InputErrors  />   
+  </ Root > 
+ 
+Possible Response Codes: 
+Code Text 
+1000 Success 
+2000 Invalid CorrespID Value 
+2001 Error ocurred during order lookup. CS message rejected. 
+2002   CSMessage Insertion Error  (No longer used as of ver 1.5) 
+2003 Order not found.  CS Message rejected.  
+5000 Input XML is Invalid. Mandatory <PayingCorresp ID> element not found or contains an invalid value. 
+5001 Input XML is Invalid. Schema Messages: <Messag es> 
+5002 Exception occurred while doing generic input d ocument validation. 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+ResponseLayoutVersion  Layout version Decimal 3,1  Yes 
+InputType  Literal value  Text 17 “PayersCustSvcMsgs” 
+ 
+Yes  
+ItemsProcessed Number of items processed Integer   Yes 
+PCOrderNo  PC’s order number Text 20  Yes  
+SCOrderNo  Ria’s order number Text 20  Yes  
+PCMessageID  PC’s Message ID Integer   Yes  
+ProcessDate  (Self-explanatory) Text 8 yyyyyMMdd Yes  
+ProcessTime  (Self-explanatory) Text 6 HHmmss Yes  
+NotificationCode  (Self-explanatory) Integer   Yes  
+NotificationDesc  (Self-explanatory) Text 255  Yes  
+ 
+ 
+===== PAGE 24 =====
+Version 1.13 24. 
+Section 2 (Cont.) 
+ 
+MethodName: InputOrderStatusNotices () 
+ 
+Description:  
+Used to submit the PC’s outstanding OrderStatus notices for orders previously received from Ria for 
+payment. 
+ 
+Input Structure (including sample data)  
+ 
+ <?xml version="1.0" encoding="UTF-8" standalone="y es" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <InputLayoutVersion >1.1 </ InputLayoutVersion >  
+    < OrderStatusNotices > 
+         < OrderStatusNotice > 
+    <PCOrderNo >1968000 </ PCOrderNo >  
+    <SCOrderNo >SE874647580 </ SCOrderNo >  
+    <NotificationID >123460 </ NotificationID >  
+    <OrderStatus >RECEIVED </ OrderStatus >  
+    <StatusDate >20110801 </ StatusDate >  
+    <StatusTime >103925 </ StatusTime >  
+          </ OrderStatusNotice > 
+         < OrderStatusNotice > 
+    <PCOrderNo >1968000 </ PCOrderNo >  
+    <SCOrderNo >SE874647580 </ SCOrderNo >  
+    <NotificationID >123460 </ NotificationID >  
+    <OrderStatus >REJECTED </ OrderStatus >  
+    <StatusDate >20110801 </ StatusDate >  
+    <StatusTime >104001 </ StatusTime >  
+     < Reason >Payout location no longer available </ Reason >  
+          </ OrderStatusNotice > 
+        < OrderStatusNotice > 
+    <PCOrderNo >1968001 </ PCOrderNo >  
+    <SCOrderNo >IT104548699 </ SCOrderNo >  
+    <NotificationID >123463 </ NotificationID >  
+    <OrderStatus >PAID </ OrderStatus >  
+    <StatusDate >20110703 </ StatusDate >  
+    <StatusTime >114639 </ StatusTime >  
+    <BenIDType >Passport </ BenIDType >  
+    <BenIDNo >1337262 </ BenIDNo >  
+    <BenIDExpDate >20121005 </ BenIDExpDate >  
+    <BenIDIssuedBy >Germany </ BenIDIssuedBy >  
+    <PaidByCorrespID >3158735 </ PaidByCorrespID >  (New to ver 1.6)  
+       </ OrderStatusNotice > 
+        < OrderStatusNotice > 
+    <PCOrderNo >1963761 </ PCOrderNo >  
+    <SCOrderNo >ES1461529099 </ SCOrderNo >  
+    <NotificationID >123465 </ NotificationID >  
+    <OrderStatus >CANCELED </ OrderStatus >  
+    <StatusDate >20110801 </ StatusDate >  
+    <StatusTime >110820 </ StatusTime >  
+    <Reason >Request to cancel received from Ria </ Reason >  
+       </ OrderStatusNotice > 
+       </ OrderStatusNotices > 
+  </ Root > 
+===== PAGE 25 =====
+Version 1.13 25. 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+PayingCorrespID  PC’s Unique ID (Assigned by Ria) Integer   Yes 
+InputLayoutVersion  Layout Version  Decimal 3,1  Yes 
+PCOrderNo  PC’s order number Text 20  Yes 
+SCOrderNo Ria’s order number Text 20  Yes 
+NotificationID PC’s NotificationID Integer   No 
+OrderStatus Enumeration (see Format).  Text  Accepted Values: 
+“RECEIVED”,  
+“REJECTED”, 
+“PAID”,  
+“CANCELED” 
+Yes 
+StatusDate  (Self-explanatory) Text 8 yyyyyMMdd Yes 
+StatusTime (Self-explanatory) Text 6 HHmmss Yes 
+Reason Reason why order was CANCELED 
+or REJECTED 
+Text 1000  No 
+BenIDType Beneficiaries’ ID Type Text 50  * 
+BenIDNo Beneficiaries’ ID Number Text 50  * 
+BenIDExpDate Beneficiaries’ ID Expiration Date Text 0/8 Blank or  yyyyMMdd * # 
+BenIDIssuedBy Country that issued BenID Text 50  * 
+PaidByCorrespID  ID of Sub-Correspondent that 
+actually paid the order if different 
+from the PayingCorrespID. 
+Integer   No 
+ 
+* Only required if OrderStatus = “PAID”.   
+# BenIDExpDate not required for certain ID types. 
+ 
+Response Structure (including sample data)  
+ 
+ < Root xsi:noNamespaceSchemaLocation =" Ack_OrderStatus_1.0.xsd " xmlns =""  
+ xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <InputType >OrderStatusNotices </ InputType >  
+   <ItemsProcessed >3</ ItemsProcessed >  
+    < Acknowledgements > 
+  < OrderStatusNoticeAcknowledgement > 
+    <PCOrderNo >1968000 </ PCOrderNo >  
+    <SCOrderNo >SE874647580 </ SCOrderNo >  
+    <PCNotificationID >123460 </ PCNotificationID >  
+    <ProcessDate >20110809 </ ProcessDate >  
+    <ProcessTime >182333 </ ProcessTime >  
+    <NotificationCode >1000 </ NotificationCode >  
+    <NotificationDesc >Success </ NotificationDesc >  
+  </ OrderStatusNoticeAcknowledgement > 
+   
+  . . . . 
+ 
+      </ Acknowledgements > 
+   <InputErrors  />   
+  </ Root > 
+ 
+===== PAGE 26 =====
+Version 1.13 26. 
+ 
+Possible Response Codes: 
+Code Text 
+1000 Success 
+2000 Invalid CorrespID Value 
+2020 Sending Correspondent Cannot Locate SCOrderNo:  <SCOrderNo>. Notification Refused. 
+2021 Cannot Verify PayingCorrespondent Controls SCO rderNo: <SCOrderNo>. Notification Refused. 
+2022 PAID Notification Rejected.  Order Was Already  Marked as <"CANCELED"/"PAID"/"VOID"> 
+2023 CANCELED Notification Rejected.  Order Was Alr eady Marked as <"CANCELED"/"PAID"/"VOID"> 
+2030 Invalid PaidBy CorrespondentID   (New to ver 1.6)  
+5000 Input XML is Invalid. Mandatory <PayingCorresp ID> element not found or contains an invalid value. 
+5001 Input XML is Invalid. Schema Messages: <Messag es> 
+5002 Exception occurred while doing generic input d ocument validation. 
+6000 Processing Error 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+ResponseLayoutVersion  Layout version Decimal 3,1  Yes 
+InputType  Literal value Text 18 “OrderStatusNotices”  Yes  
+ItemsProcessed Number of items processed Integer   Yes 
+PCOrderNo  PC’s order number Text 20  Yes  
+SCOrderNo  Ria’s order number Text 20  Yes  
+PCNotificationID  PC’s Notification ID Integer   Yes  
+ProcessDate  (Self-explanatory) Text 8 yyyyyMMdd Yes  
+ProcessTime  (Self-explanatory) Text 6 HHmmss Yes  
+NotificationCode  (Self-explanatory) Integer   Yes  
+NotificationDesc  (Self-explanatory) Text 255  Yes  
+ 
+===== PAGE 27 =====
+Version 1.13 27. 
+Section 2 (Cont.) 
+ 
+MethodName: InputCancelRequestResponses () 
+ 
+Description:  
+Used to submit the PC’s responses to Ria’s cancellation requests retrieved through a preceding call to the 
+GetCancelationRequests  interface method.  
+ 
+Applies to:  Orders previously downloaded from Ria for payment via the GetOrdersForDownload  
+method. 
+ 
+Input Structure (including sample data)  
+ 
+ <?xml version="1.0" encoding="UTF-8" standalone="y es" ?>   
+ < Root > 
+   <PayingCorrespID >123456 </ PayingCorrespID >  
+   <InputLayoutVersion >1.0</ InputLayoutVersion >  
+    < CancelRequestResponses > 
+         < CancelRequestResponse > 
+    <PCOrderNo >1968000 </ PCOrderNo >  
+    <SCOrderNo >SE874647580 </ SCOrderNo >  
+    <ResponseCode >1000 </ ResponseCode >  
+    <ResponseDesc >Accepted </ ResponseDesc >  
+    <ResponseDate >20120912 </ ResponseDate >  
+    <ResponseTime >103925 </ ResponseTime >  
+  <Comments />  
+          </ CancelRequestResponse > 
+         < CancelRequestResponse > 
+   . . . . 
+    <ResponseCode >2000 </ ResponseCode >  
+    <ResponseDesc >Rejected - Order Not Found </ ResponseDesc >  
+    . . . . 
+          </ CancelRequestResponse > 
+         < CancelRequestResponse > 
+   . . . . 
+    <ResponseCode >2001 </ ResponseCode >  
+    <ResponseDesc >Rejected - Order Already Paid </ ResponseDesc >  
+   . . . . 
+        </ CancelRequestResponse > 
+         < CancelRequestResponse > 
+   . . . . 
+    <ResponseCode >2002 </ ResponseCode >  
+    <ResponseDesc >Rejected - Order Already Canceled </ ResponseDesc >  
+   . . . . 
+          </ CancelRequestResponse > 
+         < CancelRequestResponse > 
+   . . . . 
+    <ResponseCode >2003 </ ResponseCode >  
+    <ResponseDesc > Rejected - Other  </ ResponseDesc >  
+    <ResponseDate >20120912 </ ResponseDate >  
+    <ResponseTime >153942 </ ResponseTime >  
+  <Comments >Any reason not covered by the standard responses can be 
+communicated here. </ Comments >  
+          </ CancelRequestResponse > 
+       </ CancelRequestResponses > 
+  </ Root > 
+ 
+===== PAGE 28 =====
+Version 1.13 28. 
+ 
+Fields: 
+Element Desc Type Size Format Req’d 
+PayingCorrespID  PC’s Unique ID  Integer   Yes 
+InputLayoutVersion  Layout Version  Decimal 3,1  Yes 
+PCOrderNo  PC’s order number Text 20  Yes 
+SCOrderNo Ria’s order number Text 20  Yes 
+ResponseCode Enumeration (see Format).  Integer  Accepted Values : 
+1000, 
+2000, 
+2001, 
+2002, 
+2003 
+Yes 
+ResponseDesc Enumeration (see Format).  Text  Accepted Values: 
+“Accepted ”,  
+“Rejected - Order Not Found ”, 
+“Rejected - Order Already Paid ”,  
+“Rejected - Order Already Canceled ”, 
+“Rejected - Other ” 
+Yes 
+ResponseDate  (Self-explanatory) Text 8 yyyyyMMdd Yes 
+ResponseTime (Self-explanatory) Text 6 HHmmss Yes 
+Comments Used to communicate any 
+reason not covered in the 
+standard responses. 
+Text 255  No 
+ 
+ 
+Response Structure (including sample data)  
+ 
+ < Root xsi:noNamespaceSchemaLocation =" Ack_CancReqResponses_1.0.xsd " xmlns =""  
+ xmlns:xsi =" http://www.w3.org/2001/XMLSchema-instance ">  
+   <ResponseLayoutVersion >1.0 </ ResponseLayoutVersion >  
+   <InputType >CancelRequestResponses </ InputType >  
+   <ItemsProcessed >5</ ItemsProcessed >  
+    < Acknowledgements > 
+  < CancelRequestResponseAcknowledgement > 
+    <PCOrderNo >1968000 </ PCOrderNo >  
+    <SCOrderNo >SE874647580 </ SCOrderNo >  
+    <ProcessDate >20110809 </ ProcessDate >  
+    <ProcessTime >182333 </ ProcessTime >  
+    <NotificationCode >1000 </ NotificationCode >  
+    <NotificationDesc >Success </ NotificationDesc >  
+  </ CancelRequestResponseAcknowledgement > 
+   
+  . . . . 
+ 
+      </ Acknowledgements > 
+   <InputErrors  />   
+  </ Root > 
+ 
+===== PAGE 29 =====
+Version 1.13 29. 
+ 
+Possible Response Codes: 
+Code Text 
+1000 Success 
+2000 Invalid CorrespID Value 
+2020 Sending Correspondent Cannot Locate SCOrderNo:  <SCOrderNo>. Notification Refused. 
+2021 Cannot Verify PayingCorrespondent Controls SCO rderNo: <SCOrderNo>. Notification Refused. 
+5000 Input XML is Invalid. Mandatory <PayingCorresp ID> element not found or contains an invalid value. 
+5001 Input XML is Invalid. Schema Messages: <Messag es> 
+5002 Exception occurred while doing generic input d ocument validation. 
+5003 Invalid Client Certificate Thumbprint Presente d 
+5004 Exception Occurred While Authenticating Caller  
+6000 Processing Error 
+ 
+ 
+Fields: 
+Element Desc Type Size Format Required 
+ResponseLayoutVersion  Layout version Decimal 3,1  Yes 
+InputType  Literal value Text 18 “CancelRequestResponses”  Yes  
+ItemsProcessed Number of items processed Integer   Yes 
+PCOrderNo  PC’s order number Text 20  Yes  
+SCOrderNo  Ria’s order number Text 20  Yes  
+ProcessDate  (Self-explanatory) Text 8 yyyyyMMdd Yes  
+ProcessTime  (Self-explanatory) Text 6 HHmmss Yes  
+NotificationCode  (Self-explanatory) Integer   Yes  
+NotificationDesc  (Self-explanatory) Text 255  Yes  
+ 
+===== PAGE 30 =====
+Version 1.13 30. 
+Appendix A – Additions/Modifications  
+ 
+ 
+Included In Version 1.3   
+ 
+Effective Date: Oct 5, 2011 
+ 
+Item Page(s) 
+Interface renamed from “Sending” to ‘RiaAsSender” Title Page 
+New BasicHttp binding option is available for compatibility with Java/PHP/Linux clients N/A 
+ 
+ 
+Included In Version 1.4   
+ 
+Effective Date: Nov 21, 2011 
+ 
+# Item Page(s) 
+1 New version (1.1) of response layout to OP_VerifyOrderForPayout  method. New 
+<CountryFrom> element added.   
+9,10 
+2 New schema (XSD) file available for response layout ch ange listed in item #1 
+(VerifyOrder_Response_1.1.xsd) 
+N/A 
+3 New fields returned in response layout to OP_ConfirmOrderPaid  method. New 
+<PCCommissionCurrency> and <PCCommissionAmount> elements added.   
+13 
+4 New schema (XSD) file available for response layout ch ange listed in item #3 
+(ConfirmOrderPaid_Response_1.1.xsd) 
+N/A 
+5 Beginning with this release the client certificate’s th umbprint (if applicable) will be validated 
+against the <PayingCorrespID> value. Calls that fail this validation will be rejected with the 
+following response: 
+OP methods - Return Code/Text of 5003/"Invalid Client Certificate Thumbprint Presented" 
+All other methods – The ErrorMsg attribute of the < Error > element  will read  "Invalid Client 
+Certificate Thumbprint Presented "> 
+N/A 
+6 Corrected encoding to “UTF-8” on several XSD files. P lease use the corrected versions 
+(available upon request). 
+N/A 
+7 New possible response code for the OP_VerifyOrderForPayout  method. Code/Desc: (2005 
+– “The Order's delivery method does not allow for Open Payout. It must be downloaded.”) 
+10 
+  
+ 
+Included In Version 1.5   
+ 
+Effective Date: Feb 14, 2012 
+ 
+# Item Page(s) 
+1 The order lookup logic for the OP_VerifyOrderForPayout  method will now ignore any 
+decimal places in the amount. For example: If the order amount is $225.76, any amount 
+submitted betweeen $225.00 and $225.99 will be considered a match. 
+9 
+2 New possible response code for the OP_ConfirmOrderPaid  method. Code/Desc: (2009 – 
+“Beneficiary Currency And/Or Amount Is Incorrect.”) 
+12 
+3 Updated Production Environment paragraph regarding client certificates.  4 
+4 Code 2002 removed from possible return codes 22 
+5 New possible response code for OP_VerifyOrderForPayout  method if caller’s country does 
+not match the Order’s CountryTo value.  Code/Desc: (2006 – “Order Is Not Assigned To 
+Paying Correspondent's Country.”) 
+10 
+6 Three new fields have been added to the GetOrdersForDownload  response layout: 
+BankBranchNo, BankBranchName, BankBranchAddress. These are required for bank deposit 
+transactions in some countries. 
+20 
+7 New schema (XSD) file available for response layout ch ange listed in item #6. 
+(DownloadedOrders_1.1.xsd)  
+N/A 
+  
+ 
+ 
+===== PAGE 31 =====
+Version 1.13 31. 
+ 
+Included In Version 1.6 
+ 
+Effective Date: March 10, 2012 
+ 
+1 New Optional <PaidByCorrespID> element in the Orde rStatus Notification  layout.  23, 24 
+2 <InputLayoutVersion > element  value changed to “1.1 ” to reflect change listed in item #1. 23 
+3 New schema (XSD) file available for OrderStatus Noti fication layout change listed in item #1. 
+(Import_OrderStatusNotices_1.1.xsd) 
+N/A 
+4 New possible response code to InputOrderStatusNotices  method.   
+Code/Desc: (2030 – “Invalid PaidBy CorrespondentID .”) 
+25 
+  
+ 
+Included In Version 1.7 
+ 
+Effective Date: April 10, 2012 
+ 
+1 Modified schema (XSD) file (DownloadedOrders_1.0.xsd ). Added minOccurs = “0” on Order 
+element. 
+N/A 
+2 New <BankCode > element in downloaded orders layout.  18, 20 
+3 New schema (XSD) file available for downloaded orde rs layout change listed in item #2. 
+(DownloadedOrders_1.2.xsd) 
+N/A 
+4 Corrected data type and size of the <PayingCorrespLocID > element on downloaded orders 
+from Integer (10) to Text (20). 
+17 
+5 Two new response codes for InputPayersCustSvcMsgs  method (2001, 2003) 22 
+  
+ 
+Included In Version 1.8 
+ 
+Effective Date: April 25, 2012 
+ 
+# Item Page(s) 
+1 Proof reader corrections to documentation only – No webservice changes.  
+ 
+ 
+ 
+Included In Version 1.9 
+ 
+Effective Date (Staging): July 16, 2012 
+ 
+# Item Page(s) 
+1 New version (1.3) of the Downloaded orders layout t o add the following 17 new fields: 
+CustID1IssuedByState  
+CustID1IssuedByCountry  
+CustID1IssuedDate  
+CustID2IssuedByState  
+CustID2IssuedByCountry  
+CustID2IssuedDate  
+CustCountryOfBirth  
+CustNationality  
+CustPaymentMethod  
+BeneIDType  
+BeneTaxID  
+BankRoutingCode  
+BankRoutingType  
+BIC_SWIFT  
+UnitaryBankAccountNo  
+UnitaryType  
+Valuetype 
+19-21 
+2 New schema (XSD) file available for downloaded orde rs layout change listed in item #1. 
+(DownloadedOrders_1.3.xsd) 
+N/A 
+===== PAGE 32 =====
+Version 1.13 32. 
+3 The <ConfirmPaidTransRefID> value  of the OP_VoidO rderPaidConfirmation method can now 
+be either the TransRefID returned by the OP_VerifyOrderForPayout method OR  the 
+OP_ConfirmOrderPaid method in case the client experiences a timeout when calling the 
+OP_ConfirmOrderPaid method which would prevent the client from receiving the later 
+confirmation TransRefID. 
+14 
+4 The data type of the <CorrespLocID> element of the OP_ConfirmOrderPaid method has been 
+changed from Integer to Text(20).  This allows for the fact that some correspondents use 
+alpha characters in their location IDs. When confirming an order as paid the correspondent 
+should use this element to provide Ria with the location ID that actually paid out the order. It 
+is assumed that these location IDs have already been communicated to Ria for cross 
+referencing to our internal location ID numbers.  Please contact the Correspondent 
+Administration department for any questions regarding this process which is outside of the 
+scope of this interface. 
+12 
+5 The schema file for the OP_ConfirmOrderPaid method (OP_ConfirmOrderPaid_1.0.xsd) has 
+been modified to accommodate the change in item number 4 above. No new version of the 
+schema file was created since this modification will not break the existing interface. 
+N/A 
+ 
+ 
+Included In Version 1.10 
+ 
+Effective Date (Staging): September 17, 2012 
+ 
+# Item Page(s) 
+1 New interface method ( InputCancelRequestResponses ) added for communicating back 
+to Ria the Paying Correspondent’s exact response to cancellation requests retrieved by calling 
+the GetCancellationRequests()  method. 
+27 
+2 New schema (XSD) file available for input of cancella tion request responses listed in item #1. 
+(Import_CancReqResponses_1.0.xsd) 
+N/A 
+3 New schema (XSD) file available for Ria’s acknowledge ment of cancellation request responses 
+listed in item #1. (Ack_CancReqResponses_1.0.xsd) 
+N/A 
+ 
+Included In Version 1.10.1 (Documentation changes only) 
+# Item Page(s) 
+1 Fixed a typo on p. 29 29 
+2 Added note regarding VPN tunnel option 4 
+ 
+ 
+Included In Version 1.11 
+ 
+Effective Date (Staging): March 11, 2013 
+ 
+# Item Page(s) 
+1 New element to contain the paying correspondent’s seq uence ID (<SeqIDPA>) in the 
+OP_VerifyOrderForPayout  response layout.  
+9, 10 
+2 <ResponseLayoutVersion > element  value changed to “ 1.2” to reflect change listed in item 
+#1 above. 
+9 
+3 New schema (XSD) file available for OP_VerifyOrderForPayout response layout change 
+listed in item #1 above. (VerifyOrder_Response_1.2.xsd) 
+N/A 
+4 New element to contain the originating correspondent ’s sequence ID 
+(<SendingCorrespSeqID>) in the GetOrdersForDownload  response layout.  
+18, 20 
+5 <ResponseLayoutVersion > element  value changed to “ 1.4” to reflect changes listed in item 
+#5 above. 
+18 
+6 New schema (XSD) file available for GetOrdersForDownload response layout change listed 
+in item #5 above. (DownloadedOrders_1.4.xsd) 
+N/A 
+ 
+===== PAGE 33 =====
+Version 1.13 33. 
+Included In Version 1.12 
+ 
+Effective Date: May 30, 2013 
+ 
+# Item Page(s) 
+1 Documentation change only:  Changed all <PayingCorrespID> element values in XML 
+samples to the fictitious value “123456”.  
+ 
+ 
+ 
+Included In Version 1.13 
+ 
+Effective Date: September 26, 2013 
+ 
+# Item Page(s) 
+1 Documentation change only:  Changed three fields prefixed with “CustID1” to the more 
+correct “CustID2” in the GetOrdersForDownload  response layout. 
+19 
+ 
+ 
+ 

@@ -1,0 +1,702 @@
+PDF_PAGES=19
+PDF_META={'/Author': 'Antonio Domingo', '/Keywords': 'SOW; AOB', '/Creator': 'Microsoft® Word 2010', '/CreationDate': "D:20151020122556+02'00'", '/ModDate': "D:20151020122556+02'00'", '/Producer': 'Microsoft® Word 2010'}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+ 
+ 
+Proprietary information: 
+ 
+The contents of this document are confidential and may contain trade secrets. This document may not be distributed, its contents may not 
+be disclosed, in whole or in part, without the express written consent of RIA Financial Inc. This document is an unpublished work protected 
+under the copyright laws of the United States of America and other countries. If this document becomes published the following shall 
+apply: 
+ 
+Copyright © 2013 RIA Financial Services Inc. All rights reserved. 
+ 
+ 
+6565 Knott Ave, Buena Park, CA, 90620, Phone: +(562) 345 2100  
+www.riafinancial.com 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+RiaAsSender Interface 
+ (Web Service) 
+ 
+Functional Description 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 2 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 2 of 19 
+ 
+Document Control 
+Document Version Control 
+Version 
+Number Status Description Author(s) Release Date 
+1.0 To 
+approve 
+This document is based on general document 
+FXGlobalWebservice_RiaAsSenderInterface.pdf Klajdi Hoxha 10/16/2014 
+     
+     
+     
+ 
+===== PAGE 3 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 3 of 19 
+ 
+Table of Contents 
+I. PAYING OFFICE PICKUP ORDERS ................................ ................................ ...........................  4 
+1 WEB SERVICE METHODS ................................ ................................ ................................ ..........  4 
+2 VERIFY ORDERS (OP_VERIFYORDERFORPAYOUT) ................................ .............................  4 
+3 PAY ORDERS (OP_CONFIRMORDERPAID) ................................ ................................ .............  5 
+4 VOID ORDERS (OP_VOIDORDERPAIDCONFIRMATION) ................................ .......................  6 
+II. PAYING BANK DEPOSIT TRANSACTIONS ................................ ................................ ..............  8 
+1. WEB SERVICE METHODS ................................ ................................ ................................ ..........  8 
+2. DOWNLOADING TRANSACTIONS (GETORDERSFORDOWNLOAD) ................................ .... 8 
+3. PAYING TRANSACTIONS (INPUTORDERSTATUSNOTICES) ................................ .................  9 
+4. REJECT TRANSACTIONS (INPUTORDERSTATUSNOTICES) ................................ ..............  11 
+III. PAYING MOBILE WALLET TRANSACTIONS ................................ ................................ ..........  12 
+IV. PAYING HOME DELIVERY TRANSACTIONS ................................ ................................ ..........  13 
+V. CUSTOMER SERVICE MESSAGES ................................ ................................ ..........................  14 
+1. WEB SERVICE METHODS ................................ ................................ ................................ ........  14 
+2. SEND MESSAGES TO RIA  (INPUTPAYERSCUSTSVCMSGS)  ................................ ..............  14 
+3. RECEIVE MESSAGES FROM RIA (GETSENDERSCUSTSVCMSGS ) ................................ ... 15 
+VI. APPENDIX A (FI ELDS TYPES  & RESPONSE COD ES) ................................ .........................  16 
+1. OP_VERIFYORDERFORPAYOUT ................................ ................................ .............................  16 
+2. OP_CONFIRMORDERPAID ................................ ................................ ................................ .......  16 
+3. OP_VOIDORDERPAIDCONFIRMATION ................................ ................................ ...................  17 
+4. GETORDERSFORDOWNLOAD ................................ ................................ ................................  18 
+5. GETCANCELLATIONREQUESTS ................................ ................................ .............................  18 
+6. INPUTORDERSTATUSNOTICES ................................ ................................ ..............................  18 
+7. INPUTPAYERSCUSTSVCMSGS ................................ ................................ ...............................  19 
+8. GETSENDERSCUSTSVCMSG S ................................ ................................ ................................  19 
+ 
+===== PAGE 4 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 4 of 19 
+ 
+I. Paying Office Pickup Orders 
+The purpose of these methods is to provide to the correspondent a service to pay office pickup orders in a 
+fast, simple and safe manner. Following the instructions below will guarantee  the success of the 
+correspondent’s integration with RIA. 
+All the methods described in this section are mandatory to be developed in order to integrate with RIA for 
+paying office pickup orders. RIA will test all the methods developed by  the correspondent in the test  
+environment before to going live on the real environment.  
+1 Web service methods  
+ OP_VerifyOrderForPayout   (see appendix A for field types and code responses) 
+ OP_ConfirmOrderPaid   (see appendix A for field types and code responses) 
+ OP_VoidOrderPaidConfirmation  (see appendix A for field types and code responses) 
+2 Verify orders (OP_VerifyOrderForPayout) 
+ 
+In order to pay an Office Pickup order, the first step is to call the method OP_ VerifyOrderForPayout including 
+the PIN of the order (e.g. 11313793692). This method is called to check if the order is available to be paid 
+and to obtain information about the customer and the beneficiary. Also, this method returns  some fields like 
+“TransRefID”, “OrderNo”, “BeneCurrency”,”BeneAmount”  that are needed in the request of method 
+OP_ConfirmOrderPaid to confirm payment of  the order . The field “TransRefID” can also be used by the 
+method OP_VoidOrderPaidConfirmation. 
+The PayingCorrespID is a number that i dentifies the correspondent. It i s provided by RIA and is used for all  
+requests. 
+In case that the order is available to be paid this method returns the message “Order is available for payout” 
+and the Response code is “1000”. 
+The image below shows the Request and the Response of method OP_VeryfOrderForPayout  
+ 
+
+===== PAGE 5 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 5 of 19 
+ 
+3 Pay orders (OP_ConfirmOrderPaid) 
+ 
+Call the method OP_ConfirmOrderPaid  to pay the order  with information obtained from the 
+OP_VerifyOrderForPayout response (TransRefID,PIN , OrderNo, BeneCurrency, BeneAmount). When this 
+method returns a ResponseCode = 1000 and ResponseText = “Order confirmed as paid”, then the order is 
+marked as Paid from RIA side.  
+In this request,  information about the  beneficiary ( e.g. the document type, number of the document, the 
+country where the document was issued, etc.) should be provided. The ID code or number that  identifies the 
+location where the transaction was paid needs to be included in the CorrespLocID tag . At this point, RIA 
+should know the ID number of all the locations of the correspondent where transactions will be paid . Using 
+the information provided in this tag, RIA can know where each individual transaction is paid at.  
+The method OP_ConfirmOrderPaid should be ca lled immediately after calling OP_VerifyOrderForPayout. This 
+is necessary as  the service returns information on real time and  either RIA, or the sender, can change the 
+order information between these two calls. 
+The image below shows the Request and the Response of method OP_ConfirmOrderPaid 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 6 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 6 of 19 
+ 
+ 
+4 Void orders (OP_VoidOrderPaidConfirmation) 
+ 
+The goal of method OP_Voi dOrderPaidConfirmation is to reverse the actions taken when calling  
+OP_ConfirmOrderPaid in case that this method wa s not carried out correctly from RIA ’s side or 
+Correspondent’s side. E.g. network interruption, network micro cut, power issue, etc. 
+Once the method OP_VoidOrderPaidConfirmation is called, then the state of order from RIA changes from 
+“Paid” to “Available for payout” once again.  
+This method should be requested automatically without any intervention from the teller. The correspondent 
+should mark the order as paid when  they receive the correct response from OP_ConfirmOrderPaid and not at 
+the moment of the request.  
+Keep in mi nd that the marking an order Paid on one side but not on the other can create a cascade effect 
+that can consume a large amount of resources to correct the situation. This situation is easily solved by  
+implementing OP_ VoidOrderPaidConfirmation correctly.  
+There are two different scenarios where OP_VoidOrderPaidConfirmation should be called.  
+The first one (Scenario A) happens when the correspondent calls OP_ConfirmOrderPaid and the web service 
+return a TimeOutException, so the correspondent doesn’t know if  the order has been saved as paid by Ria. In 
+this case,  the method OP_VoidOrderPaidConfirmation is called with the field OrderPaidTranRefID obtained 
+from the field TransRefID of the response of method OP_VerifyOrderForPayout. If the service returns 
+TimeOutException also in the method OP_VoidOrderPaidConfirmation, recall this method several times until a 
+valid response is received.  
+The second one (Scenario B) happens when the correspondent receive s a correct response of  
+OP_ConfirmOrderPaid but receives an exception when try to save the order as paid in their database . In this 
+case, the method OP_VoidOrderPaidConfirmation is called with the field OrderPaidTranRefID obtained from 
+the field TransRefID of response of method OP_ConfirmOrderPaid. 
+ 
+Note: This method can only be called within 2 minutes after calling the method OP_ConfirmOrderPaid. 
+ 
+Scenario A: Timeout Exception 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  Time 
+Order is not 
+saved as Paid 
+yet.  
+??? 
+Request ConfirmOrderPaid 
+Method 
+Response TimeOutException  
+Create Void 
+Request 
+Request VoidOrderPaid Method 
+Response 1000 = Rollback  OK  
+RollBack Paid 
+Order 
+FxGlobal, Ria 
+Side 
+Correspondent 
+Side 
+Ready to be 
+Paid 
+Ready to be 
+Paid Again 
+===== PAGE 7 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 7 of 19 
+ 
+ 
+Scenario B: Exception from Correspondent Side. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    YES  
+ 
+ 
+ 
+Time 
+ 
+ 
+ 
+ 
+The image below shows the Request and the Response of method OP_VoidOrderPaidConfirmation. 
+ 
+Order is not 
+saved as Paid 
+yet.  
+Order Saved 
+as Paid 
+FxGlobal, Ria 
+Side Correspondent 
+Side 
+Request ConfirmOrderPaid Method 
+Response 1000, Paid Order Saved  
+b OK  
+Create Void 
+Request 
+Request VoidOrderPaid Method 
+Response 1000 = Rollback  OK  
+RollBack Paid 
+Order 
+¿ Exception 
+while Saving 
+the order as 
+Paid ? 
+Ready to be 
+Paid  
+Ready to be 
+Paid  
+===== PAGE 8 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 8 of 19 
+ 
+II. PAYING BANK DEPOSIT TRANSACTIONS 
+The aim of these methods is to make the process of bank deposit payment efficient and effective from the 
+correspondent’s side. Developing these methods as indicated will avoid future problems between RIA and the 
+correspondent. 
+All the methods described in this section are mandatory to be developed in order to integrate with R IA for 
+paying bank deposit transactions. RIA will test all the methods developed by the correspondent in the test 
+environment before to go to real environment.  
+1. Web Service methods 
+ GetOrdersForDownload    (see appendix A for fields type and code responses) 
+ GetCancelationRequests  (see appendix A for fields type and code responses) 
+ InputOrderStatusNotices  (see appendix A for fields type and code responses) 
+2. Downloading transactions (GetOrdersForDownload) 
+The first method that needs to be called is  GetOrdersForDownload. This method will return all the 
+transactions ready to be paid by the correspondent. This method should be called continuously.  By default, 
+each transaction can only be downloaded once. The image below shows the request and the response of the 
+method GetOrdersForDownload. 
+ 
+   
+ 
+
+===== PAGE 9 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 9 of 19 
+ 
+At the mom ent that transactions are downloaded, the correspondent  has to inform to RIA that those 
+transactions have been received. This is done by calling the method InputOrderStatusNotices with the field 
+OrderStatus = “RECEIVED”.  
+ PCOrderNo is a unique ID provided by the correspondent to identify each order. 
+ SCOrderNo is a unique ID provided by the RIA to identify each order. 
+ NotificationID is a unique ID provided by the correspondent to identify each notification. 
+ 
+ 
+ 
+3. Paying transactions (InputOrderStatusNotices) 
+ 
+The payment of bank deposit transactions is done by calling the method InputOrderStatusNotices with the 
+field OrderStatus = “PAID” and including also information related to the  beneficiary ( e.g. document type,  
+document number, the country where the document was issued, etc.)  
+Before the payment of any  transaction, method GetCancelationRequests should be called to get all the 
+transactions that have been canceled by RIA , previously downloaded by the paying correspondent . In case 
+that an order has been cancele d by RIA, that order cannot be paid. In that case the correspondent should 
+call the method InputOrderStatusNotices with OrderStatus = “CANCELED”. 
+The method GetCancelationRequests can be called con tinuously but it is important that it is  called before 
+paying any order.  In the image below we can show that an order that was previously downloaded by the 
+paying correspondent has been canceled by RIA or the sender correspondent. 
+ 
+  In this image is shown the request and the response of the method GetCancelationRequests. 
+ 
+ 
+ 
+ 
+
+===== PAGE 10 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 10 of 19 
+ 
+In this image is shown the request and the response of method InputOrderStatusNotices with OrderStatus = 
+“CANCELED”. 
+ 
+ 
+ 
+ 
+In this image is shown the request and the response of the method InputOrderStatusNotices with OrderStatus 
+= “PAID” and the beneficiary information. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 11 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 11 of 19 
+ 
+4. Reject transactions (InputOrderStatusNotices) 
+Bank deposit transactions can be rejected when the information is not consistent  or is wrong. This can be 
+done by calling the method InputOrderStatusNotices with OrderStatus = “REJECTED” and giving a reason 
+for that rejection. 
+ 
+ 
+  
+
+===== PAGE 12 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 12 of 19 
+ 
+III. PAYING MOBILE WALLET TRANSACTIONS 
+The process to pay Mobile Wallet  orders is identical as paying bank deposit transactions. The only difference is 
+in the field DeliveryMethod in the response of method GetOrdersForDownload. This field will be 34 for 
+transactions type Home Delivery and 2 for transactions type Bank Deposit.  In the image below are shown 
+Mobile Wallet transactions received from the method GetOrdersForDownload. 
+ 
+ 
+
+===== PAGE 13 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 13 of 19 
+ 
+IV. PAYING HOME DELIVERY TRANSACTIONS 
+The process to pay home delivery orders is identical as paying bank deposit transactions. The only difference is 
+in the field Delivery Method in the response of method GetOrdersForDownload. This field will be 3 for 
+transactions type Home Delivery and 2 for transactions type Bank Deposit. In the i mage below are shown 
+Home Delivery transactions received from the method GetOrdersForDownload. 
+ 
+
+===== PAGE 14 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 14 of 19 
+ 
+V. CUSTOMER SERVICE MESSAGES 
+The purpose of these methods is to offer the correspondent the ability  to communicate on real time with RIA 
+Customer Service for any transaction paid. It also provides the correspondent the option of having a history log 
+for any transaction and being informed of all the actions taken by Ria Cu stomer Service related to the orders 
+paid. 
+All the methods described in this section are mandatory to be developed by the correspondent in order to 
+integrate with RIA. RIA will test all the methods developed by the correspondent in the test  environment 
+before going to the live environment.  
+1. Web Service methods 
+ InputPayersCustSvcMsgs   (see appendix A for fields type and code responses) 
+ GetSendersCustSvcMsgs  (see appendix A for fields type and code responses) 
+2. Send messages to RIA (InputPayersCustSvcMsgs) 
+Call method InputPayersCustSvcMsgs to send messages directly to RIA Customer Service Department related 
+to orders paid by correspondent. These messages will be received by RIA Customer Service Department and 
+will help RIA to make decisions and transmit the messages to the correspondent that sent the order.  
+The method InputPayersCustSvcMsgs is combined with the method GetSendersCustSvcMsgs to create a way of 
+communication through messages between Correspondent and RIA, for those orders that have been paid by 
+Correspondent. 
+Below is shown the request and the response of method InputPayersCustSvcMsgs. 
+ PCOrderNo is a unique ID provided by the correspondent to identify each order. 
+ MessageID is a unique ID provided by the correspondent to identify each Message. 
+ 
+ 
+ 
+
+===== PAGE 15 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 15 of 19 
+ 
+3. Receive messages from RIA (GetSendersCustSvcMsgs) 
+Call method GetSendersCustSvcMsgs to receive the messages from RIA Customer Service Department and the 
+messages from correspondent that sent the order, related to those orders paid by correspondent. These 
+messages will be sent by RIA or Sender Correspondent and will help the payer correspondent to make 
+decisions.  
+Once a message is received by the Correspondent, that me ssage will not be delivered again by RIA.  Below is 
+shown the request and the response of method GetSendersCustSvcMsgs. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 16 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 16 of 19 
+ 
+VI. APPENDIX A (FIELDS TYPES  & RESPONSE CODES) 
+ 
+Required – YES: The tag and the value mandatory 
+Required – Requested: The tag is mandatory 
+1. OP_VerifyOrderForPayout 
+   
+    Fields Type 
+Nombre  USE MIN-MAX GenericType Required 
+PayingCorrespID  1-1 xs:unsignedInt YES 
+RequestLayoutVersion  1-1 LayoutVersion YES 
+DateTimeLocal  1-1 DateYYYYMMDDHHMMSS 
+(R) 
+YES 
+DateTimeUTC  1-1 DateYYYYMMDDHHMMSS 
+(R) 
+YES 
+PIN  1-1 PIN (R) YES 
+BeneAmount  1-1 Money (R) YES 
+ 
+Response Codes 
+1000 Order is available for payout. 
+2001 No order found matching supplied PIN and BeneficiaryAmount. 
+2002 Order has already been marked as paid to beneficiary. 
+2003 Order has been cancelled. 
+2004 Order exists but is not currently available for payout. Contact RIA Customer Service department for 
+explanation. 
+2005 The Order's delivery method does not allow for Open Payout. It must be downloaded. (New t o ver 
+1.4) 
+2006 Order Is Not Assigned To Paying Correspondent's Country (New to ver 1.5) 
+5000 Input XML is Invalid. Mandatory <PayingCorrespID> element not found or contains an invalid 
+value. 
+5001 Input XML is Invalid. Schema Messages: <Messages> 
+5002 Exception occurred while doing generic input document validation. 
+5003 Invalid Client Certificate Thumbprint Presented 
+ 
+2. OP_ConfirmOrderPaid 
+ 
+Nombre  USE MIN-MAX GenericType Required 
+PayingCorrespID  1-1 xs:unsignedInt YES 
+RequestLayoutVersion  1-1 LayoutVersion YES 
+DateTimeLocal  1-1 DateYYYYMMDDHHMMSS YES 
+DateTimeUTC  1-1 DateYYYYMMDDHHMMSS YES 
+VerifyOrderTransRefID  1-1 xs:unsignedInt YES 
+OrderNo  1-1 OrderNo (R) YES 
+PIN  1-1 PIN (R) YES 
+BeneCurrency  1-1 Currency (R) YES 
+===== PAGE 17 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 17 of 19 
+ 
+BeneAmount  1-1 Money (R) YES 
+PaidDateTimeLocal  1-1 DateYYYYMMDDHHMMSS 
+(R) 
+YES 
+PaidDateTimeUTC  1-1 DateYYYYMMDDHHMMSS 
+(R) 
+YES 
+CorrespLocID  1 StringMin0Max20 Requested 
+BeneIDType  1-1 StringMin1Max50 (R) YES 
+BeneIDNumber  1-1 StringMin1Max50 (R) YES 
+BeneIDIssuedByCountry  1-1 CountryCode (R) YES 
+BeneIDIssuedByState  1-1 StringMin0Max50 Requested 
+BeneIDExpirationDate  1-1 DateYYYYMMDDOptional Requested 
+ 
+Response Codes 
+1000 Order confirmed as paid. 
+2000 Invalid CorrespID Value 
+2001 No order found matching supplied PIN and BeneficiaryAmount. 
+2002 Order has already been marked as paid to beneficiary. 
+2003 Order has been cancelled. 
+2004 Order exists but is not currently available for payout. Contact RIA Customer Service department for 
+explanation. 
+2005 Order must be successfully verified using the VerifyOrderForPayout method prior to confirming 
+payment. 
+2006 One or both paid datetime values are illegitimate. 
+2007 One or both paid datetime values differ by more than 24 hours from current UTC time. 
+2008 Order could not be marked paid. Please contact RIA Customer Service department for assistance. 
+2009 Beneficiary Currency And/Or Amount Is Incorrect. (New to ver 1.5) 
+5000 Input XML is Invalid. Mandatory <PayingCorrespID> element not fou nd or contains an invalid 
+value. 
+5001 Input XML is Invalid. Schema Messages: <Messages> 
+5002 Exception occurred while doing generic input document validation. 
+5003 Invalid Client Certificate Thumbprint Presented 
+ 
+ 
+3. OP_VoidOrderPaidConfirmation 
+ 
+Nombre  USE MIN-MAX GenericType Required 
+PayingCorrespID  1-1 xs:unsignedInt YES 
+RequestLayoutVersion  1-1 LayoutVersion YES 
+DateTimeLocal  1-1 DateYYYYMMDDHHMMSS 
+(R) 
+YES 
+DateTimeUTC  1-1 DateYYYYMMDDHHMMSS 
+(R) 
+YES 
+OrderPaidTransRefID  1-1 xs:unsignedInt Requested 
+OrderNo  1-1 OrderNo (R) YES 
+PIN  1-1 PIN (R) YES 
+BeneCurrency  1-1 Currency (R) YES 
+BeneAmount  1-1 Money (R) YES 
+ 
+ 
+===== PAGE 18 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 18 of 19 
+ 
+Response Codes 
+1000 Paid confirmation has been voided successfully. 
+2000 Invalid CorrespID Value 
+2010 Order cannot be confirmed as having been paid. Please contact Ria Customer Service department. 
+2011 Payment confirmations can only be voided within two minutes of their receipt. Please contact Ria 
+Customer Service 
+department. 
+2012 Paid confirmation could not be voided. Pl ease contact RIA Customer Service department for 
+assistance. 
+5000 Input XML is Invalid. Mandatory <PayingCorrespID> element not found or contains an invalid 
+value. 
+5001 Input XML is Invalid. Schema Messages: <Messages> 
+5002 Exception occurred while doing generic input document validation. 
+5003 Invalid Client Certificate Thumbprint Presented 
+ 
+4. GetOrdersForDownload 
+ 
+Nombre  USE MIN-
+MAX 
+GenericType Required 
+PayingCorrespID  1-1 xs:unsignedInt YES 
+RequestType OrdersForDownload 1-1  YES 
+ 
+5. GetCancellationRequests 
+ 
+Nombre  USE MIN-
+MAX 
+GenericType Required 
+PayingCorrespID  1-1 xs:unsignedInt YES 
+RequestType CancelationRequests 1-1  YES 
+ 
+Response Codes 
+1000 Success 
+2000 Invalid CorrespID Value 
+2020 Sending Correspondent Cannot Locate SCOrderNo: <SCOrderNo>. Notification Refused. 
+2021 Cannot Verify PayingCorrespondent Controls SCOrderNo: <SCOrderNo>. Notification Refused. 
+5000 Input XML is Invalid. Mandatory <PayingCorrespID> element not found or contains an invalid 
+value. 
+5001 Input XML is Invalid. Schema Messages: <Messages> 
+5002 Exception occurred while doing generic input document validation. 
+5003 Invalid Client Certificate Thumbprint Presented 
+5004 Exception Occurred While Authenticating Caller 
+6000 Processing Error 
+ 
+6. InputOrderStatusNotices 
+ 
+Nombre  USE MIN-MAX GenericType Required 
+PCOrderNo  1 OrderNo (R) YES 
+SCOrderNo  1 OrderNo (R) YES 
+NotificationID  0 xs:unsignedLong  
+OrderStatus  1 OrderStatus YES 
+===== PAGE 19 =====
+                                                          
+ 
+ 
+RiaAsSender Functional Description  Page 19 of 19 
+ 
+StatusDate  1 DateYYYYMMDD YES 
+StatusTime  1 Time (R) YES 
+Reason  0 StringMin0Max1000  
+BenIDType  0 StringMin1Max50  
+BenIDNo  0 StringMin1Max50  
+BenIDExpDate  0 DateYYYYMMDDOptional  
+BenIDIssuedBy  0 StringMin1Max50  
+ 
+Response Codes 
+1000 Success 
+2000 Invalid CorrespID Value 
+2020 Sending Correspondent Cannot Locate SCOrderNo: <SCOrderNo>. Notification Refused. 
+2021 Cannot Verify PayingCorrespondent Controls SCOrderNo: <SCOrderNo>. Notification Refused. 
+2022 PAID Notification Rejected. Order Was Already Marked as <"CANCELED"/"PAID"/"VOID"> 
+2023 CANCELED Notification Rejected. Order Was Already Marked as <"CANCELED"/"PAID"/"VOID"> 
+2030 Invalid PaidBy CorrespondentID (New to ver 1.6) 
+5000 Input XML is Invalid. Mandatory <PayingCorrespID> element not found or contains an invalid 
+value. 
+5001 Input XML is Invalid. Schema Messages: <Messages> 
+5002 Exception occurred while doing generic input document validation. 
+6000 Processing Error 
+ 
+7. InputPayersCustSvcMsgs 
+ 
+Nombre  USE MIN-MAX GenericType Required 
+PCOrderNo  1-1 OrderNo (R) YES 
+SCOrderNo  1-1 OrderNo (R) YES 
+MessageID  0-1 xs:unsignedLong  
+MessageText  1-1 StringMin1Max1000 YES 
+EnteredBy  1-1 xs:string YES 
+ 
+Response Codes 
+1000 Success 
+2000 Invalid CorrespID Value 
+2001 Error ocurred during order lookup. CS message rejected. 
+2002 CSMessage Insertion Error (No longer used as of ver 1.5) 
+2003 Order not found. CS Message rejected. 
+5000 Input XML is Invalid. Mandatory <PayingCorrespID> element not found or contains an invalid 
+value. 
+5001 Input XML is Invalid. Schema Messages: <Messages> 
+5002 Exception occurred while doing generic input document validation. 
+ 
+8. GetSendersCustSvcMsgs 
+ 
+Nombre  USE MIN-
+MAX 
+GenericType Required 
+PayingCorrespID  1-1 xs:unsignedInt YES 
+RequestType SendersCustSvcMsgs 1-1  YES 
+ 

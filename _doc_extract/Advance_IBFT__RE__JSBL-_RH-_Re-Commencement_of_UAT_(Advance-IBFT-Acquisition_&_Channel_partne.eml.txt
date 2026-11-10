@@ -1,0 +1,180 @@
+X-Notes-Item: 1;
+ name=$AutoSpell
+X-Notes-Item: Tue, 23 Sep 2014 21:24:52 +0500;
+ type=400; name=OriginalModTime
+X-Notes-Item: Reply;
+ name=Form
+In-Reply-To: <OFB64C5844.C8F5D633-ON45257D5B.004EE9D5-45257D5B.004F0883@LocalDomain>
+References: <OFB64C5844.C8F5D633-ON45257D5B.004EE9D5-45257D5B.004F0883@LocalDomain>
+X-Notes-Item: B64C5844:C8F5D633-45257D5B:004EE9D5;
+ type=4; name=$REF
+X-Notes-Item: CN=Muhammad Ali/OU=Remittance/OU=KHI/OU=South/O=jsbl;
+ flags=44; name=InheritedFrom
+X-Notes-Item: CN=Muhammad Ali/OU=Remittance/OU=KHI/OU=South/O=jsbl;
+ flags=44; name=InheritedAltFrom
+X-Notes-Item: ;
+ name=InheritedSMTPOriginator
+X-Notes-Item: StdNotesLtr25;
+ name=Logo
+X-Notes-Item: StdNotesLtr25;
+ name=dLogo
+X-Notes-Item: True;
+ name=useApplet
+X-Notes-Item: 1;
+ name=DefaultMailSaveOptions
+X-Notes-Item: 1;
+ name=ExpandPersonalGroups
+X-Notes-Item: ;
+ name=origStat
+X-Notes-Item: ;
+ name=origSig
+X-Notes-Item: ;
+ name=tmpImp
+X-Notes-Item: ;
+ name=Sign
+X-Notes-Item: =?UTF-8?B?RGVhciBBbGksICBSZWZlcmVuY2UgdG8gb3VyIGRpc2N1c3Npb24=?=
+ =?UTF-8?B?IGVhcmxpZXIsIHdlIGhhdmUgY29waWVkIHRoZSBwcm92aWRlZCBwYXRjaA==?=
+ =?UTF-8?B?IG9uIFVBVCBTZXJ2ZXIgYW5k?=;
+ flags=6; name=$Abstract
+X-Notes-Item: Confidential;
+ name=ConfidentialString
+X-Notes-Item: ;
+ name=Classification
+Subject: RE: JSBL- RH- Re-Commencement of UAT (Advance-IBFT-Acquisition & Channel
+ partner) Login Menu For USERS
+X-KeepSent: 8866B8B3:C5647919-45257D5C:0059EEE9;
+ type=4; name=$KeepSent
+To: Ali.Muhammad@jsbl.com
+Cc: Babar_Mehboob_Siddiqi/IT/KHI/South/jsbl%jsbl@jsbl.com,
+	Junaid_Rafiq_Ahmed/IT/KHI/South/jsbl%jsbl@jsbl.com,
+	Yaqoob.Sheikhji@jsbl.com
+X-Notes-Item: en;
+ type=501; name=$NameLanguageTags
+X-Notes-Item: CN=Babar Mehboob Siddiqi/OU=IT/OU=KHI/OU=South/O=jsbl@jsbl,
+	CN=Junaid Rafiq Ahmed/OU=IT/OU=KHI/OU=South/O=jsbl@jsbl,
+	CN=Mohammed Yaqoob Sheikhji/OU=Remittance/OU=KHI/OU=South/O=jsbl@jsbl;
+ type=501; flags=45; name=Originalcc
+X-Notes-Item: CN=Muhammad Ali/OU=Remittance/OU=KHI/OU=South/O=jsbl@jsbl;
+ flags=45; name=AltSendTo
+X-Notes-Item: CN=Babar Mehboob Siddiqi/OU=IT/OU=KHI/OU=South/O=jsbl@jsbl,
+	CN=Junaid Rafiq Ahmed/OU=IT/OU=KHI/OU=South/O=jsbl@jsbl,
+	CN=Mohammed Yaqoob Sheikhji/OU=Remittance/OU=KHI/OU=South/O=jsbl@jsbl;
+ type=501; flags=45; name=AltCopyTo
+X-Notes-Item: 1;
+ name=$StorageTo
+X-Notes-Item: .,
+	.,
+	.;
+ type=501; name=$StorageCc
+X-Mailer: Lotus Notes Release 8.5.3 September 15, 2011
+Message-ID: <OF8866B8B3.C5647919-ON45257D5C.0059EEE9-45257D5C.005A2B72@LocalDomain>
+From: Saad.Mirza@jsbl.com
+Date: Tue, 23 Sep 2014 21:24:53 +0500
+X-Notes-Item: 0;
+ name=Encrypt
+X-Notes-Item: CN=Saad Sarwar Mirza/OU=IT/OU=KHI/OU=South/O=jsbl,
+	CN=jsbmail/O=jsbl;
+ type=501; flags=44; name=$UpdatedBy
+X-Notes-Item: CN=jsbmail/O=jsbl,
+	CN=cluster/O=jsbl;
+ type=501; flags=0; name=RouteServers
+X-Notes-Item: =?UTF-8?B?MjMtU2VwLTIwMTQgMjE6MjQ6MjMgWkU1LzIzLVNlcC0yMDE0IDIxOjI0OjI0?=
+ =?UTF-8?B?IFpFNSwgMjMtU2VwLTIwMTQgMjE6MjQ6MjQgWkU1LzIzLVNlcC0yMDE0IDIx?=
+ =?UTF-8?B?OjI0OjI0IFpFNQ==?=;
+ type=401; flags=0; name=RouteTimes
+X-Notes-Item: 8866B8B3:C5647919-45257D5C:0059EEE9;
+ type=4; name=$Orig
+X-Notes-Item: ;
+ type=501; name=Categories
+X-Notes-Item: ;
+ type=401; name=$Revisions
+X-Notes-Item: Tue, 23 Sep 2014 21:24:24 +0500;
+ type=400; name=DeliveredDate
+X-Notes-Item: B64C5844:C8F5D633-45257D5B:004EE9D5, B64C5844:C8F5D633-45257D5B:004EE9D5;
+ type=4; name=$TUA
+X-Notes-Item: 1;
+ name=$NoteHasNativeMIME
+X-Notes-Item: CN=Muhammad Ali/OU=Remittance/OU=KHI/OU=South/O=jsbl@jsbl;
+ name=OriginalTo
+X-Notes-Item: CN=Saad Sarwar Mirza/OU=IT/OU=KHI/OU=South/O=jsbl;
+ name=OriginalFrom
+X-MIMETrack: Serialize by Notes Client on Muhammad Ali/Remittance/KHI/South/jsbl(Release
+ 8.5.3|September 15, 2011) at 06/11/2015 05:09:11 PM
+MIME-Version: 1.0
+Content-type: multipart/related; 
+	Boundary="0__=CABBF7CFDFCA68798f9e8a93df938690918cCABBF7CFDFCA6879"
+Content-Disposition: inline
+
+--0__=CABBF7CFDFCA68798f9e8a93df938690918cCABBF7CFDFCA6879
+Content-type: text/html; charset=US-ASCII
+Content-Disposition: inline
+Content-transfer-encoding: quoted-printable
+
+<html><body>
+<p><font size=3D"2" face=3D"sans-serif">Dear Ali, </font><br>
+<br>
+<font size=3D"2" face=3D"sans-serif">Reference to our discussion earlie=
+r, we have copied the provided patch on UAT Server and unfortunately un=
+able to test the same due to Hard ware issue. </font><br>
+<br>
+<font size=3D"2" face=3D"sans-serif">Let us make a copy of tis server a=
+nd then we will test the release accordingly. We will try our level bes=
+t to complete this task by end of this week.</font><br>
+<br>
+<br>
+<font size=3D"2" face=3D"sans-serif">Regards, <br>
+Saad Sarwar</font><br>
+<br>
+<img width=3D"16" height=3D"16" src=3D"cid:0__=3DCABBF7CFDFCA68798f9e8a=
+93df93869091@local" border=3D"0" alt=3D"Inactive hide details for Muham=
+mad Ali---09/22/2014 07:22:45 PM---Dear Saad, Please find the attached =
+email, Reply is still awa"><font size=3D"2" color=3D"#424282" face=3D"s=
+ans-serif">Muhammad Ali---09/22/2014 07:22:45 PM---Dear Saad, Please fi=
+nd the attached email, Reply is still awaited kindly update the status.=
+</font><br>
+<br>
+<font size=3D"1" color=3D"#5F5F5F" face=3D"sans-serif">From:	</font><fo=
+nt size=3D"1" face=3D"sans-serif">Muhammad Ali/Remittance/KHI/South/jsb=
+l</font><br>
+<font size=3D"1" color=3D"#5F5F5F" face=3D"sans-serif">To:	</font><font=
+ size=3D"1" face=3D"sans-serif">Saad Sarwar Mirza/IT/KHI/South/jsbl@jsb=
+l, </font><br>
+<font size=3D"1" color=3D"#5F5F5F" face=3D"sans-serif">Cc:	</font><font=
+ size=3D"1" face=3D"sans-serif">Babar Mehboob Siddiqi/IT/KHI/South/jsbl=
+@jsbl, Junaid Rafiq Ahmed/IT/KHI/South/jsbl@jsbl, Mohammed Yaqoob Sheik=
+hji/Remittance/KHI/South/jsbl@jsbl</font><br>
+<font size=3D"1" color=3D"#5F5F5F" face=3D"sans-serif">Date:	</font><fo=
+nt size=3D"1" face=3D"sans-serif">09/22/2014 07:22 PM</font><br>
+<font size=3D"1" color=3D"#5F5F5F" face=3D"sans-serif">Subject:	</font>=
+<font size=3D"1" face=3D"sans-serif">RE: JSBL- RH- Re-Commencement of U=
+AT (Advance-IBFT-Acquisition &amp; Channel partner) Login Menu For USER=
+S</font><br>
+<hr width=3D"100%" size=3D"2" align=3D"left" noshade style=3D"color:#80=
+91A5; "><br>
+<br>
+<font size=3D"2" face=3D"sans-serif">Dear Saad,</font><br>
+<br>
+<font size=3D"2" face=3D"sans-serif">Please find the attached email, Re=
+ply is still awaited kindly update the status.</font><br>
+<br>
+<font size=3D"2" face=3D"sans-serif">[attachment &quot;RE_ JSBL- RH- Re=
+-Commencement of UAT (Advance-IBFT-Acquisition &amp; Channel partne.eml=
+&quot; deleted by Saad Sarwar Mirza/IT/KHI/South/jsbl] </font><br>
+<br>
+<font size=3D"2" face=3D"sans-serif">Regards</font><br>
+<font size=3D"2" face=3D"sans-serif">Muhammad Ali</font><br>
+<font size=3D"2" face=3D"sans-serif">111-572-265 EXT (365)</font><br>
+</body></html>=
+
+--0__=CABBF7CFDFCA68798f9e8a93df938690918cCABBF7CFDFCA6879
+Content-type: image/gif; 
+	name="graycol.gif"
+Content-Disposition: inline; filename="graycol.gif"
+Content-ID: <0__=CABBF7CFDFCA68798f9e8a93df93869091@local>
+Content-transfer-encoding: base64
+
+R0lGODlhEAAQAKECAMzMzAAAAP///wAAACH5BAEAAAIALAAAAAAQABAAAAIXlI+py+0PopwxUbpu
+ZRfKZ2zgSJbmSRYAIf4fT3B0aW1pemVkIGJ5IFVsZWFkIFNtYXJ0U2F2ZXIhAAA7
+
+--0__=CABBF7CFDFCA68798f9e8a93df938690918cCABBF7CFDFCA6879--
+

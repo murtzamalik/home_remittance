@@ -1,0 +1,174 @@
+Kazim Raza                                                                                                   B
+"$"#,##0_);\("$"#,##0\)
+"$"#,##0_);[Red]\("$"#,##0\)
+"$"#,##0.00_);\("$"#,##0.00\)
+"$"#,##0.00_);[Red]\("$"#,##0.00\)
+_("$"* #,##0_);_("$"* \(#,##0\);_("$"* "-"_);_(@_)
+_(* #,##0_);_(* \(#,##0\);_(* "-"_);_(@_)
+_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)
+_(* #,##0.00_);_(* \(#,##0.00\);_(* "-"??_);_(@_)
+_("$"#,##0_);\("$"#,##0\)
+_("$"#,##0_);[Red]\("$"#,##0\)
+_("$"#,##0.00_);\("$"#,##0.00\)
+_("$"#,##0.00_);[Red]\("$"#,##0.00\)
+m/d/yy
+mmmm\-yy
+m/d/yy\ h:mm
+#\ #0.0E+0
+mm/dd/yyyy\ hh:mm:ss
+mm/dd/yyyy
+0;[Red]0
+,##0.00\
+;_(@_)  }
+;_(@_)  
+        
+20% - Accent1
+20% - Accent2
+20% - Accent3
+20% - Accent4
+20% - Accent5
+20% - Accent6
+40% - Accent1
+40% - Accent2
+40% - Accent3
+40% - Accent4
+40% - Accent5
+40% - Accent6
+60% - Accent1
+60% - Accent2
+60% - Accent3
+60% - Accent4
+60% - Accent5
+60% - Accent6
+Accent1
+Accent2
+Accent3
+Accent4
+Accent5
+Accent6
+Calculation
+Check Cell
+Explanatory Text
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Linked Cell
+Neutral
+Output
+Warning Text
+Sheet 1
+Dear Customer ,
+Your JS Bank credit card ending with 4678 has been used for PKR 3,900.00 on 09-MAY-2015 19:10:30 .
+Helpline: 0800-011-22
+03335466289
+03335466290
+03335466291
+03335466292
+03335466293
+03335466294
+03335466295
+03335466296
+03335466297
+03335466298
+03335466299
+03335466300
+03335466301
+03335466302
+03335466303
+03335466304
+MESSAGE
+ENTRYDATE
+TRANSACTIONNATURE 
+TRANSACTIONTYPE
+CHANNEL
+InputBin
+PrinterSelect
+RESDLL
+UniresDLL
+Resolution
+600dpi
+Orientation
+PORTRAIT
+HPOrientRotate180
+Duplex
+PaperSize
+LETTER
+MediaType
+Collate
+OutputBin
+HPImageShift
+HPAutoDuplexScaling
+ColorMode
+TextAsBlack
+TTAsBitmapsSetting
+TTModeOutline
+RETChoice
+HPBackSidePrinting
+JPEGEnable
+Smoothing
+PrintQualityGroup
+PQGroup_1
+HPColorMode
+MONOCHROME_MODE
+HPPDLType
+PDL_PCL6
+HPPJLEncoding
+HPJobAccounting
+HPJOBACCT_JOBACNT
+HPBornOnDate
+HPJobByJobOverride
+HPXMLFileUsed
+hpmcpap6.xml
+HPStaplingOpposed
+HPPCL6PassThrough
+HPSmartDuplexSinglePageJob
+HPSmartDuplexOddPageJob
+HPManualDuplexDialogItems
+InstructionID_01_FACEDOWN-NOROTATE
+HPManualFeedOrientation
+FACEDOWN
+HPOutputBinOrientation
+Stapling
+HPManualDuplexDialogModel
+Modeless
+HPManualDuplexPageOrder
+EvenPagesFirst
+HPMapManualFeedToTray1
+HPPrintOnBothSidesManually
+HPStraightPaperPath
+HPSendPJLUsageCmd
+HPCovers
+Other_Pages
+Front_Cover_from_Feeder_InputBin
+Back_Cover_from_Feeder_InputBin
+JRConstraints
+JRCHDPartial
+JRHDInstalled
+JRHDOff
+JRHDNotInstalled
+HPConsumerCustomPaper
+PSAlignmentFile
+HPZLSwn7
+HPSmartHub_Onlinediagnostictools
+HPSmartHub_Supportandtroubleshooting
+HPSmartHub_Productmanuals
+HPSmartHub_Checkfordriverupdates
+HPSmartHub_Colorprintingaccessusage
+HPSmartHub_Ordersupplies
+HPSmartHub_Showmehow
+PSServices_Printcolorusagejoblog
+HPSmartHub
+Inet_SID_263_BID_514_HID_265
+EXCEL.EXE
+Kazim Raza
+Worksheets
+Arial1
+Cambria1
+Calibri1
+Calibri
+Normal
+Root Entry
+Workbook
+SummaryInformation
+DocumentSummaryInformation

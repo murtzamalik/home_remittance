@@ -1,0 +1,82 @@
+ $.' ",#
+(7),01444
+'9=82<.342
+!22222222222222222222222222222222222222222222222222
+%&'()*456789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz
+`{SUUP
+Su*;$]:r
+|Ebmu+e
+bYW=@a
+HF@{XHa
+^ysuqw)
+K{yngH`B
+__s^f;
+=<M_gM
+kJUeJ\
+}>8|5$
+[Content_Types].xml
+_rels/.rels
+theme/theme/themeManager.xml
+theme/theme/theme1.xml
+w toc'v
+3Vq%'#q
+:\TZaG
+Qg20pp
+theme/theme/_rels/themeManager.xml.rels
+K(M&$R(.1
+[Content_Types].xmlPK
+_rels/.relsPK
+theme/theme/themeManager.xmlPK
+theme/theme/theme1.xmlPK
+theme/theme/_rels/themeManager.xml.relsPK
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<a:clrMap xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/>
+9gL|9G
+m.asad
+Normal
+Jabbar Khatri
+Microsoft Office Word
+Microsoft Word 97-2003 Document
+MSWordDoc
+Word.Document.8
+Advance IBFT Services
+User ID Creation Form
+To be Completed by the User
+Name  :
+Designation :
+Exchange Company :
+Country/City/Region :
+Agent Location Address :
+Email :
+Contact (with Code) :
+User Type :   
+Inputter/Sub Agent   
+ Authorizer/Agent  
+View authority only
+Purpose:
+Requestor
+s Name:
+Signature
+Date: 
+Approved by Authorized Personnel of Exchange Company 
+Approved By
+Approved By (JS Bank use only)
+LOB - Business
+Signat
+ure                                    Date:     /      /   
+User details (For SMSG use only)
+Sign on Name
+SMSG group assigned
+JS Bank Logo
+Default Paragraph Font
+Table Normal
+No List
+Table Grid
+Balloon Text
+Root Entry
+1Table
+WordDocument
+SummaryInformation
+DocumentSummaryInformation
+CompObj

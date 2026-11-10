@@ -1,0 +1,33 @@
+PDF_PAGES=2
+PDF_META={'/CreationDate': "D:20160314144355+05'00'", '/ModDate': "D:20160314144355+05'00'", '/Producer': 'Acrobat Distiller 5.0 (Windows)', '/Author': 'Yousuf.Nasir', '/Creator': 'PScript5.dll Version 5.2', '/Title': 'Microsoft Word - Deployment Guide.docx'}
+
+===== PAGE 1 =====
+Deployment Guide 
+ 
+1.  Database Scripts execution [Setups & Configuration Scripts] 
+2.  Take back up of home remit application. 
+3.  Copy home remit folder from UAT to live server. 
+4.  Copy RHAPI module from UAT to live server. (First time deployment) 
+5.  Kindly copy PULL service folder from C: Drive  (First time deployment) 
+C:\Program Files\SHMA (Copy all the files present in pull folder to production system) 
+6.  Configuration at Pull Service 
+In the "APIPullWindowsService.exe.config" change the DSN.(this is the configuration file        
+kindly change the DSN in that file). 
+In the "APIPullWindowsService.exe.config" fix the following values: 
+   <add key="ProxyIP" value="http://PROXY02:7080" /> 
+    <add key="ProxyUser" value="Naveen.Anwar" /> 
+    <add key="Domain" value="SHMA" /> 
+    <add key="ProxyPassword" value="123678" /> 
+Note: The above mentioned values are already present in the config file, just fix the following 
+values according to the domain. 
+7. Provide local service and network rights to pull service folder. 
+8. Installation of Pull Window Service. 
+Please execute the following command in the run option: cmd.exe. 
+Now, with cd command go to the folder dir mentioned where the pull folder is kept: (cd will 
+change directory, cd.. moved to previous one) 
+For eg: C:\Program Files\SHMA\PullEngineService\ 
+Also put command, InstallUtil.exe and press enter. Windows Service will be installed Service 
+Name will be: "ServicePull". 
+In the Run Type "services.msc" right click on the name of "ServicePull" and start the service. 
+===== PAGE 2 =====
+9. Reset IIS. 

@@ -1,0 +1,6 @@
+PDF_PAGES=2
+PDF_META={'/Creator': '', '/CreationDate': '', '/Author': '', '/Producer': '', '/Title': '', '/Subject': ''}
+
+===== PAGE 1 =====
+
+===== PAGE 2 =====

@@ -1,0 +1,706 @@
+PDF_PAGES=9
+PDF_META={'/Producer': 'Nitro PDF PrimoPDF', '/CreationDate': "D:20150731190543-05'00'", '/ModDate': "D:20150731190543-05'00'", '/Title': 'Microsoft Word - Centegy - JSBL - RemitHome - PULL - API - Proposal - 31-July-2015', '/Creator': 'PrimoPDF http://www.primopdf.com', '/Author': 'Taufiq.Ahmed'}
+
+===== PAGE 1 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+RemitHome 
+Formerly Sidat Hyder Morshed Technologies (Pvt) Ltd
+5th  Floor, Beaumont Plaza, Beaumont Road, Karachi
+Website: 
+ 
+RemitHome  PULL API - Proposal                     
+ 
+ 
+ 
+ 
+TECHNICAL & FINANCIAL 
+PROPOSAL 
+ 
+ 
+RemitHome - API Interfacing (PULL Model) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+31 July 2015 
+ 
+ 
+ 
+ 
+Centegy Technologies (Pvt) Ltd. 
+Formerly Sidat Hyder Morshed Technologies (Pvt) Ltd 
+ 
+Floor, Beaumont Plaza, Beaumont Road, Karachi-75530, Pakistan 
+Website: www.centegytechnologies.com  
+ 
+  
+Page: 1  
+75530, Pakistan  
+===== PAGE 2 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+ 
+Table of Contents 
+ 
+1 Proposal  ................................ 
+1.1  Request for Proposal
+1.2  Scope of Work  ................................ 
+1.3  Application Coverage 
+1.4  Centegy Offer  ................................ 
+1.5  Specific/Customized Integration 
+2 Financials  ................................ 
+2.1  Fee Quotation  ................................ 
+2.2  Other Fee’s  ................................ 
+2.3  Payment Terms  ................................ 
+3 Other Matters  ................................ 
+3.1  Specific  ................................ 
+3.2  General ................................ 
+ 
+ 
+RemitHome  PULL API - Proposal                     
+................................ ................................................................ ............................... 
+Request for Proposal ................................................................ ................................ 
+................................ ................................ ................................ 
+Application Coverage  ................................................................ ................................ 
+................................ ................................ ................................ 
+Specific/Customized Integration  ................................ ................................ 
+................................ ................................................................ ............................. 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+ 
+  
+Page: 2  
+...............................  3 
+................................ .... 3 
+................................ .............. 3 
+................................ ... 4 
+................................ ............... 6 
+................................ .................. 6 
+.............................  7 
+................................ .............. 7 
+................................ ................... 7 
+................................ ............ 8 
+................................ ...................... 9 
+................................ ......................... 9 
+................................ ......................... 9 
+===== PAGE 3 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+ 
+1 Proposal 
+ 
+1.1  Request for Proposal 
+ 
+1.1.1  The request for proposal was received from JSBL in 18 June 2015.
+ 
+1.2  Scope of Work 
+ 
+1.2.1  Two remitting entities ( 
+PULL API model and for this 
+ 
+Background 
+Refer RH-JSBL- Technical Proposal dated 20 June 2012, clause # 1.6.2 as per which , we are 
+going to provide JSBL API interfacing functionality with two entities (EPS and Speed Remit) 
+only under covered original scope. 
+ 
+Integration with Remitting Entities 
+Following remitting entities APIs have been shared and 
+o   EPS  
+o   Speed Remit  
+Note: Further, any additional development requested by JS will be cover under separate scope 
+of work and c harge accordingly) 
+ 
+1.2.2  The scope, time and fee f 
+with ‘RemitHome’ application 
+ 
+1.2.3  The PULL API based on a 
+entities through web service integration with 
+processing.  
+ 
+1.2.4  ‘RemitHome’ Web Service API 
+- Account transactions (includes both JSBL and other bank t 
+- Cash over the counter payments 
+ 
+1.2.5  ‘RemitHome’ web services integration frame work will enable JSBL to receive real time instant 
+remittances from the different 
+concept). 
+  
+1.2.6  Under this model transaction will not reside in 
+Beneficiary, the application 
+beneficiary provided UNR. Once Transaction is paid, acknowledgement will be se 
+remitting entity system through API on real time bases.
+ 
+ 
+RemitHome  PULL API - Proposal                     
+The request for proposal was received from JSBL in 18 June 2015. 
+Two remitting entities ( ‘EPS’ and ‘SpeedRemit’) will be covered under the covered scope of 
+for this no additional fees will be charged.  
+Technical Proposal dated 20 June 2012, clause # 1.6.2 as per which , we are 
+going to provide JSBL API interfacing functionality with two entities (EPS and Speed Remit) 
+only under covered original scope.  
+Integration with Remitting Entities /Agents (MTOs) through APIs:  
+Following remitting entities APIs have been shared and reviewed  
+Note: Further, any additional development requested by JS will be cover under separate scope 
+harge accordingly)  
+The scope, time and fee f or any additional remitting entities which JSB L wants to integrate 
+application  will be determined separately.  
+based on a web-service interface to facilitate JSBL for connecting 
+through web service integration with ‘RemitHome’ and get transactions for further 
+Web Service API (PULL Model) supports following transaction types 
+Account transactions (includes both JSBL and other bank t ransactions) 
+Cash over the counter payments  
+web services integration frame work will enable JSBL to receive real time instant 
+remittances from the different remitting entities system (On payment from anywhere 
+Under this model transaction will not reside in ‘RemitHome’ Database. Upon r 
+Beneficiary, the application  will pull the transaction from remitting entity system through 
+beneficiary provided UNR. Once Transaction is paid, acknowledgement will be se 
+system through API on real time bases. 
+ 
+  
+Page: 3  
+) will be covered under the covered scope of 
+Technical Proposal dated 20 June 2012, clause # 1.6.2 as per which , we are 
+going to provide JSBL API interfacing functionality with two entities (EPS and Speed Remit) 
+Note: Further, any additional development requested by JS will be cover under separate scope 
+L wants to integrate 
+JSBL for connecting with remitting 
+transactions for further 
+transaction types  
+ 
+web services integration frame work will enable JSBL to receive real time instant 
+system (On payment from anywhere 
+Database. Upon r equest of 
+system through 
+beneficiary provided UNR. Once Transaction is paid, acknowledgement will be se nt to 
+===== PAGE 4 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+1.3  Application Coverage  
+ 
+1.3.1  JSBL want ‘RemitHome 
+the data on real time bases. All remitting entities 
+methods and require some level of authentication. The web methods are using different t 
+modes of data exchange like XML, String, Object, etc 
+ 
+1.3.2  Ne w module will be introduced in 
+remitting entity interfacing with Web Service API.
+These Includes: 
+- Entry Form to setup Remitting Entity for allowing connectivity with credential information.
+- Entry Form for Security Settings.
+- Inquiry screen to monitor API transact 
+ 
+1.3.3  API Interfaces Available in Application 
+ 
+Usually three set of messages required to complete single transaction ( 
+entity to entity). 
+a- Transaction Inquiry 
+b-  Confirm Payment  
+c- Cancel Transaction  
+ 
+1.3.4  Transaction Processing  
+ 
+There are two types of processing modes,
+ 
+1.3.3.1 COTC payment through API 
+COTC payment interface will be used as first interaction point at branch level where 
+beneficiary comes to collect remittance. It is used to capture details related to transaction 
+and beneficiary. 
+ 
+For all of those transactions which are related to remitting entities having API interfacing 
+with Bank, drop down is used to select transaction originating remitting entity and forward 
+request to Remit Home API for further action 
+ 
+1.3.3.2 Account Credit transaction processing through PULL API 
+PULL API will be performing the below steps to download the Account Credit Transaction. A 
+service will be scheduled to generate asynchronous entity wise request(s) to download Own 
+Account Transactions 
+ 
+Note : Like COTC Pull API, there is no request initiator in Account Pull API, so a scheduled 
+service will be initiating the request for downloading the transactions 
+ 
+API will make call to remitting entity 
+outstanding or available for bank 
+ 
+While downloading the transaction, API will retrieve the data from returned data set on the 
+basis of PRI Field & Response mapping setup 
+ 
+API will use same validation rules of ‘Remit 
+transaction. Following validations rules would be applied: 
+RemitHome  PULL API - Proposal                     
+RemitHome ’ to integrate with its exchange Companies through APIs and process 
+me bases. All remitting entities  will be using Web services to expose their 
+methods and require some level of authentication. The web methods are using different t 
+modes of data exchange like XML, String, Object, etc  
+w module will be introduced in existing ‘RemitHome’ application for setting up any new 
+remitting entity interfacing with Web Service API. 
+Entry Form to setup Remitting Entity for allowing connectivity with credential information.
+Entry Form for Security Settings. 
+Inquiry screen to monitor API transact ions.  
+Available in Application  
+sually three set of messages required to complete single transaction ( but it 
+Transaction Inquiry  
+ 
+ 
+ 
+types of processing modes, 
+COTC payment through API : 
+COTC payment interface will be used as first interaction point at branch level where 
+beneficiary comes to collect remittance. It is used to capture details related to transaction 
+For all of those transactions which are related to remitting entities having API interfacing 
+with Bank, drop down is used to select transaction originating remitting entity and forward 
+request to Remit Home API for further action . 
+Credit transaction processing through PULL API : 
+PULL API will be performing the below steps to download the Account Credit Transaction. A 
+service will be scheduled to generate asynchronous entity wise request(s) to download Own 
+Account Transactions .  
+: Like COTC Pull API, there is no request initiator in Account Pull API, so a scheduled 
+service will be initiating the request for downloading the transactions  
+remitting entity  API for downloading the transactions which are 
+ng or available for bank .  
+While downloading the transaction, API will retrieve the data from returned data set on the 
+basis of PRI Field & Response mapping setup , 
+same validation rules of ‘Remit Home’ File Downloading Process to download the 
+transaction. Following validations rules would be applied:  
+  
+Page: 4  
+to integrate with its exchange Companies through APIs and process 
+will be using Web services to expose their 
+methods and require some level of authentication. The web methods are using different t 
+setting up any new 
+Entry Form to setup Remitting Entity for allowing connectivity with credential information. 
+but it may differ from 
+COTC payment interface will be used as first interaction point at branch level where 
+beneficiary comes to collect remittance. It is used to capture details related to transaction 
+For all of those transactions which are related to remitting entities having API interfacing 
+with Bank, drop down is used to select transaction originating remitting entity and forward 
+PULL API will be performing the below steps to download the Account Credit Transaction. A 
+service will be scheduled to generate asynchronous entity wise request(s) to download Own 
+: Like COTC Pull API, there is no request initiator in Account Pull API, so a scheduled 
+API for downloading the transactions which are 
+While downloading the transaction, API will retrieve the data from returned data set on the 
+File Downloading Process to download the 
+===== PAGE 5 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+ 
+• Special Characters validation in all fields 
+• Account Length Validation 
+• Unique Reference validation for Null Values 
+• Remitter & Beneficiary Name validation f 
+ 
+Another service will also be scheduled for marking the status (as OK or Rejected) of recently 
+downloade d transactions into remitting entity 
+ 
+Note : Some Remitting Entities do not provide the method of marking the Transaction 
+Status. If n o status marking method is available then it has to be done manually.] 
+ 
+Also at later time this service will be responsible for marking the updated/modified 
+transaction status (for e.g.  PAID) into a remitting entity 
+ 
+It will be the responsibility of 
+send it at JSBL. 
+ 
+For both COTC and account credit 
+which will be done through web services exposed by JSBL.
+ 
+ 
+RemitHome  PULL API - Proposal                     
+Special Characters validation in all fields  
+Account Length Validation  
+Unique Reference validation for Null Values  
+Remitter & Beneficiary Name validation f or Null values 
+Another service will also be scheduled for marking the status (as OK or Rejected) of recently 
+d transactions into remitting entity API 
+: Some Remitting Entities do not provide the method of marking the Transaction 
+o status marking method is available then it has to be done manually.] 
+Also at later time this service will be responsible for marking the updated/modified 
+(for e.g.  PAID) into a remitting entity  API. 
+It will be the responsibility of Tie-ups, that they will not send the data again once they have 
+account credit  transactions, Core banking integration will be required 
+which will be done through web services exposed by JSBL. 
+ 
+  
+Page: 5  
+Another service will also be scheduled for marking the status (as OK or Rejected) of recently 
+: Some Remitting Entities do not provide the method of marking the Transaction 
+o status marking method is available then it has to be done manually.]  
+Also at later time this service will be responsible for marking the updated/modified 
+ups, that they will not send the data again once they have  
+, Core banking integration will be required 
+===== PAGE 6 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+1.4  Centegy Offer 
+ 
+1.4.1  Our offer is the licensing of ‘RemitHome 
+entity (which is JSBL operating in Pakistan) as per the agreed scope of work (refer section 1.2). 
+ 
+1.4.2  Centegy technologies grants to the client a perpetual, persona 
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+represents warrants and agrees that the Software will be used only at such location(s) and 
+only for the benefit of the client. 
+ 
+1.4.3  Centegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost). Our response is limited to its 
+Home Remittance ‘RemitHome’ application software solution. 
+ 
+1.4.4  Provis ion is available to embed End to End SSL encryption with the application 
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+responsibility. 
+ 
+1.4.5  The business partners of the Bank shall be entitled to access only the software f 
+centralized location of the bank in order to perform their business operations. 
+ 
+Note: The Bank should have to acquire the application license for their Business Partners. The 
+licensing cost and terms/condition are defined in the financial section 
+ 
+1.4.6  We are not responsible for providing any training or implementation support to such business 
+partners.  If required, separate scope, time and fee will be ascertained upon receiving request.
+ 
+1.4.7  The application shall be installed and 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+provided in the Agreement. However, we are not responsible for the re 
+configuration, training or implementation at any new location.
+ 
+1.5  Specific/Customized Integration 
+ 
+1.5.1  The Time and Fee to complete the scope covered under enhancements/customization will 
+determined after analyzing scope like 
+• Integration with Bank Own Core Banking Application 
+• Integrat ion with Bank AML Software 
+• Integration with Remitting Entities /Agents (MTOs) through APIs 
+• Integration with Bank SWITCH for IBFT 
+• Integration with Bank SMS solution 
+ 
+1.5.2  This scope of work includes review, development and user acceptance testing.
+ 
+ 
+RemitHome  PULL API - Proposal                     
+Our offer is the licensing of ‘RemitHome -Web based API (PULL Model)’ application to one legal 
+entity (which is JSBL operating in Pakistan) as per the agreed scope of work (refer section 1.2). 
+Centegy technologies grants to the client a perpetual, persona l, non-transferable and non 
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+represents warrants and agrees that the Software will be used only at such location(s) and 
+only for the benefit of the client.  
+entegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost). Our response is limited to its 
+Home Remittance ‘RemitHome’ application software solution.  
+ion is available to embed End to End SSL encryption with the application 
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+The business partners of the Bank shall be entitled to access only the software f 
+centralized location of the bank in order to perform their business operations. 
+Note: The Bank should have to acquire the application license for their Business Partners. The 
+licensing cost and terms/condition are defined in the financial section  with this proposal.
+We are not responsible for providing any training or implementation support to such business 
+If required, separate scope, time and fee will be ascertained upon receiving request.
+The application shall be installed and implemented at Bank’s site in Karachi, Pakistan and may 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+provided in the Agreement. However, we are not responsible for the re -installation, 
+or implementation at any new location. 
+Specific/Customized Integration  
+The Time and Fee to complete the scope covered under enhancements/customization will 
+determined after analyzing scope like  
+Integration with Bank Own Core Banking Application  
+ion with Bank AML Software  
+Integration with Remitting Entities /Agents (MTOs) through APIs  
+Integration with Bank SWITCH for IBFT  
+Integration with Bank SMS solution  
+This scope of work includes review, development and user acceptance testing.
+ 
+  
+Page: 6  
+Web based API (PULL Model)’ application to one legal 
+entity (which is JSBL operating in Pakistan) as per the agreed scope of work (refer section 1.2).  
+transferable and non -
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+represents warrants and agrees that the Software will be used only at such location(s) and 
+entegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost). Our response is limited to its 
+ion is available to embed End to End SSL encryption with the application  
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+The business partners of the Bank shall be entitled to access only the software f rom the 
+centralized location of the bank in order to perform their business operations.  
+Note: The Bank should have to acquire the application license for their Business Partners. The 
+with this proposal. 
+We are not responsible for providing any training or implementation support to such business 
+If required, separate scope, time and fee will be ascertained upon receiving request. 
+implemented at Bank’s site in Karachi, Pakistan and may 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+installation, 
+The Time and Fee to complete the scope covered under enhancements/customization will 
+This scope of work includes review, development and user acceptance testing. 
+===== PAGE 7 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+2 Financials 
+ 
+2.1  Fee Quotation 
+ 
+No.  
+ 
+Fee Components  
+01  Remitting Entities – Covered 
+Speed Remit and EPS 
+ 
+Note: A maximum of 45 calendar 
+single remitting entity (f rom 
+and UAT Sign-Off) after determination of 
+acknowledgement received 
+ 
+02. Minimum Fee for the efforts required in 
+with Other Remitting Entities 
+ 
+This is the per Remitting  
+includes Review, Configu 
+ 
+Note: A maximum of 45 calendar 
+single remitting entity (f rom 
+and UAT Sign-Off) after determination of 
+acknowledgement received 
+ 
+03. Additional Fee for the efforts required in 
+with Remitting Entities (covered under scope or not 
+UAT Sign-off not received within 45 days 
+scope and its acknowledgement 
+ 
+ 
+2.1.1  The fee is exclusive of all local taxes and would be adjustable subject to changes in the scope. 
+ 
+2.1.2  The fee of the assignment does not include the cost of Hardware, Operating System License 
+fee, Database Engine License Fee, and Front 
+ 
+2.1.3  As per CENTEGY’s general policy, we do not provide source code; therefore, the fee 
+mentioned above is without source code.
+ 
+2.1.4  As per our standard terms and conditions we have offer 
+calendar months that will be commenced from the time of application installation. 
+ 
+2.2  Other Fee’s 
+ 
+2.2.1  If the Bank requires enhancement or custo 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+provide ‘Change Request 
+soon as possible after the CR 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+any review, enhancement, customization, integration, etc. activity.
+ 
+RemitHome  PULL API - Proposal                     
+Fee (Rs.) 
+Covered under Scope of Work  (PULL API)  
+calendar days will be assigned for 
+rom  development, release deployment 
+determination of scope and its 
+received  from client. 
+00 
+the efforts required in PULL API Int erfacing 
+Entities  (Customized Development).  
+ Entity API Interfacing Fee which 
+Review, Configu ration, Development and UAT 
+calendar days will be assigned for 
+rom  development, release deployment 
+determination of scope and its 
+received  from client. 
+550,000/ 
+Per Remitting Entity 
+the efforts required in PULL API Int erfacing 
+covered under scope or not ) in case the 
+off not received within 45 days after determination of 
+acknowledgement received from client. 
+25,000/ 
+Per Day 
+x No of Man Days 
+The fee is exclusive of all local taxes and would be adjustable subject to changes in the scope. 
+The fee of the assignment does not include the cost of Hardware, Operating System License 
+fee, Database Engine License Fee, and Front -End Tool Software License.  
+As per CENTEGY’s general policy, we do not provide source code; therefore, the fee 
+above is without source code. 
+As per our standard terms and conditions we have offer  free warranty period of six (6) 
+calendar months that will be commenced from the time of application installation. 
+If the Bank requires enhancement or custo mization or integration at any time, a ‘BRD 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+provide ‘Change Request – CRF’ having scope and cost estimate and will commence work as 
+soon as possible after the CR F has been accepted by the client. The development charges (per 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+any review, enhancement, customization, integration, etc. activity. 
+  
+Page: 7  
+Fee (Rs.)  
+00 0/- 
+50,000/ - 
+Per Remitting Entity  
+,000/ -  
+Per Day  
+x No of Man Days  
+The fee is exclusive of all local taxes and would be adjustable subject to changes in the scope.  
+The fee of the assignment does not include the cost of Hardware, Operating System License 
+As per CENTEGY’s general policy, we do not provide source code; therefore, the fee 
+free warranty period of six (6) 
+calendar months that will be commenced from the time of application installation.  
+mization or integration at any time, a ‘BRD – 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+CRF’ having scope and cost estimate and will commence work as 
+F has been accepted by the client. The development charges (per 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+===== PAGE 8 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+2.2.2  Additional fee will be charged 
+like Core Banking interfacing, RE/MTOs (API Interfacing), SWITCH Interfacing, AML Interfacing, 
+SMS Interfacing, etc. The review, customization, configuration, support fee will be charged as 
+per the agreed chargeable rate (per man day) separately, depending on the nature of work 
+and man days efforts involved. 
+ 
+2.2.3  The software maintenance services on expiry of warranty period, under a separate agreement 
+will require to be signed. The terms and condit 
+will be the same as per main maintenance contract, submitted to client for finalization.
+ 
+2.2.4  In addition, we will charge out of pocket expenses (for visits outside Karachi), if any, 
+includes traveling, boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/ 
+per person per day for our staff traveling during the period of this assignment and extended 
+support period.  The ‘OOP’ fee for any international visit will be determined separatel
+required). 
+ 
+ 
+2.3  Payment Terms 
+ 
+No. Schedule  
+  
+RemitHome API 
+ 
+01 -A. Upon Acceptance of Proposal
+01 -B. Upon Installation/Deployment 
+  
+RemitHome (PULL 
+ 
+02 -A. Upon Acceptance of CRF 
+02 -B. Upon Completion of UAT 
+ 
+ 
+RemitHome  PULL API - Proposal                     
+Additional fee will be charged for the specific Integration with Other Software Applications 
+like Core Banking interfacing, RE/MTOs (API Interfacing), SWITCH Interfacing, AML Interfacing, 
+SMS Interfacing, etc. The review, customization, configuration, support fee will be charged as 
+the agreed chargeable rate (per man day) separately, depending on the nature of work 
+and man days efforts involved.  
+The software maintenance services on expiry of warranty period, under a separate agreement 
+will require to be signed. The terms and condit ion for the maintenance fee for this proposal 
+will be the same as per main maintenance contract, submitted to client for finalization.
+In addition, we will charge out of pocket expenses (for visits outside Karachi), if any, 
+boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/ 
+per person per day for our staff traveling during the period of this assignment and extended 
+support period.  The ‘OOP’ fee for any international visit will be determined separatel
+RemitHome API (PULL Engine) License Fee  
+Upon Acceptance of Proposal 
+Upon Installation/Deployment  
+PULL  Engine) API Customized Interfacing Fee  
+Acceptance of CRF  
+Upon Completion of UAT  
+ 
+  
+Page: 8  
+for the specific Integration with Other Software Applications 
+like Core Banking interfacing, RE/MTOs (API Interfacing), SWITCH Interfacing, AML Interfacing, 
+SMS Interfacing, etc. The review, customization, configuration, support fee will be charged as 
+the agreed chargeable rate (per man day) separately, depending on the nature of work 
+The software maintenance services on expiry of warranty period, under a separate agreement 
+ion for the maintenance fee for this proposal 
+will be the same as per main maintenance contract, submitted to client for finalization. 
+In addition, we will charge out of pocket expenses (for visits outside Karachi), if any, which 
+boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/ - 
+per person per day for our staff traveling during the period of this assignment and extended 
+support period.  The ‘OOP’ fee for any international visit will be determined separately (if 
+Per  
+ 
+50%  
+50%  
+ 
+50%  
+50 % 
+===== PAGE 9 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+3 Other Matters 
+ 
+3.1  Specific 
+ 
+3.1.1  The proposal is valid for acceptance until a period of 
+ 
+3.1.2  We will be in a position to commence work on the assignment within four 
+of Purchase Order. 
+ 
+3.2  General 
+ 
+3.2.1  The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the responsibility of 
+the client. 
+ 
+3.2.2  The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+our employees, either those working on the assignment or otherwise. 
+ 
+3.2.3  We w ould recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+completion of the assignment.
+ 
+3.2.4  We do not make any warranties, expressed or impli
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+tradition and practice our best effor 
+desired results.  
+ 
+3.2.5  For multi-location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 
+op timization will also be handled by the client resources. 
+  
+ 
+RemitHome  PULL API - Proposal                     
+The proposal is valid for acceptance until a period of Two (02 ) months from the proposal date.
+We will be in a position to commence work on the assignment within four 
+The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the responsibility of 
+The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+our employees, either those working on the assignment or otherwise.  
+ould recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+completion of the assignment. 
+We do not make any warranties, expressed or implied, towards successful implementation of 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+tradition and practice our best effor ts & resources will be deployed towards generation of 
+location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 
+timization will also be handled by the client resources.  
+  
+Page: 9  
+) months from the proposal date. 
+We will be in a position to commence work on the assignment within four weeks after receipt 
+The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the responsibility of 
+The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+ould recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+ed, towards successful implementation of 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+ts & resources will be deployed towards generation of 
+location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 

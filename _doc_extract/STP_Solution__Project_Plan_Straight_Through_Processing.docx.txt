@@ -1,0 +1,46 @@
+Project Plan Straight Through Processing
+JS Bank Limited
+Project Plan Straight Through Processing
+JS Bank Limited
+Project Approach………………………………………………………………1
+Project Time Estimate…………………………………………………………...2
+Project Plan Straight Through Processing					JS Bank Limited
+Project Approach
+JS Bank embeds RCCC components with Integration Software. RCCC embedded application can directly send/receive messages from PRISM server. Settlement confirmations/error messages can be easily received by the RCC embedded application.  Integration Software will be making a copy of all the messages exchange in between RCC embedded application and PRISM server. RCCC components installed on JS Bank computer.
+However, since the JS bank has opted option of RCCC (Remote Client Communication Component); therefore JS Bank is going to develop “INTEGRATION SOFTWARE” to cater the need of “API” which currently provided by SBP as part of PRISM to perform multiple functions, which includes but not limited to authorization of MT102, MT103, MT202, Balance enquiry, monitoring of inflows and outflows, free format messaging and any other functionality which is currently available in the PRISM API provided by SBP Upon receiving the RTGS instructions from any of the partner application, the integration software, will convert the message based on its payment type (as per SBP’ prescribed formats of MT-102, MT-103 and MT-202) and push the outward MTs to PRISM by following
+all the relevant protocols to meet SBP’ requirements. Similarly, the integration software should have the capability to receive incoming
+Project Plan Straight Through Processing					JS Bank Limited
+Architectural Diagram
+Project Plan Straight Through Processing					JS Bank Limited
+Project Time Estimate
+The calendar time estimates to complete the assignment for MT 102 
+The calendar time estimates to complete the assignment for MT 103, MT 202 & all Formats.
+Project Plan Straight Through Processing					JS Bank Limited
+
+===== TABLE 1 =====
+Ref | Interfacing | Scope Requirement
+A | Integration with Banking modules | 
+B | Integration with Financial System | API
+C | Integration with SBP-RTGS(PRISM) | Through RCCC/API provided by SBP
+
+===== TABLE 2 =====
+No | Stage/Activity | Weeks | From Date | To Date
+01 | Requirement Finalization | 02 | 01-Feb-2016 | 11-Feb-2016
+02 | Design & Development | 06 | 14-Feb-2016 | 25-Mar-2016
+03 | Client/SBP Site – Changes/Verification | 03 | 25-Feb-2016 | 17-Mar-2016
+04 | Deployment & Configuration | 02 | 17-Mar-2016 | 31-Mar-2016
+05 | System Integration Testing | 01 | 31-Mar-2016 | 07-April-2016
+06 | User Acceptance Testing (SBP/JSBL) | 02 | 07-April-2016 | 21-April-2016
+07 | Walk through/Dress Rehearsal | 01 | 21-April-2016 | 28-April-2016
+08 | Live Cut-Over |  | 30-Apr-2016 | 
+
+===== TABLE 3 =====
+No | Stage/Activity | Weeks | From Date | To Date
+ |  |  |  | 
+01 | Requirement Finalization | 02 | 01-Feb-2016 | 11-Feb-2016
+01 | Design | 06 | 14-Feb-2016 | 25-March-2016
+02 | Deployment & Configuration | 04 | 16 May-2016 | 13-june-2016
+03 | System Integration Testing | 03 | 13-june-2016 | 04-July-2016
+04 | User Acceptance Testing (SBP/JSBL) | 03 | 04-July-2016 | 24-July-2016
+05 | Walk through/Dress Rehearsal | 02 | 24-July-2016 | 08-Aug-2016
+ | Live Cut-Over | 01 | 11- Aug-2016 | 

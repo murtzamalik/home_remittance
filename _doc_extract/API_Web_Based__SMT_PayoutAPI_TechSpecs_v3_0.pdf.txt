@@ -1,0 +1,1914 @@
+PDF_PAGES=39
+PDF_META={'/Author': 'Vikas Mujumdar', '/Creator': 'Microsoft® Word 2010', '/CreationDate': "D:20150331121603+05'30'", '/ModDate': "D:20150331121603+05'30'", '/Producer': 'Microsoft® Word 2010'}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+ 
+ 
+ 
+PAYOUT API INTERFACE  
+Version 3.0 
+ 
+Technical Specifications Document 
+ 
+05-Mar-2015 
+ 
+ 
+ 
+Direct all queries related to this document and the Sigue API to: 
+partneronboardingintl@sigue.com 
+ 
+ 
+ 
+Document Confidentiality 
+ 
+All rights reserved. The content of this document is property of Sigue, confidential and copyrighted. Any reproduction in whole 
+or in part is strictly prohibited without the written permission of Sigue. This document is subject to change. Comments, 
+corrections or questions should be directed to the email id provided above. 
+  
+
+===== PAGE 2 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Contents 
+ 
+1 Introduction .................................................................................................................................... 3 
+1.1 Scope of this document ....................................................................................................... 3 
+1.2 Usage Policies and Guidelines ............................................................................................ 4 
+1.3 Connecting to the Sigue Payout API ................................................................................... 5 
+2 Change Summary .......................................................................................................................... 6 
+3 API Methods Summary List .......................................................................................................... 7 
+3.1 General Features ................................................................................................................. 9 
+4 API Method Specifications .......................................................................................................... 10 
+4.1 Payout Query (for cash transactions only) ........................................................................ 10 
+4.2 Payout Search by Name (for cash transactions only) ....................................................... 13 
+4.3 Payout Update ................................................................................................................... 15 
+4.4 Payout Confirmation (for cash transactions only) .............................................................. 17 
+4.5 Workflow Payout Query ..................................................................................................... 18 
+4.6 Workflow Payout Query New ............................................................................................. 20 
+4.7 Workflow Payout Update ................................................................................................... 23 
+4.8 Nominated Payout Query (cash payout only) .................................................................... 24 
+4.9 Nominated Payout Update (cash payout only) .................................................................. 26 
+4.10 Get Settlement Report ....................................................................................................... 27 
+4.11 Rollback Transaction ......................................................................................................... 29 
+4.12 Get ID Types ...................................................................................................................... 29 
+4.13 Get Response Codes ........................................................................................................ 30 
+4.14 Get Country Codes ............................................................................................................ 30 
+4.15 Get Currency Code ............................................................................................................ 31 
+4.16 Get Settlement Report USD .............................................................................................. 31 
+Appendix A: Testing and Certification .............................................................................................. 34 
+Appendix B: Request Sample Response Codes ............................................................................. 35 
+Appendix C: Transaction Status Codes ........................................................................................... 39 
+  
+===== PAGE 3 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+1 Introduction 
+Sigue Money Transfer (SMT) has developed an online Application Programming Interface 
+(API) to allow partners to connect the Sigue processing engine using their own front-end 
+transaction capture application. The API offers all the required functional interface methods 
+to allow partners to capture, submit and view transactions with SMT. 
+ 
+1.1 Scope of this document 
+This document will describe what the SMT API interface is designed to do and how it can be 
+used. It also contains technical information to provide a general working direction for the 
+Payout Partner. 
+ 
+The document also lists the Usage Policies and Guidelines. 
+ 
+The document includes a Change Summary section for the benefit of existing partners so 
+they can focus on the incremental changes. 
+ 
+The Testing and Certification process is described at a high level. 
+ 
+In the Appendix, sample codes and reference XML files have been included for illustration. 
+ 
+  
+===== PAGE 4 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+1.2 Usage Policies and Guidelines 
+The contents of this document describe the Sigue Payout API implementation. However, 
+both the API implementation and this document are subject to change based on business or 
+technical requirements. Before commencing any integration development please check with 
+the email id provided on the cover page for the latest version. 
+ 
+Partners should base their development of the interface on the live WSDL that will be 
+provided by SMT upon request after an NDA or contract is signed and development by the 
+partner is about to start. 
+ 
+All enhancements and modifications to the API will be classified as Mandatory and Optional. 
+ 
+Mandatory changes are generally as a result of regulatory or business process changes or 
+technical issues. Partners will have to make the mandatory changes within the specified 
+timeframe, without which they may not be able to connect to Sigue systems to execute 
+transactions. Partners will be given as much notice as possible, however, based on the 
+nature of the change and its implications, the notice may be short. 
+ 
+Optional changes are generally enhancements to offer new and enhanced features. Partners 
+are encouraged to implement these changes at the earliest to take advantage of the new 
+features, however, no deadlines will be enforced. 
+ 
+  
+===== PAGE 5 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+1.3 Connecting to the Sigue Payout API 
+There are two versions of the Sigue Payout API, test and production. 
+ 
+The test version is to be used by partners to ensure their application is working fine, before it 
+is released to production. Sigue follows a comprehensive testing and certification process, 
+on the successful completion of which, partners are granted access to the production 
+system. Please see the section on Testing and Certification. 
+ 
+The production version is to be used by partners when they are ready to start sending live 
+transactions to Sigue. 
+ 
+Access to the Sigue environments will be provided to appropriate partner environments. The 
+test environment may only be access by the partner test environment and the production 
+environment may only be accessed by the partner production environment. It will not be 
+possible to provide access to the two environments from the same server on the partner 
+side. Which means partners are expected to maintain a minimum of two servers, one for 
+development and testing and one for production. 
+ 
+Access to both environments requires network and application level access credentials 
+which can be obtained once all the on-boarding formalities are completed. 
+ 
+Once a development and testing schedule has been agreed upon, you will be provided with 
+the following information: 
+ 
+ The URL to access the Test API environment 
+ Access credentials 
+ 
+SMT requires the following information from partners: 
+ 
+ One or more public static IP address for development and testing servers. Please 
+note that requests only from this IP address will be able to connect to the Sigue API 
+environment. 
+ 
+The SMT API builds on the standard Web Services model to provide security for messages 
+from and to partner applications.  Access to the API is over a secure HTTP (https) 
+connection and all data traffic will be encrypted using SSL. 
+  
+===== PAGE 6 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+2 Change Summary 
+This section lists the changes made to the SMT Payout API from Version 2.0 to Version 3.0. 
+ 
+Change Description Mandatory 
+(Deadline) 
+/Optional 
+1. A new method has been added to the API: 
+- Workflow Payout Query New (Response)  
+This method has to be developed mandatory, none the less some of the 
+fields are optional when capturing a transaction, refer to the detail in 
+section 4.6.1 
+This method has the following changes: 
+i. To support payout in certain countries that have four-part names, two 
+name fields have been added (Second First Name and Second Last 
+Name). 
+ii. To support Account Deposit payout in certain countries, Bank Account 
+Type, Bank State have been added as mandatory fields. 
+iii. To support Account Deposit payout in certain countries, Primary ID Type 
+and Primary ID Number 
+Note: The existing method for Payout will continue to work as-is so there will 
+be no disruptions to the integration while the new method is being integrated.  
+Mandatory 
+(30-Jun-15) 
+ 
+ 
+  
+===== PAGE 7 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+3 API Methods Summary List 
+The SMT Payout API is meant for use by all Payout Partners who would like to use their own 
+transaction capture application. The API supports all SMT products, currently including Cash 
+Pickup, Account Deposit and Cash Delivery. 
+The SMT Payout API provides the following functional methods. 
+ Get Country Codes 
+This method is used to download standard 3 alphabets country ISO code. 
+ 
+ Get Currency Codes 
+This method is used to download standard 3 alphabets currency ISO code. 
+ 
+ Get ID Types 
+This method is used to request a list of all the ID types SMT uses. 
+ 
+ Get Response Codes 
+This method is used to download up to date response codes generated by the API. 
+ 
+ Get Settlement Report 
+This method is used to request a settlement report, provided the settlement process 
+has been run for that period. The method only allows retrieving the settlement report 
+no more than 3 months old. 
+ 
+ Get Settlement Report USD 
+This method is used to request any settlement report on demand, provided the 
+settlement process has been run. This method provides settlement values and FX 
+revenue details in USD. The method only allows retrieving the settlement report no 
+more than 3 months old. 
+ 
+ Nominated Payout Query 
+This method is used to pull down all transactions that are nominated to be paid and 
+cancelled. The API method retrieves only the transactions that the agent can mark as 
+paid, acknowledged or canceled. 
+ 
+ Nominated Payout Update 
+This method allows partner to do the followings: 
+- Partner will consume API method NominatedPayoutUpdate to send acknowledge 
+status for each transaction that should be paid. 
+- Partner will consume API method NominatedPayoutUpdate to send cancellation 
+confirmation for each transaction that can be cancelled. 
+- Partner will consume API method NominatedPayoutUpdate to send cancellation 
+refused for each transaction that can’t be cancelled. 
+ 
+ Payout Search By Name (for Cash transactions only) 
+This method is used to request the details of a specific transaction to pay out, using 
+the beneficiary’s last name and the originating country for the transaction. The 
+partner application will provide valid values for the required parameters, and the 
+system will validate the request against the business rules for a payout. If valid, the 
+===== PAGE 8 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+full transaction details will be returned. The message will apply to transactions which 
+can be paid out in cash only. 
+ 
+ Roll Back Paid Transaction 
+This method is used to rollback a transaction to its previous state. This will usually 
+occur if the partner encounters an error on their system after they have paid out a 
+transaction. The request to rollback a transaction will not always be granted but a 
+reason will be given. 
+ 
+ Work Flow Payout Query 
+This method is used to retrieve the details of any transactions which require an 
+Account Deposit and Courier Delivery payout service. The frequency with which the 
+partner application calls this service will be agreed with the partner on a case by case 
+basis, as it cannot be enforced or controlled by the SMT system. 
+ 
+ Work Flow Payout Query New 
+This method is used to retrieve the details of any transactions which require an 
+Account Deposit and Courier Delivery payout service. The frequency with which the 
+partner application calls this service will be agreed with the partner on a case by case 
+basis, as it cannot be enforced or controlled by the SMT system. 
+ 
+ Work Flow Payout Update 
+This method is used to send an update for an Account Deposit or Cash Delivery 
+transaction, for which the details have previously been obtained using the Workflow 
+Payout Query. Reasons for update will include: 
+- Confirmed Successful Payout 
+- Acknowledgement of Transaction resulting from Workflow Payout Query 
+- Confirmation of cancellation (as result of Send Agent’s request) 
+- Refer back to sending agent (problem with account detail or incorrect address) 
+ 
+ Payout Query (for Cash transactions only) 
+This method is used to request the details of a specific transaction to pay out, using 
+the SMT transaction number or any other partner-specific payout number (if 
+supported). The partner application must provide valid values for the required 
+parameters. The system will validate the request against the business rules for a 
+payout. If valid, the full transaction details will be returned. The message will apply to 
+transactions which can be paid out in cash only. 
+ 
+ Payout Update 
+This method is used to send an update for an SMT cash transaction, for which details 
+have previously been obtained using the Payout Query method.  
+Reasons for update would include: 
+- Payout 
+This will be validated against the business rules for paying transactions. It is the 
+equivalent of the Payout screen. 
+- Payout Confirmation 
+This is an optional step where Payout partner wish to have a confirmation or 
+commit step in the process of paying out a transaction. 
+ 
+===== PAGE 9 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+ 
+A detailed functional description and the technical specifications for each functional 
+method is provided in the section on API Method Specifications. 
+3.1 General Features 
+For Cash Pickup Transactions 
+- The ability to identify SMT transactions which are intended to be paid out in a specific 
+country. Transactions will be able to be paid out by any Payout Partner, on a first-come, 
+first-serve basis. 
+- The ability for the Payout Partner to provide a SMT or other external payout number 
+(given to them by a recipient requiring payout) and request the detail of the transaction to 
+be paid out. 
+- As part of the response to the payout request, SMT will have the ability to validate the 
+payout request against business rules and provide the details to the Payout Partner. 
+- The ability for the Payout Partner to update SMT with changes in payout status of the 
+transaction. 
+- In order to minimize processing around Cancellations/Payout to Originator, SMT will not 
+provide full payout transaction details to the partner for Cash transactions in advance, 
+only at the time of actual payout. 
+ 
+For Account Deposit and Cash Delivery Transactions 
+- The ability for Payout Partner to retrieve details of transactions for payout, thus entering 
+the transaction into the normal SMT workflow processing. 
+- The ability for the Payout Partner to update SMT with changes in payout status of the 
+transaction. 
+- The process for SMT to communicate cancellation requests to the Payout Partner by 
+means of online messages (initiated by a Send Agent rather than SMT Operations).  
+- The ability for Payout Partners to refer transactions back to sending agents. 
+- Some Payout Partners may require SMT to use the partner’s own payout reference 
+number. This option will be made available via the API on a case-by-case basis. 
+  
+ 
+ 
+ 
+  
+===== PAGE 10 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4 API Method Specifications 
+Notes: 
+i. Partners will be provided the following access credentials, one set each for test 
+and production. These access credentials must be passed to every method when 
+accessing it. 
+ User Name 
+ Password 
+ Partner Id 
+ Agent Id 
+ 
+ii. M = Mandatory and O = Optional 
+iii. M/O indicates that the field is mandatory under some conditions, optional 
+otherwise. 
+iv. Product Ids are as listed below: 
+ Cash Pickup (Product Id = 1) 
+ Account Deposit (Product Id = 22) 
+ Cash Delivery (Product Id = 25) 
+ 
+4.1 Payout Query (for cash transactions only) 
+4.1.1 Request from Partner to SMT 
+Field Name Size Type Description M/O 
+UserName 30 Varchar User Name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber  30 Varchar Other payout partner number  O 
+QueryReason  Int 01 = Payout request M 
+4.1.2 Response from SMT to Partner 
+Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money 
+O 
+LocalReferenceNumber 30 Varchar Sending agent's own reference for the transaction O 
+StatusCode 2 Char Status code of the transaction M 
+StatusDescription 100 Varchar Description of the status M 
+===== PAGE 11 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+TransactionDate   DateTime Date transaction was created  in UTC format M 
+TransactionPaidDate  DateTime Date when the transaction was PAID in UTC format. This field will only have 
+value if the transaction has been paid. 
+O 
+OriginatingCountry 3 Char Code identifying the sending country M 
+OriginatingCurrency 3 Char Code identifying the currency of the sending country M 
+DestinationCountry 3 Char Code identifying the receiving country M 
+DestinationCurrency 3 Char Code identifying the currency of the receiving country M 
+ExchangeRate 20,6 Decimal The consumer exchange rate used for the transaction M 
+LocalAmount 19,4 Money Amount of money to be sent in the local currency, i.e. currency of sending 
+country 
+M 
+CustomerCharge 19,4 Money Amount of money paid by the sending customer (localAmount + fees) M 
+PayoutAmount 19,4 Money Amount of money to be paid to the receiver (in payout currency) M 
+ProductId  Int Code identifying the primary product of the transaction M 
+ServiceID  Int Code identifying Value Added product (can be more than one, but currently 
+only available with Money Transfer primary product) 
+O 
+Sender details 
+GlobeCardNumber  Int Globe Card number identifying a customer O 
+FirstName 50 Varchar First name of customer M 
+LastName 50 Varchar Last name of customer M 
+Address1 100 Varchar First line of customer address M 
+Address2 100 Varchar Second line of customer address O 
+City 50 Varchar City of customer address M 
+State 50 Varchar State/province of customer address O 
+PostCode 10 Varchar Postal or zip code of customer's address O 
+Country 3 Varchar Country of  customer address (ISO code) M 
+PhoneNumber 50 Varchar Phone number of customer O 
+MobileNumber 50 Varchar Mobile number of customer  O 
+Email 50 Varchar Email address of customer O 
+SenderIdType  INT The identifying code indicating what type of primary id was shown by the 
+sender. 
+ 
+Becomes mandatory if local amount is over a certain threshold (to be 
+provided by SMT). 
+Valid values: 
+01 – Passport 
+02 – National ID 
+03 – Driver’s License 
+04 – Other Government ID 
+06 – Other 
+M/O 
+SenderIdProvided 100 Varchar The reference number of the primary id shown by the sender, e.g. passport 
+number. 
+ 
+Becomes mandatory if ID1Type is Provided. 
+ 
+M/O 
+SendingAgentId  INT Unique ID of Sending Agent O 
+SendingAgentName 100 Varchar Legal Name Of Sending Agent  O 
+===== PAGE 12 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+ 
+Receiver details 
+FirstName 50 Varchar First name of receiving customer M 
+LastName 50 Varchar Last name of receiving customer M 
+Address1 100 Varchar First line of receiving customer address O 
+Address2 100 Varchar Second line of receiving customer address O 
+City 50 Varchar City of receiving customer address O 
+State 50 Varchar State/province of receiving customer address O 
+StateCode 50 Varchar State/province of receiving customer address (valid only for US states) O 
+PostCode 10 Varchar Postal or zip code of sending customer's address O 
+Country 3 Varchar Country of receiving customer address (ISO code) O 
+PhoneNumber 50 Varchar Phone number of receiving customer O 
+MobileNumber 50 Varchar Mobile Number of Receiving customer O 
+Email 50 Varchar Email address of receiving customer O 
+TestQuestion 200 Varchar Test question to be asked of receiver O 
+TestAnswer 200 Varchar Answer to test question O 
+DataForServices 500 Varchar Contains extra information, i.e. message  O 
+CPFNumber  Int ID Number of Receiver. Mandatory for recipients in Brazil O 
+PayoutAgentName  
+ 
+100 Varchar Name Of Payout Agent  
+ 
+O 
+===== PAGE 13 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4.2 Payout Search by Name (for cash transactions only) 
+4.2.1 Request from Partner to SMT 
+ 
+Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. M 
+SearchName 50 Varchar Receiver Detail LastName. M 
+OriginatingCountry 3 Varchar ISO Code identifying the sending country M 
+ 
+4.2.2 Response from SMT to Partner 
+ 
+Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money 
+O 
+LocalReferenceNumber 30 Varchar Sending agent's own reference for the transaction O 
+StatusCode 2 Char Status code of the transaction M 
+StatusDescription  Varchar Description of the status M 
+TransactionDate   DateTime Date transaction was created  in UTC format M 
+TransactionPaidDate  DateTime Date when the transaction was PAID in UTC format. This field will only has 
+value if the transaction has been paid. 
+O 
+OriginatingCountry 3 Char Code identifying the sending country M 
+OriginatingCurrency 3 Char Code identifying the currency of the sending country M 
+DestinationCountry 3 Char Code identifying the receiving country M 
+DestinationCurrency 3 Char Code identifying the currency of the receiving country M 
+ExchangeRate 20,6 Decimal The consumer exchange rate used for the transaction M 
+LocalAmount 19,4 Money Amount of money to be sent in the local currency, i.e. currency of sending 
+country 
+M 
+CustomerCharge 19,4 Money Amount of money paid by the sending customer (localAmount + fees) M 
+PayoutAmount 19,4 Money Amount of money to be paid to the receiver (in payout currency) M 
+ProductId  Int Code identifying the primary product of the transaction M 
+===== PAGE 14 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+ServiceID  Int Code identifying Value Added product (can be more than one, but currently 
+only available with Money Transfer primary product) 
+O 
+GlobeCardNumber  Int Globe Card number identifying a customer O 
+FirstName 50 Varchar First name of customer M 
+LastName 50 Varchar Last name of customer M 
+Address1 100 Varchar First line of customer address M 
+Address2 100 Varchar Second line of customer address O 
+City 50 Varchar City of customer address M 
+State 50 Varchar State/province of customer address O 
+PostCode 10 Varchar Postal or zip code of customer's address O 
+Country 3 Varchar Country of  customer address (ISO code) M 
+PhoneNumber 50 Varchar Phone number of customer O 
+MobileNumber 50 Varchar Mobile number of customer  O 
+Email 50 Varchar Email address of customer O 
+FirstName 50 Varchar First name of receiving customer M 
+LastName 50 Varchar Last name of receiving customer M 
+Address1 100 Varchar First line of receiving customer address O 
+Address2 100 Varchar Second line of receiving customer address O 
+City 50 Varchar City of receiving customer address O 
+State 50 Varchar State/province of receiving customer address O 
+StateCode 50 Varchar State/province of receiving customer address (valid only for US states) O 
+PostCode 10 Varchar Postal or zip code of sending customer's address O 
+Country 3 Varchar Country of receiving customer address (ISO code) O 
+PhoneNumber 50 Varchar Phone number of receiving customer O 
+MobileNumber 50 VarChar Mobile Number of Receiving customer O 
+Email 50 Varchar Email address of receiving customer O 
+TestQuestion 200 Varchar Test question to be asked of receiver O 
+TestAnswer 200 Varchar Answer to test question O 
+DataForServices 500 Varchar Contains extra information, i.e. message  O 
+CPFNumber  Int ID Number of Receiver. Mandatory for recipients in Brazil O 
+===== PAGE 15 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4.3 Payout Update 
+4.3.1 Request from Partner to SMT 
+New Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber 30 Varchar Other payout partner number  O 
+UpdateType  Int 01 = Payout M 
+ProcessDateTime   DateTime Partner's local time at generating the request in UTC datetime format. M 
+PartnerPayoutAgentID 30 Varchar Partner's own id for the agent making the payout (if not registered as an 
+agent on SMT system) 
+O 
+ReceiverIDType  Int Id type of the primary id shown by the recipient (who is actually the original 
+sender in the case of payout to originator) 
+ 
+Types allowed: 
+01=Passport 
+02=National ID 
+03=Driver’s License 
+04=Other Government ID 
+06=Other 
+ 
+M 
+ReceiverIDProvided 100 Varchar The number or identifier of the primary id shown by the receiver (who is 
+actually the original sender in the case of payout to originator) 
+M 
+ReceiverAddress1 100 Varchar First line of receiving customer address 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+M 
+ReceiverAddress2 100 Varchar Second line of receiving customer address 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+O 
+ReceiverCity 50 Varchar City of receiving customer address  
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+M 
+ReceiverState 50 Varchar State/province of receiving customer address (mandatory for USA) 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+O 
+ReceiverCountry 3 Varchar Country of receiving customer address (ISO code) 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+M 
+ReceiverPhoneNumber 50 Varchar Phone number of receiving customer 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+O 
+===== PAGE 16 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+New Field Name Size Type Description M/O 
+ReceiverMobileNumber 50 Varchar Mobile number of receiving customer 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+O 
+ReceiverPostCode 10 Varchar Postal or zip code of receiving customer's address (mandatory for USA) 
+(must be returned for update type 1 as provided in transaction query, even if 
+no update made) 
+O 
+AgentRef 30 Varchar Partner's own reference for the payout O 
+ReceiverStateCode 30 Varchar US State code (needed for the US only) O 
+DateOfIssue   Date The date of issue of the ID provided in YYYY-MM_DD format O 
+DateOfExpiry   Date The date of expiry of the ID provided in YYYY-MM-DD format O 
+CountryOfIssue 50 Varchar The country issuing the ID provided (ISO code) O 
+DateOfBirth   Date Receiver's date of birth in YYYY-MM-DD format O 
+PlaceOfBirth 50 Varchar The receiver's place of birth O 
+Occupation 40 Varchar The receiver's occupation O 
+SocialSecurityNo 20 Varchar The social security number of the receiver O 
+Gender 1 Char Gender of receiver O 
+StateOfIssue 50 Varchar The state issuing the ID provided O 
+Nationality 40 Varchar The nationality of the receiver O 
+4.3.2 Response from SMT to Partner 
+New Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money 
+O 
+AgentRef 30 Varchar Partner's own reference for the payout O 
+OriginatingCountry 3 Char Code identifying the sending country M 
+OriginatingCurrrency 3 Char Code identifying the currency of the sending country M 
+DestinationCountry 3 Char Code identifying the receiving country M 
+DestinationCurrency 3 Char Code identifying the currency of the receiving country M 
+LocalAmount 19,4 Money Amount of money to be sent in the local currency, i.e. currency of sending 
+country 
+M 
+PayoutAmount 19,4 Money Amount of money to be paid to the receiver (in payout currency) M 
+ProductId  Int Code identifying the primary product of the transaction M 
+===== PAGE 17 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+New Field Name Size Type Description M/O 
+ServiceId  Int Code identifying Value Added product (can be more than one, but currently 
+only available with Money Transfer primary product) 
+O 
+ 
+4.4 Payout Confirmation (for cash transactions only) 
+4.4.1 Request from Partner to SMT 
+Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+4.4.2 Response from SMT to Partner 
+Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+===== PAGE 18 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4.5 Workflow Payout Query 
+4.5.1 Request from Partner to SMT 
+ 
+Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials.  M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials.  M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. To be provided by 
+SMT to partner (one agent id for test and one for live production). This is the 
+franchise id that identifies the agent’s location. 
+M 
+ProcessDateTime   DateTime Partner's local time at generating the request in UTC datetime format. M 
+ProductId  Int ProductId: 
+22 – Account Deposit 
+25 – Courier Delivery 
+M 
+RetrievalType  Int Retrieval Type: 
+01 – New transactions for Payout Agent to process 
+02 – Resolved items from Send Agent sent by Payout Agent previously 
+03 – Items requested for cancellation from Sending Agent 
+04 – Items has been acknowledged previously by Payout Agent 
+05 – Pending items which has been referred to Send Agent 
+06 – To find out individual transaction status 
+ 
+M 
+TMTNumber  Int Unique number identifying the SMT order. This field is mandatory if 
+RetrievalType = 06. Otherwise, please supply 0 as default value for other 
+retrieval type. 
+M 
+4.5.2 Response from SMT to Partner 
+Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+RetrievalType  Int  M 
+Transaction Detail 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money 
+O 
+StatusCode 2 Char Status code of the transaction M 
+StatusDescription  Varchar Description of the status M 
+TransactionDate   DateTime The datetime (GMT) of the transaction was created in UTC datetime format M 
+OriginatingCountry 3 Char Code identifying the sending country M 
+OriginatingCurrency 3 Char Code identifying the currency of the sending country M 
+LocalAmount 19,4 Money Amount of money to be sent in the local currency, i.e. currency of sending 
+country 
+M 
+DestinationCountry 3 Char Code identifying the receiving country M 
+DestinationCurrency 3 Char Code identifying the currency of the receiving country M 
+===== PAGE 19 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+PayoutAmount 19,4 Money Amount of money to be paid to the receiver (in payout currency) M 
+ProductId  Int Code identifying the primary product of the transaction M 
+ServiceID  Int Code identifying Value Added product (can be more than one, but currently 
+only available with Money Transfer primary product) 
+O 
+Sender details 
+FirstName 50 Varchar First name of customer M 
+LastName 50 Varchar Last name of customer M 
+Address1 100 Varchar First line of customer address M 
+Address2 100 Varchar Second line of customer address O 
+City 50 Varchar City of customer address M 
+State 50 Varchar State/province of customer address O 
+PostCode 10 Varchar Postal or zip code of customer's address O 
+Country 3 Varchar Country of  customer address (ISO code) M 
+PhoneNumber 50 Varchar Phone number of customer O 
+MobileNumber 50 Varchar Mobile number of customer  O 
+Email 50 Varchar Email address of customer O 
+Receiver details 
+FirstName 50 Varchar First name of receiving customer M 
+LastName 50 Varchar Last name of receiving customer M 
+Address1 100 Varchar First line of receiving customer address. Becomes mandatory for courier 
+delivery (product 25) 
+O 
+Address2 100 Varchar Second line of receiving customer address O 
+City 50 Varchar City of receiving customer address. 
+Becomes mandatory for courier delivery (product 25) 
+O 
+State 50 Varchar State/province of receiving customer address. Becomes mandatory for 
+courier delivery (product 25) 
+O 
+StateCode 50 Varchar State/province of receiving customer address (valid only for US states). 
+Becomes mandatory for courier delivery (product 25) 
+O 
+PostCode 10 Varchar Postal or zip code of sending customer's address. Becomes mandatory for 
+courier delivery (product 25) 
+O 
+Country 3 Varchar Country of receiving customer address (ISO code). Becomes mandatory for 
+Courier Delivery (product 25) 
+O 
+PhoneNumber 50 Varchar Phone number of receiving customer O 
+MobileNumber 50 VarChar Mobile Number of Receiving customer O 
+Email 50 Varchar Email address of receiving customer O 
+DataForServices 500 Varchar Contains extra information, i.e. message  
+Becomes mandatory for courier delivery (product 25) 
+O 
+ReasonForPayment 100 Varchar Message which can be included with transfer O 
+BankAccount 8 Varchar Bank account number to which money is to be transferred. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+Bank 100 Varchar Name of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+LocalBankCode 50 Varchar Local code for bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+BankBranch 100 Varchar Name of bank branch at which bank account is held. O 
+===== PAGE 20 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+BankAddress1 100 Varchar Address of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+BankCity 50 Varchar City of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+BankCountry 3 Char ISO code of the country of Bank. 
+ 
+Becomes mandatory for Account Deposit (Product 22). 
+O 
+IBAN 50 Varchar International Bank Account Number (IBAN) is an international standard for 
+identifying bank accounts across national borders.  
+ 
+Becomes mandatory for account deposits where transactions are send to 
+European Union countries or where the official currency is Euro (€) only  
+(product 22). 
+O 
+CPFNumber  Int ID number of receiver.  
+ 
+Mandatory for send transaction to Brazil only. Default to 0 (zero) if not 
+applicable 
+O 
+ 
+4.6 Workflow Payout Query New 
+4.6.1 Request from Partner to SMT 
+ 
+Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials.  M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials.  M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. M 
+ProcessDateTime   DateTime Partner's local time at generating the request in UTC datetime format. M 
+ProductId  Int ProductId: 
+22 – Account Deposit 
+25 – Courier Delivery 
+M 
+RetrievalType  Int Retrieval Type: 
+01 – New transactions for Payout Agent to process 
+02 – Resolved items from Send Agent sent by Payout Agent previously 
+03 – Items requested for cancellation from Sending Agent 
+04 – Items has been acknowledged previously by Payout Agent 
+05 – Pending items which has been referred to Send Agent 
+06 – To find out individual transaction status 
+ 
+M 
+TMTNumber  Int Unique number identifying the SMT order. This field is mandatory if 
+RetrievalType = 06. Otherwise, please supply 0 as default value for other 
+retrieval type. 
+M 
+4.6.2 Response from SMT to Partner 
+Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+RetrievalType  Int  M 
+===== PAGE 21 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+Transaction Detail 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNumber 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money 
+O 
+StatusCode 2 Char Status code of the transaction M 
+StatusDescription  Varchar Description of the status M 
+TransactionDate   DateTime The datetime (GMT) of the transaction was created in UTC datetime format M 
+OriginatingCountry 3 Char Code identifying the sending country M 
+OriginatingCurrency 3 Char Code identifying the currency of the sending country M 
+LocalAmount 19,4 Money Amount of money to be sent in the local currency, i.e. currency of sending 
+country 
+M 
+DestinationCountry 3 Char Code identifying the receiving country M 
+DestinationCurrency 3 Char Code identifying the currency of the receiving country M 
+PayoutAmount 19,4 Money Amount of money to be paid to the receiver (in payout currency) M 
+ProductId  Int Code identifying the primary product of the transaction M 
+ServiceID  Int Code identifying Value Added product (can be more than one, but currently 
+only available with Money Transfer primary product) 
+O 
+Sender details 
+FirstName 50 Varchar First name of customer M 
+SecondName 50 Varchar Second name of customer O 
+LastName 50 Varchar Last name of customer M 
+SecondLastName 50 Varchar Second Last name of customer O 
+Address1 100 Varchar First line of customer address M 
+Address2 100 Varchar Second line of customer address O 
+City 50 Varchar City of customer address M 
+State 50 Varchar State/province of customer address O 
+PostCode 10 Varchar Postal or zip code of customer's address O 
+Country 3 Varchar Country of  customer address (ISO code) M 
+PhoneNumber 50 Varchar Phone number of customer O 
+MobileNumber 50 Varchar Mobile number of customer  O 
+Email 50 Varchar Email address of customer O 
+Receiver details 
+FirstName 50 Varchar First name of receiving customer M 
+SecondName 50 Varchar Second name of receiving customer O 
+LastName 50 Varchar Last name of receiving customer M 
+SecondLastName 50 Varchar Second Last name of receiving customer O 
+Address1 100 Varchar First line of receiving customer address. Becomes mandatory for courier 
+delivery (product 25) 
+O 
+Address2 100 Varchar Second line of receiving customer address O 
+City 50 Varchar City of receiving customer address. 
+Becomes mandatory for courier delivery (product 25) 
+O 
+===== PAGE 22 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+State 50 Varchar State/province of receiving customer address. Becomes mandatory for 
+courier delivery (product 25) 
+O 
+StateCode 50 Varchar State/province of receiving customer address (valid only for US states). 
+Becomes mandatory for courier delivery (product 25) 
+O 
+PostCode 10 Varchar Postal or zip code of sending customer's address. Becomes mandatory for 
+courier delivery (product 25) 
+O 
+Country 3 Varchar Country of receiving customer address (ISO code). Becomes mandatory for 
+Courier Delivery (product 25) 
+O 
+PhoneNumber 50 Varchar Phone number of receiving customer O 
+MobileNumber 50 VarChar Mobile Number of Receiving customer O 
+Email 50 Varchar Email address of receiving customer O 
+DataForServices 500 Varchar Contains extra information, i.e. message  
+Becomes mandatory for courier delivery (product 25) 
+O 
+ReasonForPayment 100 Varchar Message which can be included with transfer O 
+BankAccount 8 Varchar Bank account number to which money is to be transferred. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+Bank 100 Varchar Name of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+LocalBankCode 50 Varchar Local code for bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) 
+O 
+BankBranch 100 Varchar Name of bank branch at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) only for some payout 
+partners that required. 
+O 
+BankAddress1 100 Varchar Address of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) Only for some 
+payout partners that required. 
+O 
+BankCity 50 Varchar City of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) only for some payout 
+partners that required. 
+O 
+BankCountry 3 Char ISO code of the country of Bank. 
+ 
+Becomes mandatory for Account Deposit (Product 22). 
+O 
+IBAN 50 Varchar International Bank Account Number (IBAN) is an international standard for 
+identifying bank accounts across national borders.  
+ 
+Becomes mandatory for account deposits where transactions are send to 
+European Union countries or where the official currency is Euro (€) only  
+(product 22). 
+O 
+CPFNumber  Int ID number of receiver.  
+ 
+Mandatory for send transaction to Brazil only. Default to 0 (zero) if not 
+applicable 
+O 
+BankAccountType  Int Types of Bank Account 
+ 
+Becomes mandatory for Account Deposit (Product 22)only for some pay out 
+partners of Latam Countries 
+O 
+BankState  Varchar State of bank at which bank account is held. 
+ 
+Becomes mandatory for Account Deposit (Product 22) only for some payout 
+partners. 
+O 
+RIdType  Int The identifying code indicating what type of primary id was provided by the 
+sender for beneficiary. 
+ 
+Valid values:  
+01 – Passport  
+02 – National ID  
+03 – Driver’s License  
+04 – Other Government ID  
+O 
+===== PAGE 23 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Name Size Type Description M/O 
+06 – Other  
+Default to 0 (zero) if not applicable 
+RIdProvided  Varchar The reference number of the primary id provided by the sender for 
+beneficiary, e.g. passport number. 
+ 
+Becomes mandatory for account deposits only for some pay out partners of 
+Latam Countries and if the ID1Type is provided only for some pay out 
+partners that required and if the ID1Type is provided 
+ 
+ 
+O 
+ 
+4.7 Workflow Payout Update 
+4.7.1 Request from Partner to SMT 
+New Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials.  M 
+PartnerId  Numeric Partner Id issued by SMT as part of access credentials.  M 
+AgentId  Int Agent Id issued by SMT as part of access credentials. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+UpdateType  Int Update Type:  
+01 : Acknowledged, under action 
+02: Transaction Paid 
+03: Approved cancellation request from sending agent 
+04: Unable to Cancel, transaction has been payout or in the process of 
+paying out 
+05: Incomplete information, problem to be resolved by sending agent 
+06: Payout agent refused to process the transaction. Transaction to be refer 
+to sending agent for cancellation – courier delivery transaction only 
+M 
+Comment 100 Varchar Comments if the transaction needs further clarification from Send Agent. 
+Becomes  mandatory for Update Type: 04, 05, 06 
+ 
+O 
+  
+===== PAGE 24 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4.7.2 Response from SMT to Partner 
+New Field Name Size Type Description M/O 
+ResponseCode  Int Contains code explaining outcome of message request. 
+ 
+Return response code: 4 if successful 
+Return response code: 9000 if update fail 
+M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+ 
+4.8 Nominated Payout Query (cash payout only) 
+4.8.1 Request from the Partner to CMT 
+ 
+New Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials.  M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. . M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+MaxTransactions  Int Maximum number of transactions to get from method. When is set to 0, the 
+method will return all available transactions. 
+M 
+ 
+4.8.2 Response from SMT to Partner 
+New Field Name Size Type Description M/O 
+ResponseCode 10 Int Contains code explaining outcome of message request M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime  DateTime Time of processing the request (GMT). 
+Date format in YYYY-MM-DD HH:MM:SS 
+M 
+Transactions     
+TransactionType  Int 1 = New Transaction 
+2=Cancellation Request from Send Agent 
+M 
+TMTNumber  Int Unique number identifying the SMT order M 
+OtherPayoutNo 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money 
+O 
+PartnerTransactionNo 30 Varchar Partner's own reference for the transaction. 
+If provided in the transaction request message 
+ 
+O 
+StatusCode 2 Char Status code of the transaction. 
+Please refer to Transaction Status Codes 
+M 
+StatusDescription 50 Varchar Description of the status  M 
+TransactionDate  DateTime Date transaction was created M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+OriginatingCurrency 3 Char ISO code identifying the currency of the sending country M 
+DestinationCountry 3 Char ISO code identifying the receiving country M 
+DestinationCurrency 3 Char ISO code identifying the currency of the receiving country M 
+LocalAmount 19,4 Money Amount of money to be send by the sender (in originating currency) M 
+ExchangeRate 20,6 Decimal The consumer exchange rate used for the transaction M 
+ServiceCharge 19,4 Money Send fee for this transaction in local amount M 
+===== PAGE 25 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+ProductId  Int Code identifying the primary product of the transaction. Please refer to Get 
+Corridor method in Send API for more detail on the product availability. 
+ 
+Current ProductId: 
+1 – Money Transfer 
+M 
+OtherServiceCharge 19,4 Money Total of fee charged for value added product chosen for this transaction O 
+Discount 19,4 Money The amount of discount applied to charge O 
+CustomerCharge 19,4 Money Total amount payable by customer including local amount plus any charges, 
+and taking into account discount 
+M 
+TaxCharged 19,4 Money Tax charged on the transaction O 
+PayoutAmount 19,4 Money Amount of money to be paid to the receiver (in destination currency) M 
+Services     
+ServiceID  Int Code identifying Value Added product (can be more than one, but currently 
+only available with Money Transfer primary product). 
+Valid values: 
+21 – Message for Recipient 
+24 – Radio Notification 
+26 – Text message to sender when transaction is paid out. 
+O 
+SenderDetails     
+FirstName 50 Varchar First name of Sender M 
+LastName 50 Varchar Last name of Sender M 
+Address1 100 Varchar First line of customer address M 
+Address2 100 Varchar Second line of customer address O 
+City 50 Varchar City of customer address M 
+State 50 Varchar State/province of customer address O 
+PostCode 10 Varchar Postal or zip code of customer's address O 
+Country 3 Varchar ISO code of the country of customer address M 
+PhoneNumber 50 Varchar Phone number of customer O 
+MobileNumber 50 Varchar Mobile number of customer (if SMS text service is required). First 4 digits 
+are country code, followed by number. No leading zeroes. 
+O 
+Email 50 Varchar Email address of customer O 
+SendingAgentId  INT Unique ID of Sending Agent O 
+SendingAgentName  Varchar Legal Name Of Send Agent  
+ 
+O 
+SenderIdDetails     
+ID1Type  Int The identifying code indicating what type of primary id was shown by the 
+sender 
+Becomes mandatory if local amount is over a certain threshold (to be 
+provided by SMT). 
+Valid values: 
+01 – Passport 
+02 – National ID 
+03 – Driver’s License 
+04 – Other Government ID 
+06 – Other 
+O 
+ID1Provided 100 Varchar The reference number of the primary id shown by the sender, e.g. passport 
+number. 
+ 
+Becomes mandatory if ID1Type is Provided. 
+O 
+DateOfIssue  Date The date of issue of the ID provided. 
+ 
+Date format in YYYY-MM-DD 
+O 
+DateOfExpiry  Date The date of expiry of the ID provided. 
+Becomes mandatory if ID1Type is Provided 
+O 
+===== PAGE 26 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Date format in YYYY-MM-DD. 
+CountryOfIssue 3 Char ISO code of the country of issue. 
+Becomes mandatory if ID1Type is Provided 
+O 
+DateOfBirth  Date Sender's date of birth. 
+Date format in YYYY-MM-DD 
+O 
+PlaceOfBirth 50 Varchar The sender's place of birth O 
+Occupation 40 Varchar The sender's occupation O 
+SocialSecurityNo 20 Varchar The social security number of the sender (US Sends only, if required). 
+Applicable only to transactions sent from the USA 
+O 
+Gender 1 Char Gender of sender 
+M = Male 
+F=Female 
+O 
+StateOfIssue 2 Char ISO code of the state issuing the ID 
+Applicable only to transactions sent from the USA 
+O 
+Nationality 3 Char ISO code of the nationality O 
+ReceiverDetails     
+FirstName 50 Varchar First name of receiver M 
+LastName 50 Varchar Last name of receiver M 
+Address1 100 Varchar First line of receiver address O 
+Address2 100 Varchar Second line of receiver address O 
+City 50 Varchar City of receiver address O 
+State 50 Varchar State/province of receiver address O 
+PostCode 10 Varchar Postal or zip code of receiver's address O 
+Country 3 Varchar ISO code of the country of receiver  address O 
+PhoneNumber 50 Varchar Phone number of receiver O 
+MobileNumber 50 Varchar Mobile number of receiver O 
+Email 50 Varchar Email address of receiver O 
+ReceiverPaymentDetails     
+TestQuestion 200 Varchar Test question to be asked of receiver 
+Becomes mandatory for certain countries.  Full list will be provided by SMT 
+O 
+TestAnswer 200 Varchar Answer to test question. 
+Becomes mandatory for certain countries.  Full list will be provided by SMT 
+O 
+DataForServices 500 Varchar Contains extra information, i.e. message for beneficiary or direction for 
+delivery 
+O 
+ReasonForPayment 100 Varchar Message which can be included with transfer. 
+Becomes mandatory for certain countries.  Full list will be provided by SMT. 
+O 
+CPFNumber  Int ID number of receiver O 
+PayoutAgentName 100 Varchar Name Of Payout Agent O 
+ 
+4.9 Nominated Payout Update (cash payout only) 
+4.9.1 Request from the Partner to SMT 
+ 
+New Field Name Size Type Description M/O 
+UserName 30 Varchar User name issued by SMT as part of access credentials. 
+. 
+M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials.  
+. 
+M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. 
+. 
+M 
+===== PAGE 27 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+TMTNumber  Int Unique number identifying the SMT order M 
+UpdateCode  Int Contains code explaining outcome of message request. 
+ 
+Please see table below for UpdateCode. 
+M 
+Comment 100 Varchar  O 
+ 
+4.9.2 Update Codes 
+ 
+Acknowledge 10000 Transaction accepted  
+19000 Unable to process – please contact  
+19001 Duplicate SMT transaction number  
+19002 Invalid partner transaction number  
+19003 Duplicate partner transaction number  
+19004 Invalid to country  
+19005 Invalid currency code  
+19006 Mandatory data missing Message = Name of field  
+19007 Error in field Message = Name of field 
+Response to 
+Cancellation 
+Request 
+30000 Acknowledge and approve Cancellation 
+Request from Send Agent 
+30001 Update refused - transaction paid 
+30002 Update refused - transaction cancelled 
+30003 Update refused - void transaction 
+30004 Update refused - transaction rejected 
+39000 Unable to process - please contact 
+39001 Invalid SMT number 
+39002 Invalid partner transaction number 
+ 
+4.9.3 Response from SMT to Partner 
+New Field Name Size Type Description M/O 
+ResponseCode 10 Int Contains code explaining outcome of message request M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime  DateTime Time of processing the request (GMT). 
+Date format in YYYY-MM-DD HH:MM:SS 
+M 
+TMTNumber  Int Unique number identifying the SMT order M 
+ 
+ 
+ 
+4.10 Get Settlement Report 
+4.10.1 Request from Partner to SMT 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. 
+ 
+M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. 
+. 
+M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials.  M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+SettlementDate  Datetime The date of the settlement report require M 
+4.10.2 Response from SMT to Partner 
+Field Size Type Description O/M 
+ResponseCode 10 Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format M 
+===== PAGE 28 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Size Type Description O/M 
+SettlementDate  Datetime The date of the settlement report requested M 
+Send Summary 
+LocalSendAmount  Money Total of all send amount in originating country currency M 
+ServiceCharge  Money Total of all service charge in originating country currency M 
+CustomerCharge  Money Total of all customer charge in originating country currency M 
+AgentCommission  Money Total of all agent commission M 
+Send Transactions (Repeated for each transaction) 
+TMTNumber 10 Int Unique number identifying the SMT order M 
+     
+TransactionDateTime  Datetime The datetime (GMT) the transaction was created in UTC datetime format M 
+UserName 30 Varchar The user who transact the transaction M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+DestinationCountry 3 Char ISO code identifying the receiving country M 
+OriginatingAmount  Money Send amount in originating country currency M 
+ServiceCharge  Money Send fee for this transaction in local amount M 
+CustomerCharge  Money Total amount payable by customer including local amount plus any charges, 
+and taking into account discount 
+M 
+AgentCommission  Money Commission earned by the Send Agent in this transaction M 
+PayableToSMT  Money The amount the send agent owes to SMT for this transaction. i.e. Customer 
+Charge less Agent Commission 
+M 
+Cancellation Summary 
+LocalAmount  Money Total of all send amount in originating country currency M 
+ServiceCharge  Money Total of all service charge in originating country currency M 
+CustomerCharge  Money Total of all customer charge in originating country currency M 
+AgentCommission  Money Total of all agent commission M 
+Cancellation Transactions (Repeated for each transaction) 
+TMTNumber 10 Int Unique number identifying the SMT order M 
+TransactionDateTime  Datetime The datetime (GMT) the transaction was cancelled in UTC datetime format M 
+UserName 30 VarChar The user who transact the transaction M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+DestinationCountry 3 Char ISO code identifying the receiving country M 
+OriginatingAmount  Money Send amount in originating country currency M 
+ServiceCharge  Money Send fee for this transaction in local amount M 
+CustomerCharge  Money Total amount payable by customer including local amount plus any charges, 
+and taking into account discount 
+M 
+AgentCommission  Money Commission earned by the Send Agent in this transaction M 
+PayableToAgent  Money The amount SMT owes to the send agent for this transaction. i.e. Customer 
+Charge less Agent Commission 
+M 
+Payout Summary 
+PayoutAmount  Money Amount of money to be paid to the receiver (in destination currency) M 
+AgentCommission  Money Commission earned by the Payout Agent in this transaction M 
+Payout Transactions 
+TMTNumber 10 Int Unique number identifying the SMT order M 
+TransactionDateTime  Datetime The datetime (GMT) the transaction was payout in UTC datetime format M 
+UserName 30 VarChar The user who transact the transaction M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+DestinationCountry 3 Char Send fee for this transaction in local amount M 
+PayoutAmount  Money Amount of money to be paid to the receiver (in destination currency) M 
+AgentCommission  Money Commission earned by the Payout Agent in this transaction M 
+===== PAGE 29 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Size Type Description O/M 
+PayableToAgent  Money The amount SMT owes to the payout agent for this transaction. i.e. 
+Customer Charge plus Agent Commission 
+M 
+ 
+4.11 Rollback Transaction 
+4.11.1 Request from Partner to SMT 
+ 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. 
+ 
+M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. 
+ 
+M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. 
+ 
+M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+TMTNumber 10 Int Unique number identifying the SMT order. 
+This field is mandatory if OtherTransactionNo is not provided. 
+M 
+OtherTransactionNo 30 Varchar Other payout partner number. 
+Insert here the BTS number (11-digits) if transaction sent to a BTS network 
+agent. 
+O 
+4.11.2 Response from SMT to Partner 
+ 
+Field Size Type Description O/M 
+responseCode 10 Int Contains code explaining outcome of message request  
+ 
+See Appendix: Response Codes 
+M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format M 
+TMTNumber 10 Int Unique number identifying the SMT order M 
+otherPayoutNumber 15 Varchar Unique number provided by a payout partner which must be used by 
+recipient to collect money. 
+ 
+The BTS number (11-digits) if transaction sent to a BTS network agent. 
+O 
+4.12 Get ID Types 
+4.12.1 Request from Partner to SMT 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. 
+ 
+M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. 
+. 
+M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. 
+ 
+M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+4.12.2 Response from SMT to Partner 
+ 
+Field Size Type Description O/M 
+===== PAGE 30 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Size Type Description O/M 
+ResponseCode 10 Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime  DateTime System time (GMT) at generating the response in UTC datetime format M 
+IDs     
+Code 4 Int ID Code M 
+Description 200 Varchar Description of  the ID Code M 
+4.13 Get Response Codes 
+4.13.1 Request from Partner to SMT 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+4.13.2 Response from SMT to Partner 
+Field Size Type Description O/M 
+ResponseCode 10 Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime  DateTime System time (GMT) at generating the response in UTC datetime format M 
+Codes     
+Code 4 Int ID Code M 
+CodeDescription 255 Varchar Description of  the ID Code M 
+Explanation 255 Varchar Further explanation of the code O 
+4.14 Get Country Codes 
+4.14.1 Request from Partner to SMT 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. 
+ 
+M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. 
+ 
+M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. 
+ 
+M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+===== PAGE 31 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4.14.2 Response from SMT to Partner 
+Field Size Type Description O/M 
+ResponseCode 10 Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime  DateTime System time (GMT) at generating the response in UTC datetime format M 
+Codes 
+ 
+    
+CountryCode 3 Char Standard ISO country code M 
+CountryName 50 Varchar Country name M 
+4.15 Get Currency Code 
+4.15.1 Request from Partner to SMT 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+4.15.2 Response from SMT to Partner 
+Field Size Type Description O/M 
+ResponseCode 10 Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime Time of processing the request (GMT) M 
+Codes     
+CurrencyCode 3 Char Currency code M 
+CurrencyName 50 Varchar Currency name M 
+ 
+4.16 Get Settlement Report USD 
+4.16.1 Request from Partner to SMT 
+Field Size Type Description O/M 
+UserName 30 Varchar User name issued by SMT as part of access credentials. M 
+Pwd 30 Varchar Password issued by SMT as part of access credentials. M 
+PartnerId 9 Numeric Partner Id issued by SMT as part of access credentials. M 
+AgentId 10 Int Agent Id issued by SMT as part of access credentials. M 
+SettlementDate  Datetime The date of the settlement report require M 
+===== PAGE 32 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+4.16.2 Response from SMT to Partner 
+Field Size Type Description O/M 
+ResponseCode 10 Int Contains code explaining outcome of message request  M 
+Message 255 Varchar Text to elaborate on the response code M 
+ProcessDateTime   DateTime System time (GMT) at generating the response in UTC datetime format M 
+SettlementDate  Datetime The date of the settlement report requested M 
+Send Summary     
+LocalSendAmount  Money Total of all send amount in originating country currency M 
+ServiceCharge  Money Total of all service charge in originating country currency M 
+CustomerCharge  Money Total of all customer charge in originating country currency M 
+AgentCommission  Money Total of all agent commission M 
+LocalSendAmountUSD  Money Total of all send amount in originating country in USD. M 
+ServiceChargeUSD  Money Total of all service charge in originating country in USD.  
+CustomerChargeUSD  Money Total of all customer charge of originating country in USD. M 
+AgentCommissionUSD  Money Total of all agent commission in USD M 
+TotalFXRevenueUSD  Money Total of all FX revenue in USD M 
+AgentCommisionFxReve
+nueUSD 
+ Money Total of all Agent commission earned of FX revenue in USD. M 
+Send Transactions 
+(Repeated for each 
+transaction) 
+    
+TMTNumber 10 Int Unique number identifying the SMT order M 
+TransactionDateTime  Datetime The datetime (GMT) the transaction was created in UTC datetime format M 
+UserName 30 Varchar The user who transact the transaction M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+DestinationCountry 3 Char ISO code identifying the receiving country M 
+OriginatingAmount  Money Send amount in originating country currency M 
+ServiceCharge  Money Send fee for this transaction in local amount M 
+CustomerCharge  Money Total amount payable by customer including local amount plus any charges, 
+and taking into account discount 
+M 
+AgentCommission  Money Commission earned by the Send Agent in this transaction M 
+PayableToSMT  Money The amount the send agent owes to SMT for this transaction. i.e. Customer 
+Charge less Agent Commission 
+M 
+OriginatingAmountUSD  Money Send Amount in USD M 
+ServiceChargeUSD  Money Send fee for this transaction in  USD M 
+AgentCommisionUSD  Money Commission earned by the Send Agent in this transaction in USD. M 
+TotalFXRevenueUSD  Money Total FX revenue in USD. M 
+AgentCommisionFxReve
+nueUSD 
+ Money Agent Commission earned of FX revenue in USD. M 
+Cancellation Summary     
+LocalAmount  Money Total of all send amount in originating country currency M 
+ServiceCharge  Money Total of all service charge in originating country currency M 
+CustomerCharge  Money Total of all customer charge in originating country currency M 
+AgentCommission  Money Total of all agent commission M 
+LocalAmountUSD  Money Total of all send amount in originating country currency M 
+ServiceChargeUSD  Money Total of all service charge in M 
+CustomerChargeUSD  Money Total of all customer charge  M 
+AgentCommissionUSD  Money Total of all agent commission M 
+===== PAGE 33 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Field Size Type Description O/M 
+TotalFXRevenueUSD  Money Total of all FX revenue in USD M 
+AgentCommisionFxReve
+nueUSD 
+ Money Total of all Agent commission earned of FX revenue in USD. M 
+Cancellation 
+Transactions 
+(Repeated for each 
+transaction) 
+    
+TMTNumber 10 Int Unique number identifying the SMT order M 
+TransactionDateTime  Datetime The datetime (GMT) the transaction was cancelled in UTC datetime format M 
+UserName 30 VarChar The user who transact the transaction M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+DestinationCountry 3 Char ISO code identifying the receiving country M 
+OriginatingAmount  Money Send amount in originating country currency M 
+ServiceCharge  Money Send fee for this transaction in local amount M 
+CustomerCharge  Money customer charge M 
+CustomerChargeUSD  Money Customer Charge in USD M 
+AgentCommission 19,4 Money Commission earned by the Send Agent in this transaction M 
+PayableToAgent 19,4 Money The amount SMT owes to the send agent for this transaction. i.e. Customer 
+Charge less Agent Commission 
+M 
+OriginalAmountUSD 19,4 Money Send amount in USD. M 
+ServiceChargeUSD 19,4 Money Send fee for this transaction in USD. M 
+AgentCommisionUSD 19,4 Money Commission earned by the Send Agent in this transaction in USD. M 
+TotalFXRevenue 19,4 Money Total FX revenue in USD. M 
+AgentCommisionFxReve
+nue 
+19,4 Money Agent Commission earned of FX revenue in USD. M 
+Payout Summary     
+PayoutAmount  Money Amount of money to be paid to the receiver (in destination currency) M 
+AgentCommission  Money Commission earned by the Payout Agent in this transaction M 
+SendAmountUSD  Money Total Send Amount for the transaction (in USD)  
+PayoutAmountUSD  Money Amount of money to be paid to the receiver (in USD) M 
+ServiceChargeUSD  Money Total Customer Charge in USD  
+AgentCommissionUSD  Money Commission earned by the Payout Agent in this transaction in USD. M 
+TotalFXRevenueUSD  Money Total of all FX revenue M 
+AgentCommisionFxReve
+nueUSD 
+ Money Total of all Agent commission earned of FX revenue in USD. M 
+Payout Transactions     
+TMTNumber 10 Int Unique number identifying the SMT order M 
+TransactionDateTime  Datetime The datetime (GMT) the transaction was payout in UTC datetime format M 
+UserName 30 VarChar The user who transact the transaction M 
+OriginatingCountry 3 Char ISO code identifying the originating country M 
+DestinationCountry 3 Char Send fee for this transaction in local amount M 
+PayoutAmount  Money Amount of money to be paid to the receiver (in destination currency) M 
+AgentCommission  Money Commission earned by the Payout Agent in this transaction M 
+PayableToAgent  Money The amount SMT owes to the payout agent for this transaction. i.e. 
+Customer Charge plus Agent Commission 
+M 
+SendAmountUSD 19,4 Money Send Amount for the transaction (in USD)  
+PayoutAmountUSD 19,4 Money Amount of money to be paid to the receiver (in USD) M 
+ServiceChargeUSD 19,4 Money Fee for the transaction in USD M 
+AgentCommisionUSD 19,4 Money Commission earned by the Payout Agent in this transaction in USD. M 
+TotalFXRevenueUSD 19,4 Money Total FX revenue in USD. M 
+AgentCommisionFxReve
+nueUSD 
+19,4 Money Agent Commission earned of FX revenue in USD. M 
+===== PAGE 34 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Appendix A: Testing and Certification 
+On confirmation that the partner has completed development, SMT will share a testing and 
+certification test plan. The plan includes a comprehensive list of test cases along with test 
+data. 
+ 
+The partner should execute all the test cases and submit the results to the Sigue QA team. 
+These will be compared with the expected results and feedback provided to the partner. 
+ 
+Once all test cases have been successfully executed, the QA team will certify the integration 
+ready for production deployment. 
+ 
+Partners are expected to execute their own test cases in addition to those provided by Sigue 
+to ensure everything works fine from their end. 
+ 
+  
+===== PAGE 35 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Appendix B: Request Sample Response Codes 
+The following are the response codes that will be used for all messages in the previous sections. 
+SMT 
+Code SMT Code description Explanation 
+1 Request  successful  
+2 Order successful  
+3 Order recorded – call Call Centre to complete  
+4 Update successful  
+5 Query successful  
+6 No updates found  
+7 Order successful but placed on Hold  
+8 Payout place on Hold  
+9000 Unable to process – please Contact  
+9001 Quote request - invalid format  
+9002 Invalid agent Send Agent franchise id is not found in SMT. 
+9003 Invalid country or currency Country or currency is not available in the SMT system 
+9004 Product / corridor not available  
+9005 Unable to calculate exchange rate  
+9006 Exceeds interface limit The send limit for the send country set in the API has been 
+reached (note: there may not be a limit) 
+9007 Exceeds country send limit  The transaction amount exceeds the allowed amount per 
+transaction for the send country. 
+9008 Exceeds net liability threshold The send agent has reached its net liability limit as set in 
+the SMT system. 
+9009 Customer not found Globe card number is not registered in SMT 
+9010 Customer name does not match  
+9011 Four receivers already present - cannot have new receiver  
+9013 Order request – invalid format  
+9014 Receiver not found  
+9015 Invalid ID type  
+9016 Invalid SMT transaction number  
+9017 Invalid send amount  
+9018 Invalid date /time 
+This error occurs when a request date to payout a 
+transaction happens before the creation date of the 
+transaction or the date value is not well-formed. 
+9019 Invalid payout amount  
+9020 Invalid payout agent  
+9021 Invalid partner id  
+9022 Mandatory data missing The message that will come with the error response will 
+detail what is missing. 
+9023 Invalid partner transaction number  
+9024 Invalid update type  
+9025 Transaction already cancelled  
+9026 Payment already made  
+9027 Payout is in progress, cannot cancel / payout to originator  
+9028 Compliance checking is in progress, cannot cancel/payout to 
+originator 
+Transaction is in Prime and cannot be cancelled until 
+released by SMT 
+9029 Transaction in Progress. Transaction cannot be cancelled / 
+paid out. The transaction is in progress in SMT’s Environment. 
+9030 Invalid service  
+9031 Invalid state code  
+===== PAGE 36 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+SMT 
+Code SMT Code description Explanation 
+9032 Invalid retrieval type Retrieval type used in the Transaction Query or Agent 
+Query requests is invalid. 
+9033 Agent not found  
+9034 Invalid town code  
+9035 Description is variable 
+This code feeds back when there was an error in the 
+processing of the request which is related to any of the 
+following scenarios: 
+1) The transaction has been already exported through 
+GOPI interface. 
+2) The transaction has been already exported through BTS 
+interface. 
+3) The country of the Payout Agent and the destination 
+country of the transaction do not match. 
+4) The country of the Payout Agent and the source country 
+of the transaction match. 
+5) The transaction has been put on hold and waits for 
+Sender’s required documentation. 
+6) The transaction has been put on-hold and waits for 
+Receiver’s required documentation. 
+7) Forex Margin for the destination country of the 
+transaction has not been set up. 
+8) The transaction was not found in SMT’s Database. 
+9036 Invalid query reason  
+9037 Agent not entitled to query transaction   
+9038 Transaction is not available for this agent to payout to 
+originator  
+9039 Transaction is not available for this agent to cancel  
+9040 Invalid customer type Customer type field used in a request is invalid. 
+9041 Message not valid for this partner  
+9042 Incomplete search criteria supplied Only valid for Payout Query message in Payout API. 
+9043 Transaction is not available for this agent to payout Only valid for Payout API. 
+9044 Transaction cannot be updated using this message Only valid for Payout API. 
+9045 Transaction cannot be completed due to current workflow 
+status Only valid for Payout API. 
+9046 Service cannot be updated due to current workflow status Only valid for Payout API. 
+9047 Compliance checking is in progress, cannot update Only valid for Payout API. 
+9048 Transaction cannot be updated via interface, please contact Only valid for Payout API. 
+9049 No cancellation request outstanding Only valid for Payout API. 
+9050 Transaction cannot be updated by this partner  
+9051 Transaction has expired and cannot be confirmed  
+9052 Invalid CPF number  
+9053 Exceeds country payout limit  
+9054 Rejected because of compliance rule When internal SMT compliance rules have been applied. 
+9055 The following extra data is required for this transaction. (List 
+of fields to appear in Message field)  
+9056 
+This transaction, if created, would be Held for compliance 
+reasons awaiting further information from sender - if you wish 
+to proceed to create the Held transaction, must resend 
+message with Confirm Hold set to True. 
+Wording may be more concise. 
+9057 
+This transaction has been rejected due to business or 
+commercial reasons.  Please contact your TMT 
+representative if further information is required 
+When internal SMT compliance r 
+9058 This transaction has been held awaiting required 
+documentation from sender and cannot be paid out Only valid for Payout API. 
+9059 This transaction has been held awaiting required 
+documentation from receiver and cannot be paid out Only valid for Payout API. 
+9061 Invalid User or Password User record does not exist in 
+9060 This payout, if created, would be Held for compliance reasons Wording may be more concise. 
+===== PAGE 37 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+SMT 
+Code SMT Code description Explanation 
+awaiting further information from receiver - if you wish to 
+proceed to create the Held t 
+9062 Paid to original sender The transaction has been canceled 
+9063 This transaction is not a cash payout transaction. The API can only pay out cash- 
+9064 Payment refunded to originator. Payment has been already paid 
+9065 Requesting agent has no privilege to use SMT Payout API. NULL 
+9066 A system error has occurred in the processing of your 
+request. A system exception has been th 
+9067 Transaction is Host Suspicious The transaction has been marke 
+9068 Invalid data type Data supplied for the request 
+9069 Invalid date range for the requested report NULL 
+9070 No settlement data found NULL 
+9071 Requesting agent has no privilege to use SMT Send API. NULL 
+9072 Invalid System Transaction Status code Status code supplied for the t 
+9073 Roll Back Transaction request denied SMT does not allow to roll bac 
+9074 Invalid Notification code Incorrect notification code su 
+9075 No Payout Agent data found NULL 
+9076 Invalid Agents Country for Get Transaction The Agents Country is not the 
+9077 Invalid date range for Get Transaction NULL 
+9078 Invalid Status Code for Get Transaction Status Code supplied for Get T 
+9079 Invalid Agents Country for Get Customer The Agents Country is not the 
+9080 Agent not entitled to cancel this transaction Only Send Agent for the transa 
+9081 Senders First and Last name does not match on SMT system NULL 
+9082 Cannot register a Globe Card when Partner already supplied 
+a Globe Card number. NULL 
+9083 Cannot register and update a Customer detail for Globe Card 
+detail in a single request NULL 
+9084 Globe Card number is mandatory when  updating Customers 
+detail NULL 
+9085 Corridor exist but no data for the corridor found NULL 
+9086 Unable to calculate Send fee NULL 
+9087 Corridor not found Corridor not exists from origi 
+9088 NOT USED NULL 
+9089 No Payout Agents found The input criteria did not fin 
+9090 System cannot find the XML file in the expected path The country rule (XML file) 
+9091 System does no have permission for read the XML file NULL 
+9092 The transaction cannot be modify due to current transaction 
+status NULL 
+9093 Cannot make modification to this Account Deposit transaction NULL 
+9094 No ID Type data found NULL 
+9095 No country ISO Code found NULL 
+9096 No country Currency Code found NULL 
+9097 No country state code found NULL 
+9098 Transaction status has been rolled back from Cancelled to be 
+available for Payout NULL 
+9099 Transaction status has been rolled back from Payout to 
+Originator (Refund) to be available for Payout NULL 
+9100 Unable to rollback transaction. Please contact SMT Support. NULL 
+9101 Unable to cancel transaction. Please contact SMT Support. NULL 
+9102 The transaction does not comply with Pre-AML rules for the 
+specified corridor NULL 
+===== PAGE 38 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+SMT 
+Code SMT Code description Explanation 
+9103 SMT transaction number was not provided NULL 
+9104 Destination Payout Amount and Local Send Amount were not 
+supplied NULL 
+9105 NOT USED NULL 
+9106 The agent does not belong to partner Not exist a relation between A 
+9107 The Corridor is disabled NULL 
+9108 Not found corridors NULL 
+9109 Cancellation in progress NULL 
+9110 Unable to refund transaction. Please contact SMT Support. NULL 
+9111 Invalid ISO Country Code The supplied ISO Country Code 
+9112 Invalid ISO Currency Code The supplied ISO Currency Code 
+10 The operation has been requested. Please, contact Call 
+Center in order to complete it An operation (Cancellation, Mo 
+9113 Unable to modify transaction. Please contact SMT Support. GetUTCDate() 
+9114 No transactions that match the supplied criteria were found GetUTCDate() 
+9115 Transaction could not be sent GetUTCDate() 
+9116 Invalid Data Value NULL 
+9117 Agent not entitled to modify this transaction Only Send Agent for the transaction can modify the 
+transaction 
+9118 Agent not entitled to refund this transaction Only Send Agent for the transaction can refund the 
+transaction 
+9119 Refund in progress NULL 
+9120 The user not has privilege to use requested functionality NULL 
+9121 Invalid ISO State Code The supplied ISO State Code is 
+9122 Agent not entitled to rollback this transaction Only Send Agent for the transaction can roll back the 
+transaction 
+9123 Agent not entitled to confirm this transaction Only Send Agent for the transaction can confirm the 
+transaction 
+9124 Aggregation NULL 
+9125 Invalid zip code NULL 
+9126 Invalid Text When Sender or Receiver first name, last name or address 
+has especial characters 
+9127 Invalid ID NULL 
+9128 Unable to confirm paid transaction. Please contact SMT 
+Support. NULL 
+9129 Unable to confirm send transaction. Please contact SMT 
+Support. NULL 
+9130 Unable to update workflow. Please contact SMT Support. NULL 
+9131 Agent not entitled to update this transaction NULL 
+9132 This is not an Account Deposit or Courier Delivery transaction NULL 
+9133 This is not a Courier Delivery transaction NULL 
+9134 This is not an Account Deposit transaction NULL 
+ 
+  
+===== PAGE 39 =====
+ 
+SMT Payout API Version 3.0 
+ 
+ 
+Appendix C: Transaction Status Codes 
+SMT has several send and payout status for transactions held in the SMT system. The 
+following statuses of transactions are the most commonly used and can be shown in the 
+reports produced by SMT and the API message responses. 
+ 
+Status Code Meaning 
+PP If the transaction has been stopped by Compliance check. 
+SQ If the transaction is confirmed suspicious and will not be released until 
+sending agent is contacted. 
+CN When the transaction has been cancelled. 
+CP When the transaction has been sent and is ready for payout. 
+IP When the transaction is in an incomplete status or in progress. These 
+can happen if: 
+The transaction was not completed properly by the Send Partner. 
+SMT sent the transaction it to an outside payout partner (via a payout 
+interface) and SMT is waiting from payment confirmation. 
+The Send Partner did not confirm the send transaction 
+PD When the transaction has been paid to the customer, SMT will send 
+status 'PD' 
+PO When the transaction has been paid back to the originator (i.e. 
+cancellation without fees). 
+RF When the payout agent has refused to make the payment due to 
+insufficient id or other reasons. This is a payout status only and is in 
+combination with a send status of 'CP'. 
+ 
+ 
+ 
+ 

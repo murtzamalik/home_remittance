@@ -1,0 +1,1844 @@
+PDF_PAGES=34
+PDF_META={'/Producer': 'PDF-XChange Printer V6 (6.0 build 318.1) [Windows 7 Enterprise x64 (Build 7601: Service Pack 1)]', '/CreationDate': "D:20170531103841+05'00'"}
+
+===== PAGE 1 =====
+JS Bank Limited
+Independent Third Party IT Audit of STP Implementation
+Final Report Ver. 0.2
+May 2017
+===== PAGE 2 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 1
+DISCLAIMER
+Documents and Information furnished by the management of JS Bank Limited (JSBL), upon which all or parts of this deliverable is based,
+have b een assumed to be re liable an d have, th e refore, not been v erif ied. Th erefor e, no warr ant y expressed o r im plied is g iven as to the
+accuracy of such documents/ information.
+This report is made solely for JSBL, and to the extent applicable for the State Bank of Pakistan (SBP) in accordance with the methodology
+as define d in our pro posal. It m ay, howev er, b e noted th at this delive rab le shou ld not be re lie d upon to id entify all defic ienc ies that may
+exist within JSBL’s IT infrastructure and environment, or to identify all areas requiring management attention. Accordingly, the comments
+in the deliverables refer only to those matters that have come to our attention during the course of our engagement and do not attempt to
+indicate all possible risks and recommendations which may be required.
+We undertake that we exercised due care in the performance of our work in accordance with applicable professional standards. Our
+m a x im u m l ia b il it y r e la t in g t o o r a r is in g f r o m t h e s e r v i c e s r e n d e r e d ( r e g a r d le s s o f t h e f o r m o f a c t io n , wh e t h e r in c o n t r a c t , n e g l ig e n c e o r
+otherwise) were limited to the related amount of fee paid to EY Ford Rhodes  (EYFR),  a member firm of Ernst & Young Global Limited. In no
+event is EYFR or its partners and personnel liable for consequential, special, incidental or punitive loss, damage or expense (including
+without limitation, lost profits, opportunity costs, etc.) even if it has been advised of their possible existence.
+The management of JSBL will indemnify and hold harmless EYFR and its partners and personnel from and against claims, liabilities, costs
+and expenses (including without limitation, attorney fees and the time of EYFR’s personnel involved) brought against, paid or incurred by
+EYFR at any time and in any way arising out of or relating to EYFR’s services under this assignment, whether caused in whole or in part by
+E Y F R ’ s n e g l i g e n c e , e x c e p t t o t h e e x t e n t f i n a l l y d e t e r m i n e d t o h a v e r e s u l t e d f r o m t h e g r o s s n e g l i g e n c e o r w i l l f u l m i s c o n d u c t o f E Y F R ’ s
+personnel.
+Confidential - Restricted Access
+Due to the sensitive nature of the various aspects (relating to IT controls) contained herein, the distribution of this document shall be limited
+t o a u t h o r i z e d p e r s o n s o n a n e e d - t o - k n o w b a s i s w i t h i n J S B L a n d t h e S t a t e B a n k o f P a k i s t a n . T h e d o c u m e n t s h a l l n o t b e p r i n t e d o r
+photocopied without authorization.
+===== PAGE 3 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 2
+DOCUMENT REFERENCE
+ITEM DESCRIPTION
+Document Title Independent Third Party IT Audit of STP Implementation
+Version Final Version 2.0
+Document Status Final Submission to JSBL
+Submission Date May 26, 2017
+Prepared by
+EY Ford Rhodes (EYFR)
+Chartered Accountants
+A member firm of Ernst & Young Global Limited
+===== PAGE 4 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 3
+Table of Contents
+1. Executive Summary..................................................................................................................................................................................................................... 4
+1.1 Risk Categories .............................................................................................................................................................................................................. 5
+1.2 Scope Area Wise Risk Rating ....................................................................................................................................................................................... 6
+2. Introduction and Background..................................................................................................................................................................................................... 7
+3. Scope of Work .............................................................................................................................................................................................................................. 8
+1.3 In-Scope Systems .......................................................................................................................................................................................................... 9
+4. Project Methodology ................................................................................................................................................................................................................. 10
+5. ITGC Audit and technical post implementation review of STP Implementation ............................................................................................................... 11
+6. Internal vulnerability assessment of in-scope systems ....................................................................................................................................................... 19
+7. Network security review of in-scope systems ....................................................................................................................................................................... 23
+8. Review of Business Continuity, Disaster Recovery Plans and Testing Reports ............................................................................................................... 26
+9. Annexure A – Vulnerability Assessment ................................................................................................................................................................................ 27
+9.1 A1: Server Message Block (SMB) Protocol Version 1 Unspecified RCE (credentialed check) ......................................................................... 27
+9.2 A2: Microsoft Windows Remote Desktop Protocol Server Man-in-the-Middle Weakness ................................................................................. 27
+9.3 A3: Terminal Services Encryption Level is Medium or Low ................................................................................................................................... 28
+9.4 A4:  Terminal Services Doesn't Use Network Level Authentication (NLA) Only ................................................................................................ 28
+9.5 A5: SSL Version 2 and 3 Protocol Detection ........................................................................................................................................................... 29
+9.6 A6: SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption) ............................................................... 29
+9.7 A7: SSH Server CBC Mode Ciphers Enabled ............................................................................................................................................................ 30
+9.8 A8: SSL RC4 Cipher Suites Supported (Bar Mitzvah) ............................................................................................................................................ 31
+9.9 A9: Password Transmitted over HTTP ..................................................................................................................................................................... 31
+10. Annexure B ................................................................................................................................................................................................................................. 32
+10.1 B1 - UNAUTHORIZED IDs ........................................................................................................................................................................................... 32
+===== PAGE 5 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 4
+1. Executive Summary
+EY F ord Rhodes was appointed by the JS Bank Limited, for carrying out Independent third party IT Audit of STP implementation. The field
+work for the assignment was started on March 15, 2017. Limitations and specific additional understanding, which have been agreed with the
+JSBL management are addressed and agreed through the Engagement Letter (EL) signed between EYFR and JSBL.
+Core areas of this assignment included the following:
+► ITGC Audit and technical post implementation review of STP (Straight through processing) Implementation
+► End to end internal vulnerability assessment of in-scope systems
+► Security review of in-scope systems, including network security, network architecture, review of configuration of network devices,
+firewalls, connected with the in-scope systems
+► Review of BCP and IT DR plans and testing reports (if any) relevant to STP application
+This report comprises the observations and recommendations relating to the scope of work. The format of our report comprises reporting on
+the weaknesses and exceptions noted during the revie w and r ecommendations on their remediation. The observations documented in this
+report are related to the areas where either control objectives are not met or where we believe improvements can be made in the efficiency
+or effectiveness of procedures.
+O u r f i n d i n g s a n d o b s e r v a t i o n s w e r e d i s c u s s e d w i t h J S B a n k ’ s I T T e a m . H o w e v e r , f i n a l i z i n g t h e m a n a g e m e n t a c t i o n p l a n s a n d t h e i r
+implementations are not part of the scope of this assignment.
+F in a l ly , w e w o u l d l ik e t o t h a n k t h e m a n a g e m e n t o f JS B a n k f o r t h e c o - o p e r a t io n a n d a s s is t a n c e e x t e n d e d t o u s d u r in g t h e c o u r s e o f t h e
+assignment.
+===== PAGE 6 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 5
+1.1 Risk Categories
+In this report, each observation has been assigned a Risk rating (Severe, Moderate or Low), which should be interpreted as follows:
+Risk Rating Description
+SEVERE A significant business issue or a significant weakness in control over a key risk to the business, which requires the immediate
+attention of the management and priority action for resolution.
+MODERATE A b u s i n e s s i s s u e o r c o n t r o l w e a k n e s s , w h i c h r e q u i r e s t h e t i m e l y a t t e n t i o n o f t h e m a n a g e m e n t , b u t w h i c h o n i t s o w n , i s
+unlikely to affect the adequacy and/or effectiveness of controls over key risks.
+LOW A business issue or control weakness, which has a low business risk impact. Further, issues which are addressed
+subsequently after the assignment time period.
+===== PAGE 7 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 6
+1.2 Scope Area Wise Risk Rating
+Risk Rating Per Area
+Scope Area Severe Moderate Low Total
+ITGC Audit and technical post implementation review of STP Implementation 16 3 3 22
+Internal vulnerability assessment 2 5 2 9
+Review of network security, network architecture, configuration of network devices and firewalls 4 4 1 9
+Review BCP and IT DR plans and testing reports 1 - - 1
+Total 23 12 6 41
+0
+5
+10
+15
+20
+25
+Severe Moderate Low
+Risk Rating
+Severe
+Moderate
+Low
+===== PAGE 8 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 7
+2. Introduction and Background
+In f ormation is one o f the most import ant asset o f an y financial institution. Pr ot ect ion o f in f ormation asse ts is nec essary t o est ablish and
+maintain trust between the financial institution and its customers. Timely and reliable information is necessary to process transactions and
+support the financial institution and customer decisions. A financial institution’s earnings and capital can be adversely affected if information
+becomes known to unauthorized parties, is alter ed, or is not a vailable when it is needed. Information risk management enables a financial
+institution to meet its business objectives by implementing appropriate controls with due consideration of information technology (IT) related
+risks to the organization, business and trading partners, technology service providers, and customers.
+JS B a n k w a s f o r m e d in 2 00 6 t h r o u g h t h e m e r g e r o f A m e r ic a n E x p r e s s B a n k ’ s P a k is t a n b r a n c h e s a n d Ja h a n g i r S id d i q u i In v e s t m e n t B a n k
+Limited and in December 2016 completed its 10th year of operations. JS Bank currently operates a network of 307 branches in 152 cities.
+Listed on the Pakistan Stock Exchange since 2007, JS Bank is a subsidiary of Jahangir Siddiqui & Co. Limited.
+The objective of this assignment is to carry out an Independent third (3rd) party IT Audit of JSBL ’s STP and relevant systems and networks to
+assess the level of risks  and vulnerabilities relating to the STP application, related network(s), database(s) and Infrastructure as required by
+State Bank of Pakistan.
+A comprehensive IT Audit and Vulnerability Assessment was performed for STP application and its relevant infrastructure. During the course
+o f o u r a s s e s s m e n t , w e i d e n t i f i e d p o s s i b l e v u l n e r a b i l i t i e s t h a t c a n b e e x p l o i t e d b y t h r e a t s i d e n t i f i e d , w h i c h m a y c a u s e h a r m t o c r i t i c a l
+information systems and other vulnerabilities if any. During this exercise, considerations were made for possible vulnerabilities arising from
+different sources, both intrinsic and extrinsic to the asset.
+===== PAGE 9 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 8
+3. Scope of Work
+The scope envisaged the carrying out of third-party IT Audit of STP Implementation which includes the following:
+► ITGC Audit and technical post implementation review of STP implementation
+► End to end internal vulnerability assessment of in-scope systems
+► Security review of in-scope systems, which includes network security, network architecture, review of configuration of network devices
+and firewalls connected with the in-scope systems.
+► Review of BCP and IT DR plans and testing reports (if any) relevant to STP application
+===== PAGE 10 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 9
+1.3 In-Scope Systems
+The following are the in-scope systems identified by JSBL as per scope of work for the Independent IT Audit of STP.
+Application Application Type Operating System Database Server Hardware
+STP Application Vendor Developed Windows 7 Enterprise Microsoft SQL Server 2008 R2 (RTM) Dell
+===== PAGE 11 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 10
+4. Project Methodology
+E Y ’ s p r o v e n a n d r e s u l t o r i e n t e d m e t h o d o l o g y h a s d e l i v e r e d c o n s i s t e n t , q u a l i t y a n d h o l i s t i c r e v i e w t h r o u g h t h e e n t i r e l i f e c y c l e o f t h e
+engagement. The following methodology was used by EY Ford Rhodes to achieve the project objectives:
+IT General Controls
+Review
+Reviewed Change
+Management,
+Logical Access
+Management and
+other IT Operations
+Reviewed backup
+and recovery
+procedures
+Reviewed BCP / DRP
+and testing reports
+of in-scope systems
+Technical Post
+Implementation
+Review of STP
+Implementation
+High level review of
+STP Implementation
+Phases and
+Technical
+Deliverables
+High level review of
+STP Implementation
+as per SBP
+Guidelines and
+leading practices.
+High level review of
+Process Design,
+Technical / Security
+Specifications,
+Quality Assurance
+Procedures and Test
+Cases.
+Vulnerability
+Assessment &
+Network Security
+Review
+Review of Asset
+Identification for
+vulnerability
+assessment and
+configurations
+Network
+Vulnerability
+Assessment
+Review of Network
+Design &
+Configuration
+Reporting
+Compilation of Draft
+Report
+Submission of draft
+report to
+management
+Discussion of the
+draft report with the
+Management
+Final report
+submission after
+discussion
+===== PAGE 12 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 11
+5. ITGC Audit and technical post implementation review of STP Implementation
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+1
+During the review of functional
+s p ec i f ic a ti o n d o c u m e n t, w e n o t e d t h a t STP
+Application Security Specifications (i.e
+Application Security, Activity Logging &
+Auditing, Integration Security, Users’ &
+Password Security) were not defined.
+Severe STP Application
+I n t h e a b s e n c e o fApplication’s
+Security Specifications, vendor
+m a y n o t b e a b l e t o d e v e l o p
+security functionalities in the
+application, which could lead to
+the limitation for the application
+administrator to configure
+security settings as per JS
+Bank’s information security
+policy and leading practices.§
+§ Formal security
+specifications document
+should be designed in
+consultation with
+Information security group
+and implemented on STP
+application.
+Will be incorporated in  FSD by
+10-June-2017
+2
+During our review, we noted that Security &
+Compliance review was not performed
+before the Go-live of the STP Application,
+e v e n t h o u g h i t w a s m e n t i o n e d i n S T P
+Project Plan.
+Severe STP Application
+In case of nonperformance of IS
+review prior to the Go-live of the
+application, there is risk that of
+deploying the application, with
+potential security vulnerabilities,
+to the live environment which
+could cause severe security
+t h r e a t s t o t h e b a n k ’ s s e c u r i t y &
+information.
+Management should
+i m p l e m e n t a p r o c e s s w h i c h
+e n s u r e s t h a t I S r e v i e w i s
+performed on the newly
+developed / acquired
+Application and approval is
+obtained before Go-live of
+the system.
+Noted for Compliance.
+Relevant stakeholder will be
+notified to comply with this
+recommendation.
+3
+STP Application’s Technical Administration
+Manual is not available for JS local IT Team
+for their support in performing
+Application’s technical administration and
+troubleshooting tasks.
+Moderate STP Application
+In the absence of technical
+manual of the application, the IT
+administrator(s) may find
+difficulty in performing
+Application’s technical
+administration and
+troubleshooting tasks.
+Management should ensure
+that STP Application’s
+Technical Administration
+Manual is developed and
+disseminated it to the
+stakeholders.
+Will be incorporated in  FSD by
+10-June-2017
+4
+During the r e v i e w o f S T P M e c h a n i s m
+implemented at JS Bank, we noted that STP
+transactions messages (i.e. MT103, MT102,
+a n d M T 2 0 2 ) c r e a t e d i n T 2 4 S y s t e m a r e
+s h a r e d i n a "Clear Text"  format in
+"Outward Folder"  located in Infobit
+Operating System (O/S) from which Infobit
+Application reads those messages and
+t r a n s m i t s t h e m i n t o S B P R T G S S e r v e r .
+Infobit Operating System Administrator
+have complete rights (Edit/Write) on the
+“ Outward Folder" , where STP transactions
+Severe STP Application
+T h e r e i s a n i n c r e a s e d r i s k t h a t
+confidentiality and integrity of
+the transactions might get
+compromised.
+The messages shared from
+T24 system to STP
+Operating System should be
+stored in encrypted format
+so that it cannot be edited
+deliberately or
+unintentionally.
+We will address this issue by
+looking best possibilities.
+===== PAGE 13 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 12
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+messages (i.e. MT103, MT102, and MT202)
+are shared.
+5
+STP Application related users’ complaints
+a r e n o t l o g g e d i n H e l p D e s k S y s t e m f o r
+proper tracking/ management of the STP
+issues and errors after Application’s GO-
+Live.
+Low STP Application
+In the absence of appropriate
+help desk system, it will be
+difficult for the management to
+track/ monitor the status of STP
+related issues and errors.
+Additionally there is a risk that
+the technical support personnel
+may not be able to provide
+adequate and timely assistance
+to users.
+Further, management may not
+be able to track and monitor
+statistics pertaining to STP
+issues after the GO-Live / Pilot
+Run encountered by users.
+STP related issues and
+problems should be logged
+a n d r e c or d ed i n J S B a n k s I T
+H e l p D es k Sys t em t o e n s ur e
+that all such events are
+recorded, analysed and
+resolved in a timely manner.
+Noted for Compliance
+6
+During STP Application Access
+Management Review, we noted the
+violation of Segregation of Duties; as
+business user from Treasury Department is
+currently assigned and engaged in the
+Creation and Modification of Users Rights,
+U n l o c k i n g o f U s e r s I D ’ s a n d R e s e t t i n g o f
+passwords. Moreover, the same business
+user have been assigned, and using another
+STP Application ID (shakil00078) to View
+and Authorize STP Transactions.
+Severe STP Application
+Lack of segregation of duties
+between application
+administration and application
+business transactions may result
+in inefficiencies and weakens the
+General Control environment
+within the bank. This could
+result in unwarranted provision /
+m o d i f i c a t i o n o f a c c e s s r i g h t s t o
+users on STP application.
+Application administrative
+responsibility should be
+revoked from Treasury
+department and assigned to
+centralized user
+administration department.
+Point noted, as we are working
+on it to transfer the Application
+Administrative responsibilities
+to the relevant department
+ASAP
+7
+During Access Management review, we
+noted that Generic STP Administration User
+IDs “sec_maker”  and “sec_checker”  are
+used for User Administration tasks.
+Sever STP Application
+Generic user IDs are the primary
+targets of intruders attempting
+to gain access to the information
+resources; the unauthorized
+user may attempt to gain access
+to the Application,
+The generic ID should be
+disabled. Further, named IDs
+must be created and
+“sec_maker” and
+“sec_checker”  roles should
+be assigned to ensure
+Noted for Compliance
+===== PAGE 14 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 13
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+compromising the security of
+systems and the information
+stored in it. Further,
+accountability could not be
+established if malicious activities
+are performed using generic
+user IDs.
+traceability and
+accountability.
+8
+During Access Management review, we
+noted that, STP Application has the
+limitation that, Create Message rights for
+s p e c i f i c t r a n s a c t i o n t y p e ( e . g . M T 1 0 2 )
+cannot be assigned to a user.  System only
+allows to assign the role of “Creator” to the
+u s e r , a s a r e s u l t u s e r s g a i n s t h e m e s s a g e
+creation rights of all the transaction
+messages such as MT102, MT103, MT202,
+and MT199 available the STP Application.
+During review we identified the following
+users, who have the message creation
+rights of all the above mentioned
+transactions. Further, the description of
+creation rights are also not defined in the
+User Account forms at the time of approval:
+ID USR_NAME ROLE DEPT
+38 kumail05072 Creator Treasury
+39 abdul02494 Creator Treasury
+41 omair01664 Creator Treasury
+45 kashif00076 Creator Treasury
+46 naeem01847 Creator Treasury
+40 waseem02788 Creator Treasury
+48 azam03852 Creator Treasury
+47 hasnain03408 Creator Treasury
+49 adnan00077 Creator Treasury
+Severe STP Application
+There is a risk that users have
+excessive rights that are not
+compatible with their job
+functions.
+STP application user
+administration functionality
+should be upgraded which
+allows administrator to
+assign specific transaction
+messages creation rights to
+the users. Further,
+Management should ensure
+that only restricted rights
+a r e a ss ig n e d t o t h e u s er I Ds
+based on their job functions.
+We will address this issue and
+fix the same till 10-July-2017
+9
+During Access Management review, we
+found the following external Vendor’s IDs
+active in the STP Application Production
+Severe STP Application
+In case where the vendor
+accesses the production
+environment and there is no
+Management should ensure
+that vendor’s activities are
+restricted to the test
+Vendor access on Production
+environment will be revoked
+===== PAGE 15 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 14
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+Environment. Moreover, there is no
+authorization available for the below
+mentioned STP Application IDs. Further,
+there is no process in place to monitor the
+transactions performed by vendor IDs in the
+live environment.
+ID USR_NAME ROLE DEPT
+35 as Viewer Treasury
+6 Usama Viewer
+Centralized
+Operations-
+COPS
+24 Faaaa Viewer
+Centralized
+Operations-
+COPS
+process to monitor their
+activities, there is a risk that
+unauthorized transactions will
+be performed in production
+application and/or data may go
+undetected.
+e n v i r o n m e n t o f S T P
+Application. Where required,
+vendor’s activities on
+production environment
+should be logged and
+reviewed by an Independent
+authority to ensure that only
+authorized transactions are
+made by the vendor.
+10
+During Access Management Review, we
+found that following IDs of Test System
+were active in STP Application Production
+E n v i r o n m e n t .  H e n c e t h e r e i s N o
+Authorization available for the below
+mentioned IDs:
+USR
+_ID USR_NME ROLE_
+NME
+DEPT_NM
+E
+56 adnan77 Viewer Treasury
+30 shakil1 Viewer Treasury
+36 hafeezuddin Viewer Treasury
+Severe STP Application
+Without formal authorization of
+user access, management
+cannot be assured that user
+access is appropriate and proper
+approvals were obtained before
+such access was granted.
+Test IDs from production
+system should be deleted /
+disabled. Furthermore, User
+IDs should be only be formed
+based on the formal
+authorization forms
+approved by the relevant
+business head(s).
+Test IDs on Production
+environment will be deleted
+11
+Fo l l o w i n g g e n e r i c I D s w e r e a c t i v e i n S T P
+Application:
+USR_
+ID USR_NME ROLE_NM
+E
+DEPT_NM
+E
+8 creator creator Treasury
+7 sec_makero Viewer Treasury
+1 maker Viewer
+Centralized
+Operations
+-COPS
+2 sec_maker Viewer Treasury
+3 sec_checker Security
+Authorizer Treasury
+16 Sec_makersss
+s Viewer
+Centralized
+Operations
+-COPS
+17 Sec_makersad
+e Authorizer
+Centralized
+Operations
+-COPS
+8 Sec_makerasd Creator Treasury
+Severe STP Application
+Generic user IDs are the primary
+targets of intruders attempting
+to gain access to the information
+resources; the unauthorized
+user may attempt to gain access
+to the Application,
+compromising the security of
+systems and the information
+stored in it. Further,
+accountability could not be
+established if malicious activities
+are performed using generic
+user IDs.
+The generic ID should be
+deleted / disabled. Individual
+user accounts and
+passwords must be set up to
+ensure traceability and
+accountability.
+Generic IDs will be deleted &
+individual user accounts will be
+created to ensure traceability
+and accountability
+===== PAGE 16 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 15
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+12
+During Access Management Review, we
+found following Duplicate IDs were active in
+STP Application:
+USR_
+ID USR_NME ROLE_NME DEPT_NME
+25 Hafeez Viewer Treasury
+26 Hafeez1 Creator Treasury
+33 Shafeez Viewer Treasury
+36 hafeezuddin Viewer Treasury
+54 Hafeez00052 Viewer Treasury
+55 Yaqoob00031 Viewer Treasury
+14 Yaqoob0031 Viewer Centralized
+Operations-COPS
+57 iftikhar1552 Viewer Treasury
+11 iftikhar1552 3 -
+4 responder 3 Treasury
+6 responder 3 ICU
+10 usama Creator Treasury
+6 Usama 1 -
+Severe STP Application
+Having duplicate IDs for a single
+u s e r g i v e s t h e u s e r a n
+opportunity to work around and
+breach the controls
+implemented at organizational
+l e v e l t o e n s u r e s e g r e g a t i o n o f
+duties.
+A detailed review should be
+performed of the existing
+user IDs created in the
+application, which should
+c o v e r t h e a r e a o f
+segregation of duties
+enforced within the
+application.
+A user should only be
+assigned a single ID with the
+appropriate level of access
+specific to the job role.
+Duplicate IDs will be deleted &
+rights will be assigned to single
+user ID as per job role
+13
+During the Access Management Review, we
+noted that User Request forms against 23
+user IDs were not available. Please refer
+Annexure B for the list of IDs.
+Severe STP Application
+Without formal authorization of
+access requests, management
+cannot be assured that user
+access is appropriate and proper
+approvals were obtained before
+such access was granted.
+Formal documentation /
+Access Request Form of user
+access should be retained to
+e n s u r e t h a t u s e r a c c e s s i s
+appropriate and proper
+approvals were obtained
+b e f o r e s u c h a c c e s s w a s
+granted.
+We will remove all the
+unapproved IDs from system
+till 20-June-2017
+14
+Following password settings are not
+configured in the STP application:
+a . M i n i m u m l e n g t h o f p a s s w o r d i s n o t
+configured in the application as per
+Information Security policy.
+b. First password does not require forced
+change as per the requirement of
+Information Security policy.
+c. Password expiry days’ parameter is not
+Severe STP Application
+W e a k p a s s w o r d s i n c r e a s e t h e
+risk of someone gaining
+unauthorized access to system
+using commonly available
+password cracking utilities.
+Password settings should be
+configured as per the clause
+number 8.8 of the
+Information Security Policy.
+We will implement password
+complexity policies till 15-
+June-2017
+===== PAGE 17 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 16
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+configured in the application as required by
+the Information Security policy.
+d. Password complexity has not been
+configured in the application as per
+Information security policy.
+e . P a s s w o r d h i s t o r y i s n o t m a i n t a i n e d a s
+per the Information Security policy.
+15
+Activity audit logging functionality for
+privileged users is not programmed in the
+application.
+Severe STP Application
+If activities of privileged user
+accounts are not being logged,
+the integrity and confidentiality
+of the data may be
+compromised. Further, the
+management cannot track
+fictitious activities of privileged
+users.
+Activities of privileged user
+accounts should be logged,
+monitored & reviewed
+periodically by an
+independent security team.
+We will build activity logging in
+application.  The target date
+would be suggested after
+technical review
+16
+During t h e r e v i e w o f change request
+( P a t c h ) d e p l o y e d o n t h e S T P P r o d u c t i o n
+System, dated 30-03-2017, we identified
+that the change was not reviewed and
+s ig n e d o f f b y t h e I n f o r m at i o n Sec u r it y a nd
+IT Risk Management Group before
+deployment on STP Production System.
+However, JS Bank’s Change Control policy
+as mentioned in the section 8.18 of the
+Information Security Policy states that, Risk
+analysis is required to ensure residual risk
+at acceptable level. All changes must
+undergo an IT risk review to ensure that the
+system MUST comply with security baseline
+requirements at a minimum even after
+change implementation.
+Severe STP Application
+In the absence of Information
+Security review over the
+development of changes on
+production systems, there
+remains the threat of deploying
+vulnerable codes/build in to the
+live environment which could
+cause severe security threats to
+the organization’s security &
+information.
+All changes going to be
+deployed on production
+s y s t e m m u s t u n d e r g o a n I T
+risk review to ensure that
+the system MUST comply
+with security baseline
+requirements at minimum
+even after change
+implementation.
+Infosec will review all the
+future changes
+17
+During the review we noted that Windows 7
+Enterprise default “Administrator” generic
+ID is used by multiple IT personnel for the
+system administration and change
+Severe STP Operating
+System
+If production environment is
+used by multiple persons using
+generic “Administrator” ID,
+there is a risk to make
+W i n d o w s 7 Enterprise
+“Administrator” generic ID
+s h o u l d b e E s c r o w e d a n d
+named privileged ID’s should
+Individual IDs will be created to
+al technical stake holders.
+===== PAGE 18 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 17
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+d e p l o y m e n t t a s k s o n S T P S e r v e r . A s a
+result,
+Segregation of Duties and Accountability
+cannot be established between the Jobs of
+IT personnel.
+unauthorized and/or
+inappropriate changes to the
+application which could affect
+the processing of the application
+functions. Further, it would be
+difficult to establish
+accountability in such situations,
+i f g e n e r i c I D ’ s a r e i n u s e f o r
+system administration tasks.
+be created in STP server for
+the deployment of changes
+and other administrative
+tasks.
+18
+There is no automated change management
+t o o l u s e d f o r S T P A p p l i c a t i o n t o t r a c k ,
+monitor and record changes implemented
+in STP application.
+Low STP Application
+In the absence of automated
+change management tool and
+system generated change logs,
+it will be difficult for
+management to perform
+reviews/audits of previous
+changes and validate that no
+unauthorized changes were
+made to the live environment.
+The management should
+consider the implementation
+of automated tool for
+change management of STP
+Application to better control
+the change management
+cycle for its business
+applications. This tool should
+cover system generated
+change log along with
+version allocated with time
+stamp.
+We will open ticket for all
+future changes in Mantis for
+Change management.
+19
+D u r i n g t h e r e v i e w o f S T P D a t a b a s e a n d
+Operating System, we noted that SQL
+Server and Windows 7 Enterprise
+Administrator privileged accounts activities
+are not monitored on regular basis by
+independent reviewer with assistance from
+centralized SIEM system.
+Moderate
+STP Database /
+Operating
+System
+If activities of privileged users
+are not logged and monitored,
+the integrity and confidentiality
+of the data may be
+compromised.
+OS and DB Administrator
+A c c o u n t s h a v e a c c e s s t o
+Application’s data files, utilities,
+security etc. and has the ability
+to change the database/
+operating characteristics and
+parameters. In the absence of a
+formal independent and timely
+r e v i e w o f a c t i v i t y l o g s , a n y
+unauthorized changes to the
+system may not be detected
+Activities of OS and DB
+Administrator Accounts
+should be logged, managed
+and reviewed by the
+independent authority at
+regular intervals of time with
+assistance from centralized
+SIEM system.
+We will add this machine in
+SIEM by 20-June-2017
+20
+During the review of STP Database, we
+noted that SQL Server default
+Administrator “SA”  is enabled and none of
+Severe STP Database
+“SA“ default Administrator
+Account provides unlimited
+access to entire SQL Server
+It is recommended to
+enforce strong password
+policy as per guidelines of JS
+Rectified. We have already and
+implement the same.
+===== PAGE 19 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 18
+S# Observation Risk Rating Affected Area Risk and Vulnerabilities Control
+Recommendations Management Comments
+the Password Security Settings has been
+c o n f i g u r e d i n S Q L S e r v e r f o r t h e“SA”
+account.
+utilities, programs and data, and
+therefore its use provides
+unlimited opportunity to
+compromise system security.
+Easily guessable and poor
+password usage increases the
+risk of an individual gaining
+unauthorized access to an
+organization’s information
+assets and network resources.
+Easily guessable passwords are
+one of the most common
+mechanisms for compromising
+an account using commonly
+available password cracking
+utilities.
+Bank’s Information Security
+P o l ic y. T h e p as sw o rd f o r SA
+should be changed and
+placed in a sealed envelope
+under robust physical
+controls and should only be
+used in exceptional
+circumstances.
+21
+D u r i n g t h e r e v i e w o f S T P D a t a b a s e , w e
+noted that generic SQL Server Accounts
+such as “ Infobits”  and “ INFB” e x i s t s a n d
+a r e i n u s e f o r d i f f e r e n t S Q L S e r v e r
+administrative tasks.
+Moderate STP Database
+Generic user IDs are the primary
+targets of intruders attempting
+to gain access to the information
+resources; the unauthorized
+user may attempt to gain access
+to the Application,
+compromising the security of
+systems and the information
+stored in it. Further,
+accountability could not be
+established if malicious activities
+are performed using generic
+user IDs.
+The generic ID’s should be
+disabled. Further, named IDs
+must be created and
+assigned relevant SQL
+Server Privileges and roles
+to ensure traceability and
+accountability.
+Rectified. As discussed these
+are service accounts.
+22
+D u r i n g t h e r e v i e w o f S T P D a t a b a s e , w e
+noted that SQL Server “Login Auditing”
+configuration is set to “Failed Logins Only”.
+Low STP Database
+Activity Audit Logging and
+Monitoring of users with
+successful DB Logins cannot be
+performed.
+Login Auditing
+Configurations to “Both
+Failed and Successful
+Logins”
+We will implement this by 29-
+May-2017
+===== PAGE 20 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 19
+6. Internal vulnerability assessment of in-scope systems
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control Recommendations Management Comments
+1
+Server Message Block (SMB)
+Protocol Version 1 Unspecified
+RCE (credentialed check)
+Severe 10.111.100.107
+tcp /445
+The remote Windows host is affected
+b y a n u n s p e c i f i e d r e m o t e c o d e
+execution vulnerability in SMBv1.
+The remote Windows host supports
+Server Message Block (SMB) Protocol
+version 1. It is, therefore, affected by
+an unspecified remote code execution
+vulnerability that allows an
+unauthenticated, remote attacker to
+execute arbitrary code. This
+vulnerability is one of multiple
+Equation Group vulnerabilities and
+exploits disclosed by a group known as
+the Shadow Brokers.
+See Annexure : A1
+Disable SMBv1 according to
+the vendor instructions in
+Microsoft
+KB2696547. Additionally,
+block SMB directly by
+blocking TCP port 445 on all
+network boundary devices.
+F o r S M B o v e r t h e N e t B I O S
+A P I , b l o c k T C P p o r t s 1 3 7 /
+1 3 9 a n d U D P p o r t s 1 3 7 /
+138 on all network boundary
+devices.
+This advisory is available at
+the following link:
+https://support.microsoft.co
+m/en-us/kb/2696547
+Noted for Compliance
+2 Password Transmitted over
+HTTP Severe 10.111.100.107
+tcp /80
+The password data is being
+transmitted over HTTP.
+If an attacker can intercept network
+traffic, he/she can steal users'
+credentials.
+See Annexure : A9
+A l l s e n s i t i v e d a t a s h o u l d b e
+transferred over HTTPS rather
+than HTTP. Forms should be
+served over HTTPS. All aspects
+of the application that accept
+user input, starting from the
+login process, should only be
+served over HTTPS.
+Noted for Compliance
+3
+Microsoft Windows Remote
+Desktop Protocol Server Man-
+in-the-Middle Weakness
+CVE-2005-1794
+Moderate 10.111.100.107
+tcp / 3389
+It may be possible to get access to the
+remote host. The remote version of
+the Remote Desktop Protocol Server
+(Terminal Service) is vulnerable to a
+man-in-the-middle (MiTM) attack. The
+RDP client makes no effort to validate
+the identity of the server when setting
+up encryption. An attacker with the
+ability to intercept traffic from the
+RDP server can establish encryption
+with the client and server without
+being detected. A MiTM attack of this
+nature would allow the attacker to
+obtain any sensitive information
+transmitted, including authentication
+credentials.
+- F o r c e t h e u s e o f S S L a s a
+transport layer for this
+service if supported, or/and
+- Select the 'Allow
+connections only from
+computers running Remote
+Desktop with Network Level
+Authentication' setting if it is
+available.
+This advisory is available at
+the following link:
+http://www.oxid.it/download
+s/rdp-gbu.pdf
+http://technet.microsoft.com
+/en-
+us/library/cc782610.aspx
+Rectified. We have enabled
+Network Level
+Authentication
+===== PAGE 21 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 20
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control Recommendations Management Comments
+This flaw exists because the RDP
+server stores a hard-coded RSA
+private key in the mstlsapi.dll library.
+Any local user with access to this file
+(on any Windows system) can retrieve
+the key and use it for this attack.
+See Annexure  :A2
+4
+Terminal Services Encryption
+Level is Medium or Low Moderate
+10.111.100.107
+tcp / 3389
+The remote host is using weak
+cryptography. The remote Terminal
+Services service is not configured to
+use strong cryptography.
+Using weak cryptography with this
+service may allow an attacker to
+eavesdrop on the communications
+more easily and obtain screenshots
+and/or keystrokes.
+See Annexure : A3
+Change RDP encryption level
+to one of :
+ 3. High
+ 4. FIPS Compliant
+Rectified.
+5
+Terminal Services Doesn't Use
+Network Level Authentication
+(NLA) Only
+Moderate 10.111.100.107
+tcp /3389
+The remote Terminal Services doesn't
+use Network Level Authentication
+only.
+T h e r e m o t e T e r m i n a l S e r v i c e s i s n o t
+configured to use Network Level
+Authentication (NLA) only. NLA uses
+the Credential Security Support
+Provider (CredSSP) protocol to
+perform strong server authentication
+either through TLS/SSL or Kerberos
+mechanisms, which protect against
+man-in-the-middle attacks. In addition
+to improving authentication, NLA also
+helps protect the remote computer
+from malicious users and software by
+completing user authentication before
+a full RDP connection is established.
+See Annexure :A4
+Enable Network Level
+Authentication (NLA) on the
+r e m o t e R D P s e r v e r . T h i s i s
+generally done on the
+'Remote' tab of the 'System'
+settings on Windows.
+This advisory is available at
+the following link:
+http://technet.microsoft.co
+m/en-
+us/library/cc732713.aspx
+Rectified. We have enabled
+Network Level
+Authentication
+6 S S L V e r s i o n 2 a n d 3 P r o t o c o l
+Detection Moderate 10.1.100.40
+tcp / 443
+The remote service encrypts traffic
+using a protocol with known
+weaknesses.
+The remote service accepts
+c o n n e c t i o n s e n c r y p t e d u s i n g S S L 2 . 0
+and/or SSL 3.0. These versions of SSL
+are affected by several cryptographic
+flaws. An attacker can exploit these
+Consult the application's
+documentation to disable
+SSL 2.0 and 3.0. Use TLS
+1.1 (with approved cipher
+suites) or higher instead.
+This advisory is available at
+the following link:
+http://www.schneier.com/pa
+Noted for Compliance
+===== PAGE 22 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 21
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control Recommendations Management Comments
+flaws to conduct man -in-the-middle
+attacks or to decrypt communications
+between the affected service and
+clients.
+N I S T h a s d e t e r m i n e d t h a t S S L 3 . 0 i s
+no longer acceptable for secure
+communications. As of the date of
+enforcement found in PCI DSS
+v 3 .1 , a n y v e rs i o n o f SSL wi l l n ot m e et
+the PCI SSC'S definition of 'strong
+cryptography'.
+See Annexure  : A5
+per-ssl.pdf
+http://support.microsoft.co
+m/kb/187498
+https://www.openssl.org/~b
+odo/ssl-poodle.pdf
+https://www.imperialviolet.o
+rg/2014/10/14/poodle.html
+https://tools.ietf.org/html/dr
+aft-ietf-tls-downgrade-scsv-
+00
+7
+SSL DROWN Attack
+Vulnerability (Decrypting RSA
+with Obsolete and Weakened
+encryption)
+CVE-2016-0800
+Moderate
+10.1.100.40
+tcp / 443
+The remote host may be affected by a
+vulnerability that allows a remote
+attacker to potentially decrypt
+captured TLS traffic.
+T h e r e m o t e h o s t s u p p o r t s S S L v 2 a n d
+therefore may be affected by a
+vulnerability that allows a cross-
+protocol Bleichenbacher padding
+o r a c l e a t t a c k k n o w n a s D R O W N
+(Decrypting RSA with Obsolete and
+Weakened eNcryption). This
+vulnerability exists due to a flaw in the
+Secure Sockets Layer Version 2
+(SSLv2) implementation, and it allows
+captured TLS traffic to be decrypted.
+A man-in-the-middle attacker can
+exploit this to decrypt the TLS
+connection by utilizing previously
+captured traffic and weak
+c r y p t o g r a p h y a l o n g w i t h a s e r i e s o f
+specially crafted connections to an
+S S L v 2 s e r v e r t h a t u s e s t h e s a m e
+private key.
+See Annexure : A6
+Disable SSLv2 and export
+grade cryptography cipher
+suites. Ensure that private keys
+a r e n o t u s e d a n y w h e r e w i t h
+server software that supports
+SSLv2 connections
+This advisory is available at
+the following link:
+https://drownattack.
+com/
+https://drownattack.
+com/drown-attack-
+paper.pdf
+Windows 7 does not support
+but we configure the policy
+Set Client Connection
+Encryption Level as High
+8
+SSH Server CBC Mode Ciphers
+Enabled
+CVE-2008-5161
+Low
+10.1.100.40
+10.1.100.90
+tcp/22
+The SSH server is configured to use
+Cipher Block Chaining.
+The SSH server is configured to
+support Cipher Block Chaining (CBC)
+encryption. This may allow an attacker
+to recover the plaintext message from
+the cipher text.
+Contact the vendor or consult
+product documentation to
+disable CBC mode cipher
+encryption, and enable CTR or
+GCM cipher mode encryption.
+Noted for Compliance
+===== PAGE 23 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 22
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control Recommendations Management Comments
+See Annexure : A7
+9
+SSL RC4 Cipher Suites
+Supported (Bar Mitzvah)
+CVE-2015-2808
+CVE-2013-2566 Low
+10.1.100.40
+tcp / 443
+The remote service supports the use of
+the RC4 cipher.
+T h e r e m o t e h o s t s u p p o r t s t h e u s e o f
+RC4 in one or more cipher suites.
+T h e R C 4 c i p h e r i s f l a w e d i n i t s
+generation of a pseudo-random stream
+of bytes so that a wide variety of small
+biases are introduced into the stream,
+decreasing its randomness.
+If plaintext is repeatedly encrypted
+(e.g., HTTP cookies), and an attacker
+is able to obtain many (i.e., tens of
+millions) cipher texts, the attacker may
+be able to derive the plaintext.
+See Annexure : A8
+Reconfigure the affected
+application, if possible, to
+avoid use of RC4 ciphers.
+Consider using TLS 1.2 with
+AES-GCM suites subject to
+browser and web server
+support.
+This advisory is available at
+the following link:
+http://www.isg.rhul.ac.
+uk/tls/
+http://www.imperva.co
+m/docs/HII_Attacking_S
+SL_when_using_RC4.pd
+f
+Noted for Compliance
+===== PAGE 24 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 23
+7. Network security review of in-scope systems
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control
+Recommendations Management Comments
+1
+D u r i n g o u r n e t w o r k R e v i e w i t
+has been noted that no firewall
+is placed between core banking
+s e v e r a n d I n t e g r a t i o n A P I
+server as per the Network
+Diagram. We also noted that
+multiple server are running on
+same VLAN as API server.
+Severe STP Network
+There is a high risk that sensitive
+data may be compromised if any
+o f t h e s e r v e r o n t h e s a m e V L A N
+compromises due to any security
+breach.
+There should be segregation
+o f d i f f e r e n t V L A N ’ s . A P I
+server should be on a
+separate VLAN.
+A firewall should be
+deployed between core
+banking server and
+Integrated API server as
+recommended by SBP.
+Network will be segregated
+by configuring separate
+VLAN by end of June, 2017.
+2
+During review of configuration
+file, we noted that Fortinet
+60D firmware is not updated to
+latest firmware.
+Severe 10.1.100.90
+(Fortinet 60D)
+T h e r e i s ahigh risk that firewall
+may be vulnerable to security
+threats and zero-day exploits due
+to non-updated firmware.
+A l s o , t h e r e i s a n i n c r e a s e d r i s k
+that an unauthorized user may
+gain access to the firewall if
+vendor security patches and
+upgrades are not applied in a
+timely manner.
+Firmware of the firewall
+should be updated to the
+latest version as
+recommended by the
+manufacturer.
+For information Refer
+Fortinet 60D support link:
+http://docs.fortinet.com/d/s
+upported-upgrade-paths-to-
+fortios-5.2
+Currently we are using
+s t a b l e v e r s i o n 5 . 2 w h i c h i s
+recommended by Fortinet
+and is available for support.
+This version also supports all
+security features. We will
+upgrade the version as soon
+as latest version will become
+mature and recommended
+will be provided by vendor.
+3
+During review of configuration
+file, it has been observed that
+firewall rule (Any, Any, Any)  is
+implemented which means that
+packet can travel from any
+source to any destination on
+any port. In configuration file
+Policy ID2 states that
+untrusted to trusted
+communication is permitted
+with any source to any
+destination.
+Severe 10.1.40.100
+(Juniper SSG20)
+If network filtering rules are not
+configured to restrict access to
+n e t w o r k s e r v i c e s f r o m o n l y
+authorized hosts then
+unauthorized access may be
+granted to unauthorized users. For
+a n e t w o r k e d g e d e v i c e , t h i s c o u l d
+lead to a remote attacker gaining
+access to network service.
+All network filtering rules
+should be configured to
+restrict access from
+authorized hosts only.
+Rectified.
+4
+During Review of configuration
+file, it has been observed that
+Default account name ”admin”
+is used with super user righ ts,
+which is a clear indication to
+any attacker that this user
+Severe
+10.1.100.90
+(Fortinet 60D)
+10.1.100.40
+(Juniper SSG20)
+Malicious individuals often use
+vendor default username/IDs to
+compromise network devices
+because these defaults
+username/IDs are frequently
+published on internet. Once an
+All a dministrator or high
+privilege accounts should
+not contain information that
+identifies them as admins.
+All the IDs should be
+distinctive with appropriate
+Rectified.
+===== PAGE 25 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 24
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control
+Recommendations Management Comments
+account has higher privilege s
+level than the standard user.
+attacker has obtained the
+configuration from the device they
+may be able to identify
+authentication credentials that
+c o u l d t h e n b e u s ed t o g a i n a cc e ss
+to other network devices.
+user name.
+It would be appropriate if
+default admin accounts are
+not used rather they should
+be disabled if possible.
+Admin users should use their
+own unique credentials to
+access the system(s) so that
+their activities are properly
+logged and accountability
+will be established.
+5
+During review, it has been
+noted that logging was
+disabled on the interface ACL
+of deny statements.
+Moderate
+10.1.100.90
+(Fortinet 60D)
+10.1.100.40
+(Juniper SSG20)
+Auditing and logging are key
+components of any security
+a r c h i t e c t u r e . I t i s e s s e n t i a l f o r
+security personnel to know what is
+being done, attempted to be done,
+a n d b y w h o m i n o r d e r t o c o m p i l e
+an accurate risk assessment.
+Auditing the actions on network
+devices provides a means to
+r e c r e a t e a n a t t a c k , o r i d e n t i f y a
+configuration mistake on the
+device.
+Configure interface ACLs to
+log all deny statements. Rectified.
+6
+During assessment, we noted
+that “Guest”  group account
+exists in Fortinet 60D firewall
+which contains multiple users
+with “guest” access rights.
+Moderate 10.1.100.90
+(Fortinet 60D)
+Guest Group account is configured
+and used on a network device
+which directly indicates to a
+potential threat. Attackers can
+easily breach this kind of account
+b y b r u t e f o r c e . I f g r o u p a c c o u n t s
+are not changed when someone
+leaves the group, that person
+could possibly gain control of the
+network device. Having group
+account does not allow for proper
+a u d i t i n g o f w h o i s a c c e s s i n g o r
+changing the network.
+Guest accounts should be
+disabled or renamed with a
+unique ID hence guest user
+could privileged escalate to
+root user or super user by
+obtaining all his credentials.
+Rectified.
+7
+SNMP Agent Default
+Community Name (public)
+(CVE-1999-0517)
+Moderate 172.16.72.1
+(Core Switch)
+It is possible to obtain the default
+community name of the remote
+SNMP server. An attacker may use
+this information to gain more
+knowledge about the remote host,
+Disable the SNMP service on
+the remote host if you do not
+use it. Either filter incoming
+UDP packets going to this
+port, or change the default
+Rectified.
+===== PAGE 26 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 25
+# Observation Risk Affected Nodes Risk and Vulnerabilities Control
+Recommendations Management Comments
+or to change the configuration of
+the remote system (if the default
+community allows such
+modifications).
+community string.
+8
+During the review it has been
+observed that no pre-login
+banner was configured in
+juniper Fortinet 60D firewall.
+Low
+10.1.100.90
+(Fortinet 60D)
+10.1.100.40
+(Juniper SSG20)
+A pre -logon banner message is
+often overlooked when configuring
+a device, but it is an important
+security setting which could
+potentially discourage an
+uncommitted attacker from
+proceeding any further. A pre-
+logon banner message should be
+configured to warning any
+potential attacker against
+unauthorized access and the
+consequences. Furthermore if
+legal proceedings are executed
+against an attacker it would be
+easier to prove intent on behalf of
+the attacker if they were first
+warned against unauthorized
+access.
+We recommend that a
+carefully worded legal
+banner that warns against
+unauthorized access should
+be configured.
+Rectified.
+9
+During review of configuration
+file, it has been observed that
+that clear text “TELNET”
+Service is enabled
+Moderate 10.1.100.40
+(Juniper SSG20)
+Due to the lack of encryption
+provided by the Telnet protocol,
+an attacker who is able to monitor
+a Telnet session would be able to
+view all of the authentication
+credentials and data passed in the
+session. The attacker could then
+attempt to gain access to the
+device using the authentication
+credentials extracted from the
+session and potentially gain access
+u n d e r t h e c o n t e x t o f t h a t u s e r .
+Since Telnet is commonly used for
+network device administration this
+could gain the attacker an
+administrative level of access.
+A cryptographically secure
+alternative, such as SSH,
+s h o u l d b e u s e d i n s t e a d . I f
+T e l n e t h a s t o b e u s e d t h e n ,
+network filtering should be
+employed to restrict access
+t o t h e s e r v i c e f r o m o n l y
+those specific devices that
+need the access.
+Rectified.
+===== PAGE 27 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 26
+8. Review of Business Continuity, Disaster Recovery Plans and Testing Reports
+S# Observation Risk Risk and Vulnerabilities Control Recommendations Management Comments
+1
+STP Application including backend
+database is not currently covered in the
+JS Bank BCP / DR Plan. Hence, currently
+t h e r e i s n o a c t i v e D R s i t e a v a i l a b l e f o r
+STP Application in the event of disaster.
+Further, current STP Application backup
+and recovery strategy is not approved by
+the JS Management.
+Severe
+I n t h e a b s e n c e o f p r o p e r B C / D R p l a n f o r S T P ,
+resuming services related to STP will not be possible
+in the event of disaster.
+Management should develop
+Business continuity and
+disaster plans for STP
+Application.
+It is new application and
+will be added to DR and
+BCP policy.
+===== PAGE 28 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 27
+9. Annexure A – Vulnerability Assessment
+9.1 A1: Server Message Block (SMB) Protocol Version 1 Unspecified RCE (credentialed check)
+9.2 A2: Microsoft Windows Remote Desktop Protocol Server Man-in-the-Middle Weakness
+
+===== PAGE 29 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 28
+9.3 A3: T erminal Services Encryption Level is Medium or Low
+9.4 A4:  Terminal Services Doesn't Use Network Level Authentication (NLA) Only
+
+===== PAGE 30 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 29
+9.5 A5: SSL Version 2 and 3 Protocol Detection
+9.6 A6: SSL DROWN Attack Vulnerability (Decrypting RSA with Obsolete and Weakened encryption)
+
+===== PAGE 31 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 30
+9.7 A7: SSH Server CBC Mode Ciphers Enabled
+
+===== PAGE 32 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 31
+9.8 A8: SSL RC4 Cipher Suites Supported (Bar Mitzvah)
+9.9 A9: Password Transmitted over HTTP
+
+===== PAGE 33 =====
+JS Bank Limited Independent third party IT Audit of STP implementation
+EY FORD RHODES, CHARTERED ACCOUNTANTS
+A MEMBER FIRM OF ERNST & YOUNG GLOBAL LIMITED
+NOT TO BE COPIED AND DISTRIBUTED
+PROPRIETORY AND CONFIDENTIAL
+PAGE: 32
+10. Annexure B
+10.1 B1 - UNAUTHORIZED IDs
+S.No USR_ID USR_NME ROLE_NME DEPT_NME
+1 7 ahmed Viewer Treasury
+2 9 Faisal Creator Treasury
+3 10 usama Creator Treasury
+4 11 imad Creator Treasury
+5 12 t_ah Creator Treasury
+6 13 Ali Authorizer Treasury
+7 14 Anwer Viewer Treasury
+8 20 immad Authorizer Centralized Operations-COPS
+9 23 musama Viewer Centralized Operations-COPS
+10 25 Hafeez Viewer Treasury
+11 26 Hafeez1 Creator Treasury
+12 27 shakil Creator Treasury
+13 28 aus Viewer Treasury
+14 29 soofi Viewer Treasury
+15 33 SHAFEEZ Viewer Treasury
+16 37 UsamaAli Viewer Treasury
+17 44 yahooq00031 Viewer Treasury
+18 52 mazhar00074 Authorizer Treasury
+19 6 Usama Viewer Centralized Operations-COPS
+20 8 sddasdasd Authorizer Centralized Operations-COPS
+21 14 yaqoob0031 Viewer Centralized Operations-COPS
+22 7 ahmed Viewer ICU
+23 13 shoaib Viewer Centralized Operations-COPS
+===== PAGE 34 =====
+EY Ford Rhodes Chartered Accountants
+Assurance | Tax | Transactions | Advisory
+EY Ford Rhodes Chartered Accountants is a
+member firm of Ernst & Young Global Limited.
+Ernst & Young is one of the leading professional
+services firm with a significant Fortune 500
+client base across the world.
+The Principal Office of EY in Pakistan is located
+at Progressive Plaza, Beaumont Road, Karachi.
+Primary contact for Information Technology Risk
+& Assurance (ITRA) is Partner / Head of ITRA –
+Mr. Waqar Ahmed Khan, who can be reached
+at +92-21-111-111-3937 (Ext. 1506) and
+waqar.khan@pk.ey.com
+© 2017 EY Ford Rhodes
+All Rights Reserved

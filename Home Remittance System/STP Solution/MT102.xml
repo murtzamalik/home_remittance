@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="Latin1"?>
+<SWIFT_msg_fields>
+<msg_format>S</msg_format>
+<msg_sub_format>I</msg_sub_format>
+<msg_sender>FAYSPKKAAXXX</msg_sender>
+<msg_receiver>SBPPPKKRXXXX</msg_receiver>
+<msg_type>102</msg_type>
+<msg_priority>N</msg_priority>
+<msg_del_notif_rq>N</msg_del_notif_rq>
+<msg_user_priority>0020</msg_user_priority>
+<msg_user_reference>FT15152J7VHJ</msg_user_reference>
+<msg_mac_result/>
+<msg_pac_result></msg_pac_result>
+<msg_pdm></msg_pdm>
+<block4>:20:FT15152J7VHJ
+:23:CREDIT
+:26T:001
+:71A:SHA
+:21:FT15152J7VHJ
+:32B:PKR559000,
+:50K:/46010101264807
+ATIF BASHIR TRADERS
+KUTCHERY ROAD KHANPUR
+:52A:/D/020211000410031
+FAYSPKKA
+:57A:/020211000800032
+MUCBPKKKRTG
+:59:/0650304891003702
+MEHRAN SUGER MILLS LTD
+KARACHI
+:70:ATIF BASHIR TRADERS
+:77B:SBP
+:32A:150601PKR559000,
+:72:/CODTYPTR/001
+//FT15152J7VHJ</block4>
+</SWIFT_msg_fields>

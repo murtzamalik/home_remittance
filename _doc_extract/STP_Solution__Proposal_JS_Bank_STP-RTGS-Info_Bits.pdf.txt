@@ -1,0 +1,335 @@
+PDF_PAGES=10
+PDF_META={'/Creator': 'http://www.convertapi.com                 ', '/Title': 'Nokia-Siemens Networks – Proposal for RAC and DG Implementation', '/Author': 'Alchemy Technologies', '/Producer': 'http://www.convertapi.com                               ', '/CreationDate': "D:20160303011312-06'00'", '/ModDate': "D:20160303011312-06'00'"}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+JS Bank  
+InfoBits STP - RTGS Gateway Application  
+Solution Deployment Proposal  
+March 03, 2016 
+
+===== PAGE 2 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+I N F O B I T S  -  I N T R O D U C T I O N 
+10 Years of Excellence in Software Development and Consulting Services. 
+Infobits was formed in 2002. In last decade of IT services, we have developed state of the art business 
+application for diverse industries. Our products suite comprises;  
+ FRS - Financial Reporting System 
+ AMS - Assets Management System 
+ PPS - Production Planning System 
+ IMS - Inventory Management System 
+ HRPS- Human Resources & Payroll System  
+ HMS - Hospital Management System 
+ After spending six years in business software application development, we decided to take things to the next 
+level. In 2009 we started our Analytics and Business Intelligence division. Since then Infobits providing the right 
+blend of industry knowledge and experience, helping organizations pave the way towards success.  
+Last couple of years, Infobits has been at the leading edge of developing custom business intelligence solutions 
+leveraging our consultants’ deep knowledge of business analytics, data warehousing, business intelligence and 
+performance management using world class tools like SAS, Business Object and Microsoft BI Suite– to help a 
+wide range of companies improve their core business processes and increase profitability. Our Analytics 
+department providing following professional services in Pakistan and Turkey 
+ Project Management  
+ Business Analytics and Intelligence (BI)  
+ Customer Segmentation Modeling, objective prioritization, KPI generation, results measurement and 
+strategic business planning. 
+ Credit risk scoring and rating 
+ Strategic Reporting and Analysis like Calculation of Customer LTV (Life Time Value), Monitoring 
+Promotional Intensity and Expected Profit Calculations 
+Our Partners  
+ 
+ 
+ 
+ ASRYM USA 
+ 
+International Office Products 
+ 
+Pondera Consulting USA 
+ 
+===== PAGE 3 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+S O L U T I O N  -  I N T R O D U C T I O N 
+InfoBits STP - RTGS Gateway System provides the integration between Local banking software running at Bank’s 
+site and “Straight through Processing (STP)” running at Central Bank. I t is the gateway between Core Banking 
+System and Central Bank.  
+ 
+Since the inception of RTGS in Pakistan, enrollment of direct participants is growing and volume of transactions 
+is also increasing. It has been foreseen that in future, volume of transaction will increase dramatically. This 
+growing volume forcing banks to deploy a gateway application between Core Banking System and Central Bank 
+to improving performance of financial messages communications channels. 
+ 
+The requirement is initiated by JS Bank that a gateway application system between Core banking and State Bank 
+of Pakistan wh ich will act as local STP RTGS solu tion for MT103/MT102/MT202  messages. It will also be a 
+repository of messages exchanged between State Bank of Pakistan and JS Bank and provide reports for audit and 
+reconciliation. There are three modules in InfoBits RTGS Gateway Application  
+ 
+1. Outward message routing  
+2. Inward message routing  
+3. Reporting module 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 4 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+S C O P E  O F  D E V E L O P M E N T  A G R E E M E N T 
+Software Technical development/deployment agreement is (“Agreement”) made between INFOBITS and JS 
+BANK (“Customer”) for the RTGS Gateway application (Software application). Under this agreement INFOBITS 
+hereby agrees to design and develop the Product in accordance with the following project outline as per the 
+given scope: 
+Methodology  
+InfoBits STP-RTGS Gateway Application is centralize repository for a bank and State Bank of Pakistan for outward 
+and inward messages. It is the gateway between Core Banking Application and State Bank of Pakistan’s PRISM; 
+the application will pull and push messages from Core Banking Application and State Bank of Pakistan’s messages 
+folders through RCCC API communication channel . The application handles two types of message channel 
+communication. 1. Outward message 2. Inward message 
+
+===== PAGE 5 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+Inward message routing  
+ 
+ 
+MT103, MT202 and MT202 
+(1) InfoBits RTGS Gateway  application will collect financial messages from Central bank’s PRISM System’s 
+message repository through RCCC API data stream communication channel. 
+(2) All financial messages will be placed in processing queue for Operator to validated beneficiary account 
+number and account title from core banking application database (through core banking API). 
+(3) Once the account information provided in inward financial message  is validated from core banking 
+application database, operator will process the message for authorization. 
+(4) Authorizer will review the message and authorize the transaction for further processing. 
+(5) All authorized transactions will posted in the system and accounting will be performed in core  banking 
+application (through core banking API). 
+ 
+InfoBits STP-RTGS Gateway application will also send email intimation for all incoming messages to respective 
+branch or group along with original message attached automatically. 
+ 
+Outward message  
+ 
+MT103, MT202 and MT 202 
+(1) All financial messages will be prepared on InfoBits RTGS Gateway application’s operator interface. Once 
+the message is prepared, it will be send to authorization queue. 
+(2) Authorizer will review the messages and authorize the transactions for further processing. 
+(3) All authorized transactions will posted in the system and accounting will be perfor med in core banking 
+application database (through core banking API). 
+(4) Once accounting is performed successfully in core banking application  database (through core banking 
+API), the transactions will be transmitted to Sate Bank’s RTGS System (PRISM) through RCCC API data 
+stream communication channel. 
+ 
+InfoBits RTGS Gateway  application will  also send email intimation for all successful/Unsuccessful messages 
+delivery report to respective branch or group along with original message attached automatically. 
+ 
+===== PAGE 6 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+ 
+ 
+ 
+Online monitoring queue  
+Online monitoring queue for all incoming 
+and outgoing messages, will be available 
+with a status-wise drop down list 
+ 
+ 
+Message Queue  
+InfoBits RTGS Gateway Application removes 
+the unprocessed messages from queue 
+after cut-off time specified by JS Bank and 
+generate a report. Intimation will also be 
+generated for such removal via e mail. Records of all expired messages will be available in the system for future 
+reference only. 
+ 
+ 
+Parameterized scheduler  
+User can set message cutoff time in application. Application will sent message to Central Bank’s message 
+repository as per define cutoff time and after that application will remove the message from the transfer queue.  
+ 
+ 
+Reporting module  
+Comprehensive reporting module is also available for printing message confirmations; acknowledgements to 
+their respective department/Branches/user groups.  
+ 
+ 
+
+===== PAGE 7 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+ 
+ 
+1. Outward Route message detail  
+Report fields are mention below.  
+a. Transaction Reference  
+b. Beneficiary Name  
+c. Beneficiary Account No.  
+d. Beneficiary Bank Name  
+e. Amount  
+f. Remitter Name  
+g. Remitting Bank Name  
+h. Time of lodgment  
+i. Status  
+ 
+2. Inward Route message detail  
+Report fields are mention below.  
+a. Transaction Reference  
+b. Beneficiary Name  
+c. Beneficiary’s Account No.  
+d. Amount  
+e. Remitter Name  
+f. Sender Bank Name 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 8 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+ 
+ 
+Security Module  
+In Security module, system admin can create/edit and disable users as and when needed. Users can be created 
+in following two predefined roles; 
+ - Sys Admin  
+- Basic User 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 9 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+R E Q U I R E M E N T S  F O R  I N F B O T S G A T E W A Y A P P L I C A T I O N 
+Hardware Requirement 
+ 
+ 
+Software Requirement 
+Microsoft Windows Windows Server 2012, Windows Server 2008 R2 SP1, Windows 7 SP1, 
+Windows 8. 
+Web Server (IIS) Windows Internet Information Server(IIS) 7 or Higher 
+Microsoft .NET 
+Framework 
+.NET Framework 4 or Higher  
+Database    SQL Server Standard Edition 2008 R2 or SQL Server Enterprise Edition 2008 
+R2 
+Adobe PDF Reader  Any Adobe PDF Reader  
+ 
+ 
+ 
+Component Minimum Requirement 
+Computer and 
+processor 
+A computer with an Intel Pentium-compatible CPU that is: 
+ 
+ Core i7 6700 3.4GHZ (6TH GENERATION)  
+ 
+Hyper-threading and dual-core processors are supported. 
+Computers based on CPUs that are compatible with the AMD32 and AMD64 
+(x86-64) and Extended Memory 32/64-bit Technology processor architecture 
+are considered x86/x64-based systems. 
+Memory  8 GB RAM or Higher  
+Hard disk 1 TB of available hard disk space for a complete installation including the 
+operating system and all prerequisite software. The hard disk must be NTFS 
+formatted. 
+===== PAGE 10 =====
+ 
+ 
+2 0 4 - 2 0 5 ,  M a r i n e  F a i s a l  m a i n  S h a h r a h - e - F a i s a l ,  B l o c k - 6  P E C H S  K a r a c h i  P a k i s t a n  
+T e l :  + 9 2 2 1 - 3 2 0 3 9 4 8 9 ,  0 3 0 4 - 2 2 8 8 1 4 4  
+D E L I V E R A B L E S,  P R I C I N G  &  T E R M S 
+Deliverable & Support 
+Under this agreement following are the deliverables against above mention scope of work; 
+ Software application installation package including installation & configuration manual 
+ Operating & Administration user manual 
+ At least one on-site technical resource deployment for minimum three working days at the time of 
+software application Go-live. 
+ Six months comprehensive support which will include the debugging of any errors that may arise 
+during the agreement period.  
+ 
+ 
+Project Pricing  
+S# Milestone Estimated 
+Time 
+Amount (PKR) 
+1 STP - RTGS Gateway Application - 4 – 6 Weeks 2,000,000 
+2 Operator Application & Integration with Core Banking App.    6 Weeks 500,000 
+ TOTAL PROJECT COST & TIMEFRAME……….. 6 – 8 Weeks 2,500,000 
+ 
+Payment Schedule 
+ Advance Payment upon work order………………………………………………………………………….  50% 
+ Remaining Payment upon User Acceptance Sign-off …,…………………………………...……….  50% 
+ 
+ 
+Proposal Signing Terms 
+ 
+1. Prices are net-off all taxes and valid till 31st of March, 2016. 
+2. JS Bank will provide dedicated business and technical resources to the project to facilitate our Consultants. 
+3. Invoice would be raised as upfront charge at the time of contract signing. 
+4. Invoices of charges are payable within 15 days of their being raised and will bear the date of their issuance. 
+5. Subsequent enhancements will be reviewed and an estimated work hours with cost will be provided before 
+work commences. 

@@ -1,0 +1,289 @@
+PDF_PAGES=9
+PDF_META={'/Author': 'Mohammed Faizal. P', '/Subject': 'Document Version 1.2', '/Creator': 'Microsoft® Office Word 2007', '/CreationDate': 'D:20110309183610', '/ModDate': 'D:20110309183610', '/Producer': 'Microsoft® Office Word 2007'}
+
+===== PAGE 1 =====
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K. Page 1 
+ 
+SPEED REMIT WORLWIDE 
+API Interface For Receiving 
+Partners 
+Document Version 1.2 
+ 
+Mohammed Faizal. P 
+8/25/2009 
+ 
+ 
+ 
+ 
+  
+
+===== PAGE 2 =====
+2 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 2 
+ 
+ 
+API Document Revision History 
+ 
+Date Document Version Description Revision By 
+26 Oct 2009 1.1 Preliminary Review Abhishek Pillai 
+01 Oct 2009 1.0 Preliminary Review  Nazakat Mastan 
+18 Oct 2009 1.0 Preliminary Review Basharit Rafique 
+18 Oct 2009 1.0 Preliminary Review Sudhakar Rao 
+18 Oct 2009 1.0 Preliminary Review Dhiraj Kumar 
+ 
+ 
+ 
+ 
+ 
+ 
+PROPRIETARY AND CONFIDENTIALITY NOTICE 
+Confidentiality  
+The material contained within this document is proprietary and confidential. It is the sole property of Speed 
+Remit, and may not be disclosed to anyone except for the purpose of bidding for work for or on behalf of Speed 
+Remit.  
+Based upon the extent of the information provided, individuals with access to this information may be required 
+to sign a nondisclosure confidentiality agreement.  
+Intellectual Property Rights  
+The contents of this document remain the intellectual property of Speed Remit at all times. Unauthorized 
+reproduction, photocopying or disclosure to any other party, in whole or in part, without the expressed written 
+consent of Speed Remit is prohibited.  
+All authorized reproductions must be returned to Speed Remit immediately upon request.  
+Trademarks  
+All trademarks mentioned herein, marked and not marked, are the property of their respective owners. 
+ 
+===== PAGE 3 =====
+3 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 3 
+ 
+Table of Contents 
+ 
+API Document Revision History .......................................................................................................................................... 2 
+Introduction ........................................................................................................................................................................ 4 
+Scope of payout API ............................................................................................................................................................ 4 
+API Methods ........................................................................................................................................................................ 4 
+1. ShowTransfer .......................................................................................................................................................... 4 
+2. PayoutTransfer ........................................................................................................................................................ 4 
+3. ChangePassword ..................................................................................................................................................... 4 
+ ShowTransfer Request from Partner to  Speed Remit ....................................................................................... 4 
+ ShowTransfer   Response from  Speed Remit to Partner ................................................................................... 5 
+ PayoutTransfer  Request from Partner to  Speed Remit .................................................................................... 6 
+ PayoutTransfer  Response from  Speed Remit to Partner ................................................................................. 6 
+ ChangePassword  Request from Partner to  Speed Remit ................................................................................. 6 
+ ChangePassword  Response from  Speed Remit to Partner .............................................................................. 7 
+ ListTransfers  Request from Partner to  Speed Remit ........................................................................................ 7 
+ ListTransfers  Response from  Speed Remit to Partner ...................................................................................... 7 
+Transaction Status Codes ................................................................................................................................................ 8 
+Sample Response Codes ................................................................................................................................................. 8 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 4 =====
+4 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 4 
+ 
+Introduction 
+Speed Remit has developed an online Application Programming Interface (API) for partners that would payout 
+transactions (Payout Partners) initiated in Speed Remit’s send network. This API interface interacts with the Speed Remit 
+Agent Internet System in real time. This doc ument will describe what the interface is designed to do and how it can be 
+used. It also contains technical information to provide a general working direction for the Payout Partner.  
+The Payout API is designed for Payout Partners that are able to exchange  information via web services, and require real-
+time communication. 
+Scope of payout API 
+This document covers the generic online interface developed by Speed Remit to allow money transfer transactions to be 
+paid out by Payout Partners using their own systems rather than Speed Remit’s Agent Internet System as a front end. 
+API Methods 
+1. ShowTransfer  
+This method will be used by the Payout Partner to request the details of a specific tra nsaction which they wish to pay 
+out. The Payout Partner will provide a  Speed Remit transaction reference number, or other partner -specific payout 
+number, and the system will validate the request against the business rules for a payout. If valid, the f ull transaction 
+details will be returned.  
+ 
+2. PayoutTransfer 
+This message will allow the Payout Partner to send an update for a Speed Remit cash transaction, for which they have 
+previously obtained the details using the Show Transfer. Reasons for update would include:  
+• Payout - This will be validated against the business rules for paying transactions. It is the equivalent of the Payout 
+screen.  
+3. ChangePassword 
+This message will allow the Payout Partner to change user’s password and return the response code. 
+4. ListTransfers 
+This method will be used by the Payout partner to list all UnPaid transactions to a particular account. 
+ 
+ 
+ ShowTransfer Request from Partner to Speed Remit 
+Field Name Size Type Description O/M 
+===== PAGE 5 =====
+5 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 5 
+ 
+PartnerCode 10 Numeric Unique number identifying the partner interface. M 
+UserName 30 String User name assigned to this partner. M 
+UserPassword 30 String Password of the user name assigned to this partner.  M 
+TransactionNumber 20 String Unique number identifying the  Transaction. M 
+ 
+ ShowTransfer   Response from Speed Remit to Partner  
+Field Name Size Type Description O/M 
+ResponseCode 3 Numeric Contains code explaining outcome of message request. M 
+Message 255 String Text to elaborate on the response code. M 
+TransactionNumber 20 String Unique number identifying the  Transaction. M 
+Status 20 String Description of the transaction status. M 
+TransactionDate  DateTime Date transaction was created in UTC format. M 
+PayOutCountry 3 String Code identifying the receiving country. O 
+PayOutCurrency 3 String Code identifying the currency of the receiving country. M 
+PayOutAmount  Numeric Amount of money to be paid to th e receiver (in payout 
+currency). 
+M 
+PayOutBranchCode 10 String Unique branch code of payout partner. M 
+PayOutAmountInUSD  Numeric Amount of money to be paid to th e receiver  (in USD 
+currency). 
+M 
+PayOutCommissionAmount  Numeric Commission share of payout partner (in payout currency). M 
+SenderFirstName 30 String First name of customer. M 
+SenderLastName 30 String Last name of customer. M 
+SenderAddress 255 String Complete address of customer. O 
+SenderCity 100 String City of customer address. O 
+SenderNationality 3 String Country of customer addresses (ISO code). O 
+SenderPhoneNumber 30 String Phone number of customer. O 
+ReceiverFirstName 30 String First name of receiving customer. M 
+ReceiverLastName 30 String Last name of receiving customer. M 
+ReceiverAddress 255 String Complete address of receiving customer. O 
+ReceiverCity 100 String City of receiving customer address. O 
+ReceiverNationality 3 String Country of receiving customer addresses (ISO code). O 
+ReceiverPhoneNumber 30 String Phone number of receiving customer. O 
+===== PAGE 6 =====
+6 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 6 
+ 
+ 
+ PayoutTransfer  Request from Partner to Speed Remit 
+Field Name Size Type Description O/M 
+PartnerCode 10 Numeric Unique number identifying the partner interface. M 
+UserName 30 String User name assigned to this partner. M 
+UserPassword 30 String Password of the user name assigned to this partner.  M 
+TransactionNumber 20 String Unique number identifying the  Transaction. M 
+ReceiverIDType 20 String Id type of the primary id shown by the recipient  
+For Example:- Passport, National ID, Driver’s License etc 
+O 
+ReceiverIDNumber 20 String The number or identifier of the primary id shown by the receiver. O 
+ PayoutTransfer  Response from Speed Remit to Partner  
+Field Name Size Type Description O/M 
+ResponseCode 4 Numeric Contains code explaining outcome of message request  M 
+Message 255 String Text to elaborate on the response code  M 
+TransactionNumber 13 String Unique number identifying the  Transaction M 
+Status 20 String Status of transaction number. M 
+PayOutDate  DateTime Date transaction was paid in UTC format M 
+PayOutCountry 3 String Code identifying the receiving country O 
+PayOutCurrency 3 String Code identifying the currency of the receiving country M 
+PayOutAmount  Numeric Amount of money to be paid to th e receiver (in payout 
+currency) 
+M 
+OtherInformation 50 String Provides additional information like Card No, CNIC etc O 
+PayOutBranchCode 10 String Unique branch code of payout partner. M 
+PayOutAmountInUSD  Numeric Amount of money to be paid to th e receiver (in USD 
+currency). 
+M 
+PayOutCommissionAmount  Numeric Commission share of payout partner (in payout currency). M 
+ 
+ 
+ 
+ ChangePassword  Request from Partner to Speed Remit 
+Field Name Size Type Description O/M 
+PartnerCode 10 Numeric Unique number identifying the partner interface. M 
+===== PAGE 7 =====
+7 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 7 
+ 
+UserName 30 String User name assigned to this partner. M 
+UserPassword 30 String Password of the user name assigned to this partner.  M 
+NewPassword 30 String New password to assign to the user name.  M 
+ 
+ ChangePassword  Response from Speed Remit to Partner  
+Field Name Size Type Description O/M 
+ResponseCode 4 Numeric Contains code explaining outcome of message request  M 
+Message 255 String Text to elaborate on the response code  M 
+ 
+ ListTransfers  Request from Partner to Speed Remit 
+Field Name Size Type Description O/M 
+PartnerCode 10 Numeric Unique number identifying the partner interface. M 
+UserName 30 String User name assigned to this partner. M 
+Password 30 String Password of the user name assigned to this partner.  M 
+ 
+ ListTransfers  Response from Speed Remit to Partner  
+Field Name Size Type Description O/M 
+TransactionNumber 20 String Unique number identifying the  Transaction. M 
+Status 20 String Description of the transaction status. M 
+TransactionDate  DateTime Date transaction was created in UTC format. M 
+PayOutCountry 3 String Code identifying the receiving country. O 
+PayOutCurrency 3 String Code identifying the currency of the receiving country. M 
+PayOutAmount  Numeric Amount of money to be paid to the receiver (in payout currency). M 
+SenderFirstName 30 String First name of customer. M 
+SenderLastName 30 String Last name of customer. M 
+SenderAddress 255 String Complete address of customer. O 
+SenderCity 100 String City of customer address. O 
+SenderNationality 3 String Country of customer addresses (ISO code). O 
+SenderPhoneNumber 30 String Phone number of customer. O 
+ReceiverFirstName 30 String First name of receiving customer. M 
+ReceiverLastName 30 String Last name of receiving customer. M 
+ReceiverAddress 255 String Complete address of receiving customer. O 
+===== PAGE 8 =====
+8 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 8 
+ 
+ReceiverCity 100 String City of receiving customer address. O 
+ReceiverNationality 3 String Country of receiving customer addresses (ISO code). O 
+ReceiverPhoneNumber 30 String Phone number of receiving customer. O 
+ 
+Note: O - Optional, M - Mandatory 
+Transaction Status Codes 
+Code Description 
+UnPaid When the transaction has been sent and is ready for 
+payout. 
+ComplianceBlock If the transaction has been stopped by Compliance check. 
+Paid When the transaction has been paid to the customer. 
+Cancelled Transaction already cancelled 
+Processed Transaction has been processed. Ready for payout. 
+Sample Response Codes 
+Code Description 
+101 Query Successful 
+102 Transaction not found. 
+103 Mandatory data missing  
+ 
+104 Payment already made  
+ 
+105 Transaction already cancelled 
+ 
+201 Invalid Partner Code 
+202 Invalid User Name or Password 
+301 A system error has occurred in the processing of your request.  
+302 Unable to process – please Contact  
+ 
+  
+ 
+Test API is deployed on:- 
+http://test.payoutapi.speedremit.net/ 
+ 
+ 
+ 
+===== PAGE 9 =====
+9 | P a g e  
+ 
+Speed Remit Worldwide Ltd. 197, Ealing Road, Wembley, Middlesex HAO 4LU, U.K.  Page 9 
+ 
+ 
+ 

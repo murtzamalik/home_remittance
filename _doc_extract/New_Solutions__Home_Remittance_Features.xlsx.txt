@@ -1,0 +1,117 @@
+
+===== SHEET: Centegy =====
+Overseas Remitting Entities management
+For Anti Money Laundering customer identification verification through OFAC and other sanctions list
+Full control over multiple currencies, Exchange Rates and countries through parameterized flexible configuration Engine
+Customer Relationship Management through Unique Identification with KYC compliance
+Comprehensive web-based Acquisition Module to provide Agents access world-wide
+Support data conversion received through web after bulk file downloading and SWIFT MT-103 transformation.
+Product based Transactions management for :
+Cash Transactions
+Bank Own Transactions
+IBFT(Through Bank SWITCH)
+PRI Transactions
+Non-PRI Transactions(Draft)
+4eye Principle for Security controls
+Online Tracking of Transaction status
+Extensive reporting Module covering all kinds of Reports for
+Number of Outstanding / Paid Transactions
+Exchange Co Statement Of Account (Recon)
+Total Volume of each entity/Customer/Currency
+Customer Volume and Velocity checks reports
+Regulatory Reports
+Supports both off-line Mode as Standalone application and On-line mode as integrated with Bank Core Banking Applications for real time processing
+Event based SMS and Emails generations to F.Is and individual Customers
+Event based Financial Vouchers generation
+Application Security Management through Audit Trail, Users Logs and Transaction Tracking Logs
+
+===== SHEET: Avanza =====
+Highlights
+Multi-currency and Multilingual
+Application interfaces can be extended to third party
+Flexible & configurable:
+currency exchange rates and fee structures
+countries, currencies & limit management
+Workflow Management
+Increased margins via flexible exchange rates & commission structures
+Pre-defined AML policies across all the remittance transactions. Allow checking various AML Sanctions list including OFAC/SDN/UK etc.
+Improve business by offering wider set of remittance services to enhance customer experience.
+Enhanced customer experience
+Control over organization’s pre-defined processes.
+Minimize human involvement in daily remittance operations
+Visibility of top performing regions, countries, agents and sub-agents.
+Provides interfaces for online integrations with external agents who want to use their own remittance application for remittances
+Features
+Policy (Limits, Exchange Rates etc.) Definition through multiple parameters like Region, Country, Agent, Sub-agent etc.
+Agent and Sub-agent Management
+Remittances from agent to agent/sub-agent & sub-agent to agent/sub-agent.
+Remittance transaction is available immediately at payer side
+Comprehensive Search on Remittance and Payments
+View Remittance/Payments List based on different status
+Shared or dedicated credit limit distribution from Head office to Region, Agent and Sub-agent hierarchy.
+Able to define daily exchange rates with profit margins for different currencies according to the changing market dynamics.
+Configurable Commission templates
+Complete workflow management of remittance transactions from sending to paying.
+Agent’s commission calculation and distribution management
+Cash Transfer facility between agents and head office.
+Allow to instruct paying agent to pay remittance amount in form of cash, TT, cheque or direct deposit into beneficiary’s bank account.
+Sender agent receives money from customer in form of cash or cheque.
+Supports opening of virtual deposit account within the application for corporate customers.
+Corporate customer can send money from their deposit account to their beneficiary.
+Direct deposit of remittance money into corporate customer’s Deposit account.
+Highly configurable Complaint Management System for Agents to log complaints against remittances.
+Support of Anti-Money Laundry and Fraud Protection on every remittance transaction
+Comprehensive & configurable region wise AML and KYC compliance checks.
+Risk management checks on every transaction
+Automatically performs, Anti-Money Laundry, Sender/ Receiver search from various lists, Suspicious Activity and several other limit checks.
+Management of organization share holders
+Support definition of multi-level Chart of Accounts
+Accounts Module to manage Journal Voucher, General Ledger, Trial Balance and Balance Sheet.
+Online integration with external agents via web services to support inward & outward remittances. Centralized System Administration
+
+===== SHEET: TPS =====
+Completely web based backoffice and front end
+Multiple transaction types
+Multiple modes of initiation(files, web services, screens)
+Multiple modes of disbursment
+Automatic and Manual Cleansing options
+AML compliance checking
+Compliance with PRI requirements
+Straight Through Processing
+Dual authorizations on key operations
+Dispute Managemenet
+SMS and Email Alerts
+Cash to Cash
+Cash to Own Bank Account
+Cash to Other Bank Account
+Cash to M-Wallet
+
+===== SHEET: Sheet4 =====
+We are currently using Home Remittance solution and would like to replace it for our future growth and business. Currently, we are also directly connected with 10 remitting entities via PULL & PUSH model.
+Current features of solutions are that is our minimum requirement:
+Overseas Remitting Entities management
+For Anti Money Laundering customer identification verification through OFAC and other sanctions list
+Full control over multiple currencies, Exchange Rates and countries through parameterized flexible configuration Engine
+Customer Relationship Management through Unique Identification with KYC compliance
+Comprehensive web-based Acquisition Module to provide Agents access world-wide
+Support data conversion received through web after bulk file downloading and SWIFT MT-103 transformation.
+Product based Transactions management for :
+Cash Transactions
+Bank Own Transactions
+IBFT(Through Bank SWITCH)
+PRI Transactions
+Non-PRI Transactions(Draft)
+4eye Principle for Security controls
+Online Tracking of Transaction status
+Extensive reporting Module covering all kinds of Reports for
+Number of Outstanding / Paid Transactions
+Exchange Co Statement Of Account (Recon)
+Total Volume of each entity/Customer/Currency
+Customer Volume and Velocity checks reports
+Regulatory Reports
+Supports both off-line Mode as Standalone application and On-line mode as integrated with Bank Core Banking Applications for real time processing
+Event based SMS and Emails generations to F.Is and individual Customers
+Event based Financial Vouchers generation
+Application Security Management through Audit Trail, Users Logs and Transaction Tracking Logs
+Let us know if your solution can provide all above features including integration with remitting entiries via PUSH & PULL. 
+Plus what other additional services/features/modules you can offer us for us and our customers to make digital experience?

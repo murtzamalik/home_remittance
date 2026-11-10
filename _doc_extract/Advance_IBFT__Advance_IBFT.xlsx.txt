@@ -1,0 +1,24 @@
+
+===== SHEET: Advance IBFT =====
+ADVANCE IBFT  | Inputter (Sub Agent) | 
+ | Login Page | Menu
+ | → | Transaction Initiation
+ | → | Customer Profile
+ | → | Individual Status
+ | → | Reports per day
+ | → | Change Password
+ | Authorizer (Agent) | 
+ | Login Page | Menu
+ | → | Transaction Authorization
+ |  | Outstanding
+ | → | Limit Management
+ | → | Authorization Report
+ | → | Change Password
+ | Remit Home | 
+ | Login Page | Menu
+ | → | Transaction Authorization
+ |  | Expired
+ |  | Block
+ | → | Limit Management
+ | → | Reports
+ | → | Change Password

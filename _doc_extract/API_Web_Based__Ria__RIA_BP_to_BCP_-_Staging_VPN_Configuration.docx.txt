@@ -1,0 +1,41 @@
+RIABP to JS BANK
+VPN Configuration Agreement for Staging
+RIA Financial :
+Contact Name:	Alejandro Alcade
+Contact Phone:	+0034 615024220
+Contact E-mail:	aalcaide@riafinancial.com
+Contact Name:	David Gómez
+Contact Phone:	0034 658 795 032
+Contact E-mail:	dgomezg@riafinancial.com
+Contact Name:	Javier Gudiel
+Contact Phone:	0034 676 002 182
+Contact E-mail:	jgudiel@riafinancial.com
+BCP:
+Contact Name: 
+Contact Phone: 
+Contact E-mail: 
+Contact Name: 
+Contact Phone: 
+Contact E-mail: 
+
+===== TABLE 1 =====
+ | RIA BP Office | BCP
+ |  | 
+VPN Device Type | Cisco | 
+VPN DeviceModel | ASA 5585 | 
+Peer IP Address | 216.193.216.4 | 
+Encryption Domain | 10.30.99.38 | 
+Protocol | IP | IP
+Pre-shared Key | Disclosed over phone | Disclosed over phone
+Encryption Domain with NAT (Yes/No) | No | No
+Phase 1 – DH Group | DH Group 2 | DH Group 2
+Phase 1 – Encryption | AES-128 | AES-128
+Phase 1 – Hash | SHA | SHA
+Keepalives | None | None
+Phase 1 – Lifetime | 28800 sec | 28800 sec
+Phase 2 – PFS | PFS Group2 | PFS Group2
+Encapsulation (ESP/AH) | ESP | ESP
+ESP Encryption | AES-128 | AES-128
+ESP Authentication | SHA | SHA
+Phase 2 - SA Lifetime | 28800 sec | 28800 sec
+Transform | esp-aes-128 esp-sha-hmac | esp-aes-128 esp-sha-hmac

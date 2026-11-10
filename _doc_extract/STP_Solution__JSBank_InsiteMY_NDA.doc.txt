@@ -1,0 +1,610 @@
+                                                                      
+Non-Disclosure Agreement
+JS Bank Limited
+MUTUAL CONFIDENTIAL DISCLOSURE AGREEMENT
+THIS AGREEMENT is made effective as of January 25, 2016 (
+Effective Date
+) by JS Bank (the 
+Company
+), whose principal place of business is 3___________________ Karachi, Pakistan and InsiteMY Systems Sdn Bhd. (
+InsiteMY
+), whose principal place of business is located at Suite 2B-12-3, Block 2B, Plaza Sentral, 2, Jalan Stesen Sentral 5, 50470 Kuala Lumpur, Malaysia sometimes collectively referred to as 
+the parties.
+1. "Confidential Information," as used in this Agreement, includes, without limitation, (a) information relating to the disclosing party's products and services or to its research and development projects or plans; (b) information relating to the disclosing party's business, marketing and sales plans, strategies, operations, finances, plans or opportunities, including the identity of, or particulars about the disclosing party's employees, contractors, customers or suppliers; (c) information marked or otherwise identified as confidential, restricted, secret, or proprietary, including information acquired by inspection or oral or visual disclosure; and (d) any other information disclosed under circumstances in which a reasonable person would understand that such information is confidential and proprietary to the disclosing party.  The disclosing party may disclose its own Confidential Information as well as that of its affiliated companies.  All such information shall be protected by this Agreement.
+2. The Company and InsiteMY wish to explore a strategic business opportunity, and anticipate that each may disclose its Confidential Information to the other during the course of their discussions.  The purpose of the disclosure of said Confidential Information is to allow the parties to evaluate whether or not to enter into some form of business relationship with each other. The sole permitted use of the Confidential Information is to facilitate a discussion between the parties with regard to whether each is interested in entering into some form of business relationship with the other, and to determine the form of such a relationship.  Unless otherwise specifically stated herein, or in a separate written agreement signed by InsiteMY and Company, there are no other permitted uses.  Confidential Information is the sole and exclusive property of disclosing party and shall be used only as expressly permitted in this Agreement.  Confidential Information shall not be disclosed or revealed by the receiving party to any third party at any time without the express written consent of the disclosing party.
+3. This Agreement covers all Confidential Information disclosed by either party to the other at any time, including any Confidential Information disclosed prior to the execution of this Agreement, unless otherwise agreed to in writing.
+4. Each party shall protect the Confidential Information disclosed to it by the other party, using the same degree of care as the receiving party uses to protect its own confidential information, but no less than a reasonable degree of care.  The receiving party shall disclose Confidential Information only to its employees or contractors who have a need to know and are bound by obligations of confidentiality.
+5. On the earlier of termination of this Agreement or disclosing party's written request, the receiving party shall cease use of Confidential Information and shall return or destroy all Confidential Information.  The receiving party's obligations under this Agreement shall continue regardless of whether or not the disclosing party and the receiving party choose to enter into any form of business relationship.  The receiving party's obligations under this Agreement shall continue until disclosing party executes a writing specifically relieving the receiving party from such obligations.
+6. Extent of Obligations.
+ a. This Agreement imposes no obligation on the receiving party with respect to Confidential Information that the receiving party is able to demonstrate (i) was in the possession of or known by the receiving party before its receipt from the disclosing party; (ii) is or becomes generally known to the public without violation of this Agreement; (iii) is obtained by the receiving party from a third party, without an obligation to keep such information confidential; or (iv) is independently developed by the receiving party without use of Confidential Information.
+b. Disclosure of Confidential Information is not prohibited if such disclosure is compelled pursuant to a legal proceeding or otherwise required by law and the receiving party gives the disclosing party thirty (30) days written notice prior to the disclosure.  In the event of such a compelled disclosure, the receiving party, at disclosing party's expense, shall assist the disclosing party in obtaining necessary protective orders.  The determination as to the necessity of protective orders shall be within the sole discretion of the disclosing party.
+7. The receiving party does not acquire any rights in Confidential Information, except the limited right to use Confidential Information as expressly permitted herein.
+8. The receiving party acknowledges that any breach of this Agreement will result in irreparable harm to the disclosing party for which damages would be an inadequate remedy and therefore, in the event of such breach, in addition to its rights and remedies otherwise available at law, the disclosing party shall be entitled to equitable relief, including injunction.
+9. The receiving party acknowledges and agrees that neither the disclosing party nor the receiving party has any obligation under this Agreement to 1) sell or purchase any item to or from the other party, 2) to grant or receive any form of license, right, title or interest in or to any product, process or other Confidential Information disclosed by the disclosing party; or 3) to enter into any form of business relationship with the other party.
+10. Any notice required or permitted under this Agreement will be deemed given upon delivery by certified mail, return receipt requested, to the party for whom it is intended at its address of record. 
+11. This Agreement may be supplemented, amended, or modified only by the mutual agreement of the parties.  No supplement, amendment, or modification of this Agreement will be binding unless it is in writing and signed by both parties.
+12. Unless the context clearly requires otherwise, (a) "shall," "will," and "agrees" are mandatory and "may" is permissive; (b) "or" is not exclusive; and (c) "includes" and "including" are not limiting.
+13. No waiver of a breach, failure of any condition, or any right or remedy contained in or granted by this Agreement will be effective unless it is in writing and signed by the waiving party. No waiver of any breach, failure, right, or remedy will be deemed a waiver of any other breach, failure, right, or remedy, whether or not similar, nor will any waiver constitute a continuing waiver unless the writing so specifies. 
+14. The company is not permitted to solicit or engage with InsiteMY customers for a period of 3 year after termination of the present engagement.
+15. In any litigation, arbitration, or other proceeding by which a party seeks to enforce its rights under this Agreement (whether in contract, tort, or both) or seeks a declaration of any rights or obligations under this Agreement, the prevailing party shall be awarded reasonable attorney fees, together with any costs and expenses, incurred to resolve the dispute and to enforce the final judgment.
+16. This Agreement shall be governed by the laws of the Islamic Republic of Pakistan and the Courts in Karachi shall have exclusive jurisdiction. Any disputes arising out of or in connection with this Agreement shall be settled through arbitration by a mutually appointed arbitrator, and in accordance with the Arbitration Act 1940
+17. Any provision of this Agreement that in any way violates the law of any state/province or country in which this Agreement is effective will, in that state/province or country, to the extent the law is violated, be considered separable and inapplicable and will not affect any other provision or provisions of this Agreement.
+18. This Agreement will inure to the benefit of and be binding on the successors and assigns of the parties hereto.
+19. This Agreement constitutes the final, complete, and exclusive statement of the terms of the agreement between the parties pertaining to the subject matter of this Agreement and supersedes all prior and contemporaneous understandings or agreements of the parties. Each party to this Agreement hereby acknowledges that it has not has been induced to enter into this Agreement by, nor is it relying on, any representation or warranty outside those expressly set forth in this Agreement. This Agreement may be executed in one or more counterparts, each of which shall be deemed an original, but all of which together shall constitute the same instrument. Signatures delivered via facsimile shall be as binding as original signatures. Handwritten amendments on this Agreement shall not be valid to alter the terms or conditions of this Agreement and will not be binding on the parties hereto.
+IN WITNESS WHEREOF, the authorized representatives of the parties have executed this Agreement as of the date last signed below (
+InsiteMY Systems Sdn Bhd
+By:________________________ 
+By:________________________
+      (Signature)                                                      (Signature)
+Print Name: 
+Title: 
+Title:
+Address:
+Telephone Number: 
+Fax Number: 
+Fax Number:
+ PAGE 
+ NUMPAGES 
+InsiteMY Systems Sdn Bhd. Malaysia
+Customer initials:____
+yj^OyjCj
+}g}ZM}=ZM}
+{uiaiTiaiaiTia
+Adobe Photoshop CS3 Windows
+2009:11:26 12:07:30
+Adobe_CM
+dEU6te
+'7GWgw
+Photoshop 3.0
+boundsObjc
+Top long
+Leftlong
+Btomlong
+Rghtlong
+slicesVlLs
+sliceIDlong
+groupIDlong
+originenum
+ESliceOrigin
+autoGenerated
+Typeenum
+ESliceType
+urlTEXT
+nullTEXT
+MsgeTEXT
+altTagTEXT
+cellTextIsHTMLbool
+cellTextTEXT
+horzAlignenum
+ESliceHorzAlign
+default
+vertAlignenum
+ESliceVertAlign
+bgColorTypeenum
+ESliceBGColorType
+topOutsetlong
+leftOutsetlong
+bottomOutsetlong
+rightOutsetlong
+http://ns.adobe.com/xap/1.0/
+<?xpacket begin="
+" id="W5M0MpCehiHzreSzNTczkc9d"?> <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 4.1-c036 46.276720, Mon Feb 19 2007 22:40:08        "> <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> <rdf:Description rdf:about="" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xap="http://ns.adobe.com/xap/1.0/" xmlns:xapMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:tiff="http://ns.adobe.com/tiff/1.0/" xmlns:exif="http://ns.adobe.com/exif/1.0/" dc:format="image/jpeg" xap:CreatorTool="Adobe Photoshop CS3 Windows" xap:CreateDate="2009-11-26T12:07:30+08:00" xap:ModifyDate="2009-11-26T12:07:30+08:00" xap:MetadataDate="2009-11-26T12:07:30+08:00" xapMM:DocumentID="uuid:778B560841DADE11902487374BDB9553" xapMM:InstanceID="uuid:788B560841DADE11902487374BDB9553" photoshop:ColorMode="4" photoshop:ICCProfile="U.S. Web Coated (SWOP) v2" photoshop:History="" tiff:Orientation="1" tiff:XResolution="3000000/10000" tiff:YResolution="3000000/10000" tiff:ResolutionUnit="2" tiff:NativeDigest="256,257,258,259,262,274,277,284,530,531,282,283,296,301,318,319,529,532,306,270,271,272,305,315,33432;26686D805CEFC5FE5029CF93DB6ECD88" exif:PixelXDimension="600" exif:PixelYDimension="150" exif:ColorSpace="-1" exif:NativeDigest="36864,40960,40961,37121,37122,40962,40963,37510,40964,36867,36868,33434,33437,34850,34852,34855,34856,37377,37378,37379,37380,37381,37382,37383,37384,37385,37386,37396,41483,41484,41486,41487,41488,41492,41493,41495,41728,41729,41730,41985,41986,41987,41988,41989,41990,41991,41992,41993,41994,41995,41996,42016,0,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,20,22,23,24,25,26,27,28,30;08E99169CFD34E66E212DBA63E662D18"> <xapMM:DerivedFrom stRef:instanceID="uuid:95E810A340DADE11902487374BDB9553" stRef:documentID="uuid:95E810A340DADE11902487374BDB9553"/> </rdf:Description> </rdf:RDF> </x:xmpmeta>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <?xpacket end="w"?>
+ICC_PROFILE
+prtrCMYKLab 
+5acspAPPL
+U.S. Web Coated (SWOP) v2
+Copyright 2000 Adobe Systems, Inc.
+%#&D'f(
+.(/H0i1
+859Q:m;
+B)CBD\EuF
+M,NCOYPoQ
+Y#Z:[Q\f]x^
+h#i3jBkRl^mgnqozp
+;~<|=|>|?}@
+|z}o~d
+4 ,!#"
+/|0p1d2Y3M4A566+7!8
+||}v~o
+%z&d'N(9)%*
+1y2g3U4D526"7
+@}AoBbCUDIE<F0G#H
+TzUmV_WQXCY5Z&[
+dxeffTgBh0i
+qlrVs@t)u
+{n|V}>~%
+5hx!{>
+{hptyU{
+x"xBz]x
+dUtOp}Llu
+|2)XwN|?
+meTD~VoS>
+{zqh{u{
+oPmP}kp
+hzp0w`S
+~)g8ni~0R
+4x\dtt
+{bs'hx{
+u:D/|pv)/
+i%A*nbk
+j@o.@5k
+vV&Qiew
+h1u-kvjcb
+9tp>pE [p
+|1pAgik
+kgwFi:l
+OOtzwK=guOw
+i]s9|Vk)e
+nfG2}-o
+xy{IU,x
+[5wPc,^
+c'c5mBe~e
+]Cif|O_
+b~m<Z<d
+3+h-r.
+uW]{_yIZj{
+lCR)jVn
+``cYzuP
+sHfswce
+h>x"W`i
+])BG|h`
+isq:m}\
+mWt7hKn
+|Sb#_o|
+d^Sv}2f|F.}
+\puxzbP
+Z"VPo\],Zc]
+UAi{[ X
+C]aR v[_
+R)ZYqx@j\
+vca`T,w<Q4W\x
+~r`fQv~
+h)fu'Bh
+nXb`Fw
+8L^Kwq%g]
+f6TG|oW
+Q;crmXB
+1mfepE
+pxj^[oq
+USy!iBXiy
+hns"(mh
+i_|b.3i
+t9iGJ)uRj
+?Uv/l63bv
+sg%7t=s
+}6oh(q}}p"
+oi~m}OZQ~
+z4q"w=z
+rnvgkbtgw
+0b{x|b
+}AVtu[}
+osekz.q
+R|{itP?
+u8,-}py
+r+xF^Jt8yZL
+}QW+wc}
+v[sh-qz
+u<_+lzv
+z@-!x+|U
+X:oH{aHErq|28
+awk*{;d
+iVw(qh[3xVsCL
+u7?){#wI1
+v~SK|4w
+eW|'cWhLk
+F/t(m77+w
+v/u*)czKyI
+xk)jy[{e
+S_kmxhD
+qk3Fy/u'&
+<z{uma/
+}l4f{{
+uZH%tQw
+|sa%P }Ce
+jGCK|@m
+NMwHt|Bjx
+z\oLu5o
+rjw`Yls
+~WyqmY|
+M3tM~1A
+G0{3x9<
+dv}d~}[
+dCe}b|g
+rTXHrrcH]yt8T/b
+ymbm[fzKS}a?{<E
+g[|?7Dm
+`aTi|mcsX
+pV(/zgv0
+PLkNknB&o
+(LyOx}
+R0v?w3V
+u1k?1%x
+k[=vsRoX1
+Q]q/gnD
+p+t`8ss
+vbgC?Vx~k04
+oO*l}Ds
+v)>*s2w
+U.Ym|bY`O)}E]
+~-b%:0
+XUbDx<[
+0J~roG'h
+zki(pzf
+9=yWs10
+}|g;k*u&^_mmvDU-o
+KFpA}KA
+Iz[_Ty
+|Nv6,B}
+ult!MGv
+<Ay~x(3
+{F%S~(|
+sz>-~|u
+EB|{xt=
+/:}R~x)
+ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+  !""#$$%&&'())*+,--./01223456789:;<=>?@BCDEFHIJLMOPRSUWXZ\^`bdfhjmoqtvy|~
+zr2}xy5zw
+p1x~w5u|
+qp'~ow+{n
+wg#|un'ytu*vs}.sr
+{|e"xzl&tys*qx{-nw
+q)l}y,i|
+fu!}e}$zd
+zks wjz#ti
+uop rnx#om
+msv"jr
+hyt"ex}%bw
+r `~z#]}
+ !"$%&()*+-./02346789;<=>@ABDEFGIJKMNOPRSTUWXY[\]^`abcefgijklnopqstuwxyz|}~
+ !"#$%&'()*+,-./01123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+}s6~{|;zy
+yg%}wo*zvw.vt
+e$x}m)t{u-pz~1my
+{lt#xj}&ti
+uqr"ro{&on
+ovp!lux%it
+j|m g{v#cz
+p1x~w5t|
+{|e"x{l&tys*qx{-nw
+q)l~y,h}
+zks wj{#ti
+msv#jr
+5L[ML^
+v]J<2-,09G
+|uqprw
+}vqligfgkpz
+P<FNTY]adhlpv~
+j#+5?JU`ju~
+$1?N`t
+|xtplhe
+,8ESbr
+ymd]VQKFA<82-(#
+m[L@7/("
+9CQ_n}
+|xtpkhffh
+(7FWi~
+|qia[VQLHC>:62/.1
+dVKC<60+'"
+{xvtrsux
+X)9IZl
+~wqlhda^[YXWWY^eq
+ld^YUQOLJHGFHKPYf
+ZSOKHFDCBABCGNYi}
+PJGEDDDEFGKQZh
+SGIMQV`s
+DTsEF7Gc(UVW
+u*9:HIJXYZghijvwxyz
+(GWf8v
+*:JZjz
+H-`y'c@
+@UP*I'
+>apO!~
+v1 ~\zAc
+cg6u]&
+ZYjk+k*e
+AiQ"DoK
+563'=%M,fU4
+Whc(6WP
+5N:'dY*
+wjvVWcV
+_::kvw
+AGqrb`
+'iPPm<
+SDQ+[wv+
+0j>@\[
+]uf3%K=
+]M}}}L
+UYYYU+OSWWS;<
++=N5*eZ
+Z 0*EA
+abSMO&
+}ZbM\i
+v7^`w~.
+MUt$0?
+]}L4t4
+i'I4r1Tj
+U[/"2=
+;_kbksy
+>6T59,
+%SA3R'f
+U[][U*G
+IK%}]~i
+!0^yTd
+B%-.;#
+S-;'nt
+WLt_P|w
+SYP@2J
+&vW~u.{)
+ep9zY(
+v#)E0+5&G
+ZZj*jz**x)(
+M%e%LM
+*r/QPT<
+ESG_EP
+/%EfC%_S$
+d2/+\z
+s{Gwa1
+[/yV48
+24sC4LRX
+|TiG6bbl
+?57&I6
+@h$f8U<rzv
+jWNiqx]
+'=EIC~
+v'ge+(
+'OI_QC
+kuw]vn
+4bE:$u
+iay!Ij
+.c?IOIL
+1dV+B@4
+yr5pFB
+G%TMFwg
+_L/nXiR
++aq%Dq
+)~YvUNSfb
+^7F{{i"+
+j}RH4-
+gS\}v08
+NS ()"
+Qtw[?N
+c-.GuM6F
+{Ea}w){
+wbjK4LI
+V6i`u[)
+'/O{gi
+55"d2)
+/7]o{f
+$(>Mm]
+USEMMM
+:k|T@!]
+q!5eV?
+_{9V^O
+jrI08G
+Td_ycsU
+lr8:\$
+H\J"X$
+qxlM=^G!Q
++QK[`8
+_s7h^+8
+dt{kSPp[
+!J75,{
+qO<u?|>
+d@c<HA
++xa{cre3
+;Kh56.
+X+(k)f@
+YO#G,3F
+VVVO5U]]W
+M-m,SF
+,UTUDUDE
+He3CK_S
+".U@?gTy
+%:OKKU
+&g)mmp
+SG[W-}e'[vV
+D?#Pp@ 
+#0[TUP
+M?k~]t
+[Content_Types].xml
+_rels/.rels
+theme/theme/themeManager.xml
+theme/theme/theme1.xml
+w toc'v
+3Vq%'#q
+:\TZaG
+IqbJ#x
+T[XF64
+theme/theme/_rels/themeManager.xml.rels
+K(M&$R(.1
+[Content_Types].xmlPK
+_rels/.relsPK
+theme/theme/themeManager.xmlPK
+theme/theme/theme1.xmlPK
+theme/theme/_rels/themeManager.xml.relsPK
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<a:clrMap xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/>
+p%[PV>
+YKCm[|
+Normal
+Microsoft Office Word
+Business&Decision NA
+<b:Sources SelectedStyle="\APASixthEditionOfficeOnline.xsl" StyleName="APA" Version="6" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"></b:Sources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ds:datastoreItem ds:itemID="{A452350E-EB5F-4F28-805B-D934A9F9E5E6}" xmlns:ds="http://schemas.openxmlformats.org/officeDocument/2006/customXml"><ds:schemaRefs><ds:schemaRef ds:uri="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"/></ds:schemaRefs></ds:datastoreItem>
+Microsoft Office Word 97-2003 Document
+MSWordDoc
+Word.Document.8
+xmlformats.org/officeDocument/2006/bibliography"/></ds:schemaRefs></ds:datastoreItem>
+ InsiteMY full color logo (2x0
+Picture 1
+Description: InsiteMY full color logo (2x0
+Untitled-1
+"+4=HS_m~
+*4?KZj}
+S}X|^{dyjxrv{t
+\~b}h{pzyx
+'}.|6z<yBwGvLuRsWr]qcokntl~k
+u!s)q0o6n<lBkGjMiRhXf_egcp
+5}<|A{FyKxPwUv[tasiqqp{n
+v"t)s0q6p<oAmFlKkPjVh\gdeldvc
+i#h*g1e6d<cAbF`L_R^X]_[hZrX~W
+^%]+\1Z7Y<XB
+K}O|T{Zy`xgvpuzs
+y"x)w0u6t;r@qEpJoOmTl[kbijhtf
+k$k*i0h6f;e@dEcJaO`V_]]e\oZzY
+_%^+]0[6Z;Y@XEWKVQUXSaRjPvO
+V U&S+R1Q6P;OANGMMKUJ]IgGsF
+g~o|zz
+*}0{6z;x@wEuItNsTqZpanimsk
+p$n*m0k5j:i?hDgIeNdTc[ac`m^y]
+b%a*_0^5]:\>[DYIXOWVV^ThSsQ
+W V%U*S0R4Q9P?ODNKMRKZJcIoG|F
+L K&J+I0H5G:F@EFCNBVA_@k>x=
+C!B&A+?1>6=<<C;J:R9\8h6u5
+E~J|O{TzZxaviuss
+w$u*s0q5p:n?mDlIkNjTh[gcemdxb
+g%e*c/b4a9`>_C^H]N[UZ]XgWrU
+Y%W*V/U4T8S=RCPIOPNXMbKmJzI
+N M%L*J.I3H8G>FDEKDSC]Ah@u?
+C B%A*@/?4>:=@;G:O9Y8d7q6
+:!9%7*60554<3C2L1U0`/m.}-
+1"0'/,.2-8,@+I*R)](k
+%~+|1z6y;w@vDuIsOrUp\odmnlzj
+m%k*i0h4g9f>eCcHbNaU_^^g\s[
+]%\*[/Y3X8W=VCUISPRXQaPmN{M
+O$N)M.L3K8J=ICHJFRE\DgCuB
+D$C)B-A3?8>>=E<N;W:b9o8
+9$8)7.635:4A3I2S1^0k/{.
+1 0$/)./-6,=+E*O)Z(g'w&
+( '%&+%2$9#B"K"W!d s
+&1<HUb
+'1>K[n
+>}D|KzQyWw]vdtl
+C~I}O|Uz[yawiuqt|r
+| z(x0v8t>sDqJpPnVm]ldjmhwg
+Y~`|gzoyzw
+!})|0y7x=vCtIsNrTpZobmjktj
+q#o+m2l8j>iDgIfOeVc]be`o_{]
+e&c-a3`9_?]E\K[RZYXbWlUxS
+7}=|CzHyMwSvYtariqso
+t#s+q1o7n=lCkHjNhTg[eccmbx`
+f%e,c2b8`=_C^I\O[VZ^XhWsU
+\!['Y-X3V9U?TESKQRPZOdMoL}J
+R#Q)O/N5
+T~Z|azixsv
+|$z+w1u7t=rBqHoMnSlZkbilgxf
+k%i,g1f7d=cBbH`N_U]]\fZrY
+^ ]&[,Z2X7W=VCUISPRXQaOlNzL
+R"Q(P-N3M8L>KEJLHTG]FhDuC
+I#G)F/E4D:BAAH@P>Z=d<r:
+8}={CyHxNvTu[scqnozm
+r%p,n2l7j<iBhHfNeUc]bf`r^
+c a&`,^1\7[<ZBXHWOVWT`SlQyP
+U!S'R,Q1O7N=MCLJJRI[HfFsE
+I"H'G-E2D8C>BEAM?V>a=n;~:
+?#>)=.;4::9A8I7R6]4j3z2
+8 6%5+40372>1F/P.Z-g+w*
+f~q|}y
+ }&z-w3u8t>rCpIoOmVl^jhhug
+j h&f,e2c7b<`B_H]O\WZaYmW{V
+Z!X&V,T1S6R<QBOINQM[KfJtI
+L!J&I,H1G7E=DDCLBU@`?n>~=
+@"?'>,=2;8:?9G8P7[5h4x3
+6#5(4.342;0C/L.W-d,s+
+.$,*+0*7)?(I'T&`$o#
+'!&'%-$4
+E~K|RzYxbvltyr
+t!r'p-n3l8k>iDhJfQdZcdap_
+a!_'],\2Z7Y=WCVKUSS\RhPwO
+Q!O&N+L1K7J=IDGLFVDaCpB
+D!B&A+@1>7=><G:P9[8i7z6
+7!6&5,42391A0K/V.c-s,
+-",(+.*5)=(F'Q&^%n$
+%$$*#1"9!C N
+%0;EP[hv
+$.9ERbs
+"-9IZn
+>~E}K{QyWx]vd
+W}]{czkxsv}t
+!~*{2y9w@uFsLrQpWn^mekniwg
+:}A{GyLwRvWt]rdpmovl
+v%t-q4o:n@lFjLiRgXf_dgbq`|^
+h'e.d4b;`@_F]L\SZZXbWlUwS
+R}X{^yexmvvs
+ |'z.w5u;tArGpLoRmXk_ifgpe{c
+o!l(j/h5g;eAcFbL`R_Y]a[jYuW
+a"^)]/[5Y;XAVFUMSTR\PeNpL}K
+T#R*P0O5N;LAKHIO
+7}={ByHxMvRtXr_qgopl{j
+u#r)p0n6m<kAiGhLfRdYc`ai_t]
+f#c*a0`6^;]A[FZLXSV[TdRnQ{O
+X$V*T0S6Q;PANGMNKVI_GiFvD
+L%J+H0G6F<DBCIAQ?Z>e<r:
+B @%?+
+S}Y{`yhwqu|s
+}$z+x2v8t=rBqHoMmSlYjahjftd
+k%i+g1f7d<cAaG_M^S\[ZdXnV{T
+]%[+Y1X6V;UASGQNPUN^LhJuH
+O%N+L0K6I<HBFHEPCYAc?o>~<
+E D&B+A1?6>=<D;K9T7_6k4z2
+:!9&7,62483?1G0P.[-g+v*
+9}?{DyIxNvTtZsbpknul
+s&q-o2m8k=jBhHgNeTc[ad_n]{[
+e c&a,_2^7\<[BYGWNVUT^RhPtN
+V!T&S,Q1P6N<MBKHIPHXFbDnB}@
+I!H&F+E1C6B<@C>K=S;]9i7x6
+=!<&:,91776>4F3O1Y/e.s,
+3!1'0,.3-:+B*K(U&a%p$
+)"'(&.$6#>"G R
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+Heading 7
+Heading 8
+Heading 9
+Default Paragraph Font
+Table Normal
+No List
+Hyperlink
+Body Text 2
+Body Text
+Body Text Indent 2
+Body Text Indent 3
+Header
+Footer
+Page Number
+Body Text 3
+Body Text Indent
+Table Text
+Table Header Text
+Bullet Text 1
+FollowedHyperlink
+msoaddress
+Comment Reference
+Comment Text
+Comment Text Char
+Comment Subject
+Comment Subject Char
+Balloon Text
+Balloon Text Char
+  DRAFT
+Calibri
+PowerPlusWaterMarkObject357831064
+DATASET
+DOCNUM
+trailer
+VERSION
+VERSION2
+3013247
+Root Entry
+1Table
+WordDocument
+SummaryInformation
+DocumentSummaryInformation
+MsoDataStore
+Properties
+CompObj

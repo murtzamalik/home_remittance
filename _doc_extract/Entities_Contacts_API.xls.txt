@@ -1,0 +1,254 @@
+Kazim Razaoq                                                                                                 B
+"$"#,##0_);\("$"#,##0\)
+"$"#,##0_);[Red]\("$"#,##0\)
+"$"#,##0.00_);\("$"#,##0.00\)
+"$"#,##0.00_);[Red]\("$"#,##0.00\)
+_("$"* #,##0_);_("$"* \(#,##0\);_("$"* "-"_);_(@_)
+_(* #,##0_);_(* \(#,##0\);_(* "-"_);_(@_)
+_("$"* #,##0.00_);_("$"* \(#,##0.00\);_("$"* "-"??_);_(@_)
+_(* #,##0.00_);_(* \(#,##0.00\);_(* "-"??_);_(@_)
+_(* #,##0_);_(* \(#,##0\);_(* "-"??_);_(@_)
+_(* #,##0.0000_);_(* \(#,##0.0000\);_(* "-"??_);_(@_)
+0.0000000000000
+_(* #,##0.00000_);_(* \(#,##0.00000\);_(* "-"??_);_(@_)
+"Yes";"Yes";"No"
+"True";"True";"False"
+"On";"On";"Off"
+        
+        }
+20% - Accent1
+20% - Accent1 2
+20% - Accent2
+20% - Accent2 2
+20% - Accent3
+20% - Accent3 2
+20% - Accent4
+20% - Accent4 2
+20% - Accent5
+20% - Accent6
+20% - Accent6 2
+40% - Accent1
+40% - Accent1 2
+40% - Accent2
+40% - Accent3
+40% - Accent3 2
+40% - Accent4
+40% - Accent4 2
+40% - Accent5
+40% - Accent5 2
+40% - Accent6
+40% - Accent6 2
+60% - Accent1
+60% - Accent1 2
+60% - Accent2
+60% - Accent2 2
+60% - Accent3
+60% - Accent3 2
+60% - Accent4
+60% - Accent4 2
+60% - Accent5
+60% - Accent5 2
+60% - Accent6
+60% - Accent6 2
+Accent1
+Accent1 2
+Accent2
+Accent2 2
+Accent3
+Accent3 2
+Accent4
+Accent4 2
+Accent5
+Accent6
+Accent6 2
+Calculation
+Calculation 2
+Check Cell
+Comma 2
+Comma 2 2
+Comma 2 3
+Comma 3
+Comma 4
+Comma 5
+Explanatory Text
+Good 2
+Heading 1
+Heading 1 2
+Heading 2
+Heading 2 2
+Heading 3
+Heading 3 2
+Heading 4
+Heading 4 2
+Input 2
+Linked Cell
+Linked Cell 2
+Neutral
+Neutral 2
+Normal 10
+Normal 11
+Normal 12
+Normal 2
+Normal 2 2
+Normal 2 3
+Normal 2 4
+Normal 2_JS BANK Claims For USMAN 2013
+Normal 3
+Normal 3 2
+Normal 4
+Normal 5
+Normal 6
+Normal 7
+Normal 8
+Normal 9
+Note 2
+Note 3
+Output
+Output 2
+Style 1
+Title 2
+Total 2
+Warning Text
+Sheet2
+Partner Name
+POC Name
+POC Contact #
+POC Email Address
+Alternate POC Name
+Alternate POC Contact #
+Alternate POC Email Address
+Small World
+Sajjad Ahmed
+Giorgi Razmadze
+(+34) 918 389 023
+ giorgi.razmadze@smallworldfs.com
+sajjad.ahmad@smallworldfs.com
++34 918389006
++971.52.6527229
+Yaquta Marvi
+Willie Gumopas 
+willie.gumopas@transfast
+(+63)9988454057
+Transfast 
+yaquta.marvi@transfast.com
+Prabhu 
+Umesh Gauchan
+Skype: ums.chyoki]
+operation@prabhugroupus.com
+Arati Gurung
+Placid Spot Cash
+rashel.salauddin@placid.net
+Russel Salauddin
+skype "pla-sys"
+Javed Ansari
+Noble Travel & Money Exchange
+Muhammad 
+(88)01733064258
+remit@nobleeremittance.com
+(044)2085218804
+(91)9833997810
+jansari@riafinancial.com
+(1) 7186516060
+it@prabhugroupus.com
+ffffff
+InputBin
+PrinterSelect
+RESDLL
+UniresDLL
+Resolution
+600dpi
+Orientation
+PORTRAIT
+HPOrientRotate180
+Duplex
+PaperSize
+LETTER
+MediaType
+Collate
+OutputBin
+HPImageShift
+HPAutoDuplexScaling
+ColorMode
+TextAsBlack
+TTAsBitmapsSetting
+TTModeOutline
+RETChoice
+HPBackSidePrinting
+JPEGEnable
+Smoothing
+PrintQualityGroup
+PQGroup_1
+HPColorMode
+MONOCHROME_MODE
+HPPDLType
+PDL_PCL6
+HPPJLEncoding
+HPJobAccounting
+HPJOBACCT_JOBACNT
+HPBornOnDate
+HPJobByJobOverride
+HPXMLFileUsed
+hpmcpap6.xml
+HPStaplingOpposed
+HPPCL6PassThrough
+HPSmartDuplexSinglePageJob
+HPSmartDuplexOddPageJob
+HPManualDuplexDialogItems
+InstructionID_01_FACEDOWN-NOROTATE
+HPManualFeedOrientation
+FACEDOWN
+HPOutputBinOrientation
+Stapling
+HPManualDuplexDialogModel
+Modeless
+HPManualDuplexPageOrder
+EvenPagesFirst
+HPMapManualFeedToTray1
+HPPrintOnBothSidesManually
+HPStraightPaperPath
+HPSendPJLUsageCmd
+HPCovers
+Other_Pages
+Front_Cover_from_Feeder_InputBin
+Back_Cover_from_Feeder_InputBin
+JRConstraints
+JRCHDPartial
+JRHDInstalled
+JRHDOff
+JRHDNotInstalled
+HPConsumerCustomPaper
+PSAlignmentFile
+HPZLSwn7
+HPSmartHub_Onlinediagnostictools
+HPSmartHub_Supportandtroubleshooting
+HPSmartHub_Productmanuals
+HPSmartHub_Checkfordriverupdates
+HPSmartHub_Colorprintingaccessusage
+HPSmartHub_Ordersupplies
+HPSmartHub_Showmehow
+PSServices_Printcolorusagejoblog
+HPSmartHub
+Inet_SID_263_BID_514_HID_265
+EXCEL.EXE
+333333
+?333333
+danish.aftab
+Aisha Farooq
+Microsoft Excel
+JS Bank Limited
+Worksheets
+_PID_HLINKS
+Arial1
+Calibri1
+Cambria1
+Calibri
+-2]\ #,##0.00_);[Red]\([$
+-2]\ #,##0.00\)
+Normal
+TableStyleMedium9PivotStyleLight16
+mailto:willie.gumopas@transfast
+mailto:it@prabhugroupus.com
+Root Entry
+Workbook
+SummaryInformation
+DocumentSummaryInformation

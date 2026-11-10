@@ -1,0 +1,38 @@
+PDF_PAGES=2
+PDF_META={'/Author': 'Klajdi Hoxha', '/Creator': 'Microsoft® Word 2010', '/CreationDate': "D:20150415153405+02'00'", '/ModDate': "D:20150415153405+02'00'", '/Producer': 'Microsoft® Word 2010'}
+
+===== PAGE 1 =====
+Checking common problems using VPN to connect with RIA Web Services 
+Contract IRiaAsSender in Production Environment 
+ 
+1- Host:  Check that in hosts file is included the following IP Address. 
+ 
+10.30.10.45  fxglobalwebsvcnocert.riaenvia.net 
+ 
+2- Ping:   Check that ping command does not return errors. In case of errors, may be a  
+proxy  / Firewall problem. 
+ 
+cmd>  ping fxglobalwebsvcnocert.riaenvia.net  –n 100 
+ 
+3- Telnet:  Check that it is possible to connect through Telnet. In case of errors, may be a  
+proxy  / Firewall problem.   
+cmd> telnet  fxglobalwebsvcnocert.riaenvia.net 9771 
+ 
+4- Create Service reference at Visual Studio project:  
+Right click at References and click on Add Service Reference… 
+ 
+Fill the information as follows: 
+ 
+
+===== PAGE 2 =====
+http:// fxglobalwebsvcnocert.riaenvia.net:9771/FXGlobalSending.svc?wsdl 
+5- Web.config: Following will be information generated at web.config file 
+ 
+ 
+ 
+In this moment, you can decorate the binding with your attributes chosen (timeout, 
+messages size, proxy configuration…). 
+ 
+6- Calling Web Service from application: 
+ 
+ 

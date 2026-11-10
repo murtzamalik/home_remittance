@@ -1,0 +1,658 @@
+PDF_PAGES=8
+PDF_META={'/Producer': 'Nitro PDF PrimoPDF', '/CreationDate': "D:20150731190616-05'00'", '/ModDate': "D:20150731190616-05'00'", '/Title': 'Microsoft Word - Centegy - JSBL - RemitHome - PUSH - API - Proposal - 31-July-2015', '/Creator': 'PrimoPDF http://www.primopdf.com', '/Author': 'Taufiq.Ahmed'}
+
+===== PAGE 1 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+RemitHome 
+Formerly Sidat Hyder Morshed Technologies (Pvt) Ltd
+5th  Floor, Beaumont Plaza, Beaumont Road, Karachi
+Website: 
+ 
+RemitHome  PUSH API - Proposal                     
+ 
+ 
+ 
+ 
+TECHNICAL & FINANCIAL 
+PROPOSAL 
+ 
+ 
+RemitHome - API Interfacing (PUSH Model) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+31 July 2015 
+ 
+ 
+ 
+ 
+Centegy Technologies (Pvt) Ltd. 
+Formerly Sidat Hyder Morshed Technologies (Pvt) Ltd 
+ 
+Floor, Beaumont Plaza, Beaumont Road, Karachi-75530, Pakistan 
+Website: www.centegytechnologies.com  
+ 
+  
+Page: 1  
+75530, Pakistan  
+===== PAGE 2 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+ 
+Table of Contents 
+ 
+1 Proposal  ................................ 
+1.1  Request for Proposal
+1.2  Scope of Work  ................................ 
+1.3  Application coverage 
+1.4  Centegy Offer  ................................ 
+1.5  Specific/Customized Integration 
+2 Financials  ................................ 
+2.1  Fee Quotation  ................................ 
+2.2  Other Fee’s  ................................ 
+2.3  Payment Terms  ................................ 
+3 Other Matters  ................................ 
+3.1  Specific  ................................ 
+3.2  General ................................ 
+ 
+ 
+RemitHome  PUSH API - Proposal                     
+................................ ................................................................ ............................... 
+Request for Proposal ................................................................ ................................ 
+................................ ................................ ................................ 
+Application coverage  ................................................................ ................................ 
+................................ ................................ ................................ 
+Specific/Customized Integration  ................................ ................................ 
+................................ ................................................................ ............................. 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+................................ ................................ ................................ 
+ 
+  
+Page: 2  
+...............................  3 
+................................ .... 3 
+................................ .............. 3 
+................................ ... 3 
+................................ ............... 5 
+................................ .................. 5 
+.............................  6 
+................................ .............. 6 
+................................ ................... 6 
+................................ ............ 7 
+................................ ...................... 8 
+................................ ......................... 8 
+................................ ......................... 8 
+===== PAGE 3 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+ 
+1 Proposal 
+ 
+1.1  Request for Proposal 
+ 
+1.1.1  The request for proposal was 
+ 
+1.2  Scope of Work 
+ 
+1.2.1  The Push API based on a web 
+their application through web service integration with ‘RemitHome’ and upload transactions 
+for further processing. 
+Model) i.e.  
+- Non-STP (Seamless transaction processing mechanism) 
+- STP (Seamless transaction processing mechanism) 
+ 
+1.2.2  The ‘RemitHome’ Web Service API 
+- Funds into a beneficiary bank account (direct credit) or 
+- Cash over the counter payments 
+ 
+1.2.3  This ‘RemitHome’ web service API interface facilitates r 
+ap plication for transferring each 
+acknowledgement . In addition, remitting entity can also inquire about each transaction 
+updated status through web service API interface.
+ 
+1.3  Application coverage  
+ 
+1.3.1  A new module will be introduced in 
+remitting entity interfacing with Web Service API.
+These Includes: 
+- Entry Form to setup Remitting Entity for allowing connectivity with credential information.
+- Entry Form for Security Settings.
+- Inquiry screen to monitor API transactions. 
+ 
+1.3.2  The API Interfaces available in a 
+A - Title Fetch:  
+This interface is available to get account title against bank code and account number from 
+banks own CBS or other banks enabled for IBFT.
+ 
+B- GetTransactionStatus 
+This interface is availab 
+transaction reference number.
+ 
+C- TransferTOCOTC:  
+This interface is available to upload transaction of COTC nature in Remit 
+processing. 
+ 
+D- TransferTOFT:  
+This interface is available to upload transaction of account nature in Remit 
+processing and includes FT, IBFT , PO and BT type of transaction.
+ 
+RemitHome  PUSH API - Proposal                     
+The request for proposal was received from JSBL in 18 June 2015. 
+The Push API based on a web -service interface to facilitate remitting entities for connecting 
+their application through web service integration with ‘RemitHome’ and upload transactions 
+for further processing. The client should opt any single ‘RemitHome’ We b Service 
+(Seamless transaction processing mechanism) or  
+STP (Seamless transaction processing mechanism)  
+Web Service API (PUSH Model) supports following transaction types 
+Funds into a beneficiary bank account (direct credit) or  
+Cash over the counter payments  
+web service API interface facilitates r emitting entities to connect with 
+plication for transferring each transaction directly route from their own 
+. In addition, remitting entity can also inquire about each transaction 
+updated status through web service API interface. 
+w module will be introduced in existing ‘RemitHome’ a pplication for sett 
+remitting entity interfacing with Web Service API. 
+Entry Form to setup Remitting Entity for allowing connectivity with credential information.
+Entry Form for Security Settings. 
+Inquiry screen to monitor API transactions.  
+available in a pplication are 
+This interface is available to get account title against bank code and account number from 
+banks own CBS or other banks enabled for IBFT. 
+GetTransactionStatus :  
+This interface is availab le to get current status of transaction from Remit Home against 
+transaction reference number. 
+ 
+This interface is available to upload transaction of COTC nature in Remit 
+This interface is available to upload transaction of account nature in Remit 
+processing and includes FT, IBFT , PO and BT type of transaction. 
+  
+Page: 3  
+service interface to facilitate remitting entities for connecting 
+their application through web service integration with ‘RemitHome’ and upload transactions 
+b Service API (PUSH 
+transaction types  
+emitting entities to connect with 
+own system and get 
+. In addition, remitting entity can also inquire about each transaction 
+pplication for sett ing up new 
+Entry Form to setup Remitting Entity for allowing connectivity with credential information. 
+This interface is available to get account title against bank code and account number from 
+le to get current status of transaction from Remit Home against 
+This interface is available to upload transaction of COTC nature in Remit Home for further 
+This interface is available to upload transaction of account nature in Remit Home for further 
+===== PAGE 4 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+ 
+1.3.3  Transaction Processing  
+ 
+There are two types of processing modes,
+ 
+1.3.3.1 Delayed Mode 
+Transaction(s) will be parked in with download status and further proces 
+performed as normal cycle with manual execution of different steps 
+ 
+1.3.3.2 Real Time Mode: 
+This model follows STP (Seamless transaction processing mechan 
+in real time payment mode then transaction will be paid on real time basis. 
+ 
+All the steps from transaction initiation till disbursement/fund transfer/payment will be 
+performed in one go except for AML validation. 
+ 
+Steps of n ormal transaction flow except for AML validation that will be carried out in one go 
+in real time mode are,
+ 
+i. Transaction capturing/downloading with basic level validation like,
+/square4 Amount check 
+/square4 Beneficiary name check 
+/square4 Remitter name check et 
+ 
+ii. Transaction business 
+/square4 Core banking 
+/square4 Account validation if it is for 
+message.
+/square4 IBFT title fetch if it is for IBFT 
+ 
+iii. Transaction posting/fund transfer involves,
+/square4 Core banking 
+/square4 Fund transfer posting in 
+messages.
+/square4 IBFT if transaction is for other bank through TPS/1
+ 
+Real time covers all types of transactions namely 
+i. JSBL account transactions 
+ii. PRI bank transactions 
+iii. NON-PRI bank transactions 
+iv. COTC transactions (transaction will be available for payment once they are send 
+from remitting entity and it fulfills or validates all business requirements).
+ 
+Real time transactions if are rejected due to some valid reason can be 
+mode with the status DWN. This facility is configurable against remitting entity and response 
+code received while trying to process that transaction. 
+ 
+For both real time and delayed mode transaction, Core banking integration will be 
+which will be done through web services exposed by JSBL.
+ 
+RemitHome  PUSH API - Proposal                     
+ 
+There are two types of processing modes, 
+Delayed Mode : 
+will be parked in with download status and further proces 
+as normal cycle with manual execution of different steps  by assigned user 
+Real Time Mode:  
+This model follows STP (Seamless transaction processing mechan ism). If transaction is sent 
+in real time payment mode then transaction will be paid on real time basis. 
+All the steps from transaction initiation till disbursement/fund transfer/payment will be 
+performed in one go except for AML validation.  
+ormal transaction flow except for AML validation that will be carried out in one go 
+in real time mode are, 
+Transaction capturing/downloading with basic level validation like,
+Amount check  
+Beneficiary name check  
+Remitter name check et  
+Transaction business  validation check involves, 
+Core banking  connectivity/integration 
+Account validation if it is for JSBL through Core banking by using ISO 
+message. 
+IBFT title fetch if it is for IBFT  
+Transaction posting/fund transfer involves, 
+Core banking  connectivity/integration 
+Fund transfer posting in JSBL ’s core banking system by using ISO 
+messages. 
+IBFT if transaction is for other bank through TPS/1-Link connectivity 
+Real time covers all types of transactions namely  
+account transactions  
+PRI bank transactions  
+PRI bank transactions  
+COTC transactions (transaction will be available for payment once they are send 
+from remitting entity and it fulfills or validates all business requirements).
+Real time transactions if are rejected due to some valid reason can be  downloaded in delayed 
+mode with the status DWN. This facility is configurable against remitting entity and response 
+code received while trying to process that transaction.  
+For both real time and delayed mode transaction, Core banking integration will be 
+which will be done through web services exposed by JSBL. 
+  
+Page: 4  
+will be parked in with download status and further proces sing will be 
+by assigned user . 
+ism). If transaction is sent 
+in real time payment mode then transaction will be paid on real time basis.  
+All the steps from transaction initiation till disbursement/fund transfer/payment will be 
+ormal transaction flow except for AML validation that will be carried out in one go 
+Transaction capturing/downloading with basic level validation like, 
+through Core banking by using ISO 
+’s core banking system by using ISO 
+Link connectivity  
+COTC transactions (transaction will be available for payment once they are send 
+from remitting entity and it fulfills or validates all business requirements). 
+downloaded in delayed 
+mode with the status DWN. This facility is configurable against remitting entity and response 
+For both real time and delayed mode transaction, Core banking integration will be  required 
+===== PAGE 5 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+1.4  Centegy Offer 
+ 
+1.4.1  Our offer is the licensing 
+legal entity (which is JSBL 
+1.2).  
+ 
+1.4.2  Centegy technologies grants to the client a perpetual, personal, non 
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+represents warrants and agrees that the Soft 
+only for the benefit of the client. 
+ 
+1.4.3  Centegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost). Our response 
+Home Remittance ‘RemitHome’ application software solution. 
+ 
+1.4.4  Provision is available to embed End to End SSL encryption with the application 
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+responsibility. 
+ 
+1.4.5  The business partners of the Bank shall be entitled to access only the software from the 
+centralized location of the bank in order to perform their business operations. 
+ 
+Note: The Bank should have to acquire the application license for th 
+licensing cost and terms/ 
+ 
+1.4.6  We are not responsible for providing any training or implementation support to such business 
+partners.  If required, separate scope, 
+ 
+1.4.7  The application shall be installed and implemented at Bank’s 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+provided in the Agreement. However, we are not responsible for the re 
+configuration, training or implementation at any new location.
+ 
+1.5  Specific/Customized Integration 
+ 
+1.5.1  The Time and Fee to complete the scope covered under enhancements/customization will 
+determined after analyzing scope like 
+• Integration with Bank Own Core Banking 
+• Integration with Bank 
+• Integration with Remitting Entit 
+• Integration with Bank SWITCH for IBFT 
+• Integration with Bank SMS 
+ 
+1.5.2  This scope of work includes 
+ 
+ 
+RemitHome  PUSH API - Proposal                     
+Our offer is the licensing  of ‘RemitHome-Web based API (PUSH Model)’ application 
+JSBL  operating in Pakistan) as per the agreed scope of work 
+Centegy technologies grants to the client a perpetual, personal, non -transferable and non 
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+represents warrants and agrees that the Soft ware will be used only at such location(s) and 
+only for the benefit of the client.  
+Centegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost). Our response 
+Home Remittance ‘RemitHome’ application software solution.  
+Provision is available to embed End to End SSL encryption with the application 
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+The business partners of the Bank shall be entitled to access only the software from the 
+centralized location of the bank in order to perform their business operations. 
+Note: The Bank should have to acquire the application license for th eir Business Partners. 
+licensing cost and terms/ condition are defined in the financial section with this proposal.
+We are not responsible for providing any training or implementation support to such business 
+separate scope, time and fee will be ascertained upon receiving request.
+The application shall be installed and implemented at Bank’s site in Karachi, Pakistan and may 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+the Agreement. However, we are not responsible for the re -installation, 
+configuration, training or implementation at any new location. 
+Integration  
+The Time and Fee to complete the scope covered under enhancements/customization will 
+termined after analyzing scope like  
+Bank Own Core Banking  Application 
+Bank AML Software  
+Integration with Remitting Entit ies /Agents (MTOs) through APIs 
+Bank SWITCH for IBFT  
+Integration with Bank SMS solution 
+includes review, develo pment and user acceptance testing.
+ 
+  
+Page: 5  
+application  to one 
+of work  (refer section 
+transferable and non -
+exclusive right and license to use the Software, at the location(s) identified herein. The CLIENT 
+ware will be used only at such location(s) and 
+Centegy Technologies will not be responding to any HW (Hardware) related queries as part of 
+its response (i.e. not providing hardware specification and cost). Our response  is limited to its 
+Provision is available to embed End to End SSL encryption with the application  
+Note:  The SSL certificate acquisition, configuration and maintenance will be client 
+The business partners of the Bank shall be entitled to access only the software from the 
+centralized location of the bank in order to perform their business operations.  
+eir Business Partners. The 
+with this proposal. 
+We are not responsible for providing any training or implementation support to such business 
+time and fee will be ascertained upon receiving request. 
+Karachi, Pakistan and may 
+be relocated by the Bank at any other of its branch after prior written intimation to us as 
+installation, 
+The Time and Fee to complete the scope covered under enhancements/customization will 
+pment and user acceptance testing. 
+===== PAGE 6 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+2 Financials 
+ 
+2.1  Fee Quotation 
+ 
+No. License Slab  
+  
+A-
+01. 
+RemitHome - with ‘20 ’ Remitting Entities 
+(with single pilot remitting entity review, configuration and 
+verification) 
+A-
+02. 
+RemitHome - with ‘40 ’ Remitting Entities 
+(with two pilot remitting entity review, configuration and 
+verification) 
+A-
+03. 
+RemitHome - with ‘99 ’ Remitting Entities 
+(with five pilot remitting entity review, configuration and 
+verification) 
+  
+  
+B. Per Additional  Remitting Entity PUSH API Interfacing Fee for 
+Configuration and Verification (If opt) 
+ 
+2.1.1  The fee is exclusive of all local taxes and would be adjustable subject to changes in the scope 
+ 
+2.1.2  The fee of the assignment does not include the cost of Hardware, Operating System License 
+fee, Database Engine License Fee, and Front 
+ 
+2.1.3  As per CENTEGY’s general policy, we do not provide source 
+mentioned above is without source code.
+ 
+2.1.4  As per our standard terms and conditions we have 
+calendar months that will be commenced from the time of application installation. 
+ 
+2.2  Other Fee’s 
+ 
+2.2.1  If the Bank requires enhancement or customization or integration at any time, a ‘BRD 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+provide ‘Change Request 
+soon as possible after the CRF has been accepted by the client. The development charges (per 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+any review, enhancement, customization, integration, etc. a 
+ 
+RemitHome  PUSH API - Proposal                     
+Fee (Rs.) 
+Non STP 
+(1.3.3.1) 
+Remitting Entities  
+pilot remitting entity review, configuration and 
+1,175,000/ 
+Remitting Entities  
+(with two pilot remitting entity review, configuration and 
+1,375,000/ 
+Remitting Entities  
+(with five pilot remitting entity review, configuration and 
+1,675,000/ 
+Per Additional  Remitting Entity PUSH API Interfacing Fee for 
+Configuration and Verification (If opt)  
+275,000/ 
+The fee is exclusive of all local taxes and would be adjustable subject to changes in the scope 
+The fee of the assignment does not include the cost of Hardware, Operating System License 
+fee, Database Engine License Fee, and Front -End Tool Software License.  
+As per CENTEGY’s general policy, we do not provide source code; therefore, the fee 
+mentioned above is without source code. 
+As per our standard terms and conditions we have  offer free warranty period of 
+calendar months that will be commenced from the time of application installation. 
+If the Bank requires enhancement or customization or integration at any time, a ‘BRD 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+provide ‘Change Request – CRF’ having scope and cost estimate and will comme 
+soon as possible after the CRF has been accepted by the client. The development charges (per 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+enhancement, customization, integration, etc. a ctivity. 
+  
+Page: 6  
+Fee (Rs.)   Fee (Rs.)   
+ 
+Non STP  
+(1.3.3.1)  
+ STP  
+(1.3.3.2)  
+ 
+1,175,000/ - 2,975,000/ -
+1,375,000/ - 3,175,000/ -
+1,675,000/ - 3,475,000/ -
+ 
+ 
+275,000/ - 275,000/ -
+The fee is exclusive of all local taxes and would be adjustable subject to changes in the scope .  
+The fee of the assignment does not include the cost of Hardware, Operating System License 
+therefore, the fee 
+free warranty period of six (6) 
+calendar months that will be commenced from the time of application installation.  
+If the Bank requires enhancement or customization or integration at any time, a ‘BRD – 
+Business Requirement Document” will be initiated by Bank. In response to this CENTEGY, shall 
+CRF’ having scope and cost estimate and will comme nce work as 
+soon as possible after the CRF has been accepted by the client. The development charges (per 
+man day) will be determined on the basis of scope of work and man days efforts required for 
+===== PAGE 7 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+2.2.2  Additional fee will be charged for the specific Integration with Other Software Applications 
+like Core Banking interfacing, RE/MTOs (API Interfacing), SWITCH Interfacing, AML Interfacing, 
+SMS Interfacing, etc. The review, customization, configura 
+per the agreed chargeable rate (per man day) separately, depending on the nature of work 
+and man days efforts involved. 
+ 
+2.2.3  The software maintenance services on expiry of warranty period, under a separate agreement 
+will r equire to be signed. The 
+will be the same as per main maintenance contract, submitted to client for finalization.
+ 
+2.2.4  In addition, we will charge out of pocket expenses (for visits outside Karachi) 
+includes traveling, boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/ 
+per person per day for our staff traveling during the period of this assignment and extended 
+support period.  The ‘OOP’ fee for any internationa 
+required). 
+ 
+2.3  Payment Terms 
+ 
+No. Schedule  
+  
+RemitHome API 
+ 
+01 -A. Upon Acceptance of Proposal
+01 -B. Upon Installation/Deployment 
+  
+RemitHome (PUSH Engine) 
+ 
+02 -A. Upon Acceptance of CRF 
+02 -B. Upon Completion of UAT 
+ 
+ 
+RemitHome  PUSH API - Proposal                     
+Additional fee will be charged for the specific Integration with Other Software Applications 
+like Core Banking interfacing, RE/MTOs (API Interfacing), SWITCH Interfacing, AML Interfacing, 
+SMS Interfacing, etc. The review, customization, configura tion, support fee will be charged as 
+per the agreed chargeable rate (per man day) separately, depending on the nature of work 
+and man days efforts involved.  
+The software maintenance services on expiry of warranty period, under a separate agreement 
+equire to be signed. The terms and condition for the maintenance fee for this proposal 
+will be the same as per main maintenance contract, submitted to client for finalization.
+In addition, we will charge out of pocket expenses (for visits outside Karachi) , if any, 
+includes traveling, boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/ 
+per person per day for our staff traveling during the period of this assignment and extended 
+The ‘OOP’ fee for any internationa l visit will be determined separately (if 
+RemitHome API (PUSH Engine) License Fee  
+Upon Acceptance of Proposal 
+Upon Installation/Deployment  
+(PUSH Engine) API Customized Interfacing Fee  
+Upon Acceptance of CRF  
+Upon Completion of UAT  
+ 
+  
+Page: 7  
+Additional fee will be charged for the specific Integration with Other Software Applications 
+like Core Banking interfacing, RE/MTOs (API Interfacing), SWITCH Interfacing, AML Interfacing, 
+tion, support fee will be charged as 
+per the agreed chargeable rate (per man day) separately, depending on the nature of work 
+The software maintenance services on expiry of warranty period, under a separate agreement 
+terms and condition for the maintenance fee for this proposal 
+will be the same as per main maintenance contract, submitted to client for finalization. 
+, if any, which 
+includes traveling, boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/ - 
+per person per day for our staff traveling during the period of this assignment and extended 
+l visit will be determined separately (if 
+Per  
+ 
+50%  
+50%  
+ 
+50%  
+50 % 
+===== PAGE 8 =====
+JSBL                                                RemitHome 
+Centegy Technologies (Pvt ) Ltd  
+ 
+3 Other Matters 
+ 
+3.1  Specific 
+ 
+3.1.1  The proposal is valid for acceptance until a period of 
+ 
+3.1.2  We will be in a position to commence work on 
+of Purchase Order. 
+ 
+3.2  General 
+ 
+3.2.1  The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the respon 
+the client. 
+ 
+3.2.2  The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+our employees, either those working on the assign 
+ 
+3.2.3  We would recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+completion of the assignment.
+ 
+3.2.4  We do not make any warra 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+tradition an d practice our best efforts & resources will be deployed towards generation of 
+desired results.  
+ 
+3.2.5  For multi-location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 
+optimization will also be handled by the client resources. 
+  
+ 
+RemitHome  PUSH API - Proposal                     
+The proposal is valid for acceptance until a period of Two (02 ) months from the proposal date.
+We will be in a position to commence work on  the assignment within four weeks after receipt 
+The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the respon 
+The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+our employees, either those working on the assign ment or otherwise.  
+We would recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+completion of the assignment. 
+We do not make any warra nties, expressed or implied, towards successful implementation of 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+d practice our best efforts & resources will be deployed towards generation of 
+location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 
+optimization will also be handled by the client resources.  
+  
+Page: 8  
+) months from the proposal date. 
+the assignment within four weeks after receipt 
+The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the respon sibility of 
+The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt to make an offer of employment to any of 
+We would recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+nties, expressed or implied, towards successful implementation of 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+d practice our best efforts & resources will be deployed towards generation of 
+location deployment, setting up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 

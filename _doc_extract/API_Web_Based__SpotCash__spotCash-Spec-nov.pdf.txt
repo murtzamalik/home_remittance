@@ -1,0 +1,662 @@
+PDF_PAGES=24
+PDF_META={'/Title': IndirectObject(362, 0, 4828673504), '/Author': IndirectObject(364, 0, 4828673504), '/Producer': IndirectObject(363, 0, 4828673504), '/Creator': IndirectObject(365, 0, 4828673504), '/CreationDate': IndirectObject(366, 0, 4828673504), '/ModDate': IndirectObject(366, 0, 4828673504), '/Keywords': IndirectObject(367, 0, 4828673504), '/AAPL:Keywords': IndirectObject(368, 0, 4828673504)}
+
+===== PAGE 1 =====
+	  
+	   	  
+3501	  Queens	  Blvd	  LIC	  NY	  11101 	  
+spotCash!	  
+Placid	  Express	  Document	  Version	  1.1Updated	  Nov	  29th,	  2012-­‐modified	  authentication	  scheme	  
+IT	  
+11	  
+08	  
+Fall	  
+===== PAGE 2 =====
+Table	  of	  Contents	  
+Overview	  .....................................................................................................................	  3	  
+Assumptions	  ...............................................................................................................	  3	  
+Scope	  ..........................................................................................................................	  4	  
+API	  Components	  ..........................................................................................................	  4	  
+Authentication	  .............................................................................................................................................................	  4	  
+Note	  1:	  Populating	  Access	  Code	  ..........................................................................................................................	  5	  
+Note	  1A:	  ExtraValue	  ..................................................................................	  Error!	  Bookmark	  not	  defined.	  
+Example	  AccessCode:	  ................................................................................	  Error!	  Bookmark	  not	  defined.	  
+Note	  2:	  Terminal	  User	  .............................................................................................................................................	  5	  
+Locating	  Transactions	  ..............................................................................................................................................	  5	  
+Fetching	  Transactions	  <FetchTX>:	  ....................................................................................................................	  7	  
+Note	  3:	  TrackingNum	  ..............................................................................................................................................	  7	  
+Note	  4:	  ReceiverName	  &	  ReceiverPhone	  .........................................................................................................	  7	  
+Example	  SOAP	  Request	  for	  <FetchTX>	  .............................................................................................................	  8	  
+Display	  Transaction	  <ShowTX>	  ..........................................................................................................................	  9	  
+Note	  5:	  Token	  ..............................................................................................................................................................	  9	  
+Example	  SOAP	  Response	  <ShowTX>	  ...............................................................................................................	  10	  
+Processing	  Transactions	  ......................................................................................................................................	  11	  
+PayTX	  ............................................................................................................................................................................	  11	  
+<PayTX>	  XML	  Elements:	  .......................................................................................................................................	  11	  
+Note	  6:	  Location	  .......................................................................................................................................................	  12	  
+Example	  Request	  :	  <PayTX>	  ...............................................................................................................................	  12	  
+<ShowPayTX>	  XML	  Elements:	  ...........................................................................................................................	  13	  
+Example	  Response	  :	  <ShowPayTX>	  .................................................................................................................	  13	  
+RejectTX	  .......................................................................................................................................................................	  14	  
+<RejectPay>	  Elements	  ...........................................................................................................................................	  14	  
+Example	  Request	  :<RejectPay>	  .........................................................................................................................	  15	  
+<RejectRes>	  Elements	  ............................................................................................................................................	  15	  
+Example	  Response	  :<RejectRes>	  .......................................................................................................................	  16	  
+Working	  with	  Reports	  ...........................................................................................................................................	  17	  
+<ReportReq>	  Elements	  ..........................................................................................................................................	  17	  
+Example	  Request	  :<ReportReq>	  ........................................................................................................................	  18	  
+<ReportResp>	  Elements	  ........................................................................................................................................	  18	  
+Example	  Response:	  <ReportResp>	  ...................................................................................................................	  19	  
+Testing	  Tools	  .............................................................................................................	  20	  
+Appendix	  A	  ...............................................................................................................	  21	  
+Appendix	  B	  ................................................................................................................	  22	  
+Appendix	  C	  ................................................................................................................	  23	  
+Appendix	  D	  ...............................................................................................................	  24	  
+	  
+	   	  
+===== PAGE 3 =====
+Overview	  
+spotCash!	  is	  the	  flagship	  Money	  Transfer	  product	  offered	  by	  Placid	  Express.	  Access	  
+to	  the	  product	  by	  correspondents	  is	  provided	  through	  either	  an	  API	  or	  by	  use	  of	  the	  
+company’s	  dedicated	  web	  based	  platform.	  
+Money	  Transfer	  transactions	  conducted	  through	  the	  spotCash!	  Product	  are	  held	  at	  a	  
+virtual	  repository	  within	  the	  company’s	  Global	  Order	  Processing	  Hub	  (GOPH)	  
+platform.	  Disbursements	  of	  transactions	  are	  made	  possible	  by	  correspondents	  
+utilizing	  a	  dedicated	  Web	  Services	  API	  or	  by	  using	  a	  Web	  Based	  Payment	  System.	  	  
+spotCash!	  differs	  from	  other	  cash	  based	  payments	  in	  a	  number	  of	  ways.	  The	  most	  
+important	  difference	  lies	  with	  how	  transactions	  are	  communicated	  to	  
+correspondents.	  With	  spotCash!,	  the	  transactions	  will	  need	  to	  be	  PULLED	  instead	  of	  
+Placid	  Express	  PUSHING	  the	  transactions	  to	  the	  correspondents.	  	  
+Assumptions	  
+The	  following	  assumptions	  are	  made	  in	  regards	  to	  the	  correspondent:	  
+• Correspondent	  has	  in	  place	  its	  own	  (either	  in-­‐house	  or	  vendor	  developed)	  
+web	  based	  or	  other	  systems	  deployed	  throughout	  its	  payment	  points	  
+(branches	  and/or	  agents)	  
+• Correspondent	  has	  the	  necessary	  resources/expertise	  to	  enable	  the	  use	  of	  
+Web	  Services	  as	  a	  platform	  for	  establishing	  transaction	  exchange	  interfaces	  
+with	  its	  partners	  
+• The	  API	  will	  be	  implemented	  at	  the	  POS	  part	  of	  its	  application	  allowing	  its	  
+tellers	  to	  input	  certain	  parameters,	  which	  will	  initiate	  a	  SOAP	  call	  via	  the	  API	  
+to	  Placid	  Express’	  GOPH.	  	  
+• Correspondent	  agrees	  to	  use	  the	  API	  in	  conformance	  with	  the	  API’s	  User	  
+Agreement	  
+	   	  
+Prior	  to	  further	  review	  of	  the	  document,	  please	  take	  a	  look	  at	  APPENDIX	  A	  
+for	  a	  flowchart	  illustrating	  the	  communication	  between	  Placid	  Express	  and	  
+its	  correspondent	  in	  regards	  to	  servicing	  the	  spotCash!	  Product.	  	  
+	  
+===== PAGE 4 =====
+Scope	  
+This	  document	  serves	  as	  an	  implementation	  reference	  designed	  for	  the	  
+correspondent’s	  technical	  team	  to	  enable	  them	  to	  implement	  the	  API	  with	  the	  
+correspondent’s	  remittance	  application	  platform.	  	  
+The	  API	  is	  based	  on	  Web	  Services	  SOAP	  1.1	  standard.	  Most	  major	  application	  
+frameworks/programming	  languages	  such	  as	  .NET,	  JAVA,	  PHP,	  C	  provides	  facilities	  
+for	  utilizing	  Web	  Services.	  	  
+The	  major	  components	  of	  the	  API	  are:	  
+• Authentication	  
+• Locating	  Transactions	  
+• Processing	  Transactions	  
+• Activity	  Report	  
+• Manage	  locations	  
+Each	  of	  the	  above	  contains	  specific	  operations	  that	  are	  explained	  in	  the	  proceeding	  
+sections.	  	  
+API	  Components	  
+As	  stated	  in	  the	  scope,	  the	  5	  major	  components	  of	  the	  API	  are	  Authentication,	  
+Locating	  Transactions,	  Processing	  Transactions,	  and	  Activity	  Reports	  &	  Managing	  
+Locations.	  
+Let’s	  elaborate	  further	  on	  each	  component:	  
+Authentication	  
+The	  authentication	  aspect	  of	  the	  API	  deals	  with	  securely	  identifying	  the	  
+correspondent.	  In	  order	  to	  authenticate,	  a	  number	  of	  parameters	  must	  be	  used	  with	  
+each	  instance	  of	  a	  request	  made	  via	  the	  API.	  
+THE	  Authentication	  COMPONENT	  IS	  USED	  FOR	  ALL	  OPERATIONS	  of	  the	  API	  
+and	  the	  routine	  is	  integrated	  within	  each	  respective	  operation.	  
+The	  following	  parameters	  are	  used	  in	  the	  authentication	  aspect	  of	  every	  operation.	  
+XML	  Elements:	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+PayeeCode	   4	   String	   YES	   Will	  provide	  
+UserName	   10	   String	   YES	   Will	  provide	  
+AccessCode	   SHA1	   String	   YES	   See	  note	  1	  
+TerminalUser	   10	  (Max)	   String	   YES	   See	  note	  2	  
+ExtraValue	   10	   String	   YES	   See	  note	  1	  
+	  
+	  
+===== PAGE 5 =====
+Note	  1:	  Populating	  Access	  Code	  
+In	  order	  to	  populate	  the	  AccessCode	  field,	  you	  will	  need	  the	  following:	  
+Password	  (provided	  by	  us)	  
+Extra	  Value	  (Provided	  by	  us)	  
+	  
+Formula	  for	  supplying	  password:	  
+To	  populate	  the	  AccessCode	  field,	  use	  the	  following	  formula:	  
+SHA1	  (Password)	  	  
+	  
+IMPORTANT:	  PLEASE	  be	  sure	  to	  always	  use	  lowercase	  SHA1	  values.	  Take	  this	  
+into	  consideration	  when	  concatenating	  SHA1	  values.	  
+That	  just	  about	  sums	  up	  the	  authentication	  routine.	  The	  above	  routine	  would	  need	  
+to	  be	  used	  with	  each	  request	  made	  via	  the	  API.	  
+Note	  2:	  Terminal	  User	  
+The	  terminal	  user	  is	  the	  userid	  of	  the	  teller	  conducting	  the	  payment	  request.	  
+Although	  not	  strictly	  necessary,	  it	  is	  recommended	  that	  the	  actual	  teller’s	  userid	  
+(the	  same	  id	  used	  to	  logon	  to	  the	  correspondent’s	  remittance	  platform)	  be	  used	  
+instead	  of	  a	  single	  central	  userid.	  Should	  the	  correspondent	  desire,	  it	  can	  also	  
+choose	  to	  implement/assign	  separate	  userids	  to	  all	  users	  of	  the	  API.	  	  
+	  
+Locating	  Transactions	  
+SOAP	  Operation(s):	  	  
+<LocateTX>	  
+Request:	  <FetchTX>	  
+Response:	  <ShowTX>	  
+Locating	  transactions	  are	  the	  first	  part	  of	  processing	  a	  spotCash!	  payment.	  
+Transactions	  are	  located	  by	  initializing	  a	  call	  via	  the	  API	  to	  our	  GOPH	  (Global	  Order	  
+Processing	  Hub).	  Transactions	  are	  basically	  waiting	  at	  the	  GOPH	  for	  you	  to	  locate,	  
+process	  and	  eventually	  disburse	  the	  funds	  associated	  with	  the	  transaction	  to	  the	  
+beneficiary.	  
+The	  GOPH	  does	  NOT	  authenticate	  the	  actual	  terminal	  user.	  It	  is	  used	  as	  a	  
+reference	  for	  audit	  purposes.	  Should	  the	  correspondent	  wish	  to	  implement	  a	  
+per	  terminal	  user	  authentication	  scheme,	  a	  separate	  lists	  of	  userids	  and	  
+associated	  credentials	  would	  need	  to	  be	  exchanged	  between	  Placid	  Express	  
+and	  the	  correspondent	  prior	  to	  implementation	  of	  the	  API	  
+===== PAGE 6 =====
+To	  locate	  a	  transaction,	  the	  following	  elements	  are	  used:	  
+Please	  see	  next	  page.	   	  
+===== PAGE 7 =====
+	  
+Fetching	  Transactions	  <FetchTX>:	  
+Element	  Name	  Length	  Type	  Required	  Notes	  
+PayeeCode	   4	   string	  YES	   	  
+UserName	   10	   string	  YES	   	  
+AccessCode	   SHA1	   string	  YES	   	  
+TerminalUser	   10	  
+(Max)	  
+string	  YES	   	  
+ExtraValue	   10	   string	  YES	   	  
+Location	   20	   string	  NO	   See	  note	  6	  
+TrackingNum	   12	   string	  YES	   See	  note	  3	  
+ReceiverName	  20	   string	  NO	   See	  note	  4	  
+ReceiverPhone	  12	   string	  NO	   See	  note	  4	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	  
+Note	  3:	  TrackingNum	  
+Short	  for	  Tracking	  Number.	  This	  is	  the	  primary	  identifier	  used	  to	  locate	  a	  
+transaction.	  The	  Tracking	  Number	  is	  a	  12	  digit	  identifier	  we	  use	  to	  track	  all	  
+transactions.	  This	  identifier	  is	  printed	  on	  the	  receipt	  provided	  to	  the	  remitter	  as	  well	  
+as	  sent	  to	  the	  remitter	  and	  beneficiary’s	  phone	  via	  SMS.	  
+	  
+Note	  4:	  ReceiverName	  &	  ReceiverPhone	  
+These	  2	  elements	  can	  be	  optionally	  used	  to	  cross	  check	  the	  details	  of	  a	  transaction.	  
+The	  decision	  lies	  with	  the	  correspondent	  whether	  to	  implement	  its	  usage,	  which	  can	  
+add	  an	  additional	  layer	  of	  security	  to	  transaction	  verification.	  Implementing	  these	  
+parameters	  can	  allow	  the	  correspondent	  to	  not	  populate	  its	  system	  user	  interfaces	  
+unless	  the	  details	  match	  with	  the	  response	  of	  LocateTX	  operation.	  
+BENEFICIARIES	  OF	  A	  spotCash!	  PAYMENT	  WILL	  ALWAYS	  PROVIDE	  THE	  
+TRACKING	  NUMBER	  TO	  YOUR	  TELLERS.	  THE	  TRACKING	  NUMBER	  IS	  THE	  
+PRIMARY	  IDENTIFIER	  USED	  TO	  LOCATE/PULL	  A	  TRANSACTION.	  
+===== PAGE 8 =====
+Example	  SOAP	  Request	  for	  <FetchTX>	  
+	   	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:ns1="http://api.placid.net/ns1"> 
+  <soapenv:Header/> 
+  <soapenv:Body> 
+     <ns1:FetchTX> 
+        <PayeeCode>TST1</PayeeCode> 
+        <UserName>TestUser01</UserName> 
+        <AccessCode>6e2bf9b72183bb518f9133ad4bf5e986cba315ed</AccessCode> 
+        <TerminalUser>khan01</TerminalUser> 
+        <ExtraValue>	  c7988901bc </ExtraValue> 
+        <Location>?</Location> 
+        <TrackingNum>595868075797</TrackingNum> 
+        <ReceiverName>?</ReceiverName> 
+        <ReceiverPhone>?</ReceiverPhone> 
+     </ns1:FetchTX> 
+  </soapenv:Body> 
+</soapenv:Envelope> 
+	  
+===== PAGE 9 =====
+Display	  Transaction	  <ShowTX>	  
+Once	  a	  transaction	  has	  been	  successfully	  located,	  the	  API	  will	  present	  a	  response	  
+with	  the	  following	  elements:	  
+	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+TrackingNum	   4	   string	   N/A	   	  
+Token	   16	   string	   N/A	   See	  Note	  5	  
+Status	   4	   string	   N/A	   See	  Appendix	  B	  
+StatusMessage	   100	  	   string	   N/A	   See	  Appendix	  B	  
+SenderName	   60	   string	   N/A	   	  
+SenderCountry	   3	   string	   N/A	   	  
+SenderCity	   12	   string	   N/A	   	  
+SenderPhone	   12	   string	   N/A	   See	  note	  4	  
+ReceiverName	   60	   string	   N/A	   See	  note	  4	  
+ReceiverAddress	   60	   string	   N/A	   	  
+ReceiverCountry	   3	   string	   N/A	   	  
+ReceiverCity	   40	   string	   N/A	   	  
+ReceiverPhone	   12	   string	   N/A	   MAY	  BE	  NULL	  
+ReceiverMobile	   12	   string	   N/A	   MAY	  BE	  NULL	  
+ReceiverId	   2	   string	   N/A	   MAY	  BE	  NULL	  
+ReceiverIdNumber	  30	   string	   N/A	   MAY	  BE	  NULL	  
+PayoutAmount	   17	   string	   N/A	   	  
+PayoutCurrency	   3	   string	   N/A	   	  
+ExchangeRate	   19	   string	   N/A	   	  
+OrgCurrency	   3	   string	   N/A	   	  
+OrgAmount	   17	   string	   N/A	   	  
+	  
+Note	  5:	  Token	  
+Once	  a	  transaction	  has	  been	  successfully	  located,	  a	  response	  is	  generated	  with	  	  
+payload	  of	  the	  transaction	  detail	  via	  the	  <ShowTX>	  method.	  	  A	  7	  Digit	  Token	  
+identifier	  will	  also	  be	  included	  in	  the	  payload.	  This	  Token	  must	  be	  used	  along	  with	  
+other	  parameters	  to	  inform	  the	  GOPH	  that	  a	  transaction	  has	  been	  successfully	  
+disbursed	  or	  rejected.	  This	  is	  accomplished	  through	  utilizing	  the	  <PayTX>	  or	  
+<RejectTX>	  operations.	  	  
+	   	  
+===== PAGE 10 =====
+Example	  SOAP	  Response	  <ShowTX>	  
+	  
+	   	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+  <soapenv:Body> 
+     <ns1:ShowTX xmlns:ns1="http://api.placid.net/ns1"> 
+        <TrackingNum>595868075797</TrackingNum> 
+        <Token>KPBFTQHC9JM3D8W4</Token> 
+        <Status>0001</Status> 
+        <StatusMessage>Transaction Information</StatusMessage> 
+        <SenderName>TEST TEST</SenderName> 
+        <SenderAddress>35-01 QUEENS BLVD</SenderAddress> 
+        <SenderCountry>USA</SenderCountry> 
+        <SenderCity>LONG ISLAND CITY</SenderCity> 
+        <SenderPhone>7183923500</SenderPhone> 
+        <ReceiverName>TEST RECEIVER</ReceiverName> 
+        <ReceiverAddress>TEST ADDRESS</ReceiverAddress> 
+        <ReceiverCountry>BGD</ReceiverCountry> 
+        <ReceiverCity>BARGUNA</ReceiverCity> 
+        <ReceiverPhone/> 
+        <ReceiverMobile/> 
+        <ReceiverId>NONE</ReceiverId> 
+        <ReceiverIdNumber/> 
+        <PayoutAmount>1485.00</PayoutAmount> 
+        <PayoutCurrency>BDT</PayoutCurrency> 
+        <ExchangeRate>74.8000</ExchangeRate> 
+        <OrgCurrency>USD</OrgCurrency> 
+        <OrgAmount>19.85</OrgAmount> 
+     </ns1:ShowTX> 
+  </soapenv:Body> 
+</soapenv:Envelope>	  
+===== PAGE 11 =====
+Processing	  Transactions	  
+SOAP	  Operations:	  
+<PayTX>	  
+Request:	  <PayTX>	  
+Response:	  <ShowPayTX>	  
+	  
+<RejectTX>	  
+Request:	  <RejectPay>	  
+Response:	  <RejectRes>	  
+Once	  a	  transaction	  has	  been	  located,	  the	  correspondent	  will	  have	  10	  minutes	  to	  
+notify	  the	  GOPH	  of	  its	  status.	  This	  can	  be	  accomplished	  through	  the	  <PayTX>	  and	  
+<RejectTX>	  operation.	  
+PayTX	  	  
+After	  verification	  of	  the	  beneficiary’s	  identification	  details	  by	  comparing	  it	  to	  the	  
+details	  obtained	  via	  <LocateTX>	  operation,	  the	  correspondent	  must	  invoke	  the	  
+<PayTX>	  request.	  
+	  
+<PayTX>	  XML	  Elements:	  
+	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+PayeeCode	   4	   string	   N/A	   	  
+UserName	   10	   string	   N/A	   	  
+AccessCode	   SHA1	   string	   N/A	   	  
+TerminalUser	   10	  
+(Max)	  
+string	   N/A	   	  
+ExtraValue	   10	   string	   N/A	   	  
+Location	   20	   string	   N/A	   See	  note	  6	  
+TrackingNum	   12	   string	   N/A	   	  
+Token	   16	   string	   N/A	   	  
+ReceiverIdType	   12	   string	   N/A	   See	  Appendix	  B	  
+ReceiverIdNumber	  60	   string	   N/A	   	  
+	   	  
+IT	  IS	  STRICTLY	  ADVISED	  THAT	  FUNDS	  BE	  DISBURSED	  TO	  THE	  BENEFICIARY	  
+ONLY	  AFTER	  OBTAINING	  THE	  REFERENCE	  NUMBER	  THROUGH	  INVOCATION	  
+OF	  THE	  <PAYTX>	  REQUEST.	  THE	  REFERENCE	  NUMBER	  WILL	  BE	  PROVIDED	  
+THROUGH	  THE	  RESPONSE	  <ShowPayTX>.	  
+===== PAGE 12 =====
+Note	  6:	  Location	  
+The	  correspondent	  must	  provide	  us	  a	  list	  of	  locations	  (individual	  agent/branches)	  
+that	  will	  be	  processing	  spotCash!	  Payments.	  Once	  this	  list	  is	  provisioned	  into	  our	  
+GOPH,	  the	  Location	  ID	  of	  the	  payout	  branch/agent	  will	  need	  to	  be	  populated	  via	  the	  
+Location	  element.	  The	  Location	  ID	  can	  be	  the	  actual	  ID	  used	  on	  the	  correspondent’s	  
+remittance	  platform.	  
+Example	  Request	  :	  <PayTX>	  	  
+	  
+	  
+	   	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:ns1="http://api.placid.net/ns1"> 
+  <soapenv:Header/> 
+  <soapenv:Body> 
+     <ns1:PayTX> 
+        <ns1:PayeeCode>?</ns1:PayeeCode> 
+        <ns1:UserName>?</ns1:UserName> 
+        <ns1:AccessCode>?</ns1:AccessCode> 
+        <ns1:TerminalUser>?</ns1:TerminalUser> 
+        <ns1:ExtraValue>?</ns1:ExtraValue> 
+        <ns1:Location>?</ns1:Location> 
+        <ns1:TrackingNum>?</ns1:TrackingNum> 
+        <ns1:Token>?</ns1:Token> 
+        <ns1:ReceiverIdType>?</ns1:ReceiverIdType> 
+        <ns1:ReceiverIdNumber>?</ns1:ReceiverIdNumber> 
+     </ns1:PayTX> 
+  </soapenv:Body> 
+</soapenv:Envelope> 
+	  
+===== PAGE 13 =====
+	  
+<ShowPayTX>	  XML	  Elements:	  
+	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+TrackingNum	   12	   string	   N/A	   	  
+Token	   16	   string	   N/A	   	  
+Status	   4	   string	   N/A	   See	  Appendix	  D	  
+StatusMessage	   100	   string	   N/A	   	  
+RefNumber	   10	   string	   N/A	   Can	  be	  in	  
+correspondent	  
+provided	  format	  
+	  
+	  
+Example	  Response	  :	  <ShowPayTX>	  	  
+	  
+	  
+	  
+	  
+	  
+	   	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+  <soapenv:Body> 
+     <ns1:ShowPayTX xmlns:ns1="http://api.placid.net/ns1"> 
+        <ns1:TrackingNum>595868078216</ns1:TrackingNum> 
+        <ns1:Token>3WYTJX5VPK1U927H</ns1:Token> 
+        <ns1:Status>0001</ns1:Status> 
+        <ns1:StatusMessage>Transaction Paid</ns1:StatusMessage> 
+        <ns1:RefNumber>17</ns1:RefNumber> 
+     </ns1:ShowPayTX> 
+  </soapenv:Body> 
+</soapenv:Envelope>	  
+===== PAGE 14 =====
+RejectTX	  
+There	  may	  arise	  situations	  where	  a	  transaction	  cannot	  be	  successfully	  processed	  for	  
+payment	  due	  to	  compliance,	  failed	  ID	  verification,	  etc.	  In	  such	  cases,	  the	  
+correspondent	  will	  need	  to	  Reject	  payout	  of	  the	  transaction	  by	  invoking	  the	  SOAP	  
+operation	  RejectTX.	  
+Please	  refer	  to	  Appendix	  B	  for	  a	  list	  of	  Reject	  Reasons	  and	  associated	  codes.	  
+	  
+<RejectPay>	  Elements	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+PayeeCode	   4	   string	   YES	   	  
+UserName	   10	   string	   YES	   	  
+AccessCode	   SHA1	   string	   YES	   	  
+TerminalUser	   10	  
+(Max)	  
+string	   YES	   	  
+ExtraValue	   10	   string	   YES	   	  
+Location	   20	   string	   NO	   See	  note	  6	  
+TrackingNum	   12	   string	   YES	   	  
+Token	   16	   string	   YES	   	  
+RejectReason	   3	   string	   YES	   See	  Appendix	  C	  
+	  
+	   	  
+===== PAGE 15 =====
+Example	  Request	  :<RejectPay>	  
+	  
+	  
+<RejectRes>	  Elements	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+TrackingNum	   12	   string	   N/A	   	  
+Token	   16	   string	   N/A	   	  
+Status	   4	   string	   N/A	   See	  Appendix	  D	  for	  a	  
+list	  of	  status	  codes	  
+StatusMessage	   100	   string	   N/A	   	  
+	  
+	   	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:ns1="http://api.placid.net/ns1"> 
+  <soapenv:Header/> 
+  <soapenv:Body> 
+     <ns1:RejectPay> 
+        <ns1:PayeeCode>?</ns1:PayeeCode> 
+        <ns1:UserName>?</ns1:UserName> 
+        <ns1:AccessCode>?</ns1:AccessCode> 
+        <ns1:TerminalUser>?</ns1:TerminalUser> 
+        <ns1:ExtraValue>?</ns1:ExtraValue> 
+        <ns1:Location>?</ns1:Location> 
+        <ns1:TrackingNum>?</ns1:TrackingNum> 
+        <ns1:Token>?</ns1:Token> 
+        <ns1:RejectReason>?</ns1:RejectReason> 
+     </ns1:RejectPay> 
+  </soapenv:Body> 
+</soapenv:Envelope>	  
+===== PAGE 16 =====
+Example	  Response	  :<RejectRes>	  
+	  
+	   	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+  <soapenv:Body> 
+     <ns1:RejectRes xmlns:ns1="http://api.placid.net/ns1"> 
+        <ns1:TrackingNum>595868078216</ns1:TrackingNum> 
+        <ns1:Token>U2D1WHPMEGVZQBS4</ns1:Token> 
+        <ns1:Status>0001</ns1:Status> 
+        <ns1:StatusMessage>Reject Accepted</ns1:StatusMessage> 
+     </ns1:RejectRes> 
+  </soapenv:Body> 
+</soapenv:Envelope>	  
+===== PAGE 17 =====
+Working	  with	  Reports	  
+SOAP	  Operations:	  
+<GetReport>	  
+Request:	  <ReportReq>	  
+Response:	  <ReportResp>	  
+	  
+We	  provide	  a	  basic	  reporting	  functionality	  that	  can	  be	  utilized	  to	  obtain	  information	  
+on	  transactions	  that	  were	  processed	  (PAID).	  Transactions	  that	  were	  cancelled,	  
+rejected	  do	  not	  appear	  in	  this	  report.	  
+<ReportReq>	  Elements	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+PayeeCode	   4	   string	   YES	   	  
+UserName	   10	   string	   YES	   	  
+AccessCode	   SHA1	   string	   YES	   	  
+TerminalUser	   10(Max)	  string	   YES	   Reports	  will	  show	  all	  
+transactions.	  Not	  just	  
+the	  supplied	  parameter	  
+in	  this	  element	  
+ExtraValue	   10	   string	   YES	   	  
+DateFrom	   8	   string	   YES	   yyyymmdd	  (string)	  
+DateTo	   8	   	   YES	   yyyymmdd	  (string)	  
+RowNumber	   3	   	   YES	   Number	  of	  rows	  to	  be	  
+returned	  with	  the	  
+response.	  For	  no	  limit:	  
+populate	  it	  with	  ALL	  
+	   	   	   	   	  
+	  
+	   	  
+===== PAGE 18 =====
+Example	  Request	  :<ReportReq>	  
+	  
+	  
+<ReportResp>	  Elements	  
+Element	  Name	   Length	   Type	   Required	   Notes	  
+Status	   4	   string	   N/A	   	  
+StatusMessage	   100	   string	   N/A	   	  
+RowNumber	   3	   string	   N/A	   Total	  number	  of	  rows	  
+returned	  
+ReportResult	   Array	   Array	   N/A	   	  
+	   	   	   	   	  
+	   	   	   	   	  
+	  
+	  
+	  
+	  
+	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+xmlns:ns1="http://api.placid.net/ns1"> 
+  <soapenv:Header/> 
+  <soapenv:Body> 
+     <ns1:ReportReq> 
+        <ns1:PayeeCode>?</ns1:PayeeCode> 
+        <ns1:UserName>?</ns1:UserName> 
+        <ns1:AccessCode>?</ns1:AccessCode> 
+        <ns1:TerminalUser>?</ns1:TerminalUser> 
+        <ns1:ExtraValue>?</ns1:ExtraValue> 
+        <ns1:DateFrom>?</ns1:DateFrom> 
+        <ns1:DateTo>?</ns1:DateTo> 
+        <ns1:RowNumber>?</ns1:RowNumber> 
+     </ns1:ReportReq> 
+  </soapenv:Body> 
+</soapenv:Envelope>	  
+===== PAGE 19 =====
+Example	  Response:	  <ReportResp>	  
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"> 
+  <soapenv:Body> 
+     <ns1:ReportResp xmlns:ns1="http://api.placid.net/ns1"> 
+        <ns1:Status>0001</ns1:Status> 
+        <ns1:StatusMessage>Report Information</ns1:StatusMessage> 
+        <ns1:RowNumber>1</ns1:RowNumber> 
+        <ns1:ReportResult> 
+           <ns1:ListReport> 
+              <ns1:PayDate>20110910</ns1:PayDate> 
+              <ns1:PayTime>091329</ns1:PayTime> 
+              <ns1:RefNumber>1</ns1:RefNumber> 
+              <ns1:TrackingNum>591387476715</ns1:TrackingNum> 
+              <ns1:UserName>dumusrban</ns1:UserName> 
+              <ns1:TerminalUser/> 
+              <ns1:SenderName>TEST NEW</ns1:SenderName> 
+              <ns1:SenderAddress>ANY ADDRESS</ns1:SenderAddress> 
+              <ns1:SenderCountry>USA</ns1:SenderCountry> 
+              <ns1:SenderCity>ASTORIA</ns1:SenderCity> 
+              <ns1:SenderPhone>123456789</ns1:SenderPhone> 
+              <ns1:ReceiverName>ANY RECEIVER</ns1:ReceiverName> 
+              <ns1:ReceiverAddress>RECEIVER ADDRESS</ns1:ReceiverAddress> 
+              <ns1:ReceiverCountry>BGD</ns1:ReceiverCountry> 
+              <ns1:ReceiverCity>DHAKA</ns1:ReceiverCity> 
+              <ns1:ReceiverPhone/> 
+              <ns1:ReceiverMobile/> 
+              <ns1:ReceiverId/> 
+              <ns1:ReceiverIdNumber/> 
+              <ns1:PayoutAmount>0.00</ns1:PayoutAmount> 
+              <ns1:PayoutCurrency>BDT</ns1:PayoutCurrency> 
+              <ns1:ExchangeRate>74.8000</ns1:ExchangeRate> 
+              <ns1:OrgCurrency>USD</ns1:OrgCurrency> 
+              <ns1:OrgAmount>0.00</ns1:OrgAmount> 
+           </ns1:ListReport> 
+       </ns1:ReportResult> 
+     </ns1:ReportResp> 
+  </soapenv:Body> 
+</soapenv:Envelope> 
+	  
+===== PAGE 20 =====
+	  
+Testing	  Tools	  
+It	  is	  recommended	  that	  a	  software-­‐testing	  package	  be	  used	  in	  case	  of	  issues	  arising	  
+in	  implementing	  the	  API.	  We	  have	  seen	  good	  results	  with	  the	  Web	  Services	  Testing	  
+Framework	  “SoapUI”	  which	  can	  be	  obtained	  from:	  	  http://www.soapui.org	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	   	  
+===== PAGE 21 =====
+	  
+Appendix	  A	  
+Transaction	  Cycle	  
+	  
+Beneficiary	  visits	  the	  correspondent’s	  branch	  or	  agent	  location	  and	  provides	  the	  
+Tracking	  Number	  to	  the	  teller	  
+	  
+The	  teller	  inputs	  the	  Tracking	  Number	  into	  the	  correspondent’s	  Remittance	  
+Application	  platform’s	  user	  interface	  	  
+	  
+The	  correspondent’s	  Remittance	  Application	  Platform	  initiates	  a	  SOAP	  Request	  
+via	  the	  API	  to	  Placid	  Express’	  GOPH	  using	  the	  obtained	  tracking	  number.	  	  
+SOAP	  OPERATION(S):	  <LocateTX>	  	  SOAP	  REQUEST:	  <FetchTX>	  	  	  
+The	  GOPH	  looks	  up	  the	  tracking	  number	  in	  its	  database	  and	  returns	  a	  SOAP	  
+response	  via	  the	  API	  to	  the	  correspondent’s	  Remittance	  Application	  Platform	  
+SOAP	  OPERATION(S):	  <LocateTX>	  SOAP	  RESPONSE:	  <ShowTX>	  
+The	  correspondent	  will	  have	  15	  MINUTES	  to	  process	  the	  transaction.	  In	  the	  
+context	  of	  processing	  the	  transaction,	  either	  of	  the	  two	  actions	  can	  take	  place:	  	  
+	  
+PAY	  TRANSACTION	  
+SOAP	  OPERATION(S):	  <PayTX>	  
+Request:	  <PayTX>	  	  
+Response:	  <ShowPayTX>	  
+REJECT	  TRANSACTION	  
+SOAP	  OPERATIONS(S):	  <RejectTX>	  
+Request:	  <RejectPay>	  
+Response:	  <RejectRes>	  
+
+===== PAGE 22 =====
+Appendix	  B	  
+	  
+List	  of	  Identification	  Documents	  and	  codes	  to	  be	  used	  with	  the	  <PayTX>	  Operation.	  
+IDCode IDName 
+LD DRIVER LICENSE 
+PA PASSPORT 
+RC NATIONAL ID 
+VT VOTER ID 
+	  
+Additional	  ID	  codes	  may	  be	  added	  as	  per	  rules	  of	  jurisdiction	  of	  the	  correspondent.	  
+	   	  
+===== PAGE 23 =====
+Appendix	  C	  
+	  
+Reject	  Reasons	  and	  Codes	  to	  be	  used	  with	  the	  <RejectTX>	  operation.	  
+RejCode RejDesc 
+100 Complience 
+105 Receiver ID Mismatch 
+110 Receiver Information Mismatch 
+115 Fund Shortage 
+OTH Other 
+	  
+	   	  
+===== PAGE 24 =====
+Appendix	  D	  
+	  
+Various	  Status	  messages	  that	  are	  used	  throughout	  the	  API’s	  operations.	  
+	  
+StatusCode StatusMessage 
+998 Invalid ExtraValue 
+992 Invalid Payee Code 
+991 Invalid AccessCode 
+990 Invalid Tracking Number 
+993 Invalid TeminalUser 
+996 Invalid Payee Code 
+995 Inactive User 
+994 Unauthorized User 
+999 Logon Fail 
+305 Not Available 
+310 Previously Paid 
+300 Transaction Not Found 
+315 Not Ready. 
+325 Transaction Error 
+320 Forign Rate Not Found 
+9910 Invalid UserName 
+400 Invalid Token 
+410 Invalid Reject Reason 
+350 Invalid Date From 
+351 Invalid Date To 
+360 Invalid Row Number 
+0001 Request Accepted 
+0005 No Data Found 
+	  
+	  

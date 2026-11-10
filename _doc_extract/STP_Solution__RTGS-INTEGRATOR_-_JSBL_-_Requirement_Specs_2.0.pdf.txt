@@ -1,0 +1,553 @@
+PDF_PAGES=15
+PDF_META={'/Title': 'RTGS-Integrator', '/Author': 'Banking Solutions', '/Subject': 'Requirement Specifications 2.0', '/Creator': 'Microsoft® Word 2010', '/CreationDate': "D:20160308181357+05'00'", '/ModDate': "D:20160308181357+05'00'", '/Producer': 'Microsoft® Word 2010'}
+
+===== PAGE 1 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 1 
+ 
+ 
+ 
+  
+RTGS-Integrator 
+Requirement Specifications 2.0 
+ 
+08-Mar-2016 
+JSBL 
+Banking Solutions 
+Centegy Technologies (Pvt) Ltd. 
+www.centegytechnologies.com 
+===== PAGE 2 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 2 
+ 
+Contents 
+ 
+Table of Contents 
+ 
+1. Overview & Background ........................................................................................................................................................................................ 3 
+2. Bank Requirement Scope ....................................................................................................................................................................................... 5 
+3. Architectural Diagram of INTEGRATOR .................................................................................................................................................................. 8 
+4. Integrator and Core banking modules ................................................................................................................................................................... 9 
+3.  RTGS-Integrator and SBP/RTGS/PRISM ............................................................................................................................................................... 10 
+4.  RTGS-Integrator and CB Financial system ............................................................................................................................................................ 11 
+5.    Specification of the RTGS Integrator ..................................................................................................................................................................... 12 
+6     Security and other features ................................................................................................................................................................................... 13 
+Disclaimer:……………………………………………………. ........................................................................................................................................................... 15 
+ 
+ 
+  
+===== PAGE 3 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 3 
+ 
+1. Overview & Background 
+ 
+The transaction volume of RTGS has been significantly increased and is expected to be increased further due to the decision t aken by 
+SBP to allow customers’ funds transfers for lower limits. Therefore, considering the increasing trend in RTGS transfers SBP has initiated 
+STP project to automate the RTGS payments to minimize manual workload of customers’ requests for RTGS. 
+ 
+This will not only help us in reducing the TAT due to duplicate efforts put in by the relevant depa rtments due to manual posting in core 
+banking system and PRISM but will also help us in improving our processing capabilities to manage additional transactional vo lume 
+within the window allowed by SBP for RTGS payments. 
+ 
+Straight through Processing (STP) is an initiative used in the financial world to optimize the speed at which transactions are processed. 
+This is performed by allowing information that has been electronically entered to be transferred from one party to another in  the 
+settlement process without the need for re-keying the same pieces of information repeatedly over the life cycle of the transaction. 
+ 
+About RTGS System 
+RTGS system started its operations in July 2008. Since its inception, enrollment of the participants is growing and volume of transactions 
+is also increasing.  
+ 
+Payment System Department has also introduced Customer Transfers (MT103) and Multiple Credit Customer Transfer (MT102). This has 
+further increased volume of transactions. 
+ 
+===== PAGE 4 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 4 
+ 
+Currently, RTGS Participants are entering transactions in RTGS system manually using RTGS Client workplaces installed at their own 
+premises. Same transactions they also have to re-enter in their Core Banking System through its own workplaces. Multiple re-keying is 
+inefficient and error prone. Soon it will also be impractical to enter all these transactions manually due to increase in volume. 
+ 
+Therefore, it was decided to introduce STP (Straight Through Processing) to deal with the above mentioned issues. STP will electronically 
+connect Participant Core Banking system with RTGS system using standard interfaces that are already provided with the RTGS system. 
+ 
+In this connection, Participants needs to develop an Integration Software that can pick up information from their Core Banking System 
+and transfers it to RTGS system for processing and vice versa. 
+  
+===== PAGE 5 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 5 
+ 
+2. Bank Requirement Scope 
+ 
+However, since the bank has opted option of File Adapter without “Controller”; therefore it is essential to develop “INTEGRAT ION 
+SOFTWARE” to cater the need of “controller” which curren tly provided by SBP as part of PRISM to perform multiple functions, which 
+includes but not limited to authorization of MT102, MT103, MT202, Balance enquiry, monitoring of inflows and outflows, free f ormat 
+messaging and any other functionality which is currently available in the PRISM Controller provided by SBP. 
+ 
+The integration software should have the capability of interfacing with partner applications i.e. Remit Home System, CMS Application, T-
+24 and any other application which requires to be integrated with integration software. 
+ 
+Upon receiving the RTGS instructions from any of the partner application, the integration software, should convert the messag e based 
+on its payment type (as per SBP’ prescribed formats of MT -102, MT-103 and MT-202) and push the outward MTs to PRISM by following 
+all the relevant protocols to meet SBP’ requirements. Similarly, the integration software should have the capability to recei ve incoming 
+RTGS received via PRISM from other banks for various departments/customers of the bank. 
+  
+===== PAGE 6 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 6 
+ 
+Scope Requirement by Bank  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+Ref Module Option-1 Option-2 Option-3 Option-4 Bank Requirement 
+A Integration with 
+Banking modules 
+PUSH model APIs 
+(Integrator’s own) 
+ 
+ 
+PULL model APIs 
+(Client/Bank own) 
+ 
+ 
+File based for 
+both (IN and 
+OUT) 
+ 
+ 
+ISO messages 
+(Phase 2) 
+ 
+Module Option 
+Home 
+Remittance 
+ 1 
+CMS  1 
+ 
+B Integration with 
+Financial 
+System/T-24  
+APIs (Integrator’s 
+own) 
+APIs (Client/Bank 
+own) 
+ 
+File based for 
+both (IN and 
+OUT) 
+ISO messages 
+(Phase 2) 
+Option - 3 
+C Integration with 
+SBP/RTGS/PRISM 
+ 
+Through RCCC/API 
+provided by SBP 
+ 
+ 
+ 
+File based for both 
+(IN and Out) 
+ 
+  Option- 1 
+ 
+===== PAGE 7 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 7 
+ 
+ 
+SWIFT Messages compliance 
+ 
+Message Required 
+MT-102   
+MT-103   
+MT-202   
+MT-296   
+MT-900   
+MT-199   
+MT-299   
+MT-910   
+ 
+  
+===== PAGE 8 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 8 
+ 
+3. Architectural Diagram of INTEGRATOR 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+INTEGRATOR and CB (T-24) 
+ INTEGRATOR and SBP/RTGS 
+INTEGRATOR and CB modules/applications
+ 
+Remit Home 
+RTGS / SBP  
+CB – T-24 
+Data/Format/parsing/creation/ 
+Validation (MT 102/MT 103 etc) 
+Authorization/User 
+management/Security 
+Business Validation 
+(Authorization, limit, AML etc) - 
+Optional 
+Financial Postings - Optional 
+ 
+Integration 
+with RTGS/SBP 
+ 
+- RCCC based  
+(SBP provided) 
+ 
+Integration with CB  
+- API Based 
+(Integrator provided) 
+Integration with T-24 
+- File based (JSBL Provided)  
+Integrator 
+Data/Information Repository 
+Maintenance 
+CMS 
+===== PAGE 9 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 9 
+ 
+4. Integrator and Core banking modules  
+i- Integration through RTGS-Integrator’s provided APIs  
+1. Core banking modules (Home remittances etc) will send data by calling API method provided by RTGS-Integrator. 
+2. Core banking modules will get data acceptance response from RTGS-Integrator, acknowledging that transactions have been 
+received. 
+3. Core banking modules will get the status information of the data send by calling status method of RTGS-Integrator. 
+4. Core banking modules (Home remittances etc) will get data by calling API method provided by RTGS-Integrator. 
+5. Core banking modules can update the status of transactions that they have received (Incoming transactions) by calling API 
+method. 
+6. Note: For remit home application a windows service will be developed by Centegy that will keep on checking the statuses of the 
+data sent to RTGS-Integrator. 
+   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+ 
+Core Banking modules 
+1. Home Remittances 
+2. CMS 
+ 
+   I   
+  N 
+  T 
+  E 
+  G 
+  R 
+  A 
+  T 
+  O 
+  R 
+APIs 
+ 
+ 
+INTEGRATOR 
+1. MT formation 
+2. MT parsing 
+3. Biz validations 
+4. AML validations 
+5. Error logging 
+6. Swift Data entry Options 
+7. A/C engine 
+8. Controller availability 
+9. Data/Info repository 
+10. Reports/Inquiries 
+11. Data logging/trails 
+12. User Management 
+13. Security module 
+14. Integration with SBP/RTGS 
+15. Integration with CB-systems 
+16. Integration with CB-Financial 
+
+===== PAGE 10 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 10 
+ 
+                  
+               
+3.  RTGS-Integrator and SBP/RTGS/PRISM  
+i. Integration through RTGS/PRISM/SBP provided APIs  
+1. RTGS-Integrator will integrate with SBP/RTGS/PRISM through SBP’s provided API/RCCC 
+2. RTGS-Integrator will send the data to SBP and update the response received from SBP. 
+    
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+    
+ 
+        
+ 
+ 
+ 
+SBP/RTGS/PRISM 
+ 
+SBP’s API/RCCC 
+ 
+INTEGRATOR 
+1. MT formation 
+2. MT parsing 
+3. Biz validations 
+4. AML validations 
+5. Error logging 
+6. Swift Data entry Options 
+7. A/C engine 
+8. Controller availability 
+9. Data/Info repository 
+10. Reports/Inquiries 
+11. Data logging/trails 
+12. Integration with SBP/RTGS 
+13. Integration with CB-systems 
+14. Integration with CB-Financial 
+
+===== PAGE 11 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 11 
+ 
+4.  RTGS-Integrator and CB Financial system  
+i. Integration with CB-Financial system through File Folder 
+1. RTGS-Integrator will generate the file according to the format specified and will place it in File folder (File IN) accessible to 
+core banking. 
+2. RTGS-Integrator will access the folder (File OUT) to get the data to be sent at SBP/RTGS. 
+    
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+    
+ 
+        
+ 
+ 
+CB-Financials 
+/ T-24 
+ 
+File-In 
+ 
+INTEGRATOR 
+1. MT formation 
+2. MT parsing 
+3. Biz validations 
+4. AML validations 
+5. Error logging 
+6. Swift Data entry Options 
+7. A/C engine 
+8. Controller availability 
+9. Data/Info repository 
+10. Reports/Inquiries 
+11. Data logging/trails 
+12. Integration with SBP/RTGS 
+13. Integration with CB-systems 
+14. Integration with CB-Financial 
+File-Out 
+
+===== PAGE 12 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 12 
+ 
+5.    Specification of the RTGS Integrator 
+ 
+- Integrator application will expose its API methods to the banking modules like (Remit home etc). 
+- These banking modules will call the API methods exposed by Integrator to send and receive data. 
+- T-24 will be acting as a separate module/application and will integrate with Integrator through Files folders. 
+- Integrator will integrate with T-24 according to JSBL’s provided/decided file format for sending/receiving data. 
+- Integrator will keep on reading File out folder to get data to be processed. 
+- Integrator will create a file and park it in the File In folder from where T-24 will read the data. 
+- There will be no acknowledgement file creation/reading concept. 
+- File once processed will be forwarded to the archive folder. 
+- Integrator will have a start of day and end of day features, before the start of day no processing will be performed and similarly after end 
+of day activity no processing will be performed on that particular day. 
+- Integrator will have an optional authorization screen/layout for both Inward and outward transactions. From where user can 
+release/amend/adjust/cancel transactions. 
+- Release means transactions are allowed to be processed further. 
+- Amend means transactions in the MT file can be amended (only demographic information). 
+- After amendment authorization, MT containing that particular transaction will be available at the layout mentioned at point 11. 
+- Adjust means forcefully ended now MT will not be processed further and will be displayed as forcefully processed. 
+- Cancel means no further processing. 
+- MT 102, 103, 202, 900, 910, 199 are the part of covered scope. 
+- SBP/RTGS/PRISM integration will be based on RCCC method. 
+- No reversal mechanism. 
+===== PAGE 13 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 13 
+ 
+- If transaction is rejected/cancelled then all such transactions will not be re-processed by RTGS Integrator by any means. 
+6- Security and other features  
+ 
+No Requirement Centegy Response 
+01 The software/Application must be developed according to industry’s best 
+security practices and must comply with SBP security 
+guidelines/regulations. The development must be done taking the Open 
+Web Application Security Project (OWASP -2013) guidelines into account 
+and avoid CWE/SANS TOP 25 Most Dangerous Software Errors. These 
+guidelines are available at http://www.owasp.org 
+OWASP top 10 security features compliant 
+ 
+A1 – Injection 
+A2 – Broken Authentication and Session Management 
+A3 – Cross-Site Scripting (XSS) 
+A4 – Insecure Direct Object References  
+A5 – Security Misconfiguration  
+A6 – Sensitive Data Exposure  
+A7 – Missing Function Level Access Control  
+A8 – Cross-Site Request Forgery (CSRF)  
+A9 – Using Known Vulnerable Components  
+A10 – Unvalidated Redirects and Forwards 
+ 
+ 
+02 The application/software must be able to generate audit logs/trails of all 
+events, user activities and all inbound/outbound transactions. 
+ 
+Refer ‘RemitHome – Security Module’ 
+1. User activity logs 
+2. Data changes logs 
+ 
+03 Service provider must agree and ensure that they will comply with the 
+security requirements, communicated to them by JS Bank, within 
+reasonable allocated time. 
+ 
+Once shared by JSB – Requirement/Observation will be 
+Reviewed to determi ne scope and time efforts (as 
+chargeable/non-chargeable) 
+ Technical Requirements  
+04 Database Oracle DB 
+ 
+05 Complete Web Based application on latest IIS version                     IIS 7.0 -  Dot net 4.0 
+ 
+06 Support of I.E, Chrome & Firefox Browsers IE                                      I.E Ver 11.0 
+ 
+===== PAGE 14 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 14 
+ 
+07 Encrypted files wherever applicable.                                                       File to be exchange with T-24 will be encrypted using SHA2 or 
+Tripple DES etc. 
+ 
+08 Role Management 
+Module                                                                                          
+Refer ‘RemitHome – Security Module’ 
+ 
+Menu Option’s Management, assigning options to the groups 
+ 
+09 User Management Module                                                                          Refer ‘RemitHome – Security Module’ 
+ 
+User Profile Management, assigning groups to the users. 
+ 
+10 Compliance of Penetration Testing Results           
+ 
+ 
+Once shared by JSB – Requirement/Observation will be  
+Reviewed to determine scope and time efforts (as 
+chargeable/non-chargeable) 
+11 SSL Support TLS v1.2 (bank will acquire certificate)                                             
+ 
+JSBL responsibility 
+12 Audit logging of each activity either manual or system generated User information, accessing forms/options, date and time of 
+log-in and log-out. 
+13 Active Cluster - In order for the high availability cluster to operate 
+seamlessly, it's recommended that the two nodes be configured for 
+redundancy. In other words, their individual configurations/settings must 
+be virtually identical 
+ 
+JSBL responsibility 
+ 
+ 
+===== PAGE 15 =====
+RTGS-Integrator Req Specs 2.0 
+ 
+  Centegy Technologies                                                                  08 Mar 2016     Page: 15 
+ 
+ 
+ 
+ 
+ 
+Disclaimer:……………………………………………………. 
+ 
+“This Document constitutes the entire agreement between the Parties (Centegy Technologies and Client) and supersedes any prior 
+understanding or representation of any kind of promises, conditions, understandings or other agreements, quotations, proposals and 
+communication whether oral or written, relating to the subject matter of this agreement and services identified herein.” 
+The modification in any functionality, interface, report, inquiry, process beyond this document will be reviewed and covered under 
+separate scope of work and financials (FSD/CRF). 

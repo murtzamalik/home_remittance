@@ -1,0 +1,30 @@
+<SWIFT_msg_fields>
+ <msg_format>S</msg_format>
+ <msg_sub_format>I</msg_sub_format>
+ <msg_sender>MUCBPKKKARTG</msg_sender>
+ <msg_receiver>SBPPPKKRXXXX</msg_receiver>
+ <msg_type>103</msg_type>
+ <msg_priority>N</msg_priority>
+ <msg_copy_srv_id></msg_copy_srv_id>
+ <msg_pde>Y</msg_pde>
+ <msg_del_notif_rq>N</msg_del_notif_rq>
+ <msg_user_priority>0030</msg_user_priority>
+ <msg_user_reference>179</msg_user_reference>
+ <msg_mac_result>41424E41504B4B4141585858006374294E00</msg_mac_result>
+ <block4>:20:179
+:23B:CRED
+:23E:SDVA
+:26T:001
+:32A:110620PKR230,
+:50K:/UNILEVER
+KARACHI
+:53A:/D/020211000800032
+MUCBPKKKRTG
+:57A:/C/020211000080037
+ABPAPKKA
+:59:/PSO
+LAHORE
+:70:SALARY
+:71A:SHA
+:72:/CODTYPTR/001</block4>
+</SWIFT_msg_fields>

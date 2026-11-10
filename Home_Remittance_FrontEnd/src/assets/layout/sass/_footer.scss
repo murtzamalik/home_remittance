@@ -1,0 +1,19 @@
+.layout-footer {
+    transition: margin-left $transitionDuration;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid var(--surface-border);
+    color: #5C6B6A;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.02em;
+
+    .layout-footer-brand {
+        color: #191919;
+        font-weight: 600;
+        margin-left: 0.35rem;
+    }
+}

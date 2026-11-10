@@ -1,0 +1,282 @@
+Document Information
+Version History
+copyright © 2017 All rights reserved 
+This document is developed and owned by Computer Research Private Ltd. (CRPL). CRPL reserves the rights to modify distribute and share this document with authorized audience. Illegal use and redistribution by unauthorized personnel to third parties is strictly prohibited and serious actions will be taken for violating these conditions, in accordance with the internationally accepted regulations and copyright laws.
+Table of Contents
+1.	Corporate Profile	4
+1.1	CRPL’s Profile	4
+1.1.1.	Company History over a Decade	5
+1.1.2.	Brand Strategies	6
+1.1.3.	Strategic Alliances	7
+1.1.4.	Our Brands	8
+1.1.5.	Our Valuable Clients	9
+1.1.6.	Memberships	10
+1.1.7.	Awards	10
+1.1.8.	Achievements	10
+1.1.9.	Relevant Experience and Technological Expertise	11
+2.	Proposed Home Remittance Solution:	12
+3.	Legacy Integration	27
+Verification / Authorization	27
+4.	Operating Environment	28
+5.	System Level Requirements	29
+Client System Requirement	29
+Hardware Server Requirement	29
+Corporate Profile
+ CRPL’s Profile
+Computer Research (Pvt) Ltd. CRPL was established in 1989 and gained expertise in Software, Hardware and Networking Domains. Over the years, CRPL has earned a leading position in providing its clients the most-effective, customized, result-oriented and economical solutions in almost every cross-section of the industry. 
+In addition to cost-effective and resourceful solutions in software domain, CRPL has also earn a substantial mark in Hardware and networking arena by providing complete solution and infrastructure alongside cabling, support and maintenance. 
+CRPL has expanded to form three major Departments: Software, Hardware and Networking. Our Development and O&M services spectrum spreads over Telecommunications, Enterprise Resource Planning, Financials and Pharmaceutical & FMCG Sectors being the mark of excellence. 
+The exponential growth and an ever-increasing credibility of CRPL in every horizon of IT industry has been a result of embarking on each project in partnership with the esteemed clients, setting out realistic guidelines for deliverables and agreeing on how the implementation of solution will deliver what they require. In short, by aiming for a common goal, CRPL is continuously achieving maximum benefits for the clients.
+Company History over a Decade
+Brand Strategies 
+Leading from the Front
+Our vision is to become the top most, reliable, committed and trusted information and communication technology service provider of the region. We have a long history of proven leadership, services and a diversified portfolio of solutions and products. 
+We provide bona fide value additions to our clientele’s businesses by enabling them optimize their business processes and overcome operational challenges with the help of our innovative, smart and proven products and solutions.
+Customer Satisfaction
+We see customer satisfaction as a key differentiator and driver, which is why it has become an integral part of our business strategy. 
+Reliability 
+Over the years we have developed trust amongst our customer base mainly due to our products and solutions timely delivery plus after sales support and services. 
+Professionalism
+Our positive approach and motivation towards providing the best information and communication technology services and solutions are significant elements in attaining a high level of professionalism. 
+Loyalty
+We always try to strengthen our business relationships with our partners and customers. We strongly believe in superior service delivery which leads to customer satisfaction and nurtures a long term and healthy business relationship with our clientele.
+Strategic Alliances
+Our Brands 
+Our Valuable Clients
+Memberships 
+Awards 
+Achievements
+Relevant Experience and Technological Expertise
+Proposed Home Remittance Solution:
+Home Remittance Solution
+Enhancing Financial 
+Out Puts!
+Customer’s Requirement
+An effective Home Remittance Solution enables the banking institution to operate a service targeting to the nationals of their country who are working and living abroad, helping them send funds to home cost-effectively. (who whom), it addresses the needs of a growing set of banked customers who require easy,  cost-effective,  secure and reliable international inward funds transfer. 
+Home Remittance System
+With the evolving trends of globalization and efficient customer service, virtually every business unit is in stride to cope with the emerging challenges. This task becomes more vital for financial bodies as not even marginal delay, inefficiency or non-connectivity would be tolerated particularly by customers. Financial bodies, during this chase of efficient, timely yet secure services to customer, have to also look for businesses being initiated by correspondent market players or banks. 
+Just looking at the businesses being offered by them would not assist any particular financial body or bank in the voyage of success. For this, every market player should facilitate the business being offered by correspondent banks so as to remain in quest of excellence and overall profitability.
+CRPL offers a perfect blend of Remittances & Payment process within one package through managed reconciliation, i.e. reconciling the right Remittance Advice with the right payment. 
+Remittance & Payment Solution Composition
+Compliance with International Agents
+More than 65 agents are already integrated and compliant to our Payment Suite. Inward remittance is provided through: 
+Using FTP Files 
+Using Web Services (compliant with RIA, Placed, Aftab Currency, Money Gram, Samba etc) 
+Using PRI Network ( State bank Compliant 
+Following workflows explicitly narrate the proposed Home Remittance Solution being offered by CRPL.
+Following mode of payment can be used 
+Inter Bank Fund Transfer (IBFT) 
+Cash Over the Counter (COC) 
+Internal Fund Transfer (IFT) 
+Demand Draft 
+Payment Via ATM
+Payment using PRI network
+Payment using RTGS 
+Using IBFT 
+Sub Agent Area
+Sub Agents are responsible for collecting information related to beneficiary account title, Bank and Amount to be remit. 
+Sub Agent will validate/complete the account details (IBAN/BAN) using SSO A/C enquiry Module 
+Sub Agent will enter the amount to be remit, which should be in the defined limit. 
+Sub Agents per transaction limits will be maintained though user/limit management module.
+The next step is to get more detailed and complete information of the beneficiary, the requested amount and IBFT member bank name, where beneficiary maintains his/her account. Complete remitter’s information is also maintained. Since Beneficiary and relevant account has already been verified therefore upon completion of this step:
+Agent account is debited
+Transaction ID created
+Transaction is available to principal agent for authorization
+Payable created, after authorization
+Countdown for Authorization starts (30 Minutes – time is configurable)
+Principal Agent Area
+Principal agent is responsible for either Authorizing or Rejecting the transaction data received from Agent. This authorization or rejection should be done within defined time limits (30 Minutes – time is configurable), else transaction will be cancelled/blocked. Amount of cancelled and blocked transactions will be revered to agent’s account accordingly. Blocked transactions can only be restored by Bank.
+The data is then at its final stage, since BAFL is linked with IBFT member banks. Those beneficiaries having account in any other member IBFT banks are accordingly facilitated by them. 
+IBFT Process Flow
+Figure 1: IBFT Process Flow
+API Web Service
+Process flow for API Web Service is narrated below:
+Remitter visits Agent’s office 
+Remitter provides Beneficiary Account number
+Receiving agent verifies the “Account Number” using API Web Service title fetch
+If “Beneficiary Account” is valid:
+Agent input further transaction details
+Transaction status will be marked as PAID using API Web Service
+API verify and validate amount availability
+If amount is available, Web Service API calls Core Bank API to debit Agent account and credit beneficiary account
+Upon successful transaction execution, Cash Management Payment System is updated and SMS is sent to beneficiary also Agent paid confirmation is marked
+ The key Features are: 
+Real time credit to beneficiary account 
+Fully Automated process through integration of systems between both institutions 
+Immediate credit confirmation through SMS 
+No double entry required in core bank and agent interface to remove reconciliation issues 
+API Web Service Process Flow
+Figure 2: Remittance via API Web Service Process Flow
+Online Agent Connect 
+Actual process flow followed for remittance through “Online Agent Connect” will be as:
+Beneficiary visits branch with XPIN
+Teller verifies the XPIN for validity
+If the PIN number is verified, agent is verified via agent web service
+If agent is verified successfully, transaction details are displayed
+Transaction status is checked:
+If status marked as cancelled, payout is declined
+If status marked as paid, payout is declined
+If status marked as unpaid, agent is given the response to payout transaction
+If the Transaction falls within teller limit it is marked as paid
+Else will be routed to Authorizer to first get authorized
+Beneficiary account is credited, agent updated & Core bank updated
+Online Agent Connect Process Flow
+Figure 3: Online Agent Connect Process Flow
+Transaction File Workflow
+PRI, RTGS (Rs.1 Million minimum limit should be consider), MT 103 and Customizable File format Transaction files can be uploaded into the system via:
+Pull FTP
+Email
+Push FTP
+Once the payment instructions are uploaded into the system, compliance screening of transaction with UNSC, OFAC and other local lists (NAB) is performed. If the Remitter or the beneficiary’s name is matching in any of the list, transaction should be segregated and held for further verification.
+Afterwards Data Cleansing activities are performed on the data: 
+Bank Identification: Required if bank Name is not mentioned in Payment instructions 
+Branch Identification: Required if Branch is not mentioned and account number is also incomplete 
+Data segregation: Required if payment type is not mentioned or Change is required in Payment Mode  
+Account Completion: Required where account numbers are incomplete 
+Data Publishing 
+COC Transactions: System will pay the transaction to the beneficiary account using BAN. 
+Other Bank transactions: can be processed through IBFT, PRI or Demand Draft depending on the nature of transaction.
+Transaction Process Flow
+Figure 4: Transaction Process Flow
+Web Service 
+In order to accomplish file pull activity via web services following brief flow is followed:
+Transaction file is pulled on scheduler via web service
+Transaction data is received via API
+Transaction data is uploaded in to system
+System is updated
+Data available for use
+Web Service Process Flow
+Figure 5: Transaction Pull via Web Service
+SFTP Service 
+In order to accomplish file pull activity via SFTP following brief flow is followed:
+Transaction file is pulled on scheduler from SFTP/FTP site
+Transaction data is received via API
+Transaction data is uploaded in to system
+System is updated
+Data available for use
+SFTP Service Process Flow
+Figure 6: SFTP Process Flow
+Email Service 
+In order to accomplish file pull activity via email service following brief flow is followed:
+Transaction file is pulled on scheduler basis from Email server
+Transaction data is received 
+Transaction data is uploaded in to system
+System is updated
+Data available for use
+Email Service Process Flow
+Figure 7: Email Process Flow
+Other Features
+Interbank Fund Transfer - IBFT & Real Time Gross Settlement - RTGS Supported
+Two way Authentication
+Multi-Layer Security Shell
+User defined Instrument format
+Authorization Rules
+Agent Powered
+Multiple Payment Modes
+Instrument based payments
+Electronic and paper based instruments for payment
+Universal Uploader for instructions uploading 
+Instrument Holding / Cancellation
+Duplicate draft issuance
+Data Capturing
+Holding & Cancellation of payments
+Account Balance checking
+Instrument Printing
+MICR Printing enabled
+Dynamic Instrument Printing
+Customer Branding
+Authorization Matrix (Authorization rules and limits)
+Cancel / Stop payment rules
+Limit control against each transaction
+Data upload & download
+Front-end ID creation for all users with 4-eye principle in place
+All activity on the system should be logged
+SBP format reports as well as internal reconciliation reports to be generated
+Correspondents’/Customer’s query logging at the time query was lodged
+Legacy Integration 
+This module provides online integration option with Legacy System.
+Verification / Authorization
+Every Entry/Transaction entered in the system will be recorded with maker ID and will authorized by the Auth. ID 
+Operating Environment
+System Level Requirements 
+Client System Requirement
+Hardware Server Requirement
+Application Server 
+Database Server 
+
+===== TABLE 1 =====
+Home Remittance Solution v.1
+Technical Document
+
+===== TABLE 2 =====
+Category | Information
+Customer | JS-Bank (JSBL)
+Project | Home Remittance Solution
+Document | Proposal Document
+Version | 1.0
+Status | Approved
+Author(s) | Documentation Team
+Approver(s) | Project Manager
+Issue Date | 17/01/2018
+
+===== TABLE 3 =====
+Author | Date | Version | Description
+Documentation Team | 17/01/2018 | 1.0 | Initial Version
+
+===== TABLE 4 =====
+ | CRPL is a proud Partner of Narus which is the global leader in real-time traffic intelligence for the protection and management of large IP networks. Narus is the only software company that provides security, intercept and traffic management solutions within a single, flexible system. With Narus, service providers, governments and large enterprises around the world can immediately detect, analyze, mitigate and target any unwanted, unwarranted or malicious traffic
+ | CRPL has been a partner with Oracle for last 3 years which provides the world’s most complete, open, and integrated business software and hardware systems, with more than 370,000 customers including 100 of the Fortune 100 representing a variety of sizes and industries in more than 145 countries around the globe.
+ | International Business Machines (IBM) is an American multinational technology and consulting firm headquartered in Armonk, New York. Its distinctive culture and product branding has given it the nickname Big Blue. CRPL is the only authorized IBM business partner for Cognos10 (BI) in Pakistan. Last 2Q sale in Pakistan well over 3.2 million US$
+ | Intel Corporation is an American global technology company and the world's largest semiconductor chip maker, based on revenue. Intel for us is a prime resource to evaluate all our load balancing and benchmark testing platforms. Being a partner with Intel gives us the cutting edge technology to keep CRPL on all the new technology range and testing
+ | HP is a technology company that operates in more than 170 countries around the world. CRPL has been a partner with HP for last 4 years. HP was a prime partner for PTA (ICH Project). CRPL has three nationwide stations for HP support and services
+ | Clipsal is world famous as Australia’s number one brand of electrical accessories. A market leader in electrical accessories, data communications, industrial and home automation markets. Being a partner with Clipsal (Schneider Electric ) is an advantage for all cabling, patch-panel and faceplates, we have successfully done many major projects regarding infrastructure enhancement in major banks of Pakistan
+ | 3M is serving the community by providing state-of-the art technologies and innovative products. Helping in identifying customer needs to offer innovative solutions in Electronics, Electrical and Telecommunication. CRPL being a partner with 3M adds value for all turn-key solutions and projects for infrastructure , cabling and design layout
+ | Huawei is a leading telecom solutions provider. Huawei chose CRPL as a prime partner this year for all their enterprise solutions, CRPL added huge advantage to Huawei as we have been into telecom and financial industry for more than one decade
+
+===== TABLE 5 =====
+Telecom ERP, a Convergent Billing Solution including Mediation, Rating Engine and Interconnect Settlement Systems | Telecom ERP, a Convergent Billing Solution including Mediation, Rating Engine and Interconnect Settlement Systems | Telecom ERP, a Convergent Billing Solution including Mediation, Rating Engine and Interconnect Settlement Systems
+ | Full accounting of the international incoming traffic minutes terminated on all access providers’ networks. It provides a certification process to operators in order to identify potential fraud and grey trafficking for international call data | Full accounting of the international incoming traffic minutes terminated on all access providers’ networks. It provides a certification process to operators in order to identify potential fraud and grey trafficking for international call data
+ | Consumer Finance Management, Cash Management Collection Suite, Disbursement Suite, Home Remittance Inter-Branch Transaction, Signature Verification System, Attorney Signatory Management System | Consumer Finance Management, Cash Management Collection Suite, Disbursement Suite, Home Remittance Inter-Branch Transaction, Signature Verification System, Attorney Signatory Management System
+ |  | A robust Franchise Management Solution for handling customer resource management, franchise centric, sales & activation, financials, central store & inventory, sales & distribution and cashier module
+ |  | An effective Digital Archiving Solution for bulk document scanning, image processing (OCR) meta data processing and document & data archiving
+ |  | A Revenue Management Solution helps you to achieve maximum revenue and minimize loss associated with fraud and revenue leakage
+
+===== TABLE 6 =====
+ |  |  |  | 
+ |  |  |  | 
+ |  |  |  | 
+ |  |  |  | 
+ |  |  |  | 
+ |  |  |  | 
+ |  |  |  | 
+ |  |  |  | 
+
+===== TABLE 7 =====
+ | 
+
+===== TABLE 8 =====
+ |  | P@SHA ICT Awards 2009 | P@SHA ICT Awards 2009 | 
+Category | Product | Product | Event Description | Event Description
+Communications  Applications |  |  | It was an amazing celebration of the innovation and growth of the Pakistan IT and IT Enabled Services industry. 520 people got together at the Karachi Sheraton Hotel to recognize winners in 20 different categories at the P@SHA ICT Awards | It was an amazing celebration of the innovation and growth of the Pakistan IT and IT Enabled Services industry. 520 people got together at the Karachi Sheraton Hotel to recognize winners in 20 different categories at the P@SHA ICT Awards
+
+===== TABLE 9 =====
+ | Quality Certified ISO 9001:2008 | Quality Certified ISO 9001:2008 | Quality Certified ISO 9001:2008 | Information Security Certified ISO 27001:2005 | Information Security Certified ISO 27001:2005 | 
+ |  |  | Accreditation | Accreditation |  | 
+
+===== TABLE 10 =====
+System | Pentium – IV or higher
+RAM | 1GB
+Hard Disk | 80 GB
+OS | Windows XP Sp2 / 2000
+Browser Enable | Cookies
+Software/Application | Internet Explorer
+
+===== TABLE 11 =====
+System | INTEL XEON QUAD CORE
+RAM | 16 GB
+Hard Disk | 4 X 146 GB SA-SCSI RAID – 5, 3 HARDDISK
+
+===== TABLE 12 =====
+System | INTEL XEON QUAD CORE
+RAM | 32 GB
+Hard Disk | 4 X 146 GB SA-SCSI RAID – 5, 3 HARDDISK

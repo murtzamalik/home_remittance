@@ -1,0 +1,16 @@
+PDF_PAGES=1
+PDF_META={'/Producer': 'GPL Ghostscript 9.06', '/CreationDate': "D:20160322212304+05'00'", '/ModDate': "D:20160322212304+05'00'", '/Title': 'Project Plan.xlsx', '/Creator': 'PScript5.dll Version 5.2.2', '/Author': 'Ali Abbasi'}
+
+===== PAGE 1 =====
+S. No. Task Day(s) From To Responsibility
+1 Work Order / Contract Signing 0 day(s) 24/03/2016 24/03/2016 JS BANK
+2 Kick-off Meeting / Phase-I Requirement Sharing 1 day(s) 24/03/2016 24/03/2016 INFOBITS / JS BANK IT, BUSINESS
+3 System Integration Development & Testing 2 day(s) 25/03/2016 28/03/2016 INFOBITS  
+4 Phase-I Application Deployment 1 day(s) 29/03/2016 29/03/2016 INFOBITS / JS BANK IT
+5 User Acceptance Testing (UAT) 1 day(s) 30/03/2016 30/03/2016 INFOBITS / JS BANK IT, BUSINESS
+6 Deployment on Production Server 0.5 day(s) 31/03/2016 31/03/2016 INFOBITS / JS BANK IT
+7 Sanity Check - Parallel Run 0.5 day(s) 31/03/2016 31/03/2016 JS BANK IT, BUSINESS
+8 Go-Live 1 day(s) 01/04/2016 01/04/2016 JS BANK IT, BUSINESS
+Phase-I Compliance of Home Remittance (March 31, 2016)
+Project Plan
+RTGS Gateway Application - STP Implementation 

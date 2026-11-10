@@ -1,0 +1,246 @@
+Straight-through-Processing for RTGS Payments:
+The transaction volume of RTGS has been significantly increased and is expected to be increased further due to the decision taken by SBP to allow customers’ funds transfers for lower limits. Therefore, considering the increasing trend in RTGS transfers SBP has initiated STP project to automate the RTGS payments to minimize manual workload of customers’ requests for RTGS. 
+This will not only help us in reducing the TAT due to duplicate efforts put in by the relevant departments due to manual posting in core banking system and PRISM but will also help us in improving our processing capabilities to manage additional transactional volume within the window allowed by SBP for RTGS payments.
+Straight through Processing (STP) is an initiative used in the financial world to optimize the speed at which transactions are processed. This is performed by allowing information that has been electronically entered to be transferred from one party to another in the settlement process without the need for re-keying the same pieces of information repeatedly over the life cycle of the transaction.
+Advantages: 
+Decrease in Settlement Risk 
+Improvement in processing capabilities
+Improvement in Customers’ Services
+Cost Efficient
+Minimize potential errors
+Approval from Regulatory Authority (SBP)
+However, since the bank has opted option of RCCC (Remote Client Communication Component); therefore it is essential to develop “INTEGRATION SOFTWARE” to cater the need of “API” which currently provided by SBP as part of PRISM to perform multiple functions, which includes but not limited to authorization of MT102, MT103, MT202, Balance enquiry, monitoring of inflows and outflows, free format messaging and any other functionality which is currently available in the PRISM Controller provided by SBP.
+The integration software should have the capability of interfacing with partner applications i.e.
+Remit Home System
+CMS Application
+T-24 and 
+Any other application which requires to be integrated with integration software.
+Upon receiving the RTGS instructions from any of the partner application, the integration software, should convert the message based on its payment type (as per SBP’ prescribed formats of MT-102, MT-103 and MT-202) and push the outward MTs to PRISM by following all the relevant protocols to meet SBP’ requirements.
+Similarly, the integration software should have the capability to receive incoming RTGS received via PRISM from other banks for various departments/customers of the bank and should have ability of manually operate turn on and turn off of integrator at the start & end of day.   
+Following is the high level requirements 
+Payment Message Type MT-102:
+Existing Process:
+As per the existing SBP’ requirement, the payments received from Partner Exchange Companies for onward credit to the beneficiaries maintaining their accounts with other banks are being sent to them on the prescribed format “Annexure-B”, containing details of individual beneficiaries including beneficiary bank, beneficiary’s account number, beneficiary’s account title and the amount; whereas, the payment for the total amount of Annexure-B is being made to beneficiary bank via RTGS manually using MT-202. The entire process of generating Annexure-B is being managed within the Remit Home System.
+Requirements - Outgoing MT-102:
+As per the recent SBP’ guidelines, from April 01, 2016, the PRI payments through Annexure-B will be discontinued and replaced with MT-102. The format provided by SBP for MT-102 is as follows:
+<?xml version="1.0" encoding="Latin1" ?> 
+- <SWIFT_msg_fields>
+  <msg_format>S</msg_format> 
+  <msg_sub_format>I</msg_sub_format> 
+  <msg_sender>FAYSPKKAAXXX</msg_sender> 
+  <msg_receiver>SBPPPKKRXXXX</msg_receiver> 
+  <msg_type>102</msg_type> 
+  <msg_priority>N</msg_priority> 
+  <msg_del_notif_rq>N</msg_del_notif_rq> 
+  <msg_user_priority>0020</msg_user_priority> 
+  <msg_user_reference>FT15152J7VHJ</msg_user_reference> 
+  <msg_mac_result /> 
+  <msg_pac_result /> 
+  <msg_pdm /> 
+  <block4>:20:FT15152J7VHJ :23:CREDIT :26T:001 :71A:SHA :21:FT15152J7VHJ :32B:PKR559000, :50K:/46010101264807 ATIF BASHIR TRADERS KUTCHERY ROAD KHANPUR :52A:/D/020211000410031 FAYSPKKA :57A:/020211000800032 MUCBPKKKRTG :59:/0650304891003702 MEHRAN SUGER MILLS LTD KARACHI :70:ATIF BASHIR TRADERS :77B:SBP :32A:150601PKR559000, :72:/CODTYPTR/001 //FT15152J7VHJ</block4> 
+  </SWIFT_msg_fields>
+The message type MT-102 is used to convey multiple payment instructions between financial institutions for crediting the beneficiaries’ accounts maintained with receiving bank. However, a single MT-102 contains maximum 10 payments to the beneficiaries.
+As per the MT-102 format provided by the SBP, following are the essential fields which need to be incorporated
+Sender: 			This field contains the SWIFT address of the Sending Bank
+Receiver: 			This field contains the SWIFT address of Receiving Bank
+Message Type:			102
+Message User Reference:	Alpha + Numeric Reference number of the sending bank
+SWIFT Field 20:		Sender’s Reference 
+SWIFT Field 23:	It contains credit transfer(s) to be processed 
+SWIFT Field 26T:	This field identifies the nature/purpose of transaction. Accordingly, for PRI payments the “005” code will be used for identification.
+SWIFT Field 71A:	This field specifies which party will bear the charges. However, this field will contain “SHA” in our case.
+SWIFT Field 21:	This field specifies the reference number. 
+SWIFT Field 32B:	This field specifies the individual transaction amount. Means, If a single MT-102 contains 2 payments i.e. Rs. 50 & 100, then this filed will be repeated 1) is for Rs.50/- and 2) is for Rs.100, similarly if there are 10 payments in single MT-102, then, this field will be repeated ten time for each transaction amount.
+SWIFT Field 50K:	This field specifies the customer ordering the transaction i.e. Account # and the name of ordering customer. If there are 10 payments in single MT-102, then this field will be repeated ten times to capture ordering customer’s details.
+SWIFT Field 52A:	This field specifies the financial institution. In our case for outgoing RTGS it will always be JSBLPKKA
+SWIFT Field 57A:	This field specifies the financial institution with which the beneficiary is maintaining the account; the receiving bank will remain same for multiple payments under single MT-102.
+SWIFT Field 59:	This field specifies the beneficiary account number and its title in which the payment will be credited. Means, If a single MT-102 contains 2 payments i.e. Rs. 50 & 100 for two different beneficiaries, then this filed will be repeated 1) is for Rs.50/- to beneficiary A and 2) is for Rs.100 to beneficiary B, similarly if there are 10 payments in single MT-102, then, this field will be repeated ten time for each beneficiary.
+SWIFT Field 70:	This field specifies details of the individual transaction which are to be transmitted to the beneficiary customer. Actually this field is being used for Remittance information. 
+SWIFT Field 77B:	This field specifies the codes for regulatory information of the receiver or the sender required by the regulatory authority.
+SWIFT Field 32A:	This field specifies the value date, currency and the settlement amount. However, as per the SBP defined format, the settlement amount appearing in field 32A, would be the total sum of all amounts appearing in field 32B.
+SWIFT Field 72:	This field specifies additional information for the receiver.
+Primarily the MT-102 messages will be used for PRI payments to beneficiaries maintaining accounts with other banks to replace Annexure-B, which requires minor change in the Remit Home system to split the annexure-B of each bank in multiple of 10 payments, means, if an annexure-B of HBL contains 32 transactions, then it should be split in 4 MT-102 i.e. (3 MT-102 X 10 payments=30 + 1 MT-102 x 2=2) = 32 payments.
+The primary information required to create MT-102 is already available in Remit home system i.e. :
+Transaction reference, may be used for Field 21
+Ordering Customer, will be used for Field 50K
+Beneficiary Bank, will be used for Field 57A
+Beneficiary Account Number, will be used for field 59
+Beneficiary Account Title, will be used for field 59
+Transaction Amount, will be used for field 32B
+Field 32A, will reflect the total sum of amounts mentioned in Field 32B
+Accordingly, upon generation of MT-102 from Remit Home System following accounting entries will be posted in T-24 using API between Remit Home and T-24 for the amount of each MT-102 appearing in Field 32B.
+Debit - Suspense Account	
+Credit – SBP Account
+In addition to Remit Home system, the T-24 would be another channel from where the MT-102 will be generated and similarly there is possibility of adding other channels to process customers’ payments. Therefore, the integration software should have the capability to add as many channels as we want. However, field 26T will contain a different code in MT-102 initiated from the channels other than Remit Home to differentiate PRI payments.
+The integration software should also maintain the status of the transaction based on the response code received from the PRISM.
+Note: 	The abovementioned requirements are based on the ideal scenarios, which may change during finalizing the functional specifications of STP process with the SBP and vendor.
+Requirements - Incoming MT-102:
+The incoming messages will be identified from Header of the MT-102, as the“Receiver” field will contain swift code of JS Bank i.e. JSBLPKKA. Accordingly, in the body of the message the ordering  institution field, the details of ordering bank will be appearing and in the field of beneficiary institute, it will be reflecting the SWIFT code JS Bank i.e. JSBLPKKA
+However, the code “005” in field 26T will be the identifier of PRI payments and if the code in Field 26T is different than “005”, then such payments should be treated for other channels, which would be T-24 in all cases.
+Accordingly, upon receiving the messages by integration software (using the method as agreed to with SBP), the integration software should pass on the message to the relevant channel for onward credit to beneficiary accounts.
+Following accounting will be posted in T-24 to credit the beneficiaries:
+Debit – SBP Account (for the amount appearing in field 32A)
+Credit – Suspense Account (For the amount appearing in field 32A)
+Then to credit the number of beneficiaries appear in a MT-102
+Debit – Suspense Account (for the amount appearing in Field 32B)
+Credit – Beneficiary Account (as appearing in field 59) 
+The abovementioned entries will be applicable for MT-102 received for any channel. Accordingly, the bank’s user (authorized person) will review these entries in T-24 and authorize the same.
+In case of any discrepancy in the beneficiary account # (Field 59), such transaction should be available in T-24 for modification and subsequent authorization.
+However, the details of the MT-102 with the code “005” in field 26T should be downloaded from integration software for onward upload into Remit Home System to main detailed MIS of the beneficiaries received the payments under PRI arrangements via other banks.
+Accordingly, the bank’s user (authorized person) will review these entries in T-24 and authorize the same.
+In case of any discrepancy in the beneficiary account # (Field 59), such transaction should be available in T-24 for modification and subsequent authorization.
+Requirements - Outgoing MT-103:
+MT-103 is sent by the financial institute of the order customer to the financial institution of the beneficiary customer directly or via correspondent.
+As per the existing process, the duplicate efforts are being made to process RTGS using MT-103, as at first step the ordering customer account is debited in T-24 with maker & checker control and once the transaction is successfully posted in T-24, then the same is reentered in PRISM to release the payment to beneficiary bank with maker & checker control
+Accordingly, to improve the processing capabilities, there is a need to automate the customers’ requests the bank is received via different channels including CMS Application and T-24.  
+The SBP’s prescribed format for MT-103 is as follows:
+- <SWIFT_msg_fields>
+  <msg_format>S</msg_format> 
+  <msg_sub_format>I</msg_sub_format> 
+  <msg_sender>MUCBPKKKARTG</msg_sender> 
+  <msg_receiver>SBPPPKKRXXXX</msg_receiver> 
+  <msg_type>103</msg_type> 
+  <msg_priority>N</msg_priority> 
+  <msg_copy_srv_id /> 
+  <msg_pde>Y</msg_pde> 
+  <msg_del_notif_rq>N</msg_del_notif_rq> 
+  <msg_user_priority>0030</msg_user_priority> 
+  <msg_user_reference>179</msg_user_reference> 
+  <msg_mac_result>41424E41504B4B4141585858006374294E00</msg_mac_result> 
+  <block4>:20:179 :23B:CRED :23E:SDVA :26T:001 :32A:110620PKR230, :50K:/UNILEVER KARACHI :53A:/D/020211000800032 MUCBPKKKRTG :57A:/C/020211000080037 ABPAPKKA :59:/PSO LAHORE :70:SALARY :71A:SHA :72:/CODTYPTR/001</block4> 
+  </SWIFT_msg_fields>
+Header Details:
+Sender: 			This field contains the SWIFT address of the Sending Bank
+Receiver: 			This field contains the SWIFT address of Receiving Bank
+Message Type:			103
+Message User Reference:	Alpha + Numeric Reference number of the sending bank
+Body Details:
+SWIFT Field 20:		Sender’s Reference 
+SWIFT Field 23B:	This field identifies the type of operation. Default value as “CRED” will appear in this field.
+SWIFT Field 23E:	This field specifies an instruction. RTGS Payments must be executed with same day value to the beneficiary. Hence the default value as per SWIFT standards will always be “SDVA” 		
+SWIFT Field 26T:	This field identifies the nature/purpose of transaction. Accordingly, the default value in this field will be “001”
+SWIFT Field 32A:	This field specifies the value date, the currency and the settlement amount. 
+SWIFT Field 50K:	This field specifies the customer ordering the transaction i.e. Account # and the name of ordering customer. 
+SWIFT Field 53A:	this field specifies the account or branch of the Sender or another financial institution through which the Sender will reimburse the Receiver. In our case it will be ordering institute i.e. JSBLPKKA
+SWIFT Field 57A:	This field specifies the financial institution with which the beneficiary is maintaining the account.
+SWIFT Field 59:	This field specifies the beneficiary account number and its title in which the payment will be credited.
+SWIFT Field 70:	This field specifies details of transaction which need to be transmitted to the beneficiary customer. Actually this field is being used for Remittance information. 	
+SWIFT Field 71A:	This field specifies which party will bear the charges. However, this field will contain “SHA” in our case.
+SWIFT Field 72:	This field specifies additional information for the receiver.
+MT-103 Initiated from T-24:
+As per the requirement, as soon as the transaction is successfully processed and authorized in T-24 using appropriate module of T-24 for MT-103, the relevant details should be populated in integration software to convert the message in MT-103 format and push the outward payment message (MT-103) to PRISM by following all the relevant protocols to meet SBP’ requirements. In addition of that reporting in T-24 will be in MT format.
+The usage of relevant module of T-24 for MT-103 RTGS payments shall be allowed / disallowed through user role access controls.
+The integration software should also maintain the status of the transaction based on the response code is received from the PRISM. MT-103 initiated from CMS Application:
+As per the existing process all such RTGS payments (MT-103) initiated from CMS Application by the authorized customers are landed in T-24 through an API to debit the customer and credit SBP account and upon successful response from T-24, the bank’s user manually process the RTGS payment (MT-103) using PRISM to make the payment to the beneficiary bank for onward credit to the intended beneficiary.
+Accordingly, as per the requirement to automate this process, as soon as the successful response is received from T-24 to CMS Application, the details of the relevant transactions should flow into integration software, using the mechanism/protocol as agreed between vendor and IT department of JS Bank and integration software, upon receiving the payment details from CMS Application, should convert the payment details into message type MT-103 and push the same to PRISM by following all the relevant protocols to meet SBP’ requirements.
+Similarly, upon receiving the response from PRISM, the relevant status should be maintained in integration software for each transaction. 
+Since, the account entries in T-24 for the transactions initiated from CMS are already been posted via API; hence, this process will remain as is.
+Requirements - Incoming MT-103:
+The incoming messages will be identified from Header of the MT-103, as the “Receiver” field will contain swift code of JS Bank i.e. JSBLPKKA. Accordingly, in the body of the message the ordering  institution field, the details of ordering bank will be appearing and in the field of beneficiary institute, it will be reflecting the SWIFT code JS Bank i.e. JSBLPKKA
+Accordingly, upon receiving the messages by integration software (using the method as agreed to with SBP), the integration software should pass the message to T-24 for onward credit to beneficiary accounts.
+Following accounting will be posted in T-24 to credit the beneficiaries in Un-Authorized mode:
+Debit – SBP Account (for the amount appearing in field 32A)
+Credit – Beneficiary Account (as appearing in field 59) 
+Accordingly, the bank’s user (authorized person) will review these entries in T-24 and authorize the same.
+In case of any discrepancy in the beneficiary account # (Field 59), such transaction should be available in T-24 for modification and subsequent authorization.
+Note: 	The abovementioned requirements are based on the ideal scenarios, which may change during finalizing the functional specifications of STP process with the SBP and vendor.
+Requirements - Outgoing MT-202:
+The Message type MT-202 is used to transfer the funds from one financial institution to another financial institution and generally, MT-202 is being used for treasury payments. However, on need basis MT-202 is also used by other departments for similar type of payments.
+The SBP’s prescribed format for MT-202 is as follows:
+- <SWIFT_msg_fields>
+  <msg_format>S</msg_format> 
+  <msg_sub_format>I</msg_sub_format> 
+  <msg_sender>CITIPKKXAXXX</msg_sender> 
+  <msg_receiver>SBPPPKKRXXXX</msg_receiver> 
+  <msg_type>202</msg_type> 
+  <msg_priority>N</msg_priority> 
+  <msg_copy_srv_id /> 
+  <msg_pde>Y</msg_pde> 
+  <msg_del_notif_rq>N</msg_del_notif_rq> 
+  <msg_user_priority>0030</msg_user_priority> 
+  <msg_user_reference>4321</msg_user_reference> 
+  <msg_mac_result>43495449504B4B58415858580087D1124E00</msg_mac_result> 
+  <block4>:20:4321 :21:NONREF :32A:110620PKR110, :53A:/D/020211000280034 CITIPKKX :58A:/020211000100031 ASCMPKKA :72:/CODTYPTR/001</block4> 
+  </SWIFT_msg_fields>
+Header Details:
+Sender: 			This field contains the SWIFT address of the Sending Bank
+Receiver: 			This field contains the SWIFT address of Receiving Bank
+Message Type:			202
+Message User Reference:	Alpha + Numeric Reference number of the sending bank
+Body Details:
+SWIFT Field 20:		Sender’s Reference
+SWIFT Field 21:		This field contains a reference to the related transaction
+SWIFT Field 32A:		This field specifies the value date, the currency and the settlement amount.
+SWIFT Field 53A:	this field specifies the account or branch of the Sender or another financial institution through which the Sender will reimburse the Receiver. In our case it will be ordering institute i.e. JSBLPKKA
+SWIFT Field 58A:	This field specifies the financial institution which has been designated by ordering institution as the ultimate recipient of the funds being transferred, means the funds receiving bank.
+SWIFT Field 72:	This field specifies additional information for the receiver.
+Outward MT-202 for Treasury Related transactions:
+As per the existing process, all FX and MM transactions are booked in T-24 using the relevant modules and on the settlement date of the transactions as mentioned in the relevant module of such transactions, system automatically post the account entries in the relevant GLs. However, for making PKR payments to the counterparty banks, the department manually process RTGS using message type MT-202. 
+However, as part of automation, since the all the relevant details are available in T-24 for FX and MM transaction; therefore, on the settlement date the required information should be flow into integration software from T-24 automatically on the date of settlement/maturity, using the mechanism/protocol as agreed between vendor and IT department of JS Bank. The integration software, upon receiving such details from T-24, should convert the payment details into message type MT-202 and push the same to PRISM by following all the relevant protocols to meet SBP’ requirements.
+Similarly, upon receiving the response from PRISM, the relevant status should be maintained in integration software for each transaction.
+Outward MT-202 initiated by other department:
+Similar process as described in above section for treasury related payment will be followed. However, the T-24 module would processing MT-202 would be different to differentiate the payments initiated by treasury operations and other departments of the bank.
+Inward MT-202 for Treasury Related transactions:
+As per the existing process for incoming payments related to treasury, the financial impact is already accounted for in T-24; whereby, on the settlement/maturity date, the accounting entries in relevant GLs is posted automatically in T-24.
+upon receiving MT-202 from the counterparty banks, all such message should appear in integration software only, as the financial impact of all such payments has already been accounted for in T-24 on the settlement/maturity date of FX & MM related transaction.
+However, to stop such transaction from flow into T-24, an identifier code will be shared with the relevant vendor in order to cater the need.
+Inward MT-202 for other departments:
+The incoming Message Type MT-202 other than treasury related transactions can be received from the remitting bank, details of which should also be populated in integration software; however, a mechanism should be developed within the integration software to route such transactions to T-24 for necessary accounting entries i.e.
+Debit – SBP account in T-24
+Credit – Suspense account (as mapped in integration software for MT-202 related payments)
+Accordingly, the relevant department, after verifying the beneficiary’s details, will credit the proceeds into the relevant beneficiary manually in T-24 by passing the following accounting entries.
+Debit – Suspense account (as mapped in integration software for MT-202 related payments)
+Credit – the relevant beneficiary – as per the beneficiary details appear in field 72
+Free Format Messages
+In addition to the above requirements, the integration software should have the capability to exchange free format messages between the banks as per the prescribed formats of SBP, which are as follows:
+MT-900
+{1:F01ABPAPKKAAXXX0001000103}{2:O9001615130503SBPPPKKRAXXX00010001031305031615N}{3:{113:0030}{108:127}}{4:
+:20:913163405/900
+:21:127
+:25:020211000080037
+:32A:130423PKR115,
+:72:/OID/130503ABPAPKKAAXXX0000000018
+-}
+MT-910
+{1:F01ABPAPKKAAXXX0001000105}{2:O9101710130514SBPPPKKRAXXX00010001051305141710N}{3:{113:0030}{108:321}}{4:
+:20:913163428/910
+:21:321
+:25:020211000080037
+:32A:130423PKR430,
+:52A:/D/020341004540019
+CDCPKKAA
+-}
+Reporting:
+The integration software should also be available with audited logs, quick search, real time monitoring, web browser (fire fox , Google chrome & Internet Explorer) facilit to perform various types of activities, which includes but not limited to monitoring of inflows and outflow for treasury reporting for all or by message type, generate various MIS reports from integration software etc. and including all those functions which are currently available in the controller provided by SBP for PRISM transactions.
+Controller 
+The main screen of the controller should display overall position of various types of transactions (MT-102, Mt-103 & MT-202 etc) executed from all the partner systems (such as, Remit Home, CMS and T-24) integrated with the controller for better management of fund flow by Treasury. In addition to that there should be an option available to the user for releasing/adjustment for all type of MTs as deemed appropriate. 
+The Main Screen should be displayed in following manner and refreshed automatically to include new transactions in controller; the format of the main screen with minor modification is also appended below
+However, to view the transaction details, the user should click the hyperlink and system should display the transaction details with “PRINT BUTTON” to print the transaction as per the formats appended below for each MT Type. 
+Transaction Display Screen
+MT – 102 PRINT FORMAT
+MT – 103 PRINT FORMAT
+MT – 202 PRINT FORMAT
+Transaction Detail Report
+An option should available within the controller screen to print the transactions detail report with following search criteria.
+Search Criteria by:
+Message Type i.e. MT-102/103/202
+Inflow / Outflow (in / out)
+Ordering Customer Name (Optional)
+Ordering Customer A/c # (Optional)
+Beneficiary Name (Optional)
+Beneficiary A/c # (Optional)
+Transaction Amount
+Sender BIC  (Optional)
+Receiver BIC (Optional)
+Date Range
+Upon selection of abovementioned search criteria, system should display the required information on the screen, which should be printable as per the attached format.
+RTGS Activity Detailed Report:
+An option should be available to view and print RTGS Activity Report in real time for monitoring of fund flow and reconciliation.  The report should contain, Opening balance, Debit Amount, Credit amount and Closing Balance. However, the opening balance amount should be fetched and populated automatically from the MT-971 sent by SBP early in the morning on daily basis. The format for MT-971 will be shared with you separately for necessary mapping to fetch the opening balance. The report should be available in printable form, which is attached herewith for your ready reference:
+Format for RTGS Activity Detailed Report
+RTGS Activity Summary Report:
+In addition the RTGS Activity Detailed Report in real time, we also need to have RTGS Activity Summary Report , which should provide us the opening balance, total of debit movements, total of credit movements and closing balance. The format of RTGS Activity Summary Report is attached herewith for ready reference.
+
+===== TABLE 1 =====
+Bank Name | Core Banking Application | STP option (Option 1 -4) | Development (In-house / outsourced) | Hardware ( Dedicated Firewall for STP, machines etc) arranged? | Network Architecture Approved by SBP(Yes/No) | Contact  person details (Name and Contact number ) | Current Status
+JS BANK | T-24  Remit Home   CMS | RCCC (Remote Client Communication Component) " | Outsourced | In process | ----------- | Syed Hafeezuddin, Try Ops, Abdul Jabbar, Operations Shahid Siddiqui ,  I.T.,  Shahzad Qureshi I.T., | On going
+ |  |  |  |  |  |  | 

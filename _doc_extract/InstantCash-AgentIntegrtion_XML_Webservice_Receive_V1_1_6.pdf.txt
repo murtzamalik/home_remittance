@@ -1,0 +1,1781 @@
+PDF_PAGES=23
+PDF_META={'/Producer': 'GPL Ghostscript 8.15', '/CreationDate': 'D:20150326200656', '/ModDate': 'D:20150326200656', '/Title': 'Microsoft Word - AgentIntegrtion_XML_Webservice_Receive_V1_1_6.doc', '/Creator': 'PScript5.dll Version 5.2.2', '/Author': 'Shihal'}
+
+===== PAGE 1 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 1 of 23 
+ 
+Agent Integration through IC Web Service (ICWS) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+               
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Version No. Version 1.1.6 
+Date 26/03/2015 
+Document Name  Agent Integration(Receive) through IC Web 
+Service (ICWS) 
+Company Instant Cash FZE 
+Prepared by  IT Dept. 
+Reviewed By Instant Cash Operation Dept. 
+===== PAGE 2 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 2 of 23 
+ 
+ 
+Version History  
+ 
+ 
+Version Date Author(s) Review By Description 
+1.0.1 12/09/2007 Mr. Nisar Ahmed Ansari Mr. Aziz Ah med Created 
+1.0.2 21/02/2008 Mr. Nisar Ahmed Ansari Mr. Aziz Ah med Modified 
+1.0.3 22/10/2009 Mr. Nisar Ahmed Ansari Mr. Aziz Ahmed, Mrs. 
+Rahat 
+Modified 
+ 
+1.0.4 15/08/2010 Mr. Nisar Ahmed Ansari Mr. Aziz Ahmed, Mr. 
+Usman 
+Modified 
+ 
+1.0.5 31/08/2010 Mr. Shihab Hamza Mr. Nisar Ahmed A nsari Modified 
+1.0.6 11/11/2010 Mr. Nisar Ansari Mr. Aziz Ahmed Mo dified 
+1.0.7 22/02/2011 Mr. Shihab Hamza Mr. Nisar Ahmed A nsari Modified 
+1.0.8 26/06/2011 Mr. Shihab Hamza Mr. Nisar Ahmed A nsari Modified 
+1.0.9 17/07/2011 Mr. Shihab Hamsa Mr. Nisar Ahmed A nsari Modified 
+1.1.1 26/02/2013 Mr. Shihab Hamsa Mr. Nisar Ahmed A nsari Modified 
+1.1.2 16/07/2013 Mr. Shihab Hamsa Mr. Nisar Ahmed A nsari Modified 
+1.1.3 01/10/2013 Mr. Shihab Hamsa Mr. Nisar Ahmed A nsari Modified 
+1.1.4 10/11/2013 Mrs. Shihal Rafi Mr. Nisar Ahmed A nsari Modified 
+1.1.5 17/03/2015 Mrs. Shihal Rafi Mr. Shihab Hamza Modified 
+1.1.6 26/03/2015 Mrs. Shihal Rafi Mr. Shihab Hamza Modified 
+ 
+Modified contents are in green color. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 3 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 3 of 23 
+ 
+ 
+ 
+ 
+ 
+ 
+ICWebService (ICWS) 
+ 
+ 
+Objective 
+Agents can integrate their system with Instant Cash to Receive, Update or Query the transactions via 
+XML Web Service. 
+ 
+Intended Audience  
+It is assumed programmers are familiar with the xml web service. This document does not include 
+general information about web service; it includes the details of integration with ICWS API along with 
+Input/output parameters.  
+ 
+Detail Description 
+Once the agreement signed between agent and instant Cash(IC) then following procedure will 
+complete by our operation and account dept. 
+ 
+1)  IC operation Dept. will create agent’s profile, user login and defined necessary parameters in 
+the system. 
+2)  Account Dept. will create necessary settlement accounts in the system. 
+3)  We will add your mail id in our mailing list to notify about agent’s  
+Addition/Modification/Deactivation/Activation.  
+ 
+Once the above procedure completed in system then you can start using below given API in your 
+system for integration.  
+ 
+Agent Integration through ICWS API contains 5 web methods  for receiving agents out of 11 major web 
+methods . This document describes about 5 web methods  needed for receiving payment integration. 
+ 
+1.  GetOutstandingRemittance  
+2.  ConfirmTran  
+3.  GetIctcPayStatus   
+4.  Reconcile  
+5.  ReceivePayment  
+6.  UnlockIcTran  
+ 
+ 
+ 
+ 
+Endpoint 
+ 
+Test: https://instantcashworldwide.ae/IcIntegrationUAT/IcWebservice.asmx   
+ 
+Live:  https://icint.wallstreet.ae/IcIntegration/IcWebService.asmx  
+ 
+WSDL Location  
+ 
+Test: https://instantcashworldwide.ae/IcIntegrationUAT/IcWebservice.asmx?wsdl  
+ 
+Live:  https://icint.wallstreet.ae/IcIntegration/IcWebService.asmx?wsdl  
+ 
+ 
+===== PAGE 4 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 4 of 23 
+/head2right Each SOAP request to the ICWS contains two parts, the SOAP Header  and the SOAP Body.  
+ 
+/head2right Each response from the ICWS contains two parts, IC Result  and Details.  
+ 
+/head2right These patterns will be followed through all Web Methods. 
+ 
+/head2right If Authentication fails or error  occurs while processing client request, system will generate SOAP exception . 
+/head2right In case of any validation error  or custom error , the error  details will be available in IC Result  section.  
+ 
+SOAP Header for Authentication  
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length Description Format Mandatory (M) 
+/Optional(O) 
+1 Agent_UserID String 15 
+A UserId for the 
+corresponding 
+use of the 
+branch will be 
+created 
+ 
+US00100001 M 
+2 Agent_CorrespondentID String 6 
+Sending/Paying 
+branch code 
+First 2 digits are 
+country swift 
+code followed by 
+4-digit sequence 
+number. 
+US0001 M 
+3 User_Password String 10 
+Password 
+supplied by our 
+operation dept. 
+ M 
+ 
+ IC Result Members  
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length Description Format 
+Mandatory 
+(M)/Option 
+al(O) 
+1 Result_Flag Integer 1 System will return 1 on 
+success and 0 on failure 
+1 = Successful 
+0 = Failure M 
+2 Error_Code String 6 
+The value of this filed 
+will be 4 digit error 
+code like E001,E002 
+ETC. 
+E001 O/M 
+3 Error_Message String 50 
+In case the transaction 
+fails, the system will 
+return the reason for 
+failure. 
+This will  have a non-
+blank value in case of 
+failure and will be blank 
+in case of success 
+Invalid 
+parameter 
+length 
+O/M 
+4 Error_Description String 100 Detailed error 
+description 
+Minimum 
+length of 
+Settlement_Cu 
+rrency cannot 
+be less than 3 
+O/M 
+ 
+Error Codes and Descriptions  
+ 
+S. 
+No. 
+Error 
+Code Error Message 
+1 E001 Authentication Failed 
+2 E002 System Error 
+3 E003 Process Error 
+4 E004 Other Unknown Error  
+===== PAGE 5 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 5 of 23 
+5 E005 No Records 
+6 E006 Parameter/value missing 
+7 E007 Invalid parameter length 
+8 E008 Invalid parameter format 
+9 E009 Invalid Input Parameters 
+ 
+1.  Getting Outstanding Remittances  
+ 
+Method Name: GetOutstandingRemittance  
+Web method for downloading outstanding remittances belongs to corresponding agent. 
+ 
+SOAP Request: SOAP Header Only   
+List of Arguments: No arguments  
+Response: IC Result and OutstandingRemittance Records  
+ 
+OutstandingRemittance Members: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format 
+Mandatory 
+(M) / 
+Optional(O) 
+1 ICTC_Number Integer 9 
+This is 9-digit 
+system generated 
+number given to 
+Remitter. 
+001256249 M 
+2 Agent_OrderNumber String 20 
+Agent’s unique 
+Order Number 
+submitted at the 
+time of sending a 
+transaction. 
+XA08754434 O 
+3 Remitter_Name String 35 Remitter’s Name. Maria 
+Stanches M 
+4 Remitter_Address String 105 Remitter’s 
+Address.  M 
+5 Remitter_IDType Integer 2 Remitter Id Type. 
+06 = Driving 
+License 
+15 = State Id 
+11 = Passport 
+09 = Labour 
+Card 
+18 = Alien 
+Registration 
+99 = Other 
+ 
+M 
+6 Remitter_IDDtl String 20 Primary Id 
+Details. 
+Passport No. 
+E265434 O 
+7 Originating_Country String 2 Two digits ISO 
+Swift Code. 
+AE,BD,IN,PK, 
+US,GB etc. M 
+8 Delivery_Mode String 30 Delivery Mode. 
+Cash, 
+Account 
+Transfer, 
+Courier Draft 
+M 
+Web Service Methods  
+===== PAGE 6 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 6 of 23 
+9 Paying_Amount Double 14,3 
+Amount to Pay to 
+Recipient, a 
+decimal point is 
+required. 
+50000.00 
+The number of 
+digits after 
+decimal point 
+depends upon 
+paying currency 
+code. 
+System will 
+accept and 
+validate the 
+decimal point 
+against the 
+paying 
+currency. 
+M 
+10 PayingAgent_CommShare Double 18,9 
+Paying Agent 
+Commission 
+Share amount. 
+12.00 M 
+11 Paying_Currency String 3 
+It should be the 
+Local Currency 
+Code of Paying 
+Agent. 
+INR, PKR, 
+BDT, PHP etc. M 
+12 Paying_Agent String 6 Six digits Paying 
+Agent Code. INXXXX M 
+13 Paying_AgentName String 35 Paying Agent 
+Name. 
+WallStreet 
+Exchange 
+Center. 
+M 
+14 Beneficiary_Name String 35 Beneficiary Name. Mustafa Khan M 
+15 Beneficiary_Address String 105 Beneficiary 
+Address 
+55/56768, 
+Nehru Nagar, 
+Chembur (E). 
+M 
+16 Beneficiary_City String 35 Beneficiary City Mumbai O 
+17 Destination_Country String 2 Two digits ISO 
+Swift Code. 
+AE,BD,IN,PK, 
+US,GB etc. M 
+18 Beneficiary_TelNo String 25 
+Beneficiary 
+Telephone 
+Number, it is 
+useful to 
+inform Beneficiary 
+by 
+Receiver agent. 
+0091-22-
+25289188 
+ 
+O 
+19 Beneficiary_MobileNo String 15 
+Beneficiary ’s 
+Mobile 
+Number. 
+009171 
+50553456 M 
+20 Expected_BenefID String 20 
+Expected 
+Beneficiary ID and 
+Details. 
+Any Valid ID. O 
+21 Bank_Address String 60 Address of Payee 
+Bank. 
+Syndicate 
+Bank, Mumbai, 
+India. 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+22 Bank_Account_Number String 20 
+Bank Account 
+Number of 
+Beneficiary.  
+For example: 
+528916798 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+23 Bank_Name String 35 Name of Payee 
+Bank. Syndicate Bank. 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+24 Purpose_Remit Integer 2 Purpose of 01-Family M 
+===== PAGE 7 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 7 of 23 
+Remittance. Maintenance 
+02-Tourism 
+03-Education 
+04-Medical 
+25 Message_PayeeBranch String 100 Message to Payee 
+Agent. 
+Call to 
+beneficiary and 
+pay the amount 
+urgently. 
+O 
+26 Bank_BranchCode String 20 Branch Code of 
+Payee Bank. SD0922 O 
+27 SettlementRate Double 18,9 
+This field will be 
+applicable for 
+those agents 
+having different 
+settlement 
+currency different 
+than paying 
+currency. 
+For example in 
+paying currency 
+in India is INR 
+and settlement 
+currency is USD 
+then value will 
+be    
+39.50 
+M/O 
+28 PrinSetlAmout Double 14,3 
+This field will be 
+applicable for 
+those agents 
+having different 
+settlement 
+currency then 
+paying currency. 
+ 
+For example in 
+paying currency 
+in India is INR 
+and settlement 
+currency is USD 
+Ten value of 
+this field will be 
+1265.82 
+M/O 
+ 
+29 Transaction_SentDate String 8 
+Transaction sent 
+date 
+(yyyyMMdd ) 
+20101026 M 
+ 
+Demo 
+ 
+SOAP Request 
+ 
+POST /ICAgentIntegTest/IcWebService.asmx HTTP/1.1 
+Host: 195.229.231.233 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+SOAPAction: "ICWS/GetOutstandingRemittance" 
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Header > 
+    < AuthHeader  xmlns ="ICWS "> 
+      < Agent_UserID >UA010301 </ Agent_UserID > 
+      < User_Password >TESTIC </ User_Password > 
+      < Agent_CorrespondentID >AE0021 </ Agent_CorrespondentID > 
+    </ AuthHeader > 
+  </ soap:Header > 
+  < soap:Body > 
+    < GetOutstandingRemittance  xmlns ="ICWS " /> 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+SOAP Response 
+ 
+HTTP/1.1 200 OK 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+ 
+===== PAGE 8 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 8 of 23 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchemainstance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "> 
+  < soap:Body > 
+    < GetOutstandingRemittanceResponse  xmlns ="ICWS "> 
+      < GetOutstandingRemittanceResult > 
+        < Result > 
+          < Result_Flag >1</ Result_Flag > 
+          <Error_Code  /> 
+          < Error_Message  /> 
+          < Error_Description  /> 
+        </ Result > 
+        < Records > 
+          < OutstandingRemittance > 
+            < ICTC_Number >40002829 </ ICTC_Number > 
+            < Agent_OrderNumber  /> 
+            < Remitter_Name >JAM SAAB </ Remitter_Name > 
+            < Remitter_Address >DUBAI </ Remitter_Address > 
+            < Remitter_IDType >15 </ Remitter_IDType > 
+            < Remitter_IDDtl >245121 </ Remitter_IDDtl > 
+            < Originating_Country >GC </ Originating_Country > 
+            < Delivery_Mode >cash </ Delivery_Mode > 
+            < Paying_Amount>856 </ Paying_Amount > 
+            < PayingAgent_CommShare >0</ PayingAgent_CommShare > 
+            < Paying_Currency >AED </ Paying_Currency > 
+            < Paying_Agent >AE0021 </ Paying_Agent > 
+            < Paying_AgentName >ASIA EXCHANGE CENTERDEIRA,DUBAI 
+            </ Paying_AgentName > 
+            < Beneficiary_Name >KHAN SAAB </ Beneficiary_Name > 
+            < Beneficiary_Address >ALAIN </ Beneficiary_Address > 
+            < Beneficiary_City  /> 
+            < Destination_Country >AE </ Destination_Country > 
+            < Beneficiary_TelNo  /> 
+            < Beneficiary_MobileNo  /> 
+            < Expected_BenefID  /> 
+            < Bank_Address  /> 
+            < Bank_Account_Number  /> 
+            < Bank_Name  /> 
+            < Purpose_Remit >EDUCATION </ Purpose_Remit > 
+            < Message_PayeeBranch  /> 
+            < Bank_BranchCode  /> 
+     <Settlement_Rate >39.50 </ Settlement_Rate > 
+      < PrinSettlement_Amount >1265.82 </ PrinSettlement_Amount > 
+          </ OutstandingRemittance > 
+          < OutstandingRemittance > 
+            < ICTC_Number >40004213 </ ICTC_Number > 
+            < Agent_OrderNumber  /> 
+            < Remitter_Name >ANABELLE TANGO ALCANTARA </ Remitter_Name > 
+            < Remitter_Address >NAIF DUBAI UAE </ Remitter_Address > 
+            < Remitter_IDType >0</ Remitter_IDType > 
+            < Remitter_IDDtl >52369897 </Remitter_IDDtl > 
+            < Originating_Country >AE </ Originating_Country > 
+            < Delivery_Mode >cash </ Delivery_Mode > 
+            < Paying_Amount >291.66 </ Paying_Amount > 
+            < PayingAgent_CommShare >0</ PayingAgent_CommShare > 
+            < Paying_Currency >AED </ Paying_Currency > 
+            < Paying_Agent >AE0021 </ Paying_Agent > 
+            < Paying_AgentName >ASIA EXCHANGE CENTERDEIRA,DUBAI 
+            </ Paying_AgentName > 
+            < Beneficiary_Name >FERDINAND JR. TANGO ALCANTARA 
+            </ Beneficiary_Name > 
+            < Beneficiary_Address >MACANAYA MANILA </ Beneficiary_Address > 
+===== PAGE 9 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 9 of 23 
+            < Beneficiary_City >PHILIPPINES </ Beneficiary_City > 
+            < Destination_Country >AE </ Destination_Country > 
+            < Beneficiary_TelNo >0918405 </ Beneficiary_TelNo > 
+            < Beneficiary_MobileNo >09184055658 </ Beneficiary_MobileNo > 
+            < Expected_BenefID >PASSPORT: PH4569348 </ Expected_BenefID > 
+            < Bank_Address  /> 
+            < Bank_Account_Number  /> 
+            < Bank_Name  /> 
+            < Purpose_Remit >FAMILY MAINTENANCE </ Purpose_Remit > 
+            < Message_PayeeBranch  /> 
+            < Bank_BranchCode  /> 
+     <Settlement_Rate >39.50 </ Settlement_Rate > 
+      < PrinSettlement_Amount >1265.82 </ PrinSettlement_Amount > 
+          </ OutstandingRemittance > 
+        </ Records > 
+      </ GetOutstandingRemittanceResult > 
+    </ GetOutstandingRemittanceResponse > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+2.  Confirm Downloaded Transactions 
+ 
+ Method Name: ConfirmTran  
+After downloading the outstanding remittances using GetOutstandingRemittance web method, 
+agent can confirm the status of downloaded transactions as downloaded, paid or report error. 
+System will check the validity and update the status.  
+ 
+SOAP Request: SOAP Header and Confirmation Records 
+ 
+List of input Arguments: 
+ 
+S. 
+No. Field Data Type 
+Max 
+Leng 
+th  
+Description Format Mandatory(M) 
+/ Optional(O) 
+1 ICTC_Number Integer 9 
+This is 9-digit system 
+generated number 
+given to Remitter. 
+001256249 M 
+2 Status_Flag String 1 Status to be updated 
+D - Downloaded 
+Y – Paid 
+X – Error 
+M 
+3 Remarks String 100 Remarks to be added 
+in case of Error (X) 
+Incomplete 
+Beneficiary 
+details 
+M/O 
+ 
+ 
+SOAP Response: IC Result and Confirmation Records. 
+ 
+Confirmation Members: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format Mandatory (M) 
+/ Optional(O) 
+1 ICTC_Number Integer 9 
+This is 9-digit 
+system generated 
+number given to 
+Remitter. 
+001256249 M 
+2 Confirmed Boolean 5 Confirmed or not True or False M 
+3 Description String 50 
+Description of 
+updated status or 
+reason for failure 
+Already Confirmed O 
+ 
+===== PAGE 10 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 10 of 23 
+Demo 
+ 
+SOAP Request 
+ 
+POST /IcIntegrationTest/IcWebService.asmx HTTP/1.1 
+Host: instantcashworldwide.ae 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+SOAPAction: "ICWS/ConfirmTran" 
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Header > 
+    < AuthHeader  xmlns ="ICWS "> 
+      < Agent_UserID >UA010101 </ Agent_UserID > 
+      < User_Password >TESTIC </ User_Password > 
+      < Agent_CorrespondentID >AE0001 </ Agent_CorrespondentID > 
+    </ AuthHeader > 
+  </ soap:Header > 
+  < soap:Body > 
+    < ConfirmTran  xmlns ="ICWS "> 
+      < Input > 
+ <Records > 
+          <Confirm > 
+           <ICTC_Number >042668672 </ ICTC_Number > 
+    <Status_Flag >D</ Status_Flag > 
+    <Remarks ></  Remarks > 
+   </ Confirm  > 
+   <Confirm > 
+           <ICTC_Number >042668675 </ ICTC_Number > 
+    <Status_Flag >Y</ Status_Flag > 
+    <Remarks ></  Remarks > 
+   </ Confirm > 
+   <Confirm > 
+           <ICTC_Number >042668676</ ICTC_Number > 
+    <Status_Flag >Incomplete Beneficiary Details </ Status_Flag > 
+    <Remarks ></  Remarks > 
+   </ Confirm > 
+ </Records > 
+      </ Input > 
+    </ ConfirmTran > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+SOAP Response 
+ 
+HTTP/1.1 200 OK 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Body > 
+    < ConfirmTranResponse  xmlns ="ICWS "> 
+      < ConfirmTranResult > 
+        < Result > 
+          < Result_Flag >1</ Result_Flag > 
+===== PAGE 11 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 11 of 23 
+          <Error_Code /> 
+          < Error_Message /> 
+          < Error_Description /> 
+        </ Result > 
+        < Records > 
+          < Confirmation > 
+            < ICTC_Number >042668675 </ ICTC_Number > 
+            < Confirmed >True </ Confirmed > 
+      < Description ></ Description > 
+          < Confirmation > 
+            < ICTC_Number >042668672 </ ICTC_Number >             
+     <Confirmed >False </ Confirmed > 
+      < Description >Already paid </ Description > 
+          </ Confirmation > 
+          < Confirmation > 
+            < ICTC_Number >042668676</ ICTC_Number > 
+            < Confirmed >True </ Confirmed > 
+      < Description ></ Description > 
+        </ Records > 
+      </ ConfirmTranResult > 
+    </ ConfirmTranResponse > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+3.  Getting ICTC Payment Status 
+ 
+Method Name: GetIctcPayStatus 
+Web method to query the payment status of ICTC. System will retrieve the current status and 
+payment details of corresponding ICTC Number. 
+ 
+SOAP Request: SOAP Header and Input Arguments 
+ 
+List of Input Arguments: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format Mandatory(M) 
+/Optional(O) 
+1* ICTC_Number Integer 9 The unique ICTC number 
+generated in IC system. 001256788 M/O 
+2 * Agent_OrderNumber String 20 
+Agents unique order 
+number submitted at the 
+time of sending a request. 
+XA0001983 M/O 
+ 
+1* 2*  Either ICTC_Number  or Agent_OrderNumber  is required; both values cannot be passed at a time. 
+ 
+SOAP Response: IC Result and Payment Status Details. 
+ 
+Payment Status Details  Members: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format 
+Mandatory 
+(M)/ 
+Optional(O) 
+1 ICTC_Number Integer 9 
+System will return the 
+unique ICTC number 
+generated in IC 
+system. 
+001256788 M 
+2 Agent_OrderNumber String 20 
+Agents unique order 
+number submitted at 
+the time of sending a 
+XA0001983 M 
+===== PAGE 12 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 12 of 23 
+request. 
+3 Transaction_Status String 1 A single character 
+status flag. 
+C = Cancelled 
+O = Remitter 
+and 
+Beneficiary 
+Name matched 
+in watch list 
+P = 
+Beneficiary 
+Name matched 
+in watch list 
+S = Remitter 
+Name matched 
+in watch list 
+Y = Paid 
+If the status is 
+blank then 
+transaction 
+status show as 
+‘Outstanding’. 
+M 
+4 Status_Description String 30 Description of the 
+status. 
+Paid, 
+Outstanding 
+etc. 
+M 
+5 Paid_Agent String 6 6 digit paid agent 
+code. 
+IN0001, 
+BD0001 etc. O 
+6 Paid_AgentDetail String 35 Name of paid agent. Dhanalaxmi 
+bank, Trichur. O 
+7 Extra_Flag1 String 30 For future use.  O 
+ 
+Demo 
+ 
+SOAP Request 
+ 
+POST /ICAgentIntegTest/IcWebService.asmx HTTP/1.1 
+Host: 195.229.231.233 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+SOAPAction: "ICWS/GetIctcPayStatus" 
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Header > 
+    < AuthHeader  xmlns ="ICWS "> 
+      < Agent_UserID >UK001001 </ Agent_UserID > 
+      < User_Password >TESTIC </ User_Password > 
+      < Agent_CorrespondentID >GB0101 </ Agent_CorrespondentID > 
+    </ AuthHeader > 
+  </ soap:Header > 
+  < soap:Body > 
+    < GetIctcPayStatus  xmlns ="ICWS "> 
+      < Input > 
+        < ICTC_Number >400031782 </ ICTC_Number > 
+        < Agent_OrderNumber ></ Agent_OrderNumber > 
+      </ Input > 
+    </  GetIctcPayStatus > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+===== PAGE 13 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 13 of 23 
+SOAP Response 
+ 
+HTTP/1.1 200 OK 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Body > 
+    <  GetIctcPayStatusResponse  xmlns ="ICWS "> 
+      < GetIctcPayStatusResult > 
+        < Result > 
+          < Result_Flag >1</ Result_Flag > 
+          <Error_Code  /> 
+          < Error_Message  /> 
+          < Error_Description  /> 
+        </ Result > 
+        < Details > 
+          < ICTC_Number >400031782 </ ICTC_Number > 
+          < Agent_OrderNumber >FX00743214 </ Agent_OrderNumber > 
+          < Transaction_Status >Y</ Transaction_Status > 
+          < Status_Description >Paid </ Status_Description > 
+          < Paid_Agent >IN0001 </ Paid_Agent > 
+          < Paid_AgentDetail >Wallstreet Exchange </ Paid_AgentDetail > 
+          < Extra_Flag1  /> 
+        </ Details > 
+      </ GetIctcPayStatusResult > 
+    </ GetIctcPayStatusResponse > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+4.  Reconcile the transactions  
+ 
+Method Name: Reconcile  
+Web method to reconcile the transactions within given date range. The purpose of this method is 
+not only reconciliation but also can be download transactions details after creating transactions in 
+IC system. 
+ 
+SOAP Request: SOAP Header and Input Arguments 
+ 
+List of Input Arguments: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format Mandatory(M) 
+/Optional(O) 
+1 Date_From String 8 Date range from. 
+Format is yyyyMMdd   20090102 M 
+2 Date_To String 8 Date range to. Format 
+is yyyyMMdd   20090103 M 
+3 Report_Level Character 1 
+Level of report.  
+U – All transactions 
+made by user 
+B – All transactions 
+belongs to user branch 
+H – All  transactions 
+belongs to head office  
+U, B or H M 
+ 
+ 
+Note: - Date_From and Date_To will be comparing against the date stored in UAE time zone  
+ in the Instant cash system. 
+  
+SOAP Response: IC Result and Reconcile Records. 
+===== PAGE 14 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 14 of 23 
+ 
+Reconcile Record Members: 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format 
+Mandatory 
+(M) / 
+Optional(O) 
+1 Transaction_Type Character 1 
+Type of 
+transaction.  
+I – Inward 
+O – Outward 
+C – Cancel 
+I, O or C M 
+2 ICTC_Number Integer 9 
+This is 9-digit 
+system generated 
+number given to 
+Remitter. 
+001256249 M 
+3 Agent_OrderNumber String 20 
+Agent’s unique 
+Order Number 
+submitted at the 
+time of sending a 
+transaction. 
+XA08754434 O 
+4 Agent_UserID String 15 
+UserId of 
+transaction 
+Send/Receive/Can 
+cel 
+ 
+US00100001 M 
+5 Agent_Code String 6 
+6 digit Agent Code 
+of transaction 
+Send/Receive/Can 
+cel 
+US0001 M 
+6 Agent_Name String 30 
+Agent Name of 
+transaction 
+Send/Receive/can 
+cel  
+Wallstreet 
+Exchange 
+Centre 
+M 
+7 Remitter_Name String 35 Remitter’s Name Maria 
+Stanches M 
+8 Mode_Description String 30 Description of 
+delivery mode 
+ Cash, Account 
+Transfer etc. M 
+9 Remitter_Address String 105 Remitter’s 
+Address 
+P. B No. 9999, 
+Dubai M 
+10 Originating_Country String 2 Two digits ISO 
+Swift Code 
+AE,BD,IN,PK, 
+US,GB etc. M 
+11 Remitter_TelNo String 25 Remitter’s Tel. 
+Number 
+001-716- 
+5051400 O 
+12 Remitter_MobileNo String 20 Remitter’s mobile 
+Number  O 
+13 Message_PayeeBranch String 100 Message to Payee 
+Agent 
+Call to 
+beneficiary and 
+pay the amount 
+urgently. 
+O 
+14 Remitter_ID_Type Integer 2 Remitter Id Type 
+06 = Driving 
+License 
+15 = State Id 
+11 = Passport 
+09 = Labour 
+Card 
+18 = Alien 
+Registration 
+99 = Other 
+ 
+M 
+15 Remitter_IDDtl1 String 20 Primary Id Details Passport No. 
+E265434 O 
+16 Transaction_Date String 8 Transaction date 
+(yyyyMMdd) 20090203 M 
+===== PAGE 15 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 15 of 23 
+17 Transaction_Time String  8 Transaction time 
+(HH.mm.ss ) 10.30.20 M 
+18 Customer_Princ_Amount Double 14,3 Customer 
+Principle Amount 500.00 M 
+19 FC Amount Double 14,3 Amount in Foreign 
+Currency 7540.24 M 
+20 Settlement_Rate Double 18,9 
+This field will be 
+applicable for 
+those agents 
+having different 
+settlement 
+currency different 
+from paying 
+currency. 
+For example in 
+paying currency 
+in India is INR 
+and settlement 
+currency is USD 
+then value will 
+be    
+39.50 
+M/O 
+21 Total_Commission Double 18,9 Total Commission 15.00 M 
+22 Agent_Share Double 18,9 
+Paying Agent 
+Commission 
+Share amount 
+12.00 M 
+23 Settlement_Amount Double 14,3 Settlement 
+Amount 515.00 M 
+24 Paying_Currency String 3 
+It should be the 
+Local Currency 
+Code of Paying 
+Agent. 
+INR, PKR, 
+BDT, PHP etc. M 
+25 Beneficiary_Name String 35 Beneficiary Name Mustafa Khan M 
+26 Expected_BenefID String 20 
+Expected 
+Beneficiary ID and 
+Details 
+Any Valid ID O 
+27 Bank_Account_Number String 20 
+Bank Account 
+Number of 
+Beneficiary  
+For example: 
+528916798 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+28 Bank_Name String 35 Name of Payee 
+Bank Syndicate Bank. 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash 
+29 Bank_Address String 60 Address of Payee 
+Bank 
+Syndicate 
+Bank, Mumbai, 
+India 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+30 Receiving_Agent_Code String 6 
+Six digits 
+Receiving Agent 
+Code 
+IN0001 M 
+31 Receiving_Agent_Name String 35 Receiving Agent 
+Name 
+WallStreet 
+Exchange 
+Center 
+M 
+32 Beneficiary_Address String 105 Beneficiary 
+Address 
+55/56768, 
+Nehru Nagar, 
+Chembur (E) 
+M 
+33 Beneficiary_Country String 35 Beneficiary 
+Country name INDIA M 
+34 Beneficiary_TelNo String 25 
+Beneficiary 
+Telephone 
+Number, it is 
+useful to 
+inform Beneficiary 
+by 
+Receiver agent 
+0091-22-
+25289188 
+ 
+O 
+35 Beneficiary_MobileNo String 15 
+Beneficiary ’s 
+Mobile 
+Number 
+009171 
+50553456 O 
+36 Purpose_Remit Integer 2 Purpose of 01-Family M 
+===== PAGE 16 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 16 of 23 
+Remittance Maintenance 
+02-Tourism 
+03-Education 
+04-Medical 
+37 Perc_Refund_Comm Double 14,3 
+Percentage of 
+refund 
+commission 
+1.2 O 
+38 BranchCode String 20 Agent Branch 
+Code 103 O 
+39 Status_Flag String 1 A single character 
+status flag. 
+C = Cancelled 
+O = Remitter 
+and Beneficiary 
+Name matched 
+in watch list 
+P = Beneficiary 
+Name matched 
+in watch list 
+S = Remitter 
+Name matched 
+in watch list 
+Y = Paid 
+If the status is 
+blank then 
+transaction 
+status show as 
+outstanding. 
+M 
+40 Status_Description String 30 
+Description of 
+status of 
+transaction 
+Already 
+Confirmed M 
+ 
+Demo 
+ 
+SOAP Request 
+ 
+POST /IcIntegrationTest/IcWebService.asmx HTTP/1.1 
+Host: instantcashworldwide.ae 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+SOAPAction: "ICWS/Reconcile" 
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "> 
+  < soap:Header > 
+    < AuthHeader  xmlns ="ICWS "> 
+      < Agent_UserID >AE00400403 </ Agent_UserID > 
+      < User_Password>XYZ123 </ User_Password > 
+      < Agent_CorrespondentID >AE0106 </ Agent_CorrespondentID > 
+    </ AuthHeader > 
+  </ soap:Header > 
+  < soap:Body > 
+    < Reconcile  xmlns ="ICWS "> 
+      < Input > 
+        < Date_From >20081010 </ Date_From > 
+        < Date_To >20081021 </ Date_To > 
+        < Report_Level >U</ Report_Level > 
+      </ Input > 
+    </ Reconcile > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+===== PAGE 17 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 17 of 23 
+SOAP Response 
+ 
+HTTP/1.1 200 OK 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "> 
+  < soap:Body > 
+    < ReconcileResponse  xmlns ="ICWS "> 
+      < ReconcileResult > 
+        < Result > 
+          < Result_Flag >1</ Result_Flag > 
+          <Error_Code /> 
+          < Error_Message /> 
+          < Error_Description /> 
+        </ Result > 
+        < Records > 
+          < Transaction > 
+            < Transaction_Type >O</ Transaction_Type > 
+            < ICTC_Number >40005228 </ ICTC_Number > 
+            < Agent_OrderNumber  /> 
+            < Agent_UserID >AE00400403 </ Agent_UserID > 
+            < Agent_Code >AE0106 </ Agent_Code > 
+            < Agent_Name >EMIRATES POST -SATWA PO </ Agent_Name > 
+            < Mode_Description >cash </ Mode_Description > 
+            < Remitter_Name >TEST SENDER </ Remitter_Name > 
+            < Remitter_Address >SHARJAH </ Remitter_Address > 
+            < Originating_Country >UNITED ARAB EMIRATES </ Originating_Country > 
+            < Remitter_TelNo /> 
+            < Remitter_MobileNo /> 
+            < Message_PayeeBranch /> 
+            < Remitter_ID_Type >11 </ Remitter_ID_Type > 
+            < Remitter_IDDtl1  /> 
+            < Transaction_Date >20081020 </ Transaction_Date > 
+            < Transaction_Time >11.10.02 </ Transaction_Time > 
+            < Customer_Princ_Amount >500 </ Customer_Princ_Amount > 
+            < FC_Amount >7540.24 </ FC_Amount > 
+            < Settlement_Rate >15.130483064 </ Settlement_Rate > 
+            < Total_Commission >15 </ Total_Commission > 
+            < Agent_Share >6</ Agent_Share > 
+            < Settlement_Amount >507.34 </ Settlement_Amount > 
+            < Paying_Currency >PRS </ Paying_Currency > 
+            < Beneficiary_Name >TEST RECEIVER </ Beneficiary_Name > 
+            < Expected_BenefID  /> 
+            < Bank_Account_Number  /> 
+            < Bank_Name  /> 
+            < Bank_Address  /> 
+            < Receiving_Agent_Code >PK0421 </ Receiving_Agent_Code > 
+            < Receiving_Agent_Name >REJGAN EXCHANGE COMPANY </ Receiving_Agent_Name > 
+            < Beneficiary_Address >PAKISTAN LAHOR </ Beneficiary_Address > 
+            < Beneficiary_Country >PAKISTAN </ Beneficiary_Country > 
+            < Beneficiary_TelNo  /> 
+            < Beneficiary_MobileNo  /> 
+            < Purpose_Remit >EDUCATION </ Purpose_Remit > 
+            < Perc_Refund_Comm >0</ Perc_Refund_Comm > 
+            < Branch_Code >203 </ Branch_Code > 
+     <Transaction_Status >Y</ Transaction_Status >  
+         <Transaction_Status_Description >Paid </ Transaction_Status_Description >  
+          </ Transaction > 
+          < Transaction > 
+===== PAGE 18 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 18 of 23 
+            < Transaction_Type >I</ Transaction_Type > 
+            < ICTC_Number >40005186 </ ICTC_Number > 
+            < Agent_OrderNumber  /> 
+            < Agent_UserID >QA00100001 </ Agent_UserID > 
+            < Agent_Code >AE0106 </ Agent_Code > 
+            < Agent_Name >EMIRATES POST -SATWA PO </ Agent_Name > 
+            < Mode_Description >cash </ Mode_Description > 
+            < Remitter_Name >ERT  ERT </ Remitter_Name > 
+            < Remitter_Address >RT ERT </ Remitter_Address > 
+            < Originating_Country >QATAR </ Originating_Country > 
+            < Remitter_TelNo  /> 
+            < Remitter_MobileNo  /> 
+            < Message_PayeeBranch  /> 
+            < Remitter_ID_Type >06 </ Remitter_ID_Type > 
+            < Remitter_IDDtl1 >345634 </ Remitter_IDDtl1 > 
+            < Transaction_Date >20081014 </ Transaction_Date > 
+            < Transaction_Time >14:53:28 </ Transaction_Time > 
+            < Customer_Princ_Amount >221.06 </ Customer_Princ_Amount > 
+            < FC_Amount >0</ FC_Amount > 
+            < Settlement_Rate >0</ Settlement_Rate > 
+            < Total_Commission >0</ Total_Commission > 
+            < Agent_Share >7.689 </ Agent_Share > 
+            < Settlement_Amount >228.749 </ Settlement_Amount > 
+            < Paying_Currency >AED </ Paying_Currency > 
+            < Beneficiary_Name >RTY RTYRT </ Beneficiary_Name > 
+            < Expected_BenefID  /> 
+            < Bank_Account_Number  /> 
+            < Bank_Name  /> 
+            < Bank_Address  /> 
+            < Receiving_Agent_Code >AE0106 </ Receiving_Agent_Code > 
+            < Receiving_Agent_Name >EMIRATES POST -SATWA PO </ Receiving_Agent_Name > 
+            < Beneficiary_Address >ERT  ERT ETRER </ Beneficiary_Address > 
+            < Beneficiary_Country >UNITED ARAB EMIRATES </ Beneficiary_Country > 
+            < Beneficiary_TelNo  /> 
+            < Beneficiary_MobileNo  /> 
+            < Purpose_Remit >FAMILY MAINTENANCE </ Purpose_Remit > 
+            < Perc_Refund_Comm >0</ Perc_Refund_Comm > 
+            < Branch_Code >203 </ Branch_Code > 
+     <Transaction_Status >Y</ Transaction_Status >  
+         <Transaction_Status_Description >Paid </ Transaction_Status_Description >  
+          </ Transaction > 
+        </ Records > 
+      </ ReconcileResult > 
+    </ ReconcileResponse > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+5.  Receiving a payment 
+ 
+Method Name: ReceivePayment  
+Web method to retrieve an outstanding payment details using either ICTC number or Agent Order 
+number. 
+ 
+SOAP Request: SOAP Header and Input Arguments 
+ 
+List of Input Arguments: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format Mandatory(M) 
+/Optional(O) 
+1* ICTC_Number Integer 9 The unique ICTC number 
+generated in IC system 001256788 M/O 
+===== PAGE 19 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 19 of 23 
+2 * Agent_OrderNumber String 20 
+Sending Agent’s unique 
+order number submitted 
+at the time of sending a 
+request 
+XA0001983 M/O 
+ 
+1* 2*  Either ICTC_Number  or Agent_OrderNumber  is required; both values cannot be passed at a time. 
+ 
+SOAP Response: IC Result and Payment Details. 
+ 
+ 
+Payment Details Members: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format 
+Mandatory 
+(M) / 
+Optional(O) 
+1 ICTC_Number Integer 9 
+This is 9-digit 
+system generated 
+number given to 
+Remitter 
+001256249 M 
+2 Agent_OrderNumber String 20 
+Agent’s unique 
+Order Number 
+submitted at the 
+time of sending a 
+transaction. 
+XA08754434 O 
+3 Remitter_Name String 35 Remitter Name Maria 
+Stanches M 
+4 Remitter_Address String 105 Remitter Address  M 
+5 Remitter_IDType Integer 2 Remitter Id Type 
+06 = Driving 
+License 
+15 = State Id 
+11 = Passport 
+09 = Labour 
+Card 
+18 = Alien 
+Registration 
+99 = Other 
+ 
+M 
+6 Remitter_IDDtl String 20 Primary Id Details Passport No. 
+E265434 O 
+7 Originating_Country String 2 Two digits ISO 
+Swift Code 
+AE,BD,IN,PK, 
+US,GB etc. M 
+8 Delivery_Mode String 30 Delivery Mode 
+Cash, 
+Account 
+Transfer, 
+Courier Draft 
+M 
+9 Paying_Amount Double 14,3 
+Amount to Pay to 
+Recipient, a 
+decimal point is 
+required. 
+50000.00 
+The number of 
+digits after 
+decimal point 
+depends upon 
+paying currency 
+code. 
+System will 
+accept and 
+validate the 
+decimal point 
+against the 
+paying 
+currency. 
+M 
+10 PayingAgent_CommShare Double 18,9 Paying Agent 
+Commission 12.00 M 
+===== PAGE 20 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 20 of 23 
+Share amount 
+11 Paying_Currency String 3 
+It should be the 
+Local Currency 
+Code of Paying 
+Agent. 
+INR, PKR, 
+BDT, PHP etc. M 
+12 Paying_Agent String 6 Six digits Paying 
+Agent Code INXXXX M 
+13 Paying_AgentName String 35 Paying Agent 
+Name 
+WallStreet 
+Exchange 
+Center 
+M 
+14 Beneficiary_Name String 35 Beneficiary Name Mustafa Khan M 
+15 Beneficiary_Address String 105 Beneficiary 
+Address 
+55/56768, 
+Nehru Nagar, 
+Chembur (E) 
+M 
+16 Beneficiary_City String 35 Beneficiary City Mumbai O 
+17 Destination_Country String 2 Two digits ISO 
+Swift Code 
+AE,BD,IN,PK, 
+US,GB etc. M 
+18 Beneficiary_TelNo String 25 
+Beneficiary 
+Telephone 
+Number, it is 
+useful to inform 
+Beneficiary by 
+Receiver agent 
+0091-22-
+25289188 
+ 
+O 
+19 Beneficiary_MobileNo String 15 Beneficiary ’s 
+Mobile Number 
+009171 
+50553456 M 
+20 Expected_BenefID String 20 
+Expected 
+Beneficiary ID and 
+Details 
+Any Valid ID O 
+21 Bank_Address String 60 Address of Payee 
+Bank 
+Syndicate 
+Bank, Mumbai, 
+India 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+22 Bank_Account_Number String 20 
+Bank Account 
+Number of 
+Beneficiary 
+For example: 
+528916798 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+23 Bank_Name String 35 Name of Payee 
+Bank Syndicate Bank. 
+M - for Bank 
+Transfer or 
+Courier Draft,  
+O - for Cash  
+24 Purpose_Remit Integer 2 Purpose of 
+Remittance 
+01-Family 
+Maintenance 
+02-Tourism 
+03-Education 
+04-Medical 
+M 
+25 Message_PayeeBranch String 100 Message to Payee 
+Agent 
+Call to 
+beneficiary and 
+pay the amount 
+urgently. 
+O 
+26 Bank_BranchCode String 20 Branch Code of 
+Payee Bank SD0922 O 
+27 Settlement_Rate Double 18,9 
+This field will be 
+applicable for 
+those agents 
+having different 
+settlement 
+currency different 
+from paying 
+currency. 
+For example in 
+paying currency 
+in India is INR 
+and settlement 
+currency is USD 
+then value will 
+be    
+39.50 
+M/O 
+28 PrinSettlement_Amount Double 14,3 This field will be 
+applicable for 
+For example in 
+paying currency M/O 
+===== PAGE 21 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 21 of 23 
+those agents 
+having different 
+settlement 
+currency then 
+paying currency. 
+ 
+in India is INR 
+and settlement 
+currency is USD 
+then value of 
+this field will be 
+1265.82 
+29 Transaction_SentDate String 8 
+Transaction sent 
+date 
+(yyyyMMdd ) 
+20101026 M 
+ 
+Demo 
+ 
+SOAP Request 
+ 
+POST /IcIntegrationTest/IcWebService.asmx HTTP/1.1 
+Host: instantcashworldwide.ae 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+SOAPAction: "ICWS/ReceivePayment" 
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Header > 
+    < AuthHeader  xmlns ="ICWS "> 
+      < Agent_UserID >IN12201562 </ Agent_UserID > 
+      < User_Password >xxxxxxxxx </ User_Password > 
+      < Agent_CorrespondentID >IN0888 </ Agent_CorrespondentID > 
+    </ AuthHeader > 
+  </ soap:Header > 
+  < soap:Body > 
+    < ReceivePayment  xmlns ="ICWS "> 
+      < Input > 
+        < ICTC_Number >40336781</ ICTC_Number > 
+        < Agent_OrderNumber ></ Agent_OrderNumber > 
+      </ Input > 
+    </ ReceivePayment > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+SOAP Response 
+ 
+HTTP/1.1 200 OK 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "> 
+  < soap:Body > 
+    < ReceivePaymentResponse  xmlns ="ICWS "> 
+      < ReceivePaymentResult > 
+        < Result > 
+          < Result_Flag >1</ Result_Flag > 
+          < Error_Code  /> 
+          < Error_Message  /> 
+          < Error_Description  /> 
+        </ Result > 
+        < Details > 
+          < ICTC_Number >40336781</ ICTC_Number > 
+===== PAGE 22 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 22 of 23 
+          < Agent_OrderNumber >REF036004</ Agent_OrderNumber > 
+          < Remitter_Name >TEST SENDER </ Remitter_Name > 
+          < Remitter_Address >TEST ADDR1 TEST ADDR2 TEST ADDR3 </ Remitter_Address > 
+          < Remitter_IDType >11 </ Remitter_IDType > 
+          < Remitter_IDDtl >H268976 </ Remitter_IDDtl > 
+          < Originating_Country >UNITED ARAB EMIRATES </ Originating_Country > 
+          < Delivery_Mode >cash </ Delivery_Mode > 
+          < Paying_Amount >6262 </ Paying_Amount > 
+          < PayingAgent_CommShare >0</ PayingAgent_CommShare > 
+          < Paying_Currency >INR </ Paying_Currency > 
+          < Paying_Agent >IN0888 </ Paying_Agent > 
+          < Paying_AgentName >MANAPPURAM BENEFIT FUND.,WEST FORT </ Paying_AgentName > 
+          < Beneficiary_Name >TEST BENEF </ Beneficiary_Name > 
+          < Beneficiary_Address >ADDR 4 ADDR 5 ADDR 6 </ Beneficiary_Address > 
+          < Beneficiary_City  /> 
+          < Destination_Country >INDIA </ Destination_Country > 
+          < Beneficiary_TelNo >+914877359836 </Beneficiary_TelNo > 
+          < Beneficiary_MobileNo >+919867676799 </ Beneficiary_MobileNo > 
+          < Expected_BenefID >ELECTION ID CARD WITH PHOTO </ Expected_BenefID > 
+          < Bank_Address  /> 
+          < Bank_Account_Number  /> 
+          < Bank_Name  /> 
+          < Purpose_Remit >FAMILY MAINTENANCE </ Purpose_Remit > 
+          < Message_PayeeBranch >PLEASE CALL AND PAY THE CASH </ Message_PayeeBranch > 
+          < Bank_BranchCode  /> 
+          < Settlement_Rate >12.52448313 </ Settlement_Rate > 
+          < PrinSettlement_Amount >6262 </ PrinSettlement_Amount > 
+    < Transaction_SentDate >20101022 </ Transaction_SentDate > 
+        </ Details > 
+      </ ReceivePaymentResult > 
+    </ ReceivePaymentResponse > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+6.  Unlock Transaction 
+ 
+Method Name: UnlockIcTran  
+Web method to unlock the transaction read by a receiving agent. Transaction can be unlocked 
+using Agent correspondent ID of the branch or head office of the received agent who read the 
+transaction. 
+ 
+SOAP Request: SOAP Header and Input Arguments 
+ 
+List of Input Arguments: 
+ 
+S. 
+No. Field Data 
+Type 
+Max 
+Length  Description Format Mandatory(M) 
+/Optional(O) 
+1* ICTC_Number Integer 9 The unique ICTC number 
+generated in IC system 001256788 M 
+ 
+SOAP Response: IC Result. 
+ 
+ 
+Demo 
+ 
+SOAP Request 
+ 
+POST /IcIntegrationTest/IcWebService.asmx HTTP/1.1 
+Host: instantcashworldwide.ae 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+===== PAGE 23 =====
+Agent Integration through XML Web Service                            member of Emirates Post Group Holding 
+Confidential, Instant Cash FZE                                                 Page 23 of 23 
+SOAPAction: "ICWS/UnlockIcTran" 
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema " 
+xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ "> 
+  < soap:Header > 
+    < AuthHeader  xmlns ="ICWS "> 
+      < Agent_UserID >IN12201562 </ Agent_UserID > 
+      < User_Password >xxxxxxxxx </ User_Password > 
+      < Agent_CorrespondentID>IN0888 </ Agent_CorrespondentID > 
+    </ AuthHeader > 
+  </ soap:Header > 
+  < soap:Body > 
+    < UnlockIcTran  xmlns ="ICWS "> 
+      < Input > 
+        < ICTC_Number >40336781</ ICTC_Number > 
+      </ Input > 
+    </ UnlockIcTran > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+SOAP Response 
+ 
+HTTP/1.1 200 OK 
+Content-Type: text/xml; charset=utf-8 
+Content-Length: length  
+ 
+<? xml  version ="1.0 " encoding ="utf-8"?> 
+<soap:Envelope  xmlns:soap ="http://schemas.xmlsoap.org/soap/envelope/ " 
+xmlns:xsi ="http://www.w3.org/2001/XMLSchema-instance " 
+xmlns:xsd ="http://www.w3.org/2001/XMLSchema "> 
+  < soap:Body > 
+    < UnlockIcTranResponse  xmlns ="ICWS "> 
+      < UnlockIcTranResult > 
+        < Result > 
+          < Result_Flag >1</ Result_Flag > 
+          < Error_Code  /> 
+          < Error_Message  /> 
+          < Error_Description  /> 
+        </ Result > 
+      </ UnlockIcTranResult > 
+    </ UnlockIcTranResponse > 
+  </ soap:Body > 
+</ soap:Envelope > 
+ 
+ 
+ 
+ 
+ 
+NOTE: Agent must provide the public IP to activate these services. This will be accessible from 
+computer/server assigned the given IP. Whenever system needs modification to accommodate current 
+market requirement, we will inform you with new version of the document prior to change in live system. 
+ 
+/n7uptop  

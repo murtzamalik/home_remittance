@@ -1,0 +1,425 @@
+ \.(#_.
+VBAProje
+stdole>
+*\G{00
+020430-
+6}#2.0#0
+#C:\Wind
+ows\SysW OW64\
+tlb#OLE 
+Automati
+EOffDic
+2DF8D04C
+-5BFA-10
+1B-BDE5
+gram Fil
+es (x86)
+\Common
+\Microso
+ft Share
+d\OFFICE
+15\MSO.D
+P 15 .0 Ob
+ibrary
+,B 'T&"B
+VBAProject
+ThisProject
+C:\Program Files (x86)\Common Files\Microsoft Shared\VBA\VBA7.1\VBE7.DLL
+C:\Program Files\Microsoft Office 15\Root\Office15\MSPRJ.OLB
+MSProject
+C:\Windows\SysWOW64\stdole2.tlb
+stdole
+C:\Program Files (x86)\Common Files\Microsoft Shared\OFFICE15\MSO.DLL
+Office
+Project
+Attribut
+e VB_Nam
+e = "Thi
+sProject
+0{1019A3
+20-508A-
+11CF-A49
+D-00AA00
+574C74}
+|@Global
+dCreata
+PredeHcla
+BExpos
+Templa
+teDeriv
+Bustomiz
+MSProjectQ
+Win64x
+_Evaluate
+Project-
+Project_Openc
+Project_Calculate
+Project_Change
+Project_Activate*
+Project_DeactivateC
+Project_BeforeSave5
+Project_BeforeClosez
+Project_BeforePrint
+ID="{B5B35763-E931-11D3-90CE-00C04F8EF6BC}"
+Document=ThisProject/&H00000000
+Name="VBAProject"
+HelpContextID="0"
+VersionCompatible32="393222000"
+CMG="1517F19837FF3BFF3BFF3BFF3B"
+DPB="787A9C5F9D5F9D5F"
+GC="DBD93FDEA3DFA3DF5C"
+[Host Extender Info]
+&H00000001={3832D640-CF90-11CF-8E43-00A0C911005A};VBE;&H00000000
+[Workspace]
+ThisProject=0, 0, 0, 0, C
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Segoe UI;}}
+{\*\generator Riched20 15.0.4330}{\*\mmathPr\mwrapIndent1440 }\viewkind4\uc1 
+\pard\f0\fs20 Project: &p\par
+Date: &D\par
+\pard\qc\f0\fs20 Page &P\par
+{\*\generator Riched20 15.0.4420}{\*\mmathPr\mwrapIndent1440 }\viewkind4\uc1 
+\pard\qc\f0\fs20 &F\par
+\pard\f0\fs20 &p\par
+\pard\qr\f0\fs20 &p\par
+swis3{bl{\f0\f
+e: &ecpar
+[Content_Types].xml 
+_rels/.rels 
+%amRf[
+charts/_rels/chart1.xml.rels
+theme/theme1.xml
+xeqOsx
+?D2499X
+Mfosb\ZW7
+k'Jf"S=
+O %YVW
+charts/style1.xml
+#0{ =}
+{ DR)O
+charts/chart1.xml
+7-%TpVj
+D![IVx
+charts/colors1.xml
+drawing/_rels/dr.xml.rels
+drawing/dr.xml
+B~3b[I
+wG/.4UG
+[Content_Types].xmlPK
+_rels/.relsPK
+charts/_rels/chart1.xml.relsPK
+theme/theme1.xmlPK
+charts/style1.xmlPK
+charts/chart1.xmlPK
+charts/colors1.xmlPK
+drawing/_rels/dr.xml.relsPK
+drawing/dr.xmlPK
+charts/_rels/chart2.xml.rels
+9.o_g)
+;~HH`vw(
+kXe!'{c
+J0au/z
+charts/colors2.xml
+charts/style2.xml
+ncvR,y
+q0ajq9pS
+media/image1.png
+|IDAThC
+)dg7oK
+charts/chart2.xml
+VFZb%Z
+9RR]fy
+A2_B=#-b
+u\Ox{M
+XvaoD-
+w%hx<\
+ ^"t/O
+LtH'=&
+charts/_rels/chart2.xml.relsPK
+charts/colors2.xmlPK
+charts/style2.xmlPK
+media/image1.pngPK
+charts/chart2.xmlPK
+Microsoft.Project 15.0
+MSProject.MPP14
+MSProject.Project.9
+Software
+ Development
+Software Development Plan
+Shahzad Qureshi
+Mon 2/8/16
+Thu 8/25/16
+143.88d
+1,062h
+Scheduled Start
+Scheduled Finish
+Scheduled Duration
+% Complete
+% Work Complete
+Duration
+Finish
+_TemplateID
+TC010184531033
+Root Entry
+   114
+TBkndCal
+TBkndTask,TBkndRsc,TBkndCal,TBkndAssn,TBkndCons,TBkndOutlCode
+Software Development
+Standard
+VarMeta
+Var2Data
+FixedData
+FixedMeta
+Fixed2Data
+Fixed2Meta
+TBkndRsc
+Management
+Project Manager
+Analyst
+Developer
+Testers
+Trainers
+Technical Communicators
+Deployment Team
+Vender/Deployment team InHouse
+Vender/Deployment team In-house
+Testers (JS/SBP)
+SBP Analyst
+JS Management
+Vender/ In-house
+TBkndAssn
+TBkndCons
+TBkndTask
+Determine project scope
+Secure project sponsorship
+Define preliminary resources
+Secure core resources/ Vender
+Scope complete
+Analysis/Software Requirements
+Requirements Gathering Sessions - Day 1 Product/Process Walkthrough
+Requirements Gathering Sessions - Day 2 (Parameterization)
+Business Requirements Specifications (BRS) & Solution Design Document (SDD) 
+Review software specifications/budget with team
+Incorporate feedback on software specifications
+Develop delivery timeline
+Obtain approvals to proceed (concept, timeline, budget)
+Secure required resources
+Analysis complete
+Design
+Review preliminary software specifications
+Develop functional specifications
+Review functional specifications
+JS Bank feedback into functional specifications
+Obtain approval to proceed from SBP
+Design complete
+Development
+Identify modular/tiered design parameters
+Assign development staff
+Develop code
+Developer testing (primary debugging)
+Development complete
+JS/ SBP Testing
+Develop unit test plans using product specifications
+Develop integration test plans using product specifications
+Unit Testing
+(Js/SBP) Review modular code
+Test component modules to product specifications
+Modify code
+Re-test modified code
+Unit testing complete
+Integration Testing
+Test module integration
+Identify anomalies to specifications
+Integration testing complete
+Audit and Security
+Develop training specifications for end users
+Develop training specifications for helpdesk support staff
+Screening and Sanity Testing
+Develop training delivery mechanism
+Training materials complete
+Identify test group
+Develop software delivery mechanism
+Install/deploy software
+Obtain user feedback
+Evaluate testing information
+Pilot complete
+Deployment
+Determine final deployment strategy
+Develop deployment methodology
+Secure deployment resources
+Train support staff
+Deploy software
+Deployment complete
+Post Implementation Review
+Document lessons learned
+Distribute to team members
+Create software maintenance team
+Post implementation review complete
+UAT Sanity Check & Configurations
+TBkndOutlCode
+&Gantt Chart
+   214
+C:\Users\shahzad.qureshi\Desktop\for STP.mpp!
+Tracking Ga&ntt
+TP.mpp!
+\Desktop\for STP.mpp!
+2b400008_ffffffff
+__SRP_0
+__SRP_1
+__SRP_2
+__SRP_3
+_VBA_PROJECT
+PROJECT
+N0{1019A320-508A-11CF-A49D-00AA00574C74}
+*\G{000204EF-0000-0000-C000-000000000046}#4.2#9#C:\Program Files (x86)\Common Files\Microsoft Shared\VBA\VBA7.1\VBE7.DLL#Visual Basic For Applications
+*\G{A7107640-94DF-1068-855E-00DD01075445}#4.8#0#C:\Program Files\Microsoft Office 15\Root\Office15\MSPRJ.OLB#Microsoft Project 15.0 Object Library
+*\G{00020430-0000-0000-C000-000000000046}#2.0#0#C:\Windows\SysWOW64\stdole2.tlb#OLE Automation
+*\G{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}#2.7#0#C:\Program Files (x86)\Common Files\Microsoft Shared\OFFICE15\MSO.DLL#Microsoft Office 15.0 Object Library
+1551c6b8e9
+tThisProject
+PROJECTwm
+2b40000d_ffffffff
+CTable
+CV_iew,CFilter,CTable,CReport,CUdm,CEdl,CCommandBar,CMap,CVba,CGrouping,CDrawing
+Calibri
+Segoe UI
+/><t id="{D0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="32" onTL="1" ch="4294967295"/><t id="{E0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="48" onTL="1" ch="4294967295"/><t id="{E7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="57" onTL="1" ch="4294967295"/><t id="{F1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="67" onTL="1" ch="4294967295"/><t id="{F8620F35-51C3-E511-8E6F-34E6D77BD618}" uid="74" onTL="1" ch="4294967295"/><t id="{FF620F35-51C3-E511-8E6F-34E6D77BD618}" uid="81" onTL="1" ch="4294967295"/><t id="{04630F35-51C3-E511-8E6F-34E6D77BD618}" uid="86" onTL="1"/><t id="{B0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="0" onTL="1" ch="4294967295"/></tskSet><txtSet><style id="0" shared="0" type="0" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="1" ital="0" und="0" strk="0"/><style id="1" shared="0" type="1" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="2" shared="0" type="2" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="1" ital="0" und="0" strk="0"/><style id="3" shared="0" type="3" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="4" shared="0" type="4" thm="0001" clr="FF444444" sz="10" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="5" shared="0" type="5" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="6" shared="0" type="6" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="7" shared="0" type="7" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="8" shared="0" type="8" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="9" shared="0" type="9" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="10" shared="0" type="10" thm="0001" clr="FF31752F" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="11" type="10" thm="0001" clr="FF31752F" bold="1"/></txtSet></TLViewData>
+{1A120069-1B14-0416-026B-000018415406}
+Time&line
+gbui://mainpage.htm
+Work Completed, Remaining Work
+Burndown
+<GBUIBuffer Version="1.00"><SidepanePersistanceInfo SidepaneDisplayState="open"><SidepaneWidth>200</SidepaneWidth><GoalAreaID>undefined</GoalAreaID><TaskID>undefined</TaskID></SidepanePersistanceInfo></GBUIBuffer>
+Task Name
+ask Name
+- PV (BCWS)
+otal Cost
+ Comp.
+Resource Name
+Std. Rate
+Cost/Use
+&Entry
+Usa&ge
+CV_iew
+Gantt Chart with Timeline
+Milestone
+Project Summary
+*Rolled Up Task
+*Rolled Up Progress
+*Deliverable Start
+*Deliverable Duration
+*Dependency Finish
+Inactive Task
+Inactive Milestone
+Manual Task
+*Manual Milestone
+Manual Summary Rollup
+*Manual Split (Warning)
+*Manual Summary Rollup (Warning)
+Start-only
+ *Duration-only Milestone
+"*Finish-only Milestone
+$External Tasks
+&Deadline
+(Manual Progress
+Timeline
+&No Group
+<TLViewData dfltTLView="1"><fltSet><ft id="{00000000-0000-0000-0000-000000000000}" uid="4294967295" uidSrc="0" onTL="0" fmt="1" x="0" y="4294967291" h="20" top="1"/></fltSet><fmtSet><fmt id="0" type="0" thm="0001" clr="FFDFEBF7" Lclr="FF151515" Dclr="FF000000" t1="0" t2="1"/><fmt id="1" type="1" thm="0001" clr="FF444444" Lclr="FF151515" Dclr="FF000000" t1="2" t2="3"/><fmt id="2" type="2" thm="0001" clr="FF444444" Lclr="FF151515" Dclr="FF000000" t1="4" t2="5"/><fmt id="3" type="3" thm="0001" clr="FFFFFFFF" Lclr="FF151515" Dclr="FF000000" t1="6" t2="7"/></fmtSet><mlSet><m id="{00000000-0000-0000-0000-000000000000}" uid="4294967295" uidSrc="0" onTL="0" fmt="2" x="0" y="20" top="0"/><m id="{B1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="1" onTL="1"/><m id="{B7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="7" onTL="1"/><m id="{C1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="17" onTL="1"/><m id="{C9620F35-51C3-E511-8E6F-34E6D77BD618}" uid="25" onTL="1"/><m id="{D0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="32" onTL="1"/><m id="{E0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="48" onTL="1"/><m id="{E7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="57" onTL="1"/><m id="{F1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="67" onTL="1"/><m id="{F8620F35-51C3-E511-8E6F-34E6D77BD618}" uid="74" onTL="1"/><m id="{FF620F35-51C3-E511-8E6F-34E6D77BD618}" uid="81" onTL="1"/><m id="{04630F35-51C3-E511-8E6F-34E6D77BD618}" uid="86" onTL="1"/></mlSet><options dateFormat="255" minMode="0" numTextLines="1" panZoomT="9" ProjSummFmt="3" round="1" showDates="1" showOverlaps="1" showPanZoom="1" showProjSummDates="1" showToday="1" showTS="1" timelineWidth="-1" timescaleT="8" todayT="11" zoom2Screen="1"/><tskSet><t id="{00000000-0000-0000-0000-000000000000}" uid="4294967295" uidSrc="0" onTL="0" fmt="0" ch="4294967295"/><t id="{B1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="1" onTL="1"/><t id="{B7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="7" onTL="1"/><t id="{C1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="17" onTL="1"/><t id="{C9620F35-51C3-E511-8E6F-34E6D77BD618}" uid="25" onTL="1"/><t id="{D0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="32" onTL="1"/><t id="{E0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="48" onTL="1"/><t id="{E7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="57" onTL="1"/><t id="{F1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="67" onTL="1"/><t id="{F8620F35-51C3-E511-8E6F-34E6D77BD618}" uid="74" onTL="1"/><t id="{FF620F35-51C3-E511-8E6F-34E6D77BD618}" uid="81" onTL="1"/><t id="{04630F35-51C3-E511-8E6F-34E6D77BD618}" uid="86" onTL="1"/></tskSet><txtSet><style id="0" shared="0" type="0" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="1" ital="0" und="0" strk="0"/><style id="1" shared="0" type="1" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="2" shared="0" type="2" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="1" ital="0" und="0" strk="0"/><style id="3" shared="0" type="3" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="4" shared="0" type="4" thm="0001" clr="FF444444" sz="10" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="5" shared="0" type="5" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="6" shared="0" type="6" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="7" shared="0" type="7" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="8" shared="0" type="8" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="9" shared="0" type="9" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="10" shared="0" type="10" thm="0001" clr="FF31752F" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="11" type="10" thm="0001" clr="FF31752F" bold="1"/></txtSet></TLViewData>
+&All Tasks
+No Group
+Gantt Chart
+Tracking Gantt
+Critical
+Critical Progress
+*Manual Progress
+Finish-only
+Baseline
+Summary Progress
+Manual Summary
+*Group By Summary
+*Rolled Up Critical Split
+*Rolled Up Task Progress
+*Rolled Up Baseline Milestone
+ External Tasks
+"*Deliverable Start
+$*Deliverable Duration
+&*Dependency Finish
+(Inactive Task
+*Inactive Milestone
+,*Duration-only Milestone
+.*Finish-only Milestone
+0*Rolled Up Manual Progress
+<TLViewData dfltTLView="1"><fltSet><ft id="{00000000-0000-0000-0000-000000000000}" uid="4294967295" uidSrc="0" onTL="0" fmt="1" x="0" y="4294967291" h="20" top="1"/></fltSet><fmtSet><fmt id="0" type="0" thm="0001" clr="FFDFEBF7" Lclr="FF151515" Dclr="FF000000" t1="0" t2="1"/><fmt id="1" type="1" thm="0001" clr="FF444444" Lclr="FF151515" Dclr="FF000000" t1="2" t2="3"/><fmt id="2" type="2" thm="0001" clr="FF444444" Lclr="FF151515" Dclr="FF000000" t1="4" t2="5"/><fmt id="3" type="3" thm="0001" clr="FFFFFFFF" Lclr="FF151515" Dclr="FF000000" t1="6" t2="7"/></fmtSet><mlSet><m id="{00000000-0000-0000-0000-000000000000}" uid="4294967295" uidSrc="0" onTL="0" fmt="2" x="0" y="20" top="0"/><m id="{B1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="1" onTL="1"/><m id="{B7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="7" onTL="1"/><m id="{C1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="17" onTL="1"/><m id="{C9620F35-51C3-E511-8E6F-34E6D77BD618}" uid="25" onTL="1"/><m id="{D0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="32" onTL="1"/><m id="{E0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="48" onTL="1"/><m id="{E7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="57" onTL="1"/><m id="{F1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="67" onTL="1"/><m id="{F8620F35-51C3-E511-8E6F-34E6D77BD618}" uid="74" onTL="1"/><m id="{FF620F35-51C3-E511-8E6F-34E6D77BD618}" uid="81" onTL="1"/><m id="{04630F35-51C3-E511-8E6F-34E6D77BD618}" uid="86" onTL="1"/><m id="{B0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="0" onTL="1"/></mlSet><options dateFormat="255" minMode="1" numTextLines="1" panZoomT="9" ProjSummFmt="3" round="1" showDates="1" showOverlaps="1" showPanZoom="1" showProjSummDates="1" showToday="1" showTS="1" timelineWidth="-1" timescaleT="8" todayT="11" zoom2Screen="1"/><tskSet><t id="{00000000-0000-0000-0000-000000000000}" uid="4294967295" uidSrc="0" onTL="0" fmt="0" ch="4294967295"/><t id="{B1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="1" onTL="1" ch="4294967295"/><t id="{B7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="7" onTL="1" ch="4294967295"/><t id="{C1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="17" onTL="1" ch="4294967295"/><t id="{C9620F35-51C3-E511-8E6F-34E6D77BD618}" uid="25" onTL="1" ch="4294967295"/><t id="{D0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="32" onTL="1" ch="4294967295"/><t id="{E0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="48" onTL="1" ch="4294967295"/><t id="{E7620F35-51C3-E511-8E6F-34E6D77BD618}" uid="57" onTL="1" ch="4294967295"/><t id="{F1620F35-51C3-E511-8E6F-34E6D77BD618}" uid="67" onTL="1" ch="4294967295"/><t id="{F8620F35-51C3-E511-8E6F-34E6D77BD618}" uid="74" onTL="1" ch="4294967295"/><t id="{FF620F35-51C3-E511-8E6F-34E6D77BD618}" uid="81" onTL="1" ch="4294967295"/><t id="{04630F35-51C3-E511-8E6F-34E6D77BD618}" uid="86" onTL="1"/><t id="{B0620F35-51C3-E511-8E6F-34E6D77BD618}" uid="0" onTL="1" ch="4294967295"/></tskSet><txtSet><style id="0" shared="0" type="0" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="1" ital="0" und="0" strk="0"/><style id="1" shared="0" type="1" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="2" shared="0" type="2" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="1" ital="0" und="0" strk="0"/><style id="3" shared="0" type="3" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="4" shared="0" type="4" thm="0001" clr="FF444444" sz="10" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="5" shared="0" type="5" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="6" shared="0" type="6" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="7" shared="0" type="7" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="8" shared="0" type="8" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="9" shared="0" type="9" thm="0001" clr="FF444444" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="10" shared="0" type="10" thm="0001" clr="FF31752F" sz="8" font="Segoe UI" bold="0" ital="0" und="0" strk="0"/><style id="11" type="10" thm="0001" clr="FF31752F" bold="1"/></txtSet></TLViewData>
+&All Resources
+Resource Graph
+goe UI%
+Task Usage
+Task Sheet
+Network Diagram
+FUCHSIA
+Earned Value
+External
+Inserted Project
+roject
+Summary
+Tracking
+LT_YELLOW
+Total Cost:
+  Fixed:
+Actual:
+  Baseline:
+Remaining:
+  Variance:
+Start:   
+Finish:  
+Project:
+ilestone Date:
+Actual Finish:
+Remaining Dur:
+ctual Finish:
+Start:
+ng Dur:
+Resource Sheet
+Team Planner
+Critical Split
+Task Progress
+*Manual Split
+Duration-only
+Baseline Split
+Baseline Milestone
+*Rolled Up Critical
+*Rolled Up Critical Progress
+*Rolled Up Split
+*Rolled Up Baseline
+*Rolled Up Milestone
+!External Milestone
+#*Deliverable Finish
+%*Dependency Start
+'*Dependency Duration
+)*Inactive Split
++Inactive Summary
+-*Start-only Milestone
+/*Rolled Up Manual Task
+1Deadline
+Gantt &with Timeline
+Resource Gr&aph
+Tas&k Usage
+Network &Diagram
+Resource &Sheet
+Team &Planner
+CFilter
+resources
+CReport
+Active Tasks
+All Resources
+CDrawing
+CGrouping
+CCommandBar
+15,0,4420,1017
+C:\Users\shahzad.qureshi\Desktop\for STP.mpp
+2a400000_ffffffff
+Props14
+CompObj
+Shahzad Qur
+SummaryInformation
+DocumentSummaryInformation
+eshi Qureshi

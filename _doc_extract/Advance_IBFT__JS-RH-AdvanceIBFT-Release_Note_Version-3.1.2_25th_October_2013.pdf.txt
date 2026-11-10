@@ -1,0 +1,1221 @@
+PDF_PAGES=62
+PDF_META={'/CreationDate': "D:20131025181820+05'00'", '/ModDate': "D:20131025181820+05'00'", '/Producer': 'Acrobat Distiller 5.0 (Windows)', '/Author': 'Munira.Jaffrey', '/Creator': 'PScript5.dll Version 5.2', '/Title': 'Microsoft Word - JS-RH-AdvanceIBFT-Release Note Version-3 1 2 25th October 2013'}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+           
+ 
+ 
+ 
+ 
+ 
+Acquisition‐ Advance IBFT 
+ 
+ 
+Release Note Document  
+Ver.3.1.2 
+ 
+Dated 25th October 2013 
+ 
+Centegy Technologies (Pvt) Ltd. 
+Formerly known as Sidat Hyder Morshed Associates (Pvt) Ltd 
+2nd Floor, Beaumont Plaza, Beaumont Road, Karachi‐75530, Pakistan 
+Phone: 5693521‐30, Fax: (92‐21) 568 5625 
+Website: www.centegytechnologies.com.pk 
+
+===== PAGE 2 =====
+ 
+ 
+ 
+ 
+Contents 
+PARAMETER MODULE .................................................................................................................... 3 
+1.1.1 AGENT/SUB AGENT GL MAPPING .............................................................................................. 4 
+1.1.2 PARAMETERIZATION ‐ SUB AGENT DATA ENTRY ............................................................................. 4 
+¾ TRANSACTION TYPE: .......................................................................................................................... 4 
+¾ PRODUCT/SCHEME SETUP .................................................................................................................. 6 
+¾ ACCOUNT MATRIX .............................................................................................................................. 8 
+¾ DATA ENTRY RESPONDING TRANSACTION TYPE ................................................................................ 13 
+1.1.3 LIMIT MANAGEMENT SETUP .................................................................................................... 15 
+¾ TRANSACTION TYPE ......................................................................................................................... 15 
+¾ PRODUCT/SCHEME SETUP ................................................................................................................ 17 
+¾ ACCOUNT MATRIX ............................................................................................................................ 19 
+¾ DATA ENTRY RESPONDING TRANSACTION TYPE ................................................................................ 26 
+1.1.4 REVERSAL TRANSACTION SETUP ................................................................................................ 27 
+¾ TRANSACTION TYPE ......................................................................................................................... 27 
+¾ PRODUCT/SCHEME SETUP ................................................................................................................ 30 
+¾ ACCOUNT MATRIX ............................................................................................................................ 32 
+¾ DATA ENTRY REVERSAL RESPONDING TRANSACTION TYPE ................................................................ 38 
+¾ PRODUCT/SCHEME SETUP ................................................................................................................ 40 
+¾ ACCOUNT MATRIX ............................................................................................................................ 42 
+1.1.5 TRANSACTION AUTHORITY SETUP FOR BLOCK TRANSACTION ........................................................... 48 
+ACQUISITION MODULE ................................................................................................................. 49 
+2.1.1 TRANSACTION INITIATION WITH CRM PROFILE INTEGRATION .......................................................... 50 
+2.1.2 CONFIRMATION REPORT .......................................................................................................... 51 
+¾ T RANSACTION INITIATION .................................................................................................................... 51 
+2.1.1 TRANSACTION AUTHORIZATION ................................................................................................ 52 
+¾ OUTSTANDING TRANSACTION ........................................................................................................... 52 
+¾ BLOCK  TRANSACTION : .................................................................................................................... 54 
+¾ EXPIRED  TRANSACTION : ................................................................................................................. 56 
+HOME REMITTANCE MODULE ....................................................................................................... 59 
+3.1.1 EREMIT MESSAGE LOG INQUIRY(NEW) ....................................................................................... 60 
+3.1.2 REJECT OPTION FOR EXPIRED /BLOCK TRANSACTION ..................................................................... 61 
+ 
+ 
+ 
+===== PAGE 3 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CHAPTER 
+ 
+ 
+ 
+ 
+ 
+ 
+Parameter Module 
+ 
+ 
+ 
+===== PAGE 4 =====
+Advance IBFT 4 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+1.1 Parameters  
+1.1.1  Agent/Sub agent GL Mapping 
+ 
+Detail: For all newly created agent(s)/sub agent(s) GL mapping need to be defined before granting 
+transaction access to end users. 
+Menu Option: Parameter >> Global >> Teller GL Identification 
+ 
+ 
+ 
+1.1.2 Parameterization ‐ Sub agent Data Entry 
+ 
+¾ Transaction Type: 
+Detail: A new transaction type has been added for sub‐agent GT creation for Acquisition Data Entry. 
+Parameters for the added entry have been provided in the screen shot below. 
+ 
+Menu Option: Parameter >> Global >> Transaction Type 
+===== PAGE 5 =====
+Advance IBFT 5 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+• 061‐  Data Entry Agent/Sub Agent 
+ 
+ 
+ 
+===== PAGE 6 =====
+Advance IBFT 6 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Attribute Sample Date 
+Type 061
+Description Data En try Agent/Sub Agent 
+Short Data Entry Till
+Group Detail Detail 
+Default No 
+Active Yes
+Voucher Type 0001 ‐ERP Voucher 
+Authority Criteria Yes
+Generate Accounting Entry Yes 
+Mobiz No 
+ 
+ 
+ 
+¾ Product/Scheme Setup : 
+   
+Detail: Transaction type mapping and transaction type matrix setup can be configured according to 
+the setup below:   
+Menu Option: Parameter >> Profile >> Product/Scheme 
+ 
+===== PAGE 7 =====
+Advance IBFT 7 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+===== PAGE 8 =====
+Advance IBFT 8 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+Data Entry  for above Screen mentioned as follows: 
+ 
+System Code HRM    Home Remittance
+Transaction Type 061      Data Entry Agent/Sub Agent 
+Nature O – Other 
+Currency PKR 
+Default No 
+Active Yes
+Generate Accounting Entry Yes 
+Activity CR ‐Credit 
+ 
+ 
+¾ Account Matrix : 
+===== PAGE 9 =====
+Advance IBFT 9 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+   
+Detail: Account matrix for the newly created transaction type must be configured according to the 
+steps stated below. 
+Menu Option: Parameter >> Global >> Account Matrix 
+ 
+Step 1: Add the newly created transaction type for data entry sub agent GT creation. 
+ 
+ 
+ 
+ 
+Data Entry  for above Screen mentioned as follows: 
+ 
+Trans Type 061‐ Data Entry Agent/Sub Agent 
+Activity(Tran Type) 061 
+===== PAGE 10 =====
+Advance IBFT 10 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Description Data En try Agent/Sub Agent 
+System ID  HRM ‐ Home Remittance
+Field Comb POR_ORGACODE,PCR_CURRCODE_IN,PCR_CURRCODE_OUT 
+ 
+ 
+ 
+ 
+ 
+Step 2: In the Voucher Reference add the value combination for the new transaction type. 
+ 
+Step 3: Debit/Credit entries for the above transaction type are stated below. 
+===== PAGE 11 =====
+Advance IBFT 11 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+Debit Entry :  Modify the DR. GL A/c according to the specified GL by end user. 
+ 
+Column Narration Value 
+Description Data Entry User Till 
+DR. GL A/c 0000151550
+Sql Statement SELECT MBM_DOCAMOUNTFC, MBM_DOCAMOUNTBC FROM 
+BN_MS_BP_BANKMASTERPRI_ACQ  WHERE POR_ORGACODE = ?  AN
+PLC_LOCACODE = ? AND DMP_PRODCODE = ? AND DCS_SCHEMCOD
+AND MBM_NUMBER = ? 
+Sql Statement2 SELECT PCR_CURRCODE, PET_EXRTCODE, MBM_EXCHRATE 
+MCH_EXCHRATE, NULL MCH_NARRATION, NULL PCH_CHRGCODE, N
+PGN_CRTPCODE, NULL MCH_BASEDVALUEFC, NULL MCH_BASEDVAL
+NULL MCH_RATEVALUE FROM BN_MS_BP_BANKMASTERPRI_ACQ W
+POR_ORGACODE = ?  AND PLC_LOCACODE = ? AND DMP_PRODCODE
+AND DCS_SCHEMCODE = ? AND MBM_NUMBER = ? 
+Gen/Seq. No. 1 
+Default No 
+===== PAGE 12 =====
+Advance IBFT 12 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Update Account Balance M – Minus 
+Demand Account No 
+Originating No 
+Batch Identifier Yes 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type BALN – Account Balance 
+First Orig Doc. No 
+GL Identification T ‐ Teller GL 
+ 
+ 
+ 
+Credit Entry:  Modify the DR. GL A/c according to the specified GL by end user. 
+ 
+ 
+===== PAGE 13 =====
+Advance IBFT 13 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Column Narration Value 
+Description Payable Account
+CR. GL A/c 10019001 
+Sql Statement SELECT MBM_DOCAMOUNTFC, MBM_DOCAMOUNTBC FROM 
+BN_MS_BP_BANKMASTERPRI_ACQ  WHERE POR_ORGACODE = ?  AN
+PLC_LOCACODE = ? AND DMP_PRODCODE = ? AND DCS_SCHEMCOD
+AND MBM_NUMBER = ? 
+Sql Statement2 SELECT PCR_CURRCODE, PET_EXRTCODE, MBM_EXCHRATE 
+MCH_EXCHRATE, NULL MCH_NARRATION, NULL PCH_CHRGCODE, N
+PGN_CRTPCODE, NULL MCH_BASEDVALUEFC, NULL MCH_BASEDVAL
+NULL MCH_RATEVALUE FROM BN_MS_BP_BANKMASTERPRI_ACQ W
+POR_ORGACODE = ?  AND PLC_LOCACODE = ? AND DMP_PRODCODE
+AND DCS_SCHEMCODE = ? AND MBM_NUMBER = ? 
+Gen/Seq. No. 2 
+Default No 
+Update Account Balance P ‐ Plus 
+Demand Account No 
+Originating No 
+Batch Identifier No 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type OTHR ‐ Other 
+First Orig Doc. No 
+GL Identification N ‐ None 
+ 
+¾ Data Entry Responding Transaction Type: 
+   
+Detail: Update Data Entry responding transaction type with the new transaction type created in the above 
+steps. 
+===== PAGE 14 =====
+Advance IBFT 14 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Menu Option: Parameter >> Global >> Transaction Type 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 15 =====
+Advance IBFT 15 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+1.1.3 Limit Management Setup 
+ 
+¾ Transaction Type: 
+   
+Detail: A new transaction type has been added for sub‐agent Limit Management. Parameters for 
+the added entry have been provided in the screen shot below. 
+ 
+Menu Option: Parameter >> Global >> Transaction Type 
+• 070‐  Limit Management 
+ 
+ 
+  
+ 
+===== PAGE 16 =====
+Advance IBFT 16 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+  
+ 
+Attribute Sample Date 
+Type 070 
+Description Limit Management 
+Short LimitMang 
+Group Detail Detail
+Default No 
+Active Yes
+Voucher Type 0001 ‐ERP Voucher 
+Authority Criteria Yes 
+Generate Accounting Entry Yes
+Mobiz No 
+ 
+ 
+===== PAGE 17 =====
+Advance IBFT 17 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+¾ Product/Scheme Setup : 
+   
+Detail: Transaction type mapping and transaction type matrix setup can be configured according to 
+the setup below. 
+Menu Option: Parameter >> Profile >> Product/Scheme 
+ 
+ 
+ 
+ 
+===== PAGE 18 =====
+Advance IBFT 18 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+  
+Data Entry  for above Screen mentioned as follows: 
+ 
+System Code HRM    Home Remittance
+Transaction Type 070      Limit Management 
+Nature A ‐Accural
+Currency PKR 
+Default No 
+Active Yes
+Generate Accounting Entry Yes 
+Activity CR ‐Credit
+ 
+ 
+===== PAGE 19 =====
+Advance IBFT 19 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Data Entry  for above Screen mentioned as follows: 
+ 
+Entity Id PR_BN_LM_TB_LIMITMANAGEMENT 
+Entity Description User Limit Management 
+Transaction Type 070 ‐ Limit Management 
+ 
+¾ Account Matrix : 
+ 
+Detail: Account matrix for the newly created transaction type must be configured according to the 
+steps stated below. 
+Menu Option: Parameter >> Global >> Account Matrix 
+Step 1: Add the newly created transaction type for data entry sub agent GT creation. 
+===== PAGE 20 =====
+Advance IBFT 20 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Data Entry  for above Screen mentioned as follows: 
+Trans Type 070‐ Limit Management 
+Activity(Tran Type) 070 
+Description Limit Management 
+System ID  HRM ‐ Home Remittance
+Field Comb POR_ORGACODE,DMP_PRODCODE,DCS_SCHEMCODE 
+Branch D ‐Default 
+Active Yes 
+ 
+Step 2: In the Voucher Reference add the value combination for the new transaction type. 
+===== PAGE 21 =====
+Advance IBFT 21 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Step 3: Debit/Credit entries for the above transaction type are stated below. 
+Debit Entry: 
+ 
+Note:  Modify the DR. GL A/c according to the specified GL by end user.  
+===== PAGE 22 =====
+Advance IBFT 22 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+      (For Agent) 
+Column Narration Value 
+Description Data Entry User Till
+DR. GL A/c 0000151550 
+Sql Statement SELECT ?,?,? FROM PR_BN_FA_ACQUISITIONUSERS 
+WHERE SUS_USERCODE = ? AND PFB_FNINCODE = ? AND 'P' = ? 
+SQL Parameter Sequence AVAILNEWBALANCEBC,AVAILNEWBALANCEFC,SUS_USERCODE,SUS_
+ODE,PFB_FNINCODE,PLUSMINUS 
+Gen/Seq. No. 1 
+Default No 
+Update Account Balance M – Minus
+Demand Account No 
+Originating No 
+Batch Identifier Yes 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type BALN – Account Balance
+First Orig Doc. No 
+GL Identification T ‐ Teller GL
+ 
+Note:  Modify the DR. GL A/c according to the specified GL by end user. 
+(For Sub Agent) 
+Column Narration Value 
+Description Data Entry User Till
+DR. GL A/c 0000151550 
+===== PAGE 23 =====
+Advance IBFT 23 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Sql Statement SELECT ?,?,? FROM PR_BN_FA_ACQUISITIONUSERS 
+WHERE SUS_USERCODE = ? AND PFB_FNINCODE = ? AND 'M' = ? 
+SQL Parameter Sequence AVAILNEWBALANCEBC,AVAILNEWBALANCEFC,SUBAGENT,SUS_USER
+PFB_FNINCODE, PLUSMINUS 
+Gen/Seq. No. 2 
+Default No 
+Update Account Balance P – Plus
+Demand Account No 
+Originating No 
+Batch Identifier Yes 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type OTHR ‐ Other
+First Orig Doc. No 
+GL Identification T ‐ Teller GL 
+ 
+Credit Entry: 
+===== PAGE 24 =====
+Advance IBFT 24 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Note:  Modify the CR. GL  A/c according to the specified GL by end user. 
+(For SubAgent) 
+Column Narration Value 
+Description Data Entry User Till
+CR. GL A/c 0000151550 
+Sql Statement SELECT ?,?,? FROM PR_BN_FA_ACQUISITIONUSERS 
+WHERE SUS_USERCODE = ? AND PFB_FNINCODE = ? AND 'P' = ? 
+SQL Parameter Sequence AVAILNEWBALANCEBC,AVAILNEWBALANCEFC,SUBAGENT,SUS_USER
+PFB_FNINCODE, PLUSMINUS 
+Gen/Seq. No. 3 
+Default No 
+Update Account Balance P – Plus 
+Demand Account No 
+===== PAGE 25 =====
+Advance IBFT 25 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Originating No 
+Batch Identifier No 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type OTHR ‐ Other 
+First Orig Doc. No 
+GL Identification T ‐ Teller GL 
+ 
+Note:  Modify the CR. GL A/c according to the specified GL by end user. 
+(For Agent) 
+Column Narration Value 
+Description Data Entry User Till 
+CR. GL A/c 0000151550
+Sql Statement SELECT ?,?,? FROM PR_BN_FA_ACQUISITIONUSERS 
+WHERE SUS_USERCODE = ? AND PFB_FNINCODE = ? AND 'M' = ? 
+SQL Parameter Sequence AVAILNEWBALANCEBC,AVAILNEWBALANCEFC,SUS_USERCODE,SUS_
+ODE,PFB_FNINCODE,PLUSMINUS 
+Gen/Seq. No. 4 
+Default No 
+Update Account Balance M – Minus 
+Demand Account No 
+Originating No 
+Batch Identifier No 
+Display in Advice No 
+Posting Tag No 
+===== PAGE 26 =====
+Advance IBFT 26 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Default Location No 
+Item Type BALN – Account Balance
+First Orig Doc. No 
+GL Identification T ‐ Teller GL
+ 
+¾ Data Entry Responding Transaction Type: 
+   
+Detail: Update Data Entry responding transaction type with the new transaction type created in the above 
+steps. 
+Menu Option: Parameter >> Global >> Transaction Type 
+ 
+ 
+===== PAGE 27 =====
+Advance IBFT 27 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+1.1.4 Reversal Transaction Setup 
+ 
+¾ Transaction Type: 
+ 
+Detail: A new transaction type has been added for Acquisition Fund Transfer Reversal. Parameters 
+for the added entry have been provided in the screen shot below.  
+Menu Option: Parameter >> Global >> Transaction Type 
+ 
+• 053‐  Acquisition Fund Transfer Reversal 
+ 
+===== PAGE 28 =====
+Advance IBFT 28 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+===== PAGE 29 =====
+Advance IBFT 29 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+  
+ 
+Attribute Sample Date 
+Type 053 
+Description Acquisition Fund Transfer Reversal 
+Short AFT Rev 
+Group Detail Detail
+Default No 
+Active Yes
+Voucher Type 0001 ‐ERP Voucher 
+Authority Criteria Yes 
+Generate Accounting Entry Yes
+Mobiz No 
+ 
+ 
+===== PAGE 30 =====
+Advance IBFT 30 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+¾ Product/Scheme Setup : 
+   
+Detail: Transaction type mapping and transaction type matrix setup can be configured according to 
+the setup below. 
+Menu Option: Parameter >> Profile >> Product/Scheme 
+ 
+ 
+ 
+ 
+===== PAGE 31 =====
+Advance IBFT 31 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+  
+Data Entry  for above Screen mentioned as follows: 
+ 
+System Code HRM    Home Remittance 
+Transaction Type 053      Acquisition Fund Transfer Reversal 
+Nature O – Other
+Currency PKR 
+Default No 
+Active Yes 
+Generate Accounting Entry Yes 
+Activity CR ‐Credit
+ 
+ 
+===== PAGE 32 =====
+Advance IBFT 32 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+  
+ 
+Data Entry  for above Screen mentioned as follows: 
+Entity Id BN_CS_TB_OS_iAQOUTSTANDINGREJ 
+Entity Description Authorization Rejection 
+Transaction Type 053 ‐ Acquisition Fund Transfer Reversal 
+ 
+ 
+¾ Account Matrix : 
+   
+Detail: Account matrix for the newly created transaction type must be configured according to the 
+steps stated below.  
+Note: It’s the exact same replica of data entry matrix in reverse order. (i.e. Debit for data entry will 
+become credit and credit will become the debit). Create the matrix accordingly for the required 
+modes of transaction. 
+Menu Option: Parameter >> Global >> Account Matrix 
+===== PAGE 33 =====
+Advance IBFT 33 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Step 1: Add the newly created transaction type for data entry sub agent GT creation. 
+ 
+ 
+  
+Data Entry  for above Screen mentioned as follows: 
+ 
+Trans Type 053‐ Acquisition Fund Transfer Reversal
+Activity(Tran Type) 053 
+Description Acquisition Fund Transfer Reversal 
+System ID  HRM ‐ Home Remittance 
+Field Comb POR_ORGACODE,PCR_CURRCODE_IN,PCR_CURRCODE_OUT,PRM_REMT
+CODE 
+Branch D ‐Default 
+Active Yes 
+ 
+===== PAGE 34 =====
+Advance IBFT 34 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Step 2: In the Voucher Reference  add the value combination for the new transaction type. 
+ 
+  
+Debit/Credit entries for the above transaction type are stated below. 
+Debit Entry: 
+ 
+===== PAGE 35 =====
+Advance IBFT 35 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+Note:  Modify the DR. GL  A/c according to the specified GL by end user. 
+ 
+Column Narration Value
+DR. GL A/c 0000151550 
+Sql Statement SELECT MBM_DOCAMOUNTFC, MBM_DOCAMOUNTFC FROM 
+BN_MS_BP_BANKMASTERPRI_ACQ  BP, PR_BN_FB_FININSTBANKS FI
+WHERE BP.POR_ORGACODE = ?  AND BP.PLC_LOCACODE = ? AND 
+BP.DMP_PRODCODE = ? AND BP.DCS_SCHEMCODE = ? AND 
+BP.MBM_NUMBER = ? AND BP.PFB_FIBNCODE_REMT=FI.PFB_FNINC
+AND FI.PFB_FNINNATURE='E' 
+SQL Statetment2 SELECT PCR_CURRCODE, PET_EXRTCODE, MBM_EXCHRATE 
+MCH_EXCHRATE, NULL MCH_NARRATION, NULL PCH_CHRGCODE, N
+PGN_CRTPCODE, NULL MCH_BASEDVALUEFC, NULL MCH_BASEDVAL
+NULL MCH_RATEVALUE FROM BN_MS_BP_BANKMASTERPRI_ACQ W
+POR_ORGACODE = ?  AND PLC_LOCACODE = ? AND DMP_PRODCODE
+===== PAGE 36 =====
+Advance IBFT 36 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+AND DCS_SCHEMCODE = ? AND MBM_NUMBER = ? 
+Gen/Seq. No. 1 
+Default No 
+Update Account Balance N – None
+Demand Account No 
+Originating No 
+Batch Identifier Yes 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type OTHR ‐ Other 
+First Orig Doc. No 
+GL Identification N ‐ None 
+ 
+ 
+Credit Entry: 
+===== PAGE 37 =====
+Advance IBFT 37 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Note:  Modify the CR. GL  A/c according to the specified GL by end user. 
+Column Narration Value 
+CR. GL A/c 0000151550 
+Sql Statement SELECT MBM_DOCAMOUNTFC, MBM_DOCAMOUNTFC FROM 
+BN_MS_BP_BANKMASTERPRI_ACQ  BP, PR_BN_FB_FININSTBANKS FI
+WHERE BP.POR_ORGACODE = ?  AND BP.PLC_LOCACODE = ? AND 
+BP.DMP_PRODCODE = ? AND BP.DCS_SCHEMCODE = ? AND 
+BP.MBM_NUMBER = ? AND BP.PFB_FIBNCODE_REMT=FI.PFB_FNINC
+AND FI.PFB_FNINNATURE='E' 
+Sql Statement 2 SELECT PCR_CURRCODE, PET_EXRTCODE, MBM_EXCHRATE 
+MCH_EXCHRATE, NULL MCH_NARRATION, NULL PCH_CHRGCODE, N
+PGN_CRTPCODE, NULL MCH_BASEDVALUEFC, NULL MCH_BASEDVAL
+NULL MCH_RATEVALUE FROM BN_MS_BP_BANKMASTERPRI_ACQ W
+POR_ORGACODE = ?  AND PLC_LOCACODE = ? AND DMP_PRODCODE
+AND DCS_SCHEMCODE = ? AND MBM_NUMBER = ? 
+Gen/Seq. No. 2 
+===== PAGE 38 =====
+Advance IBFT 38 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Default No 
+Update Account Balance N ‐ None
+Demand Account No 
+Originating No 
+Batch Identifier Yes 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type OTHR ‐ Other
+First Orig Doc. No 
+GL Identification E ‐ ExchangeCompany 
+ 
+¾ Data Entry Reversal Responding Transaction Type: 
+ 
+Detail: A new transaction type has been added for sub‐agent GT creation for Acquisition Data Entry 
+Reversal. Parameters for the added entry have been provided in the screen shot below. 
+ 
+Menu Option: Parameter >> Global >> Transaction Type 
+===== PAGE 39 =====
+Advance IBFT 39 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+ 
+===== PAGE 40 =====
+Advance IBFT 40 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Attribute Sample Date 
+Type 063
+Description Acquisition Reversal Agent/SubAgent 
+Short AFTAgentRev
+Group Detail Detail 
+Default No 
+Active Yes
+Voucher Type 0001 ‐ERP Voucher 
+Authority Criteria Yes
+Generate Accounting Entry Yes 
+Mobiz No 
+ 
+¾ Product/Scheme Setup : 
+   
+Detail: Transaction type mapping and transaction type matrix setup can be configured according to 
+the setup below. 
+Menu Option: Parameter >> Profile >> Product/Scheme 
+ 
+===== PAGE 41 =====
+Advance IBFT 41 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+  
+===== PAGE 42 =====
+Advance IBFT 42 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Data Entry  for above Screen mentioned as follows: 
+ 
+System Code HRM    Home Remittance 
+Transaction Type 063      Acquisition Reversal Agent/SubAgent
+Nature O ‐Other 
+Currency PKR 
+Default No
+Active Yes 
+Generate Accounting Entry Yes
+Activity CR ‐Credit 
+ 
+¾ Account Matrix : 
+Detail: Account matrix for the newly created transaction type must be configured according to the 
+steps stated below. 
+Menu Option: Parameter >> Global >> Account Matrix 
+Add the newly created transaction type for data entry sub agent GT creation. 
+ 
+===== PAGE 43 =====
+Advance IBFT 43 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Data Entry  for above Screen mentioned as follows: 
+Trans Type 063‐ Acquisition Reversal Agent/SubAgent 
+Activity(Tran Type) 063 
+Description Acquisition Reversal Agent/SubAgent 
+System ID  HRM ‐ Home Remittance 
+Field Comb POR_ORGACODE,PCR_CURRCODE_IN,PCR_CURRCODE_OUT 
+Branch D ‐Default 
+Active Yes 
+ 
+In the Voucher Reference add the value combination for the new transaction type. 
+ 
+ 
+  
+Debit/Credit entries for the above transaction type are stated below. 
+===== PAGE 44 =====
+Advance IBFT 44 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Debit Entry: 
+Note:  Modify the DR. GL  A/c according to the specified GL by end user. 
+ 
+Column Narration Value 
+Description Payable Account
+DR. GL A/c 10019001 
+Sql Statement SELECT MBM_DOCAMOUNTFC, MBM_DOCAMOUNTBC FROM 
+BN_MS_BP_BANKMASTERPRI_ACQ  WHERE POR_ORGACODE = ?  AN
+PLC_LOCACODE = ? AND DMP_PRODCODE = ? AND DCS_SCHEMCOD
+AND MBM_NUMBER = ? 
+Sql Statement2 SELECT PCR_CURRCODE, PET_EXRTCODE, MBM_EXCHRATE 
+MCH_EXCHRATE, NULL MCH_NARRATION, NULL PCH_CHRGCODE, N
+PGN_CRTPCODE, NULL MCH_BASEDVALUEFC, NULL MCH_BASEDVAL
+NULL MCH_RATEVALUE FROM BN_MS_BP_BANKMASTERPRI_ACQ W
+POR_ORGACODE = ?  AND PLC_LOCACODE = ? AND DMP_PRODCODE
+AND DCS_SCHEMCODE = ? AND MBM_NUMBER = ? 
+===== PAGE 45 =====
+Advance IBFT 45 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Gen/Seq. No. 1 
+Default No 
+Update Account Balance M – Minus 
+Demand Account No 
+Originating No 
+Batch Identifier Yes 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type BALN – Account Balance 
+First Orig Doc. No 
+GL Identification N ‐ None 
+ 
+Credit Entry: 
+ 
+===== PAGE 46 =====
+Advance IBFT 46 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+Note:  Modify the CR. GL A/c according to the specified GL by end user. 
+ 
+Column Narration Value 
+Description Data Entry User Till
+CR. GL A/c 0000151550 
+Sql Statement SELECT MBM_DOCAMOUNTFC, MBM_DOCAMOUNTBC FROM 
+BN_MS_BP_BANKMASTERPRI_ACQ  WHERE POR_ORGACODE = ?  AN
+PLC_LOCACODE = ? AND DMP_PRODCODE = ? AND DCS_SCHEMCOD
+AND MBM_NUMBER = ? 
+Sql Statement2 SELECT PCR_CURRCODE, PET_EXRTCODE, MBM_EXCHRATE 
+MCH_EXCHRATE, NULL MCH_NARRATION, NULL PCH_CHRGCODE, N
+PGN_CRTPCODE, NULL MCH_BASEDVALUEFC, NULL MCH_BASEDVAL
+NULL MCH_RATEVALUE FROM BN_MS_BP_BANKMASTERPRI_ACQ W
+POR_ORGACODE = ?  AND PLC_LOCACODE = ? AND DMP_PRODCODE
+AND DCS_SCHEMCODE = ? AND MBM_NUMBER = ? 
+Gen/Seq. No. 2 
+Default No 
+Update Account Balance P  – Plus 
+Demand Account No 
+Originating No 
+Batch Identifier No 
+Display in Advice No 
+Posting Tag No 
+Default Location No 
+Item Type OTHR ‐ Other 
+First Orig Doc. No 
+GL Identification T ‐ Teller GL 
+ 
+Update Data Entry responding transaction type with the new transaction type created in the above steps. 
+Menu Option: Parameter >> Global >> Transaction Type 
+===== PAGE 47 =====
+Advance IBFT 47 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+  
+===== PAGE 48 =====
+Advance IBFT 48 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+1.1.5 Transaction Authority setup for Block Transaction 
+ 
+Detail : For reversal transaction from Block Interface of Acquisition Module following setup will need to be 
+defined: 
+Menu Option: Parameter>>Global>> Transaction Authority Setup 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 49 =====
+Advance IBFT 49 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CHAPTER 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Acquisition Module 
+ 
+ 
+ 
+ 
+===== PAGE 50 =====
+Advance IBFT 50 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+2.1 Acquisition   
+ 
+2.1.1 Transaction Initiation with CRM Profile Integration 
+ 
+Customer and beneficiary profiles are now available for selection for remittance transaction 
+capturing through Transaction Initiation interface 
+• On selection of new customer user can proceed without any selection. 
+• On selection of existing customer user must select customer from the list otherwise will not 
+be able to proceed. 
+• On selection of existing customer user can select its existing beneficiary or can create a new 
+one. 
+• On selection of existing beneficiary user must select beneficiary from the list otherwise will 
+not be able to proceed. 
+• Customer and beneficiary information will be fetched from their respective profiles on 
+selecting existing customer and beneficiary respectively. The profile details fetched will be 
+displayed on remitter and beneficiary tabs respectively. 
+ 
+Menu Option: Transaction Initiation 
+ 
+  
+===== PAGE 51 =====
+Advance IBFT 51 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+2.1.2 Confirmation Report 
+ 
+¾ Transaction Initiation: 
+   Detail: Print Option is available for Confirmation report after capturing transaction through Transaction 
+Initiation option. 
+Menu Option: Transaction Initiation >>  Confirmation 
+ 
+ 
+On clicking the print button 
+ Report will be opened  
+and will be available to print. 
+===== PAGE 52 =====
+Advance IBFT 52 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+2.1.1 Transaction Authorization 
+ 
+¾ Outstanding Transaction : 
+ 
+Detail: Rejection facility is available now for outstanding transaction available at below mentioned 
+interface: 
+Menu Path: Transaction Authorization >> Outstanding 
+ 
+Upon clicking [Process] button              
+transaction details will be available           
+for further action   
+===== PAGE 53 =====
+Advance IBFT 53 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+  
+ 
+ 
+ 
+ 
+Upon clicking [Reject] 
+button transaction will be 
+marked “Cancelled” and 
+reversal entry will be 
+generated. 
+===== PAGE 54 =====
+Advance IBFT 54 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+¾ Block  Transaction : 
+ 
+Detail: Rejection facility is available now for Block transaction available at below mentioned 
+interface 
+Menu Path: Transaction Authorization >> Block  
+ 
+
+===== PAGE 55 =====
+Advance IBFT 55 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+     
+ 
+User cannot perform any action 
+until and unless business 
+Application User will take 
+decision from compliance 
+prospective.                                
+Once transaction is being 
+marked [Cancelled] by 
+compliance user, Acquisition 
+Application user will have the 
+right to “Reject” only.  
+===== PAGE 56 =====
+Advance IBFT 56 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+¾ Expired  Transaction : 
+Detail: Rejection facility is available now for Expired transaction available at below mentioned 
+interface 
+Menu Path: Transaction Authorization >> Expired 
+ 
+Upon clicking [Reject] 
+button transaction will be 
+marked “Cancelled” and 
+reversal entry will be 
+generated. 
+
+===== PAGE 57 =====
+Advance IBFT 57 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+User cannot perform any action 
+until and unless business 
+Application User will take 
+decision for Release / Unrelease.   
+Once transaction is being 
+marked [Reject] by bank user, 
+Acquisition Application user will 
+have the right to “Reject” only.  
+===== PAGE 58 =====
+Advance IBFT 58 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Upon clicking [Reject]
+button transaction will be 
+marked “Cancelled” and 
+reversal entry will be 
+generated. 
+===== PAGE 59 =====
+Advance IBFT 59 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CHAPTER 
+ 
+ 
+ 
+ 
+ 
+ 
+Home Remittance Module 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 60 =====
+Advance IBFT 60 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+3.1 Home Remittance  
+3.1.1 eRemit Message Log Inquiry(New) 
+ 
+A new menu Message Log has been provided, menu path of screen is given, 
+ 
+Menu Option: Home Remittance>>Inquiry>>eRemit Message Log 
+ 
+ 
+ 
+  
+===== PAGE 61 =====
+Advance IBFT 61 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+Transactions can be filtered from selection criteria Stan No, RRN No, Unique Reference No, Transaction No, 
+Mode, Log Date, Tran Date and FT date. 
+Message Log Inquiry will contain transactions of Title Fetch and Fund transfer that are sent or received for 
+IBFT log. 
+3.1.2 Reject Option for Expired /Block Transaction 
+ 
+Reject Option is available for Expired and Block transaction through Status Marking Interface:  
+Menu Path:  Home Remittance >> Authorization>> Expired 
+ 
+===== PAGE 62 =====
+Advance IBFT 62 
+ 
+ 
+CENTEGY BANKING SOLUTIONS
+ 
+ 
+ 
+Note: No Financial Entry will be generated at this end.   
+Upon clicking [Reject] button, 
+transaction will be available at 
+Acquisition Application for 
+Master Agent to further cancel 
+the transaction.   

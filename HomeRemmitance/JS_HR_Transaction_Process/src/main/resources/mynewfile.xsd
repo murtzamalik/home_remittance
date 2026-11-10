@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.src.com/main/java/org/ais/hr/fileupload/SoapApi/dto"
+			xmlns:tns="http://www.src.com/main/java/org/ais/hr/fileupload/SoapApi/dto"
+			elementFormDefault="qualified">
+
+
+	<xsd:element name="Transaction">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="amount" type="xsd:decimal"></xsd:element>
+				<xsd:element name="beneficiaryAccountNo" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryAccountTitle" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryBankName" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryBranchAdd1" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryBranchAdd2" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryBranchCode" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryCnic" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryName" type="xsd:string"></xsd:element>
+				<xsd:element name="beneficiaryOtherContact" type="xsd:string"></xsd:element>
+				<xsd:element name="remitterAddress" type="xsd:string"></xsd:element>
+				<xsd:element name="remitterName" type="xsd:string"></xsd:element>
+				<xsd:element name="remitterNumber" type="xsd:string"></xsd:element>
+				<xsd:element name="transactionReference" type="xsd:string"></xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+
+	</xsd:element>
+
+	<xsd:element name="TransactionRequest" nillable="true">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="remitId" type="xsd:long"/>
+				<xsd:element minOccurs="0" name="transactionlist">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element maxOccurs="unbounded" minOccurs="0" ref="tns:Transaction"/>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+
+
+	<xsd:element name="Response">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="transHeadId" type="xsd:long" />
+				<xsd:element name="apiType" type="xsd:string" />
+				<xsd:element name="status" type="xsd:string" />
+				<xsd:element name="remitterid" type="xsd:long" />
+
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+
+
+
+
+
+</xsd:schema>

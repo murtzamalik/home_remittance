@@ -1,0 +1,2528 @@
+9bE\9bE\
+Proposal for RemitONE Connections via API Integration for JS Bank
+Point of Contact:
+UK Head Office
+Document Revision History
+Version
+Author
+4 May 2016
+Azam Razzaq
+First version
+Table of Contents
+ TOC \o "1-3" \h \z \u 
+Introduction
+ PAGEREF _Toc294125934 \h 
+Requirements
+ PAGEREF _Toc294125935 \h 
+Proposed Solution
+ PAGEREF _Toc294125936 \h 
+Dependencies
+ PAGEREF _Toc294125937 \h 
+Deliverables
+ PAGEREF _Toc294125938 \h 
+ PAGEREF _Toc294125939 \h 
+Appendix I 
+ Complete Feature Set (Reference Only)
+ PAGEREF _Toc294125940 \h 
+Appendix II 
+ Terminology
+ PAGEREF _Toc294125941 \h 
+JS Bank Limited was formed in 2006 by the merger of Jahangir Siddiqui Investment Bank (Ltd) and the commercial banking operations of American Express Bank (Pakistan) Ltd. JS Bank Limited also possesses a Primary Dealer license for government securities from the State Bank of Pakistan. With a strong focus on offering quality banking products and services to the Pakistan, JS Bank
+s key activities can be categorized into four Business Units:
+Retail and Consumer Banking
+Treasury
+Corporate and Commercial Banking
+Investment Banking
+JS Bank is one of the fastest growing banks in Pakistan. With a vast online network of
+277 branches in 138 cities
+in all provinces, we are present wherever our customers need us to be. From the biggest cities to the smallest towns, we consistently offer outstanding services along with a host of innovative and growth-oriented products.
+JS Bank now wish to expand their already successful home remittance business and increase revenues using a quick to market approach. Through recent detailed discussions with RemitONE it was discovered that JS Bank could easily gain access to the RemitONE global community of send agents and banks (through RemitONE Connections) through a simple piece of integration work.
+Always at the forefront of technology in the money transfer industry, RemitONE provides money transfer systems to banks, money transfer operators (MTOs), Telcos and start-ups from around the world. Our multi-agent, multi-channel and multi-currency solutions empower our clients and their customers to send and receive money using agents, EFTPOS terminals, mobile phones, prepaid cards, self-service kiosks and online web portals.
+RemitONE Connections will provide JS Bank the following:
+Enable JS Bank to launch a new stream of remittances fairly quickly and take advantage of RemitONE Connections (a network of banks and MTOs including a range of send and receive agents integrated with the RemitONE platform)
+Integration via Web Services API to the current JS Bank remittance system. The integration will be carried out by JS Bank (at their own request) with limited support from RemitONE
+JS Bank wish to receive transactions from key remittance corridors including the UK and UAE. They wish to integrate RemitONE to their current remittance system ASAP to take advantage of new revenue streams. This can be achieved potentially provided JS Bank are able to complete the contractual formalities and respond to RemitONE
+s documentation and engagement procedures in a timely fashion.
+JS Bank want a real time API to their current money transfer platform so they can receive transactions once the integration work is complete. It is understood that JS Bank will complete a commercial agreement with any RemitONE customer they wish to receive transactions from. This agreement will be between JS Bank and the RemitONE client and may be subject to State Bank of Pakistan approval.
+Such introductions will be made once a contract for this proposal has been signed and invoices paid for by JS Bank.
+RemitONE proposes to satisfy JS Bank
+s requirements through integration to the JS Bank remittance system, to deliver RemitONE Connections so that JS Bank can connect potentially with any RemitONE client to receive transactions. JS Bank have chosen to carry out the integration work themselves with support from RemitONE.
+RemitONE Connections is a very personalised and unique service we provide to our clients whereby we connect them to our network of clients, partner banks, money transfer operators (MTOs) and Telcos in over 100 countries. Please see the link below for a selection of our customers and testimonials:
+ HYPERLINK "http://www.remitone.com/our_clients.php" 
+http://www.remitone.com/our_clients.php
+Also, below is a selection of our client/partner MTOs that are relevant to Pakistan as a receiving country:
+Client/Partner
+Region
+Description
+Al Fardan Exchange
+One of the largest and most well-established MTOs in UAE
+Moneytrans
+Belgium
+A network of 90+ countries with 100,000 payout locations
+Singapore
+Established and growing MTO with access to migrant dormitories sending to Pakistan
+USA/UK
+Large global MTO
+Marq Millions
+Newly established MTO with a unique and powerful remittance model
+Max Forex
+Australia
+Established and growing MTO in Australia
+One of the largest MTOs in UK serving the Pakistani community
+Super X10
+Tempo France
+Europe
+Large and fast-growing MTO backed by remittance professionals
+Vowpay
+Sending to Pakistan
+SmallWorld FS
+We have integrated to this global MTO
+The Value Add
+JS Bank can immediately access other money service businesses from send and payout countries that are on the RemitONE platform. JS Bank will save significant time and costs and we can have them setup and receiving transactions quickly.
+The idea behind RemitONE Connections is simple and fundamental to the money transfer industry. We give JS Bank the opportunity to rapidly and easily increase their monthly transaction volumes by bringing our coverage and network to them. The more transactions JS Bank receives, the more revenue and enhanced customer loyalty for their business.
+How Does It Work?
+Becoming connected to RemitONE Connections is simple. Integration of JS Bank
+s current remittance system to RemitONE gives them access to our impressive list of clients from send and payout markets across 100 countries. We will introduce JS Bank to the senior staff of any RemitONE client or partner in the send or payout countries they are interested in once a contract has been signed and invoices have been paid. Our introduction will usually be done via email or phone with a personal recommendation, thus increasing JS Bank
+s chances of establishing a business relationship.
+We have made the RemitONE Connections on-boarding process very easy.
+JS Bank will simply integrate their current system to RemitONE, to join the RemitONE Connections network and pay monthly transaction fees which are dependent on the number of transactions they receive through our money transfer platform. There will be a minimum monthly transaction fee.
+In order for us to carry out the above-mentioned work, the following are required/assumed:
+Acquirement of SSL certificate for encryption
+Details for Web Services API integration to JS Bank
+s system
+RemitONE API, test system access and the support required for JS Bank to integrate their remittance system to RemitONE Connections.
+The costs can be split into the following parts and include special discounts for JS Bank which will be valid for a contract signed by 15 May 2016:
+RemitONE API, test system and support for JS Bank to integrate their remittance system to the RemitONE system
+Monthly Per Transaction Charges
+Minimum Monthly Fee
+RemitONE Integration support to JS Bank 
+Cost (USD)
+RemitONE Money Transfer Engine API, test system set up and also two days support to JS Bank when they carry out the integration work to integrate with the RemitONE system
+$4,950
+All Transactions
+USD $0.50
+Minimum Monthly Fee*
+Usage Fee
+* If the total monthly per transaction charges are below $1750, then JS Bank will be charged only $1750 for that month. If the total monthly per transaction charges are above $1750, then JS Bank will be charged only the actual transaction fees total for that month.
+All costs are exclusive of VAT where applicable and valid upto 21 May 2016.
+CORRIDORS & CURRENCIES
+System Settlement Currency
+Countries and currencies
+Source Countries
+Destination Countries
+Source Currencies, primary and secondary
+Destination Currencies, primary and secondary
+Source and Destination Conversion rates to/from System Settlement Currency
+Multiple Transaction Types: Cash Collection, Account Transfer, Home Delivery, Bill Payment, Mobile Top-up
+SECURITY
+Input Data checking
+Password management rules
+Access logs & Audit Trail
+User authentication and authorisation via MAC address checking, access time checks, IP address checks, etc.
+Transaction locking and approval
+Teller Permissions
+ADMINISTRATORS
+Super Admin users
+Limited Admin users, can be restricted per country
+Read Only Admin users
+Compliance Officer users
+System Support Admin users
+Accounting Admin users
+PROCESSING BANKS (PAYOUT NETWORKS)
+Setting up Processing Banks
+Processing Bank Credit
+Buy rates 
+ Preset or Weighted Average
+Processing Bank fees/charges
+Delivery Banks, Delivery Branches, Collection Points, Mobile Network Entities
+Bank Branches
+Bank sub-users, tellers and zone managers
+AGENCIES (SENDING)
+Setting up sending Agencies
+Agency credit
+Source Agency Commission split categories
+Custom rates
+Custom commissions
+FX profit sharing
+Sub-users
+AGENTS (SENDING AGENTS)
+Setting up sending Agents
+Agent credit
+Source Agent Commission split categories
+Sub-users and tellers
+FEES & CHARGES
+Sell Rates
+Commission slabs
+Tax slabs
+Extra fees per transfer type
+Discounts and sophisticated promotions management
+Service Levels
+Payment methods
+SMS charges
+DELIVERY ENTITIES
+Delivery Banks management
+Delivery Bank Branches management
+Collection Points management
+Mobile Networks management
+MEMBERS: REMITTERS & BENEFICIARIES
+Remitter and Beneficiary management
+Remitter and Beneficiary duplication detection and management
+Scanned ID Documents management
+Marketing & Rate alerts
+NOTIFICATIONS
+SMS Notifications can be sent to remitters and beneficiaries on transactions creation and payout
+SMS Notifications can be sent to remitters for marketing purposes
+Email notifications can be sent to remitters on transaction creation
+Email notifications can be sent to Administrative staff for a number of different system events
+COMPLIANCE
+Know Your Customer (KYC)
+Real-time ID Verification through integration with Experian etc.
+Real-time volume and velocity checks for Anti Money Laundering (AML) and linked transaction detection
+Sophisticated GUI for creation of velocity and volume check rules, with specification of trigger rules, extra requirements for passing rules, and possibility of either 'soft' or 'hard' fail 
+Blacklist phonetic checking of names against standard lists (OFAC, EU Sanctions, HM Treasury, CIA PEP List, UN Sanctions)
+Blacklist phonetic checking of names against a custom list
+Custom Compliance Rules as pluggable modules
+Compliance Officer tasks
+TRANSACTION FLOW & MANAGEMENT
+Creation, flow and payout
+Routing to delivery agents
+Transaction statuses
+Transaction status flow control using sophisticated "State Machine"
+Errors and corrections
+Transaction cancellation
+Complaints management
+ACCOUNTING
+Profit and Loss reporting
+HQ General Ledger and Commissions Accounting
+Processing Bank Accounting
+Processing Bank Branch Accounting
+Agency Accounting
+Agent Accounting
+Matching Agent deposits
+Matching Remitter deposits for wallets
+Matching Remitter deposits for transactions
+Accounting of transactions created via external systems
+REPORTS
+Processing Bank Reporting
+Processing Bank Branch Reporting
+Processing Bank/Branch Teller Reporting
+Sending Agency Reporting
+Sending Agent Reporting
+Sending Agent Teller Reporting
+Compliance Reporting
+Remitter Reports
+Beneficiary Reports
+CUSTOMER ONLINE INTERFACE (ORM)
+Remitter registration
+Remitter login and verification
+Beneficiary creation
+Transaction creation
+Payment via Payment gateway integration
+Remitter Wallet
+Responsive interface, allowing use of mobile devices and tablets
+SYSTEM ADMINISTRATION
+System configuration by Configuration-file
+System configuration through Database-based settings that can be altered by Super Admin Users
+Data Archiving: Transaction data can be archived out for increased performance, while still being accessible when needed
+INTEGRATION WITH OTHER SYSTEMS
+Exporting and uploading CSV files
+Automated FTP file exchange
+Web Service API
+Custom 3rd Party FTP integrations
+Custom 3rd Party Web Service API integrations
+ALTERNATIVE INPUT DEVICES
+Mobile-based Java (J2ME) Application using SMS for communication (M-ARM)
+Mobile-based structured SMS messaging for end customers (SMS Remit)
+Money Transfer Engine
+ (MTE)
+Our proven, industry leading, multi-channel platform for complete management of remittance operations. Comes with a back-office suite but needs to be used with any of Agent Remittance Manager
+ (ARM), Online Remittance Manager
+ (ORM) or Mobile Agent Remittance Manager
+ (M-ARM) to allow for transaction creation and payout.
+Compliance Manager
+ (COM)
+Includes KYC checks, Block-list checks e.g. OFAC, BoE & EU Sanctions, and Volume/Velocity checks with a sophisticated Compliance Rules engine.
+Agent Remittance Manager
+ (ARM)
+Agent based portal that facilitates Agent/POS/Branch level transaction creation and delivery.
+Mobile Agent Remittance Manager
+ (M-ARM)
+Mobile phone based application for transaction creation and delivery by agents with dumb-phones or smartphones. Ideal for areas with no Internet connectivity.
+Online Remittance Manager
+ (ORM)
+Online portal that allows your customers to register, create and pay for transactions.
+Kiosk Remittance Manager
+ (KRM)
+Kiosk interface, branded to your needs, that allows your customers to register, create and pay for transactions.
+Advanced Reporting
+Includes reports for Agent Performance, Commissions, Discounts, etc.
+Airtime Top-ups
+Allows you to provide airtime/mobile top-up services to your customers.
+Bi-directional Agents
+These Agents can both collect and pay out transactions from the same system interface.
+Custom URL
+Custom IP address so you can use your own domain.
+FTP Transaction Import/Export
+Allows integration of the RemitONE system with third party systems via FTP.
+FX Rate Providers
+Make use of Forex Rate Providers to auto-update exchange rates. Additional costs may apply for integration with Rate Providers other than TheMoneyConverter.com.
+ID Verification
+Automated KYC provided by Experian via online ID checks, including passport and address verification against remitters when they register or attempt to send money over a certain amount. Extra per transaction charges apply.
+Payment Processors
+Set up Internet Merchant Accounts and use payment gateways to accept online credit & debit card payments. Additional costs may apply for integration with payment providers other than Authorize.net, Payment Data, Payvision and Secure Trading.
+Payout Bank File Formats
+Download files in a format that is required by your payout bank.
+Postcode Verification
+Auto address look-up through postcode.
+Promotions & Loyalty Management
+Configure complex rules for promotional discounts based on time periods, remitter activity and more. Reward loyal customers and run promotional campaigns.
+RemitONE Connections
+Grow your business with a single connection that gives you instant access to all our clients and correspondent agents, allowing you to send or receive transactions to any of them.
+RemitONE Intelligence
+Business intelligence graphical reporting tools to help you analyse your data and make informed decisions.
+Regulatory Reports
+Generate a variety of reports required by different regulators e.g. AUSTRAC, CIMA, Dutch Authorities and European FIU.
+SMS Gateways
+Allows usage of bulk-bought SMS messages from SMS Gateways. Additional costs may apply for integration with SMS Gateways other than AQL, Clickatell, Message Media, Mobivate, TxTGhana and PhoneAfrika.
+SOFORT Banking
+Allow your customers to make online payments for transactions directly from their bank account using SOFORT Banking.
+SSL Certificate
+Prices quoted are for Domain Validation only. Please contact us for Extended Validation certificates.
+Third Party Networks
+Make use of our existing integration with leading MTOs, banks and Telcos around the world e.g. Airtel, MoneyGram, etc.
+Transaction Auto-routing
+Allows for automated transaction routing between Agents as per your business rules.
+Allows your customers to exchange their cash for a secure code to make payments online.
+VPN Access for Custom Report Builder
+Use custom reporting software such as Crystal Reports and Jasper Reports to access the database server.
+Web Services API Transaction Import/Export
+Allows integration of the RemitONE system with third party systems via API.
+                 
+ Remit One Ltd. All rights reserved. Confidential. Proposal v3.1. Issue Date: 1 May 2015
+EMPOWERING REMITTANCE
+Status: Issued
+Commercial and in Confidence.
+Head of Business Development (MENA)
+E: azam.razzaq@remitone.com
+DD: +44 (0)776 625 8410
+RemitONE Ltd
+10TN The Office Village
+Romford Road, Stratford
+London E15 4EA
+United Kingdom
+T: +44 (0)20 8099 5795
+ HYPERLINK "http://www.remitone.com" 
+www.remitone.com
+ PAGE 
+ NUMPAGES 
+tpj\jX?9
+yfSfSfSfSLD<
+)])])])]
+{w{s{s{w{w{ow
+)])])]
+b[SKSCK[
+* PAGE 
+tEXtSoftware
+Microsoft Office
+cmPPJCmp0712
+Adobe ImageReadyq
+r'p7H7P2
+r']Qw-
+tNn7E0
+)YAAE]H
+{{ve=2
+k`9%~.
+P*90nE
+g])-2 
+FUl+{)r)
+Adobe Photoshop CS6 (Macintosh)
+2013:01:10 18:24:15
+XICC_PROFILE
+mntrRGB XYZ 
+acspMSFT
+IEC sRGB
+Copyright (c) 1998 Hewlett-Packard Company
+sRGB IEC61966-2.1
+IEC http://www.iec.ch
+.IEC 61966-2.1 Default RGB colour space - sRGB
+,Reference Viewing Condition in IEC61966-2.1
+CRT curv
+Adobe_CM
+dEU6te
+'7GWgw
+GiGmTY
+[[9nyk
+hs/i{/
+\~FNNw
+:&Wz]8
+KZ\-~~
+Photoshop 3.0
+y\8BIM
+printOutput
+PstSbool
+Inteenum
+printSixteenBitbool
+printerNameTEXT
+printProofSetupObjc
+proofSetup
+Bltnenum
+builtinProof
+proofCMYK
+printOutputOptions
+Cptnbool
+Clbrbool
+RgsMbool
+CrnCbool
+CntCbool
+Lblsbool
+Ngtvbool
+EmlDbool
+Intrbool
+BckgObjc
+Rd  doub@o
+Grn doub@o
+Bl  doub@o
+BrdTUntF#Rlt
+Bld UntF#Rlt
+RsltUntF#Pxl@b
+vectorDatabool
+PgPsenum
+LeftUntF#Rlt
+Top UntF#Rlt
+Scl UntF#Prc@Y
+cropWhenPrintingbool
+cropRectBottomlong
+cropRectLeftlong
+cropRectRightlong
+cropRectToplong
+boundsObjc
+Top long
+Leftlong
+Btomlong
+Rghtlong
+slicesVlLs
+sliceIDlong
+groupIDlong
+originenum
+ESliceOrigin
+autoGenerated
+Typeenum
+ESliceType
+urlTEXT
+nullTEXT
+MsgeTEXT
+altTagTEXT
+cellTextIsHTMLbool
+cellTextTEXT
+horzAlignenum
+ESliceHorzAlign
+default
+vertAlignenum
+ESliceVertAlign
+bgColorTypeenum
+ESliceBGColorType
+topOutsetlong
+leftOutsetlong
+bottomOutsetlong
+rightOutsetlong
+Path 1
+maniIRFR
+8BIMAnDs
+AFStlong
+FrInVlLs
+FrIDlongZz
+FrGAdoub@>
+FStsVlLs
+FsIDlong
+AFrmlong
+FsFrVlLs
+longZz
+LCntlong
+8BIMRoll
+http://ns.adobe.com/xap/1.0/
+<?xpacket begin="
+" id="W5M0MpCehiHzreSzNTczkc9d"?> <x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.3-c011 66.145661, 2012/02/06-14:56:27        "> <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"> <rdf:Description rdf:about="" xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/" xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#" xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:xmp="http://ns.adobe.com/xap/1.0/" xmpMM:DocumentID="ABDCF6F21487592A6289F52AFCEDF816" xmpMM:InstanceID="xmp.iid:02801174072068118083C8B684C29568" xmpMM:OriginalDocumentID="ABDCF6F21487592A6289F52AFCEDF816" dc:format="image/jpeg" photoshop:ColorMode="3" xmp:CreateDate="2009-09-24T16:54:02+01:00" xmp:ModifyDate="2013-01-10T18:24:15Z" xmp:MetadataDate="2013-01-10T18:24:15Z" xmp:CreatorTool="Adobe Photoshop CS6 (Macintosh)"> <xmpMM:History> <rdf:Seq> <rdf:li stEvt:action="saved" stEvt:instanceID="xmp.iid:F0361B9A4920681180839B8B5B749127" stEvt:when="2013-01-04T20:36:13Z" stEvt:softwareAgent="Adobe Photoshop CS6 (Macintosh)" stEvt:changed="/"/> <rdf:li stEvt:action="converted" stEvt:parameters="from image/jpeg to application/vnd.adobe.photoshop"/> <rdf:li stEvt:action="derived" stEvt:parameters="converted from image/jpeg to application/vnd.adobe.photoshop"/> <rdf:li stEvt:action="saved" stEvt:instanceID="xmp.iid:F1361B9A4920681180839B8B5B749127" stEvt:when="2013-01-04T20:36:13Z" stEvt:softwareAgent="Adobe Photoshop CS6 (Macintosh)" stEvt:changed="/"/> <rdf:li stEvt:action="saved" stEvt:instanceID="xmp.iid:01801174072068118083C8B684C29568" stEvt:when="2013-01-10T18:24:15Z" stEvt:softwareAgent="Adobe Photoshop CS6 (Macintosh)" stEvt:changed="/"/> <rdf:li stEvt:action="converted" stEvt:parameters="from application/vnd.adobe.photoshop to image/jpeg"/> <rdf:li stEvt:action="derived" stEvt:parameters="converted from application/vnd.adobe.photoshop to image/jpeg"/> <rdf:li stEvt:action="saved" stEvt:instanceID="xmp.iid:02801174072068118083C8B684C29568" stEvt:when="2013-01-10T18:24:15Z" stEvt:softwareAgent="Adobe Photoshop CS6 (Macintosh)" stEvt:changed="/"/> </rdf:Seq> </xmpMM:History> <xmpMM:DerivedFrom stRef:instanceID="xmp.iid:01801174072068118083C8B684C29568" stRef:documentID="ABDCF6F21487592A6289F52AFCEDF816" stRef:originalDocumentID="ABDCF6F21487592A6289F52AFCEDF816"/> </rdf:Description> </rdf:RDF> </x:xmpmeta>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 <?xpacket end="w"?>
+)9IYiy
+*:JZjz
+LUz51U
+D+\UrGC
+*1U'BOLU
+#LU`CZw
+q\Uc-1U
+UhQ\UxZ
+qU`(1U6
+h1U&48
+1WSlUBM
+W|UZA^
+U@5M1TB
+UZZ-1U
+UwlUco
+HPqUP7
+|UhpF*
+ '|Uhq
+U\KALUa
+1T;ISS
+UPqU7n
+\ULnqU
+|Uq\Um;
+T;9=N*
+U}(1U6
+LUejqU
+\UQGlU
+)_lUNF
+W%qW18
+I=1W)5
+TAS\Ut
+QN*1WF
+[=1T;?
+7olU]V
+|UhRMqUTZoLUQ
+[|=1U#m
+O|Ue1V
+k\U|U'
+[4>=1T?
+TDILU|
+qU2qW.
+Q+LUBA
+N#|Uiz
+u*h1Uph+
+U#a\UY
+USA\UM
+|Um1UA
+p@OLUQ
+R/|Uh]
+MqUxqTSF@
+Zs\UR!
+qP1Ur*7
+T9Q\Ud
+<1UwQM
+P$WlU|c
+ZG'|Uk
+wSLU}6
+1#lUh5
+1TSHiN
+1U97$b
+ZQ\Uklw
+U?g|UE
+SHE1Tld
+X~,UQE1W0
+k'lU\5
+qW$DnqUs
+U<UP{b
+)?<UNP)
+|UEMN*
+5qT?3LUQ[
+j@G\UF
+@1TJJ1UOW
+1T3nqUx
+|UtClU
+@lqU@M1T$
+s\Ug\U}(1U
+h1U5S]
+M1UN;{b
+Q(h1U6;
+G\Ue1W
+Lm\UrBO^
+Y"WpqU
+.%,|1T1
+l1U`qU
+D*|=1U
+[8!qT#v
+kBqTl"
+w|UQw8
+1T33Wm
+|U_`78
+qTD?<U
+)ALUR.
+~,UZSA
+)LUpRv
+U}3LUO
+1U6rO\U
+\UDHkN
+'|Uz5=
+nqUVZb
+\ULG\UrG
+*1U)Po
+A\Ug\U
+iMM1TB
+B;o\UR#B1Uz
+U|}qTP
+Q_lUp\U
+},UrBz
+V:WlUg
+\UPl1U65
+G\UXxb
+qU|U|u
+h1WW|U
+PNk\UL
+qUG`1U
+T)\UV%
+lUV01U
+H<qT9Z
+hqU@68
+Ur-MqW0
+P_lUHBI
+\U|i\U
+Ro\ULb
+^WolUE
+|UwlUn*
+1U7rqV
+TtQ|=1U
+P3Wr1U
+E*qT#/
+1TLK\U
+lqU/Pt
+G\UuqU
++LUpP1TTJ8
+|UtG|UQ
+QrkLUQ:
+@qWSlU
+UkALUO
+1Td+AQ
+1T7LU|]
+U|g|U0
+jhqTLd
+UH9=qUt
+qU#%N*
+pOLUZ'
+N#lUBY
+\UDJOLUZ&
+qU7NGlUj
+l-qTbE
+MqUBh1U
+9G|UDv
+qUO|UQ7
+D'LUam
+w=qTI8
+LUR!Zb
+1TTClU
+1U9jqU
+qTQaLU
+UV2(1V
+1UI" m
+VUj|qU
+lUYc!}
+hqUEn@
+nD%qT8
+WlU|G|U]
+FqTD+M
+|UF_|U
+S+\Uz)
+M1TCB1U
+O\Ur\r
+LUEEMqTDQxb
+qU*o\U
+|1U'@MN*
+\Uk/|U
+|1Td)A
+*qUTBO
+qWHE1T
+n(*qThN+
+j*h1Tt;
+T+%qUh
+Ux<qUx
+qT;!,v
+1T37#^
+QsS\UO
+,UR;s_lU
+XqUURF*
+W"oLUQ
+)LUe1U
+CLUNv#lU
+UV"qW9$
+qUXMqUW;u
+qT`4^8
+qWs=qTD/\UU
+lULnqUA
+h1TL(QG
+qU<Uu(+
+iEMqUN
+(jqUxW~
+Uxc=qTI
+DEQR1U
+CLUZ,U
+c\Ug\Ux
+UyaJ{b
+}B n[m
+aLUehqV
+qW9=1U<U
+U0hqVM
+UMNJ^==
+S#|UQqV
+T(|qTD+M
+u//\}SV
+4=qUc*
+U2hqU@v
+1U2|1Ud
+Tr1U0G
+E1TLt+Q
+LqT;98
+ruLmo w
+]_Py[A
+UbH1Te
+UwmsgU
+T3\%i\U|7
+K8-\U@L+
+)\UNIP
+1W'\UT
+V/LUiq\UT8
+W%{sod
+G)=qWI6
+UqsOlUL
+r~h4sYL
+[!h|1U
+lM1U?]
+RNkLUH
+Y)_lU7
+1U1p{b
+=qTDsW
+-m4{qe
+9s-Xi:$1
+V#rlUX
+yn%!R8
+S\Uq;S
+U<UQN*
+w?Wiw#
+oHE<?v
+\UmqUkh
+KfKmuZ
+lUxSOn
+UQ|1Ug
+7RG|Uzm
+LUV8+A
+_~{9>7
+LUhPM1UuQLUM
+uEVbeo
+fi$sVv%
+WWlUn*
+M+VY.|
+?er'<BF"
+\u'#A6
+jqUBM1U"k
+\Uu(1U
+J{7L$t(
+LLHasY2
+KgxeVIcb
+UUM+LUJ`iC
+Yhj1U"7
+\Vi^Jrw
+rbbG5M/
+fA\UzH1WI(
+\UQ|N*
+DOlU{E
+eqUeZ.*
+'lU|kLUQ
+1WSlUE
+DZ[}na
+\UQE1V
+[\UR1\U
+WlUyjb
+pva\U-v
+:kYLg.6@
+1!lwRA
+U"5lU]
+GCLU`LU
+1T=j1U
+LUoS\UQF*
+qW7\Uo\Uz
+xn"<^)
+O+~k~fi
+1T;F1U
+U|kLUs
+UV!\URA
+X|Yv8J>
+hX{=v?
+v=qULU|j
+S|UtJO
+SB(F)l
+rFf^_z
+cx]AFB(T
+o&<@r`
+lUc-qV
+kesp@N
+hLianHoQ
+[_,yoQ
+SRrHUX
+}kLnVwI
+[1?3/'#
+6Mm#C:
+|Uz-;b
+|Uq|Uo
+Y%x.#C*
+TaALUDo
+Qd`<+\
+n`nHYU
+v)v(v)v(v*
+OjS2|y4x1d)
+@6wc!a
+9! y1 
+qLU]"n
+ cnsI}0
+iyp,{r5R}
+e>]|0%
+|UBX@5
+qUeALU
+P7EphO^5Z
+AEH#TQ
+rD1-Rw'
+0~l\\-
+!]_S0J+
+CO('lUD=O]
+<R(d`{
+<Uz5qU
+BI!QAgf4
+e4#-kXA
+up%uqK
+e[{(G)%
+8D@S"Vr
+WvvgT7|c(
+r$$0?4
+%1THcLUJ
+[PqU@6
+Zj1U6;o
+Q(*Ezb
+N~&?<x;
+_|Up|U
+4?<U`"
+1UbqT;
+O~e~Wy
+<(QcLUJ
+F$t_|U
+u8Ual4
+ qUil^
+MK7Nr7
+:SlUU"
+_/~nXzz
+\UeiB1VWd~
+[S\UYME
+l51TB6
+gLyf#ioX
+\Me:\[
+et`hC)
+IT-L(iN
+=1TX^)
+xCnL^\
+DD+LU5
+V:W|U@ES
+uO|Upj
+k@>CrO
+lUV+yn
+5)5]fc=
+o42zR)
+^3LUHF{
+}qW`Wb
+-Wol(p5
+6?RrHB
+qU@G\UZ2A
+A]X\[S
+ei ^"H
+A%<=Jr?I
+A+\5hC
+HZM:aCC
+^abR=:
+R@|C(8
+UZ2:u8
+/@S\(s
+p+gq\R
+W|UmjqV
+q{5Di_
+}_&\@rd
+uMf_Vr
+bLEqW,!
+*|)\U0M:
+gHSc@X
+s>=qUh
+[/Limi~
+f?*'LmX
+Rm}2)kc
+|37L7..s
+1Uf4\UO
+Z'|Umw
+L[-\Uas
+X~xiW6
+%9`)\w
+XMrH\M>x
+"Cimh@V
+qVcsw-
+]\Uup+
+(!e2HZTxa
+L@+R:S$%H
+T_DFrcn)
+t=?U`A
+qV%kmm
+W8=1U/O
+UqlUa`v
+a_|Um{v
+z_|(mv
+&#pGL(B
+|UuhqWb
+U}|r)h
+v)v(w\U
+o\(q$aB
+lUDFj|1TD)S^
+qywJ_3
+XKyl6/"
+uhr)p4
+U}NE.jb
+`1UtaLUBv
+Uo\UR5
+LUh\UUT
++Qj+^+W
+s9'|UH
+U~E+H8P
+/liU2,
+UepSlU
+Z$S|Ur
+}ZunJo\4cjS
+6U-A>M
+_6~l~^
+!y;[mw
+6=j?iO|U
+UPM<N*
+UhLUz 
+nqU558
+]\Uo\U
+LUuhqW1
+U(($*(
+qlUg#\U
+%RVkE5b;:
+ZjqU6&
+KupvY.~
+9-=%5u
+\U{-1U
+}qTUqU65
+P3[MnG0Ezb
+EqWWzb
+OlUZ=^
+,r*r!W
+ERdWzv
+ZlbMFxm
+w\Uiz|
+),t[_Ae!
+]SLUp"
+U~E-Tb
+Q15qT|
+LGnGzx
+Ry9jzmm&c
+Cu=j3b
+<qWN*)
+lUg\UYV
+T+ALUo
+UE"y]c
+|UTGA\UL
+glUc5:b
+ZEucco-
+(z`KXU
+E,(H`;
+SolUm7
+1zW.T|
+_07=RE21
+WjSlUE
+UL-qVO
+Uk|=1W+o
+qU3dOPqV
+ff4UP:
+wVW6$z
+iH1r=x
+R|1TO"
+j*qUPk
+4/o+C(
+TaBOLU
+Gq+\Hd
+UQG|Uq
+o=k1j3
+W`1T*2
+i/1US(G
+f,jMI5$
+lU;k=.O
+jD(q$Q1
+ bO|UE
+(XMrHZ
+m%y(=EF*
+Cij,la
+\Ug0M1UU
+|1T`?N*
+ZNV632
+HILUis\U
+@K%1T3LOLU
+<0DPdM
+QJh1Ww
+h1TD)S
+\UilUa5
+[@YCRP
+_OuA#| 
+[qLUQOC
+<qU/|UQ
+lUQE1U
+h1U<Ur
+_i~@~J
+qU@|:b
+zmLUT2
+W/\UwN
+fwyC52
+C,ZsBm
+nLjOR|rULm
+1U>[aB
+sLUkJk
+j9ClqT@4
+!=1UHf#
+S(u?Cef
+`^~\kCR
+1T;GLUb
+lUQ1TZ #
+qT\1TW
+XO|Ua4
+(1U$5 
+SO3~yiZ}
+]\UuhqV
+CLUwlU
+|Up;xb
+C2prWbQ[
+qVG$2[?
+]OLUUMqU
+a,.RU5
+W2]]1y
+zSlU!aV
+^4[<)+/
+W$!qTDg
+/lUrHI
+LUu(1U3
+EqW+Tb
+\UB@1U
+_Rv=<qU
+fgr7,I?y
+RTK0C4P'
+ke@Zup?
+&j-|qT
+VLURCS
+%qTTclUQ
+*h1UB(6
+lUZka!
+|U@=1TT
+qT1Q\U
+qLUa=7
+f?2qTe
+Uj7#LU
+&\Ur7,U
+[_lUg\U
+K.$=qT3
+q_|U,{
+5~hh~Tf
+BMi5z~#
+AOi1CE
+)<1Wzo
+LUpF;S
+\UpSJb
+1U1c=~
+SE_ov=
+U!iqZS
+pMMqTD:}
+qU9-fq
+Qkk=:b
+Ca?Z~8
+~~_k|U[
+M^~_klU2
+.-N~=v
+y<qW}bN
+y<qW}bC
+}/zQ]f
+^9hk,a5
+aCO{pO\Uz\
+gP~,U.
+E^G<UGrI
+v?<UB?
+[DIBGC#
+Ub]2#Ku
+oal;~8
+v>=qUG
+=)BqUU
+qUCqA__
+a{a<WV
+O-~KZj
+Piv.Zi
+E\[\ZTL
+E}Hw|U
+-";a*C
+,X}~Xu
+brlTPo
+1UNTZb
+lUz73Z
+'lUUqU
+nU=qUD
+\U$#lU
+\UP-1U
+nqUUjo
+LUV9hqU
+Q0A\U]
+\U}qWs
+njqTDK\Ut
+VE=G\U^
+QdQqTV
+lqTDN{
+1TD=1V
+\Ue|1V
+UxGRqUrk
+/LUJ\U
+Up>=qU
+V%p+\U
+K{-O\U&
+7khl}i
+.D,qUr
+ywOU#e
+w~V[yh/
+\U@MLUV)9u
+lU%x^7*
+[S\Up;
+?h}#lU
+y_R}?I
+UR1LUk
+^j,@xb
+7-{PEY"R
+ZQSLU]
+l1T95?
+UP\qR1T
+KOMMYA
+~]yb}`
+=qUYb8
+lU}qW)
+Gb2HiE:
+Z=qTD)_
+EqURjqU
+D@jiLU
+ALU/f-
+VKrw*W
+P3?"qU4
+1Vywu-
+l1UkXD
+sS\Um+
+h\RDt,
+,t/_lUJ
+TRDi\U
+Z/LUo*
+M+y{),
+DmLUNH
+lUNih+
+)=1TTq
+Uuh1Wr
+P,qU7b
+s\UBv S
+heV?p8U
+.6,<9b
+UX51UA%
+%WlUZ1
+LUwLUo*
+1T)?~*
+QKf5{;
+qVz[lU
+|1T36*
+_o}qe_A
+A4$WlUtq|@b
+Ur/lUq]
+rnqTD*
+U"h1UHF*
+qUu`EqT
+TD}<1U
+EDEqTw
+,<1TP8
+</k+A 
+\U2G {b
+b7?,U!
+[b|qT3
+,k\Un*
+G\UUn*1U
+jEqT+[|
+j|qW8$
+qTT+LUT
+U.U?~*
+\Uc(;b
+rG\U\>
+jJ7%4 
+|U^#SLU3
+`d[mv5
+3O:~aj
+1V;u'\U"
+=qUOSm
+>KLU)6
+Nmn|1T
+}y{dY>b
+qUkx^w
+\Ug3LU
+UkLUi'
+|eu1X+
+\kO|Uh
+U#s\UVG4
+*1T37,UI
+:W|U`\UQ
+/y>-3S
+eXgWsE
+S=f4{s!
+qUE=1Ue
+l5qWWm
+]{OPdc
++mBqU&m
+`1UM3V
+lUxlUw#\U
+\Ux>=qU
+a*qUtQ
+ZcLU`4
+UUEqTDiQ
+#PqT@QJ
+]e+amkjH
+7q\U}i
+ZlUmqWb
+SQ\ULnI8
+UE~_<U
+SSCLUs1
+w^a pAF
+qWSo|U
+TDMLUQ
+VS|UZ<UT
+0=ASB1T
+n1UE#o
+1U"|qWW
+W(=qUC
+ilhqTukLUTT
+lUz51UP
+TLT=qU/K|U
+[I*qUV|U`5
+ZaLUm;
+qU`qTE
+IL4=1Ux
+UI(1U7
+?1}_O4
+lu}h(yA$A
+iVG_uf
+LUHlqUE
+Y\UwQ\Ui>
+jqUH.%
+S\U`sZ
+UcBqUb
+U!{nrz0
+V3SpqU
+qT3=zb
+GlUQd8
+_ ~q~]
+.4{fi,
+&Gg*$$
+Uz7lUX
+T#?,UeI
+<qT`p7
++egbMK
+ROr|qUh
+N-#aJv
+d{YOz7
+3zbB)$O
+f\Ug<UV3\UP
+[3|=qU
+=Z@w*<
+G]2@"%HvU-
+a3YOgp
+Jli\Ud
+AFSC\U
+<UmqW3
+lUuj1UE8
+?(y7MA
+"?6iKS
+FFhqTt
+kLUg qV
+LUZ;NszP70z
+xn#<^9
+1Ux'x$Ycn.
+Knd#|U,
+LUw,UilU
+/|UUhEqU
+DYXwSC
+dlvQqO
+54>*iPpRm
+1TH$-1V
+T?\Up=
+uxo&30
+|UplUz
+{y-oa<d
+LUQ1UV#
+VPY/`<
+3\UP=F*
+Q0ILU\
+1TJi7d
+m3MCK{[w(
+k:e~/X
+S\U^1\U
+P4R/(\Q
+UQ)\Ust
+U3s%{W
+|UL5qV
+TLGlU0
+Y\UR3BI
+Dvb<1U
+\UqlUmqV
+I~eymV
+\U}qWR
+Q17|Uc
+K'(|J6
+U^3LUs
+SLUUN*
+1U"<qV
+-w84b:
+UV@EqU'
+qUGaLUG
+=qUN[S
+JG-|YG
+iLU}*+
+NjqW7LU}h1U
+Zc\UmGLU
+T'lUoS
+1V;7lU
+1TD+\UZA
+M1UDlU
+\Ug\UQ}
+Sc\Um1WW
+i$sVf>?
+"3P1UF5
+\1WS|U
+W5qU"<qV
+,M~]1U
+Uc;n1V
+ULUQEE1U
+U`O\UQ)
+1T=hqW
+\Uo":b
+*qUlUG
+Q/\Uo*
+LUiZlqUE
+hqUT<XTTV
+PlqUE5
+SlUo*n1V
+G\UZ#CA
+1TdK@+
+P-\Uro
+)\UoLU
+1ZBm-O"
+C7\UMy
+|UQMzb
+P}1Wu8
+_lUa|U
+U"1U'R
+\UQOlU
+\A#|Umw
+E+QqVGc
+l0=1Ut
+%qU7LUH
+U_OlUD
+[lUyaJ
+ff5bORI
+<UD7|UR3\U
+U:u=1V
+WFqUF8
+qULUUv
+caLUx;b
+UV0qTG@1U
+1U@kJb
+TB0#lUJG
+jqUOSn
+[v'lUL
+Ke<ZDFeS
+~"qU64
+v`hqT\{
+CMp1T9
+\UQ1W9
+CQqU2qU
+qVa$2A!
+$5\UxlU
+>}1V0E
+WlUQN*
+t=1U9T
+UxlUp}
+1U`1U7]
+1@CNvy<=
+\SlUQc
+PE1U7A_s
+O\UZ1\U
+qU6n;v
+T:SF+,
+!~b;]j
+VW|Up=
+Ux'x$Y#4#
+*1U"<qV
+>,UV +
+<U^"kLU_
+GiqGu?
+,O\UY.
+oNa5v~
+<|qU-n
+T72,J~
+WG=O\U{
+qUWZ-qU
+'ZnqW<
+_~I~}Y
+WSolUD
+Y<qTDS
+1W+S|UNY
+cLUe|z
+qWW|UP
+O|UwQLUa
+H#IewT
+:Lasy~
+lUz=OLUl
+\$'|UysLU
+MnV73@
+]SLUx'
+CyODF_/
+Uo\Usl)
+[olUr0
+/|UpJb
+O AOnG
+1W3oLU
+"2)\Usb
+V3oLUz
+|Uu1W|
+q?<U|i
+DTt?~*
+S|Uz6*
+6UumNyc#
+g'lUmqWV
+[RGLUNW8
+SRqUTZ
+UpLUZ8
+DjqTdclU
+h1TCn1U
+qUB?V*
+1VMoo-
+f^_uqTI
+1U"jqU
+UV0qUrv
+UiLUiS
+lUZ9*:
+,U^91UW
+UmGLUV7
+*qU^;WlUD
+\UNAOc
+N(qU21V
+nJWlUA
+`jqU:xb
+lUY1Tb
+THREqU&J
+P1Tlvi
+QJh*qT<
+jqUUpqUX
+clUz-qT
+!#lUg,U
+S|Uz>*
+m\Uz%qUWJ
+oLUL)8
+qW,ulU
+]'O|UGq
+eY}2=Y
+Uwo|Uo|U
+[QB1T@4S
+\UglUz
+]\U](hqU)
+Eej:Gn
+ln1TL+
+|1Tt'lUW
+MLUzLkLUs
+sOlUk6*
+LU{%1U2
+|(qUN4
+UZ91T|r
+",U{n1U
+qU2jh;b
+1Tl/ALU
+uzR}vE?U
+MnG\U|px
+R=cOKG
+|Umj1V
+mE1TLcm
+V7\Up"
+]N#lUo
+WcA\Uh
+]_^B+H
+sQLUxj
+jG!qT#?RqU
+Kkoh+pyJ
+|UxcJb
+*qUGZ.*
+\@'|UuqUE
+\Us/lU
+U`C\U8
+VCLUq;b
+<U*cRO
+ZSSLUs
+IS\UVD4
+q\U`\U
+j1U6lUI
+#n1VUmqE
+GLUhLUz%N
+Ur7lUs>
+DCcspi
+UV?lUP
+rM1U<Uzb
+glUy58
+qTTSPb
+l?lUw,Uw,U
+1U"jqV
+UsLUL51V
+Zy*qW+
+hnqUvb
+EqUI*F*
+M1U"qU
+UJRiZb
+|qU9:b
+UwLUmGlU
+SEaLUL
+LUpo|U\6
+JlqWq4
+O|UQzb
+,UmO\Uv*
+qUx#=qTO
+\1U`1U
+go|UmN*
+Qq',U0
+G\UJW,k
+]}!^^5
+[\Ut}N*
+Qj1Tth
+G%1UenF
+W-j<1U^T
+r5M<1U3
+\Ug|Uz
+TBl1U)
+U`\Ut}k
+_|Ue1WS
+UJX|qU/C
+U'\UaZt
+|UmjF*
+\UYPS|UBLUH
+U\UNF=
+MqUz|4
+\Ue1W(
+/lUUF*
+U\U_`=
+Uo|Uq8
+p1Tt?dW
+51U"yb
+|Uq|UeO
+U3q\Uh
+1U[h[y
+T=qTLW'
+Uc@1U2qWb
+LUUqUa
+l1TJJ)LU
+1U`h1U
+TR1WH{
+n+LUi}
+iLULljqTM
+\Uw#JT
+[/\UxNX
+|1V+</n
+1UZQqU,U
+{5)\UD
+H<zmLU@
+o|UQiLUku
+_\Uo|U
+O|Uz!8
+[LU|}qUBv
+Wq#lU|
+\Uo\UQT
+UHG|U]
+)LU|k^
+*qUDZb
+Y'\Uf*
+_lULlqU
+=1W/\Ui&
+FO\UsG
+U)1U<Up;
+W/\UuN*
+UznqUj
+1U`1UU
+(1U?S|U
+UQ+\UV
+T=1U,UO
+^kO|UHo
+|UglU|f
+LUapN*
+Y\UR3Z
+WlUiLUpP1U
+Ud\U{-F*
+\UYSlUI
+U?|Up5lUZ3
+uh(qW|
+I|qTLOS
+zWlUf*
+1TLJ1WI@qU:b
+D/LU~*
+W/\U\l1U
+\Uk=qV
+qU"|1U
+LUQE1U
+OLU|W;
+aG|UQT
+qU91U<U
+1UUaJb
+1V=pH8
+@1Up1V
+1U"*1W
+qUdP1V
+eSU?~*
+U'lUi4
+LUe*qV
+UU(1U7\UgLUp<zb
+UaP1UD
+qUOSlU
+UeJ-qT5~/lU
+W7_|Ua
+^],JQ[
+1U@(1U
+UT-1TLf
+4=qU:W
+P1UP(1U
+qTB8lU
+T'lUo!
+[R1UT8
+n1U@h1U
+*1UY.U
+qU0|1UU
+1U?LWlUi
+EB1TTQ
+^1U)1T+b
+U*(qU2
+=qUdOlU]EqV
+1UB(1U
+MqUjPb
+_|UhS\UYE1U
+QQ?|UN
+RzW|Ug
+1Ua\Ucr
+UR<UkW
+IDATx^
+e{e3CL<
+k);TN5h;
+]Nw:7yV
+D!_?Wz~
+,Photoshop 3.0
+" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.3-c011 66.145661, 2012/02/06-14:56:27        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""
+            xmlns:dc="http://purl.org/dc/elements/1.1/">
+         <dc:format>image/jpeg</dc:format>
+         <dc:title>
+            <rdf:Alt>
+               <rdf:li xml:lang="x-default">Print</rdf:li>
+            </rdf:Alt>
+         </dc:title>
+      </rdf:Description>
+            xmlns:xmp="http://ns.adobe.com/xap/1.0/"
+            xmlns:xmpGImg="http://ns.adobe.com/xap/1.0/g/img/">
+         <xmp:MetadataDate>2012-12-20T11:14:09Z</xmp:MetadataDate>
+         <xmp:ModifyDate>2012-12-20T11:14:17Z</xmp:ModifyDate>
+         <xmp:CreateDate>2012-12-20T11:14:09Z</xmp:CreateDate>
+         <xmp:CreatorTool>Adobe Illustrator CS6 (Macintosh)</xmp:CreatorTool>
+         <xmp:Thumbnails>
+               <rdf:li rdf:parseType="Resource">
+                  <xmpGImg:width>256</xmpGImg:width>
+                  <xmpGImg:height>96</xmpGImg:height>
+                  <xmpGImg:format>JPEG</xmpGImg:format>
+                  <xmpGImg:image>/9j/4AAQSkZJRgABAgEASABIAAD/7QAsUGhvdG9zaG9wIDMuMAA4QklNA+0AAAAAABAASAAAAAEA&#xA;AQBIAAAAAQAB/+4ADkFkb2JlAGTAAAAAAf/bAIQABgQEBAUEBgUFBgkGBQYJCwgGBggLDAoKCwoK&#xA;DBAMDAwMDAwQDA4PEA8ODBMTFBQTExwbGxscHx8fHx8fHx8fHwEHBwcNDA0YEBAYGhURFRofHx8f&#xA;Hx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8f/8AAEQgAYAEAAwER&#xA;AAIRAQMRAf/EAaIAAAAHAQEBAQEAAAAAAAAAAAQFAwIGAQAHCAkKCwEAAgIDAQEBAQEAAAAAAAAA&#xA;AQACAwQFBgcICQoLEAACAQMDAgQCBgcDBAIGAnMBAgMRBAAFIRIxQVEGE2EicYEUMpGhBxWxQiPB&#xA;UtHhMxZi8CRygvElQzRTkqKyY3PCNUQnk6OzNhdUZHTD0uIIJoMJChgZhJRFRqS0VtNVKBry4/PE&#xA;1OT0ZXWFlaW1xdXl9WZ2hpamtsbW5vY3R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo+Ck5SVlpeYmZ&#xA;qbnJ2en5KjpKWmp6ipqqusra6voRAAICAQIDBQUEBQYECAMDbQEAAhEDBCESMUEFURNhIgZxgZEy&#xA;obHwFMHR4SNCFVJicvEzJDRDghaSUyWiY7LCB3PSNeJEgxdUkwgJChgZJjZFGidkdFU38qOzwygp&#xA;0+PzhJSktMTU5PRldYWVpbXF1eX1RlZmdoaWprbG1ub2R1dnd4eXp7fH1+f3OEhYaHiImKi4yNjo&#xA;+DlJWWl5iZmpucnZ6fkqOkpaanqKmqq6ytrq+v/aAAwDAQACEQMRAD8A9L+ZbaxuNBv0v1L2iwvJ&#xA;KoJU/uxzBqPArXFXzvgVckUj14IzU60BNPuxVbiqd+UNdvtK1y0eCVhBJKiXEIPwujsA1V6Vp0wq&#xA;9/xVpnRF5OwVfEmgxVRW/sWYotxEXHVQ61H0VxVXBBAINQehxV2KuxV2KrEmhduKSKzeAIJxVfiq&#xA;wTwl+AkUv041Faj2xVfirC/zQ0jWtU0u0g023a4WOYyTohHIUXipoSK/aOKvNl8jebqimmTA9jQf&#xA;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&#xA;xVXxV2KuxV//2Q==</xmpGImg:image>
+               </rdf:li>
+         </xmp:Thumbnails>
+            xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
+            xmlns:stRef="http://ns.adobe.com/xap/1.0/sType/ResourceRef#"
+            xmlns:stEvt="http://ns.adobe.com/xap/1.0/sType/ResourceEvent#">
+         <xmpMM:InstanceID>xmp.iid:0180117407206811822A8E340806D1A4</xmpMM:InstanceID>
+         <xmpMM:DocumentID>xmp.did:0180117407206811822A8E340806D1A4</xmpMM:DocumentID>
+         <xmpMM:OriginalDocumentID>uuid:5D20892493BFDB11914A8590D31508C8</xmpMM:OriginalDocumentID>
+         <xmpMM:RenditionClass>proof:pdf</xmpMM:RenditionClass>
+         <xmpMM:DerivedFrom rdf:parseType="Resource">
+            <stRef:instanceID>uuid:1e9fe3cf-bac1-48ac-8341-771a4bda1c27</stRef:instanceID>
+            <stRef:documentID>xmp.did:0980117407206811822A897E387FE54C</stRef:documentID>
+            <stRef:originalDocumentID>uuid:5D20892493BFDB11914A8590D31508C8</stRef:originalDocumentID>
+            <stRef:renditionClass>proof:pdf</stRef:renditionClass>
+         </xmpMM:DerivedFrom>
+         <xmpMM:History>
+            <rdf:Seq>
+                  <stEvt:action>saved</stEvt:action>
+                  <stEvt:instanceID>xmp.iid:0180117407206811822A8E340806D1A4</stEvt:instanceID>
+                  <stEvt:when>2012-12-20T11:14:09Z</stEvt:when>
+                  <stEvt:softwareAgent>Adobe Illustrator CS6 (Macintosh)</stEvt:softwareAgent>
+                  <stEvt:changed>/</stEvt:changed>
+            </rdf:Seq>
+         </xmpMM:History>
+            xmlns:illustrator="http://ns.adobe.com/illustrator/1.0/">
+         <illustrator:StartupProfile>Print</illustrator:StartupProfile>
+            xmlns:pdf="http://ns.adobe.com/pdf/1.3/">
+         <pdf:Producer>Adobe PDF library 10.01</pdf:Producer>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                           
+<?xpacket end="w"?>
+H7.KC$
+@PygLg
+%KK(fS)$
+nV\M"Cx
+AJ*%J%JQ
+VJKQc$
+cRrL*J-{
+^FFKQX
+%o[fW`
+nde22$3
+Eq%Xm`He
+Z}IKq_rm
+LIk"CI
+"L+HfJB\J
+s$*8$w
+25J*%J%JQ
+ ~*\Y.#
+kqIi!n)G
+l{.VN)
+Gb$v"Fm,
+8EAHP7]7
+&y]6f3M
+f=yXU*f)*
+*aAmo0
+@PDw=#_
+Dt]*Oo
+[Content_Types].xml
+_rels/.rels
+theme/theme/themeManager.xml
+theme/theme/theme1.xml
+~{s:FXI
+k>\lc`
+theme/theme/_rels/themeManager.xml.rels
+K(M&$R(.1
+[Content_Types].xmlPK
+_rels/.relsPK
+theme/theme/themeManager.xmlPK
+theme/theme/theme1.xmlPK
+theme/theme/_rels/themeManager.xml.relsPK
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<a:clrMap xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" bg1="lt1" tx1="dk1" bg2="lt2" tx2="dk2" accent1="accent1" accent2="accent2" accent3="accent3" accent4="accent4" accent5="accent5" accent6="accent6" hlink="hlink" folHlink="folHlink"/>
+drs/e2oDoc.xml
+c18l<:!C 
+/!R1J}NIn
+drs/downrev.xmlL
+26JJ8dh
+drs/e2oDoc.xmlPK
+drs/downrev.xmlPK
+ft1w{1
+Saiful Alam
+Normal.dotm
+Microsoft Office Word
+f:::fff::
+Q6!Q5!O4
+R7"S8#T9%Y>)`E0_D.W<'S8$V;&U:%R6"S8#X=(Y?*T9%T9%Y?*Z?*S8#P5 R7#S8#P4
+R7"T8$Q5!S8#cH3bG2U:&Q6"T9$U:%R7"P5!S8$U:&R7#Q6!T9$U:&S8$R7"S8#V;&U:%T8$V;&X>)V:&S8#U:%W<(U:&R7#T9$W<'U:&R7"S8$X=(W<'R7#R7#V;&U:%Q6"S8#V;'V<'S7#S8#W<'W<(T9$U:%Y?*]C-\A,W<(Y?*[@+W<'W<'\A,]B-Y>*X=([A+]B-Z?*Y?)]B-]B-Z?*W='V;&S8"M2
+U:%W<'Q5!R7"iN9|aLpU@^C.^C.eJ4Z?*X<'dI4hM7
+R7#\B,`F0[A+X=(X=(T9%P5 P4 S8#T8$Q6!R6"U:%V;&S8#R7"U:%T9%N3
+P5 Q6"O3
+X=(eI4Y>)N3
+R7"T9$P5 N3
+Q6!S8$Q6!O4
+Q6"T8$Q6"O3
+Q6!T9$R6"P5 S8#U:&T9$Q6"S7#U:%S8$P5!R7"U:%S8#P5 Q6"T9%S8#P5 S8#V;'T9$O4
+P5 T9%S8$P4 Q6!T9%T9%Q5!R6"V:&V;&S8#S8$[@+^C.X=(T9%X=(Y>)W<'V;'Z@*\B,Y>)W<'Y?)Y>)T9$O4
+[@+aG1aF1iN8nR=hL7Z?*Y>)cH2gL6Y>*T9$
+R7"X=)[@+V;&R6"P5 P4 M2
+X=(aF1U:%N3
+O4 Q5!O4 O3
+P5 Q6!P5 O4
+P5!R6"R6"Q6!Q6!Q6"Q6!O4
+P5!R7"Q6!O3
+Q6!P5 N3
+S8#S7#P5 P4 Q6!Q6!O4
+P4 Q6"R6"Q6!R7"S8$S8$R7"S8#U:&V;&Y>)X=(V;&W<'V;&V;'W<'V;&R7"O4
+P5 Y>)V;&X=(`E/eI4cH3aF0aF1Z?*V;&\A,_D/[A+X=(
+S7#Q5!L1
+Q6!P5 P5!R7#O4 J/
+\A-aF1O4 J/
+S8$P5 K0
+R6"O4 K0
+S8#Q6!J/
+S7#R6"K0
+S8#S8#M2
+S8#T9%P5!Q5!U:&Y?*T9%N3
+Q6!P5 J/
+X=([@+Q6"^C.y^IsXCV;&P6!dI3iO9W<'Q7"hM8nR=
+Q6!Q5!N2
+\@,[@+M2
+Z?*rWBy^IgL6]C-]B-X=(Z?*dI4jO:gL7^C.
+\@+Z?+J/
+P4 \B,O4
+^C.pT?iN9Y>)_D.aF1U:%Y>)qVAsXC]B-R8#
+[?+W;'I.
+Q6!Q5!K/
+U:&R7#I-
+W<'`F1Z?*V;&_D/cH3R7"L1
+bG2uZFqU@_D.`E/cH3
+W<'W<'I-
+R7"T9$R7"M2
+P5 Z?*^C.W<'S8$X=(T9$S8#bG2rWBrWB`F1Z?)Y>)
+U:%W<'I-
+T9%P5!H-
+\B-Z?*K/
+X=(bG2W<'[@*jN9fK6S9$L0
+R7"Y>)J.
+S8#Q6"K0
+Q6!R6"N2
+Q6!Z?*\A-S8#O4
+Z?*^C.
+P5 T9$N3
+V;&iM8bG2L1
+Y>)^C.
+S8#Y?*S9$J/
+P5 P5 K0
+V;&mR<dH3N2
+T9%Y?*O3
+X=(R7"H,
+Q6!O4 O4
+Q6!U:&V;&V<'T9$P5 M1
+R7"R7"N2
+V;&]B-eJ5Y>)O4
+Q6"S8#U:%T9#
+S8#W<'I.
+P5 S7#U:%Z?*U:&T9$O4
+Z?)_D/O4
+X=(iN9^C.R7"W=([A,N2
+Y>)`E0
+R6"[@+J/
+Q6"Q6!G,
+U:%_D.S7#P5 R7"S8#Q6!P4 P5 P5!N3
+O4 P4 N3
+X>)iN9hM8\A,X=(`E0Y>)M2
+T9%W<(P5 L0
+Q6!Y>)^C.gL7V;'L1
+O4 S8$T8$O4
+Q6!Q6"O4
+P5!R7#R7"S8#T9%U:%P5!N3
+P5 Q6"P4
+X=(mR>rVAaF1S8$\A,V<'L1
+S8#V;&L1
+hSx]GeJ5Z?*I.
+S8#kP:y^IlQ<Z?)cH3_D/K0
+S8$Y>)W<(X>)^C-[@+T9$Q6!S8$T9$Q5!N3
+S8#V<'Q6!O4
+T9$W<'R7"N3
+R7"U:%P5 Q6!\B-]C.Q6!I.
+Q5!U:&J/
+{dI5M2
+P5 eJ5w\GqVAoT?mQ<fK5Z?*O4
+eJ5Y=(G,
+P5 S8#X>)_D/`F0[@+V;&T8$R7"R7"Q6!Q6!S8#S8$R7"Q5!P5 Q6"R7#S7#R7"Q6!O4
+R6"R6!L1
+S8#T9#Q7"R7"L1
+u`nS>gL6v[F{`KmQ<eJ4kP:`E0J/
+X<(^C.P4
+R6"R7#M2
+V;&\A,Y>)Y>)]C-[A+S8#O4 T8$U:&R6"N3
+R7"T9%P5 N2
+Q6"S8#Q6!P5 S8#V;&Q6!L1
+R7"T9$J/
+P4 S8$N2
+R7#Y>)K0
+slQ<B'
+_C/mR=hM8_D/gL6jO:rVBpU@cH2S8#J.
+Q7!Z?*I.
+P5!R7"O4
+R7#S8$P5!R7#[A+cH3`F0\B,^C.\A,T9$Q6"T9$T9$Q5!O3
+R6"T8$P5 N3
+Q6"R7#Q6!Q6!T9$U:&R7"N3
+Q6!V;'V;'U:%T9$R6"M2
+Q5!R7"L1
+U:%V;&M2
+P4 S7#L1
+U:%T9%
+}gK7K0
+[@+Z@+V;&T:%Y>)aF1`E/U:%K0
+Q6!T9$S8#V;&]B-^D.[@,]B-eJ5mR=mR=jO:hM8`E0V;&R7"T9$S8$Q6!O4
+R7#T9$P5!O4
+Q6!R7"Q6!O4
+Q5!S8$T9%T9$W<'_D/eJ5dI4_D/X=(P5 K0
+Q5!Q6"J/
+Z?+_E0M2
+W<'S7"H,
+P5 Q6"M2
+Y>)_D/^C-eJ5w\Gx]HlP;jO9uZEuZFcH2U:%V;&W<'Q6!N2
+R7#U:&R7"O4
+R7"T9$P5 N2
+R6"T9$P5!M2
+Q6!W<(_D/hN9uZEy^JnR>[@+T9$S8#M2
+O4 P5!K0
+R7"S8$P5 I.
+jUZ>*V;&P5 N2
+P5 Z?)J.
+P5 Q6!T9$U:&Y>)aF0kO:mR=iM8eI4bG1_D/Y?*T:%R7"R7#S7#R7#R7"R7"S8#T9$R7"Q6!R7"S7#R6"P5 P5!Q6!Q6"S8#]B,oS?
+fQtYDdI4X>)P4 L1
+W<'_D.Y>)P5 T9$Q5!J/
+P5!R7"M2
+S8$U:%P5 P4 W<'Z?*U:&W<'_D/]C.T9$Q6!V;&W<'R6"P5 T9$V;&R7"P5 T9%W<'R7"O3
+S8#U:&Q6!M2
+Q5!T9$Q6!P5 [@+kP;tYDuYEpU@fK5V;&K/
+O4 O4 J/
+Q6!Q6"J/
+aE0iN8W<'K/
+Q6!S8#J.
+nV;'I-
+U9$W<'H-
+Q6!R6"M2
+S8$U:%R7"S8#W<(Y>)U:%T9$[@+^C-X>)V;'Z?*Z?)S8$P4 T9$W<'R6"P5 U:&W<'S8#P5 S7#U:%R7#P5!S8#T9$Q5!M2
+P5 T9$V;&[@+eJ4hM8_D/X=(T9$O4 L1
+P5 Q6!M2
+S8#U:%Q6!Q6!kP;
+u_S9$U:&Q6!M1
+cOX=(H-
+P5 Q6!O4
+O4 S8#U:%U:&W<'[@+^C.[@+Z?*_D/`F0\B,Z?*Z@*X>)S8$Q6!T9$U:%R7"Q6"T9$U:&S8#P5 R7"S8$R7#Q6"R7#S7#Q6!N3
+P4 Q6"R7"S8#W<'Y>)T9$N3
+P4 Q6!P5 R8#T:$
+Q6"Q6!M2
+P5 aF1U:%C(
+X<(T8#F+
+R7"S7#M2
+V;&V<'Q6"S8#[A+^C-V;'V;'_E/bG1Y>)U;&[@+[@+S8$Q5!U:%W<'S8#O3
+S8$W<(R6"O4
+S8$U:%Q6!N3
+S8#V;&Q5!L1
+P5!T9$O4
+T9$R7"M2
+O4 R6"M2
+R6"U9%M2
+Q6"R7"N3
+X=(qVBx]H
+zeP5 R7"X>)R7"P4 H,
+p[w\HJ/
+Q5 S8#T9$T9%U;&Z?*[@+X>)Y>)Z@+[A+X=(W<'X=(X=(U:&T9%V;&V;&U:%T9$W<'W<'U:%T9%U:&V;&T9$R7"S8$U:%S8#Q7"Q7"Q6!P5 O3
+R7"Q6!M2
+O4 Q6"Q6!R7"P6!R7#O5 
+p[O5 W<'U:%P5 W<(
+{`E0D)
+W<'R6!H-
+P4 S7"L1
+Q5!R7"S8#[@+eJ5bG1X=)X='\A,\A,V<'U:%Z?*Z@*U:%U:%]B-^C.X>)X=(`E/bG1[@+Y>)]C-_D/W<'U:%[@+\B,U;&S8$[@+^C.Y>)U:%Y?*]B-V;&T9$X=(\A,V;&R7"U:%W<'S8#O4
+Q6"T9%P5!L1
+S8$P4 K0
+R7"W;'P4 M2
+S8#Q6!L0
+dOU:$O3
+T9%Q6!M2
+S8$U9%N3
+R7"oT?w]G
+T9$U:%Q6"P4 E*
+X=(^C.
+lQ6!G,
+S8$bG2mR=qVAlQ<hM8bG1[@+]B-dI3cI3Z@*Z@*cH2dI4\B,[@+eJ4eJ5]B-[@+fK5hL7]B-Z?*aF1cH2Z?*V;&[A+`E/Y?*U:&Z?*\A,W<'T9$Y?*]C-X=(T9$W<'Y?*T9$Q6!T9$W<(S9$O4
+Q6!T9$Q6"M2
+P4 T9$P5 L0
+P4 V;&R7#U9%W<'V;&U:%R7"Q6!_D0
+xcY>)\A,Z?*U:%W<'cH3
+S8$R7#R7"T9$U:%U:%< 
+R7"\A,H-
+X=(T8#H-
+R6!S8#M1
+W<(fK6y^I
+fPz`KpT?fJ5`E0`F0bG1dI3gK6eJ4fK6fK5_D/\B-_D.^C.Z?*Z?*_D/`E/[A+Z@*^C-_E/[@+Y?)]C-aF0_D/\B-]B-[@+W<'U:&X=(Z?*X=(V;&W<'W<'T9%S8#S8$U:%T9$R7"R7"S8#R7#P4 P5 R7"P5 O4
+R7"T9%R7#R7"Z?*X=(T9%T8$M2
+Y?*Q7"S8#S8$S8#N3
+V;&V;&O4
+P4 ]B-K0
+S8#[@*hM7~dN
+gRqUAgL6iN8kP:hM8mR={`K}bMjO:aF1dI3bG1X>)U:&\A,]B-U:&T9$[@+\B-V;&T9%[@+_D.X=(V;&`E/gL6_D/X=(\B-^C.U:&R6"Y>)\B-V;&Q5!U:&Y>)S8$O3
+T9$Y?*T8$M2
+Q5!U:%P5 J/
+W<'S8$L0
+P4 W<'U:%X<(U:%U:%w\G
+S8#U:%O4
+ncJ6="
+r_D/H-
+T9$T9$H,
+W<'P5 O4
+Q6!X=(jO:|aL
+dO{`KqVAjN9gL7iN8nS>tYDsYDpU@lP;bG2]C-\B,]B-\A,W=(X>)Z@+Y>)X=(W<'Z?*[@+X=(V;&X=(Z@+X>)Y>)^C-aF0]B-Y>)X=(X=(U:%T9$U:%V;'S8#Q6!R7#T9$R7"P5 P5 R7"P5 M2
+P5 Q6!P5 R7"[@+W<(rXC
+O4 bG3]B-\A+cH3
+{~cNbG2R7"F+
+R7"P5 H-
+W<'O4 P4 P4 U:%fK6sXCqVApU@nR=iN8eJ4gL6kP:kP:eJ4bF1gK6gL6_D/^C.bG1aF1\A,aF1gL7dI4Z?*Y?*^D.`F0Y>)U:%Y>)[A,V;'T9$X>)[@+V;'T9%Y>)Y>)R7"O4
+R7#V;&P5!M2
+Q5!T9$P4 L0
+R7#R7"O3
+S7#X=(Y?*
+S8#_D/gL6jO9mR=
+Q6 R6!K/
+W<(]A,M1
+W<'V;&L1
+T9$T9$^C.iN9mQ<lP;gK6fJ5iN8iN9fK5eJ4hM7kP;dI3cH3eJ4cH3_D/\A,bH2fK5bF1gL7`E0_D/Z@+X=([A+\A,U:%R7"U:%V;'R7#P5 T9$X<(T9$P5 S7#U:%P5!M1
+P5 T8$P5 K0
+S7#P5!M2
+R6"V;'U:&Q6!_D/
+bG2oT?eJ5bG1
+x]HY>)W<'N3
+Z?*S8$O4
+P5 S8#W<'jN9jN9jO:jO9iM8iN9jO:jO:iM8hM7hM8pT?hM7cH3^D.^D.]C-[A+[A,`E0aF1iN8aF1Y?)Y>)W<(W<'V;&T8$R6"R7#Q6!P4 Q5!Q6!Q6!Q6!P5 Q6"R7"Q6!P4 P5 Q6"P5!O4
+P5!Q5!O4
+P5 R6"R7"R7#Y>)
+sR7#D)
+Z@*iN9fK6gL7
+R7#X=(O4
+T9$S8#O3
+_D/tYDoT?jO:kP:pU@pU@lQ<mQ<pU@nR=hM8gL7hM8hM7cH2_D/`E0`E0Z@+aF1fK5lP;hM8U:%X=)Y?*T9$Q6"T9$T9$P5 P4 S7#S8$N3
+P5 U:%Q5!L1
+P5 U9%P5 J/
+Q5!P5 Q6!N3
+U9%}aL
+R7#S8#`E0kP;qU@
+Q5 T9$M2
+W<'Z?*Q6!O4
+R7"U:%kO:x]HsWCsXCrWBpU@qVArWCrVBpT@nS?oT?nR=jO:iN8kP;lQ<hM7bG1dI4lQ;lQ;mR=sXC\B-V<'V;&U:%U:%R6"N3
+Q5!O4 O4
+P4 P5 N3
+R7#Q6!O3
+X<(W<'O3
+U:&dJ5hM7jO9
+S7#Q6!M2
+U:%V;&O4
+Z?*T8$Q6!N3
+S8#X=(aF1{`Ky^Jx]Iv[FsWCsXCuZFtYEqVAqVAsXCqVAmQ=kP;lQ<lQ;lQ;gL7bG2bG1bH2sXD
+ePkP;T9%V;&W<'W=(R7#O4
+Q5!Q6"N3
+S8$Q5!M1
+W<'X<(Q5!Q5!jN:
+wlQ<eJ5
+S8#P5 \B.|eQ_F1E*
+P5 _D0bG2gL7
+R7#^C.[?+J.
+V;&V;'R7#T9$hM8
+dOz_Jx]Hz_Jy^Iv[FuZEw\Gv[GsXDrVBsXDrWBlQ<kP:pU@mR<]C-\A,]B-dJ4{aK]B.X=([@+U;&S8#U:&V:&Q5!N3
+R7"T8$N3
+T9%R7"M2
+Q5!T9$O4
+Q6!R7"P4 Q5!F+
+P5 t\HW=(C(
+S7"`E0nS>
+{fT8$L1
+P4 T9$aF1V;&Q6!Q6"S8#U:%W=(Z?*Z?*~cM
+eO~dN}cN~cN|aLz`Ky^Ix^Iv\Gv[Fw\Gv[FuZEw\GoT?aF0bG1aG1^C._D/Z?*Z?*Z?*Z>)X=(X=(V;&U:%T9$S8$S7#P5!P5 O4 O3
+Q6"T8$W<'W<'S7#O4 M1
+p^C.J.
+jR>`G3D(
+Q6 V;'_D/
+yU:%S8$O4
+T9$T9$I.
+S8#P4 H-
+[@+dJ4`E0U;&[A+V;&N3
+R7#]B-\A,]C.
+fP|aL}bM
+fQ|aKcI3cG2cH3\A,Y>)\A,\A,V;&T9$Z?*Z@+V:&S8#W<'Y>)U:%S8#V<'Y?*U:&R7"T8$V;&P5 M2
+V;&cH2aF1V;'T9$S8$I.
+Q6!S8"Q6!_D/Y=)O4
+kP;sWCJ/
+X<'V:%A%
+t_{bNG+
+_F2gO;C'
+P5 R6"H-
+Q6"R7"M2
+S8#S8#K0
+R7"[@+\A,`E0uYEoT?cH2U;&T8$Y>)X>)V;&X=(fK6
+jThM7bG1dI4oT>pU@cH3Z?)Z?*[A+W<'T9$V;&V;'S7#P5 R7"T8$Q6!P4 S7#U:%S8#R7"U:%X<(U:%R7"S8#T9$P5 L1
+T9$V;&Z@*bG2iM8_D/T9$sXC
+ntYEaF1z_J}bM{_KaF1w\GX<'N3
+oW=)K0
+]D0R8#C(
+{fbF2K0
+Q5!Q6!L1
+S8#_D/cH3rWA}bMy^ImR=Z@*X=(^D.^C.[A,Y>)y]H
+q\mR=pT@
+eP~cNuYDgL7_D/\B-\B,X>)T9$T9$T9%Q5!O4
+Q6"S8#P5!O4
+Q6!T9$S7#R6!U:%X=)W<(U:%V;&Y>)X=(W=(Y>)W<'eJ5uZD
+gSjO:`E0O4
+P5!X=(N2
+nZZ?*L1
+fM:S8#G,
+Y?*T9$Q5!dI4
+eQ{`KrWBpUApU@cH3U;&Z?*dI3gL6
+}iz`K~cM
+eOsWC_C.W='aF1`F0S8#N3
+S7#U:%Q6!M2
+Q6"U:%P5!M2
+Q6"U:%R7"N3
+T9%\B,]B-^C.dJ4fK5bG1
+tYDsYDtYD[@+V;&
+U:%aF1Y>*F*
+}O5 R7"
+n{cOH-
+vuZEH,
+U;&V;'P5 O3
+R6"X=(lQ;nS>oT?pU@qVAoS>eJ5`E0`E0\A,~cN
+nY~cNvZEjO:eJ5aF1Y>)U:&T9$T9$S8$R7"R7"Q6"Q6!Q6"Q6!R6"R7#U:%W<'Y>*_E/bG1aF1
+Y>)]C-aG2
+z{bMiO:I.
+P5!V;&N3
+Q5!R7"J/
+Q6!Q5!U:%_D.]B-Q6"I.
+Q6"iN9hM8Y?)`E/hM8fJ5`F0gL7mR=fK6\A,jO:
+wbx\HfK6oT?kP:Z?*T9$Y>)[@+V;&R7#W<'Z?*U:%R7"V<']B-Z?*X>)^C.cH2gL6
+uZEV;&
+vrXCaG1Z?*Q6"F*
+gM8Y?*@%
+Q6"S7#P5!Q6!M2
+xP6!P5!T8$V;&O4
+P5 `F0^C-P5 R6"Y>)]B-`D0T9$V;&S8#M2
+P5 \A,fK5aF1aF1fK5^C.
+lWz_JfK5]B-]B-\B,W<'T9$X=(\A,X=(T9$X=)^C-[@+X>(]C-eJ4]B,aG1
+zhM7dI4
+gM7~cMv[FgL8S8#Q6!O4
+P5 U:%G,
+v[EO5 R6"S8$T9%N3
+R7"P5 L1
+P5 W<'T9%P5!U:%^D.jO;T9$Z?*
+p[rWB|aL
+dOiN9]B-bG1
+jUhM8]B-aF1aF1]B-[@+aF1bG2^C.^C.aF1eJ5cH2_D/cH2cH3v[F
+pU@cH2jO9]B-hM7
+}h_D/aF0Z?)T9$Q6"Q6!M2
+Q6!P5 P5!K0
+Q6!Q6"L1
+U:%W<'L1
+tYE}cN
+}h}bLfK6J/
+U:&V;'P4
+T9$^C.T9$H-
+S8#`E0[@+bG2`E/x]G
+u`~cNlQ<jO9bG1\A,eJ4jN9aF1nS=|aKrWBkP;cH2kP;sXCjN9^C.
+r]fK6kP;eJ4eJ4dI3_D/
+vhM8kP;{`KfL6X=(N2
+S8#P5 H-
+T9$`E0bH2S8#
+W<'V;'N3
+Q6!S8#T9%U:%P5 
+y_E/hN8[@+V;&Q6!N3
+P5 R6"O3
+R6!Q6!O4 S8#W<'V;'W<'Z?*Y>)Y>)Z?*hM8dI4_D.
+oZsXCgL7fK6gL6cH3tYDnS>
+tfK6pT?uZEy_JuYEpT@pU@gK7z_J
+mXaF0qUA~cN
+ePtYDlQ<bG2jN9
+s]\A,|aL
+x]HY>)Z?*U:%R7"Q6!P5 N3
+X=(oT?
+[@+W<(M1
+R7#R6"N3
+U:&V;'I.
+W<'S8#aF1
+s^x]H`E0P5!K/
+R7#X<(Q6!K0
+S8#[@+T9$M2
+X=(bG2\A,X=(fK5nR=dI4eJ5jO:eI4
+q\v[FfK6mR<sXCfK6
+psXCiN9w\G
+lVy^Iv[G{`KlP<
+lWkP;gK6iM8[?*X=(
+[@+W<'cH3bG1T9$P5 W<'T9$I.
+Q6!Q6!V;&R7#Q6"P5 M2
+U:&V;&O3
+kY?)W<'S9$P6!_D0nS?[?+N3
+wbaF1T9$V;&Q6!M2
+U:%]B-V;&Q6"[@+cH3[@+V;&dI4w\G{`KtYEz_J}bMiN9rWB
+fQv[FqU@tYDx]HqVAhM8
+kUy^JnR>
+mXz_JnS=cH2aF0mS=
+vaE0eJ5]C-T9%X=(aF1]B-Q6!N3
+S8$R7"J/
+P5 lP;
+P5!Q6!W<'S8#R7"R6"R7"T9$N3
+V<'mR=gM8
+dOU:%Z@+Z?*T9$O4
+R7#T9$X='tZD
+ydfL6V<'W<'T9$Q6!U:%[@+Z?*X=(\A,aF0^C._D.oT?
+r]z_JrWC~cN
+nXz_JmS=pU@v[Gx^ItYDnT?
+dOy^IqVA
+fQw\GnS>bG1
+dPpU@jO:\B,W<'T9%V;&Y>)Y>)U:%R7"P5!M2
+Q6!P6 S7"U:%Q5!K0
+R7#P5 M2
+O4 ^C/Y>)Q6"T9$[@+U;&
+naF1Y>)`E/aF1Z?*cH4X=(\B,R7#L1
+\A,nS=
+q[{`KgL6W<'Q6"Y?*^C.T9$O4
+[@+hM7Z?*O4 \A+oT>v[G
+yduZEqVA
+pZy^Iy^J
+gQuZFoT@uZE
+py^Hz_J
+eO{`KjN:iN9z_K
+vbdH4sXC|aLlQ<^C-_D/[@+N3
+O4 Z@*]B-T9$N3
+U:%T9%I.
+gL7oT?jO:gL6hM8`E0O4
+R7"fK5x]HrWB]B-
+R6"T9$\A,X=(Y>)Z?*U;&
+ePV;%`E/^C-eJ5{`J`E0
+sjP:kP;qVAnS>eJ4\A,]C.`E0Z@*U:&X=(\A,Y>)[@+^C.^C-[@+bG1v[F
+dNnS?mR=
+oZ}cMy^I|aL{`K
+pqVAw\Hw\Gv[GmR=w]H
+nYnS>mR=v[G{aLrWA\A,V;'[@+W<'R7"S8#Z?*`E0X=(U:&^C.aF1hL7qVAw[Gv[FrVBmR=iN9cH3R7"E*
+Q6!\A,Y>*O4
+R7#T9$Y>*X=(\B,[@+M2
+kVY>)]B-U;%~dN
+z_Kz_JtYDX=(^D.mR<eJ5^D.Z?*cH3kO:aF0X=(`E/fK5^D.W=(_D/gK6^C.]B-y^H
+gRmR=^C.iN9
+ojO:x]H}bMsXCiN8
+fQw\GkO:pU@}bM{aLeJ5V;&]B-Y?*P4 R7"^D/`E/Y>*`E0pT?qVAjN9oT?x]Hx]IsXCqVBtYDsXCfJ5R7!K/
+P5!P5!N3
+Q6!_D/\A,V;&]C.|dOT9$
+`E/_D.nT?mS>cH3
+s^\A+T:$W<'aG1kP:hM8\A,hM7oT?fK6aF0iN9nS>dI4Z@*hM7tYDeI4X=(eJ4{`KqWAgL6v[F
+iSv[FjN9jN9qVAfK6
+hSoU?nR=qVAsXCjO:rWBz`Kx^IqVAmR=v\Gz_JhM8Q5!R6"^C.^C.U:%U:%[@+bG2iN9oT@rWCuZFsXDtYDx]Hw\HsWCpU@rWBmR<Y>)F+
+P5 R6"T9$_E0[A,V;&nT@
+iTY=(aF1Z@*Y?)[A+[A+dI4iN9Z?*X=([@+^D.bG1lQ<lP;dI4iN9mR=kP;kO:lQ<lQ<iN9gL6oT?sXClP;lQ<v[FsWCmR=jO9mR=sXCkP;mR<tZEpUAjO:jO:
+lP;rVB|bMz_JqVAkO:sWCz_JpU@\@+U:%Z?*Z?*V;&S8$W<'V;&Z@*oT?w\Gv[FuZFtYEv[Fv[FtXDrWBrWBpU@hM8S8#F+
+R7"Q6!O4
+Q6 V;%U:%Q6!T9$\A,^C.bG2_D/cG2rXC
+zaLS8"hM8kO:`E/`E/Z?*
+pV@|aLoT?kP;qVAz^Jz_JoT?iN9w\G
+dOqU@gL7rWC~dNx]HnS>|aL
+oZz`KhM8v[F
+jVuZDdI4oT?
+fQ}bMuZE}bM
+sWB~cN
+fQ~cNw\Gz_Jv[FrXCx]Hv[EdI4U:%X=(dI4dI4V;&T9%dI4oT>tYDz_K}cN}bMy^Iw\Gz_J{`KtYEqVArWAfK6M2
+S8#P5 R7"
+R7!R7"R7"S8#U:%U:%T9$V;&Y?)Z?*[@+^C.iN8gL7bG2nT?
+qrWBjO;y^IiN9[?+{aK
+jUsXCqV@x]H
+fP|aLv\G{_J}aLz_Jw\Gy^I|aLx]Hx^H
+dOuZE}bM
+gRy^IqVAx]H
+iTw\Gy^I
+fQx]HsXBx^I
+dOx]HiO9eJ5dI4_D/`D/iN9cH3[@+hM8oT?y^I|aL|aL~cN}cMz_Jx^Ix]Hv[FnS=_D/T9$P5 N3
+R7"Z?*P5
+Q6!P5 O3
+S8#S8#Q7!T9#X=)Y>)W<'[@*gL7fK6aG1Y>(
+teJ5qVA|aL
+jU|aLuZE|aL
+fQ{_Jv[F|aL
+hS|aL|aL
+nYy_IrWB
+nY|aKoT?{`K
+yesXD}bM
+gRx]HtYDv[Fx]Hw[GsXCpU@gL7[@+[?*iN9kP;Z?*`E0mR=nS>nS>w\Fy^I{aLx]HtZEuZEoT?^C.Q6!Q6!P5 K0
+Q6!Y>)M2
+T9$T9$Q5!R7"Z?*\B,_D/_E/eJ5Y='
+v~cNpV@|aL
+fQy^ItYD
+iSz`Jx]H
+jUoT?x]H
+iTsXC~cN
+oS?y^I
+fRiM7w\G
+fP{aLoT?mR=w]Hy^IiN9^C.gL6dI4V:&Y>)iN8jO9aG1aF1hM8nR=qV@oT?sXCsXCgL7T9$S8#Q6!I.
+P5 R7!O4
+Q6!T9$W<'_D/_D/]B,^C.
+kV{aK~cN|aLz_J}bM}bM
+pZy_Jx^H}bL|aK
+ukO:nR=
+sYDeH2rWAx^Iw\GtYDpT?kP;fK5`E0_D/\A+T9$P5!W<'aF0cH3aG1aF1aF0eJ5iN9dI3bF1X=(I.
+Q6!Q6!J.
+T9$T8$Q6"U:&dI4dI4Z?)aG2
+}cMx^H
+hS~cN~cM
+p[|aLrWB
+fQ|aL{`KpU@jO:oT?kP:Z?*T:%[A+X>)P5!R7"`E0fK6\A,Y?*cH2hM8bG2T:$\A,S8#E*
+V:&U9%H-
+O4 O4 N3
+P4 V;&X>)^C.aF1cH2Z>(
+iS}cM|aL
+tZD~dP
+nQ<sXCtYEsXClQ<kO:iN9`E0T9%T9$Y?*W=(O4 S8#`E0aF1\B-]C-hM8`E0U:%M2
+P4 O4 N3
+P5 U:&X=([A,aF1cH2[?*
+uv[FtYDiL6
+~lgJ5qVBoS?kP;eJ4eJ5gL7`F0U9%S8#Y>)W=(Q6!O3
+W<']B,\A,]C-]B,_D/T9$I.
+S8#S7#O4 S7#_D/dI4Y?*]B-Y='
+lO:oT?v[F}cMtXB
+mZiM7oT?cI3`E0iN8dI4V;'U:&^D.[A+O4 O3
+W<(Y>)P5!Q6"]C-[A,M2
+[?+S8#H-
+_D/Z?*M2
+O4 Q5!R7#T9$Y>)`F1]C-_E/_C-eK6
+my]HtYCrV@
+o\nR=hM7eI4cH2`E0\A,X=(W=(X=(W<'U:%S8$R7#S8#S8$W<'[@+Z?*U:%P5 P4 W<'M2
+[@+bG2W<'O4
+U:%U:%R7"[A+_E/`E0\A,W<&mS?
+hL7mR<pU@kP:\A,W=(]C-Z@*R7"R7"Z?*X=)N3
+U:&W<'P5!T9$]C.Z?*L1
+P5 Y>)Q5!H-
+Q6!bG2X=(K0
+P4 P4 N3
+P5 T9%[@+U:&V;'\B,`F0Q5
+jWaD.mQ<mS>gM8_D/gK6aF0W<'W<'\A,Y?*R7"R6"U:%T9$N3
+T9$W<'R7"P4
+R7#Q6"V;&N4
+V;&P5 N3
+R7#X=(U:%T9$Z?*\B,T9#
+rjO:jO9kP;gL6kR>]B-aF0_D/V<'X=(\A,Y>)R7#R7"V<'W<'O3
+S9$S8#M2
+gP>Y@-N4
+S8#X=(V;&U9%W<'V;%
+jN8nS>aG1]B,{bNgM7V<&V<'_E/^C.S8#R6"Y?*W<'N3
+P5!Z?*V;&J/
+W<'Q6 H-
+Y=)\A-J/
+P6!dK8^E1[A-eM:N3
+S8#V;'T8$W<'Y>)V;%oWC
+ygcF0fK5eJ4S6
+V;'V;&U:%T9$R7#P5 O4
+whmWEG+
+U:&X=(T9%Z@*`E0[@*
+[>'bG1aG1^B,gN9
+Y>)S8#T9$X=(T:%L1
+Q6 V;&U9$H-
+\@*bG2cH2]B,Q5
+{v[F{`JuZD
+o\hL6fJ4_C-eJ4hM8bG1Y>'
+kS?R7!^D._D/V<'S7#W<'V;'N2
+W<&X<(J/
+taeJ5\A+gO<s[H
+cH4mQ=w\Gw\Hy^H~dO
+u[GY;$\>'^A+]@)W:#`F0
+fM9T8#\B-\A,U:%R6"U:%T9%O4
+V;&V;&H-
+T9$aF1fK5`E0V;'S8#U9%X<(Y=)rZF
+|hbG1kO:y^JrWBjO:
+P5 V:&R7"K0
+S8#S8#J/
+Y>)V:&E*
+W<(iN9{`K
+ePuZEdI4Y>)S8#R7!Q6!I-
+mX|aL}bM~cN|aK
+S8$Q6!K0
+P5 Q6!N3
+U9$S7#L1
+W<'fK6v[Fy^IkP;X='I.
+p{aKtYD}bMz_J
+mYpU@x]Hx]HtYDz`J
+r]tYDw]H
+Z@,V<(E)
+R7#P5!Q6!Q6"M2
+P5 P5 N3
+S8$aF1fK6\A,N3
+Y?,}iZ
+jVuZEkP;
+}cOu[Fz`JqV@
+fQsXCtYD
+jTx]Hu[E
+|fU^D0V;&aF0]C-O4
+X=(P5 I.
+sYFv]I
+pw\HrWBnR>
+fPuZDv[FrWB
+lV|aL|aL
+^C.[@*`E/Y>*O4
+m^_E2R7#^E2fM;
+l[rZGqXE
+mR>gK6pU@w\G{`L
+jU}bMsXC{`K
+dOsXDuZE
+{aMnS>
+S8#\A,W=(Q6!N3
+V:%Q5 H-
+woT?kP:mR=lQ<kP:kP;
+mXkO:tYDx]HtYEqVAtYDy^Iv[FnS>nS>pU@rWBnS>jO:lQ=lR=y_K
+t`y^JhL7dH3oS>sXDnR=lQ<kO;z`L
+t[GrZFzcQxbP
+~ov`NX=(G*
+Q6!T9$L0
+fRY='^C-eJ4bF1]A+]A+U9$
+xdrWCx]HtYDkP;lQ<qVAnS>hM7iN9pU@nS>gL6hM7nS>oS>dI3_C.fK6lP;jO:gL7lQ<nS=iN9hM7jN9tZE
+cG1gJ4fJ5kP;
+zaG1cG2[?(N1
+R7#R7#P5 M2
+P5 Q6!G,
+V;&S8#M2
+P4 U;&O3
+o[`D/]A+cG2
+{aMjO:mR<uZEqVBfK6gL7oT?nS>fK5eJ5mQ<fK5[?)^B-aE/fJ5dI4cH3iN8kO:bG2bG1hM8iN9eJ5_C.hL7
+iUpUAfJ4eI4iM7jM8iM8nS>
+jWgJ4lN7rVA|dQmR<jN8eI3[?(_C.]@)X;$W:#`C,`C,Z?)S8#T:%W<'T9$P5 S7#U:%S8$O4
+Q6!O4 L0
+R7"P5 K0
+R7#T8$Y>*iP=
+x\F|aM
+p\bF1mR<mR=lQ<hM7gL6iM8iM8gL7hM7dH3
+hTaF0eJ5fJ5gL6dI4`E/`E0`F0_E/`F0_D/Y='iO:s[G
+udcH3bG2eJ5gL6hL7eI3hL6oT?zaN
+mQ<nS>pU@jO9cG1eJ4fK6eJ4aF1`E0`E0^C.\B,`F0fK5`E0X>)V;&T9$R7"R7#R7#R7#R7"P5!O4
+R7"Z?*O3
+P5 R7"L1
+S6 gL6v\GeI4gM8
+s_nS>fK5gK5mQ<iN9`E0aF1iN8fJ5iO:
+wfK6eJ5gK6`E0^C.eJ5bG2[@+Z@*]C._D/Z?*Z?*]B,^C,T9#U:$_D/cH3\A,Z?*cG2gL7bG2^B-kQ<
+n[eH2_A*cF0rWBkP;bG1fK5lQ<dI4\B,aF0gK6`F0W='X=(_D.Z@*U:%X=([@+V;'N2
+U9%S8$O4
+P4 S8#P4 J/
+O4 U:%W<'T9$T9%Z?)\A,[@+\A+iN8hM8`E0U9#^B,kO:oT@
+{hpT@pU?gK6eJ4gL6dI4_D/_D/dI4Z?*eK6hO:V:$_D._D.]B-_D/_D/]B-`E0_D/^D.[A,[@+^C.`E/\B,[A+_D/aF1^C.]B,bG1eJ5cG2aG1fK6aE/
+lZv]IhL7oT?rWBnS=jN9lQ<oT?kP:eI4fK6iN9gK6cH3bG2dI4aF1[@+\A,]B-[@+X=(V;&W<'X<(U:%U:&V;&S8#P5
+P5 X=(L1
+P4 S7#R6"S8$[@+]C.Y?*Z?*bG2fK5bG1_D/nS=rWBhM8hL7qVAz_J|aL
+iUpUA{cNrWCrYEt[G
+xe_D.`E/qVA}cN~dOsXCqU@uZErVBjN9jN9nS>lQ<cG2bG1kP:jO:fK5dI4hM7hM8dI4fK6kP:iN8dI4cG2hM7lQ;gL7eJ5lQ<nS>iN9gL7oT?sXDnS>kO:rWCtYDqWBnS=fH2sWBtYDsXC|aK
+dOz`K~cN
+gR~dNx]H{`K~dN{`Kv[Fv[Fz`Kw\GoS>oS>rWBpT@hM8gL7kP:jO:dI3cH3eJ5bG2]B-]B-`E0^C.Z?*Z@*^C.]B-[@+\B-_D.]B-V;'T9%V;'W='aF1Y>)V<'W;'Q6"Q6"X>)Y>)[@+Z@+Y>)Y?*
+T9$X=(T9%T:%]C-bG2[A,Y>)aF1dI3hL7hM7iN9oT?kO:kP:}bM
+kVw\FpU?x]Gz^Hw[ErWAx\F
+iT{`J~cN
+cNuYDaF0bF0gK6aF1Y>)]B-bG2^B,Y='`E0gL6fK5fK5rWB
+dO}bMoT@oT?w\HsXDiN9iM8oS>mR<eJ5eI4kP:kO:dI4cH2jO9lQ<gL7eJ4kO:mR<eJ4cH3lQ;pU@gL7dI4nR>sWCkO:gL7rWCw[GnS=gL6mR=sXCmR=kP;uZE~cNx]HpU@w\G
+dOy^IqVAx^I
+dOz_JqVAv\G|bMy^IqVAtYEx\HrWBlQ<oT?pU@mR=fK6gK6iN9fK6`F0`E0cH2bG1[@+[@+^D.^D.Y?)Y>)]B-\A,X>)Z?*^D.^D.[@+`E0hM8Y>)T9%S7#T9$X=(W=(U:%`E0cI3X=(T9$
+Q6"S8$T9$W<'Y?*[A+[A+\A,\B-]B-hL7mR=fK5fK6hM8nS>w\G
+dOx^Ix]Hz_J|bL
+fPy^IqWAlQ<hM8cH2_D/]C-_E/aF0aE0eJ5lQ<pU@rWBrWCpU@nS>lQ<jO:iN9hM8fK6fK5fK5dI4dH3dI4eJ4eJ4eI4hM7gL7fK6eJ5eJ5fK6gL6fK6gL6hM8iN9iN9kP;kP;kP;iM8gL7hM7iN9iN9mQ<oT?pU@pUAoT?oT@oT?pT@oT?pU@pT?nS>mR=oT?qVAqVApU@oT?nR>nR=nS>lQ;hM8hM7gL6dI4cH3cH2bG2aF0_D.]B-[A+\A,[@+Z@+Y>)X=(X=(X=(V;'U:%V;&X=)Z@+gL7^C.W<'U:%T9$U:%Z?*\A,\A,bG2aF1W<'U:%
+P4 W<'Z@*T9%T9$\B,_D/W=(W=(hM8rVAaF0\A,fK6qU@oT?tYD
+nX~dNpT@sXCz`Kw]GrWB{aL
+gR~cNv[G}cM
+ePv[G}bM
+jTx]H}bM
+eOpU@mR>qVAhL7\B,\B,cH2`E0Z?*`E0oT?qUAgL7hL7qVAnS>eJ4dI3iN9iM8bG1_D/eJ4fK6_D/]C-eJ4hM7dI4`E/fK5hM8aF1_D.gL6kP;cH3_D.iN9oS>eJ5^D.fJ5kP;cH3_D.gL7pU@iN8aF0iN9pU?jO9bG1hM8pT@jO9aF0fK6nS>jO9bG1fK6oT?lQ<fJ5jO:oS?gL7^D.aF1fK6cH2[A,]C-cH3`E/Y>)X>)\B-\B,W<'V;&Z@+Z@*U:%T8$V;&V;&S7#S8#]B-cH3S8#R7"V;&X=(W<([A+`F0_E/^C.Z?*V;&W<(
+S8$V;&S8#R7#X>)[A+V;&T9%Z?*aF1bF1eJ5bG2dI3`E0aG1jO:tYEsXCqVAtYEsXDmR>kP;sXCz`Kx]HtYDy^I
+dO{`KuZF{`K
+eP|bLv[F{`K
+fQ}cMuZEu[F{`Lv[GoS?pU@w\GqVAeJ5bG2aG1^C.\B-aF1iN9kP:fK6gK6kO:iN9cH3bG2eJ4dI4_D/^C.bG2cH2^C.]C-dI3hM7aF0^D.cH3eJ4`E0^D.dI4gL7bH2_E/dI3eJ4`E0^C.cH3iN8eJ5aF1fK6jO9fJ5aF0eJ4iM8eJ4`E0dI3gL6dH3^D.bG1gL7gL6dI3gK6lQ<lP;cH3`E0cH3bG1]C-^C.aF0_D/Z@+Y>)Y>)X>)W<'W<'X=(X=(U:%T9%V;&U:%S7#S7#V;&X=(cH3X=(V;&V;&T9$V;&]B-_E/Z?*V<'^C.\A,S8$R8#
+T9%V<'Q6"R6"W<(Y?*T9%S8#Y?*`F0]B-bG2cG2bG1^D.^C.fK5nS>lQ<jN9mR=oT@lQ<jO9pU@v[GsXCoT?tYE{aLw\HrWBx]H~cNy^IsXCw]H~cNx]IoT?pU@v[FrVBkP;oT?v[GsXCkP;kO:nR=gL7\A,]B,eJ4fK6cG2dH3hM8hM7cH2bG1dI3cH3^C.]B-aF1`F0\A,\A,`E0dI4bG2]B-aF0bG2^D.\B,aF1eJ5_E/\A,aE0bG2]C.\B,bG1fK5bG1_D.cH2gK6bG2]C-bG1fK6cH2]C-`E0dI4`E0\B,aF1hM8gK6aF1eJ4iN9fK5^C.]C-bG1_E/Z@*\A,_E/]C-X=(V;'W<'V;'T9%T9$U:%U:&S8#R7#S8#S7#R7"S8$V<'bG2_E0T9$U:&U:&T8$W<'\A,[@+V<'T9$]B-Z?+S8$Q6!
+O4 S8#P5 N3
+T:%W=(R7"P4 V;&Z?*V;&U:&]B-eJ5`E0V<'`E/gL6bG1aF0jO:qUAfK6aF0kO:sXCmR=fK6pT?x]IqVBjO:rVA|aLv[FlQ<sXC~cNw\GkO:nS>x]HqVAfK5kP;v[GrWCgK6iM8sXCmR=cH2dI4hM7`E0[@+_D/iN9kO:aF1aF0jN9iN8^D.\B,bG2cH2\A,Z?*`E0aF1[A+Y?*cG2gL6\A,Y>)_D.bG1[A+Y>)_D/cG2[@+W=(^D.cH2\B,Y>)`F0fK5_D/Y?)_D/eJ4`E/Y>)^C.dI3^C.W=(^C.gL6dH3\A,aF1iM8cH3\B,^C.bG2]C-Y>)Y>)\A,Z?*V;&V;&X<(U:%R7"R7#T9%S8$P5!P5!S7#Q6"N3
+P5 U:%W<'Y>)cH3Y>)W<(S8#R7"V;'Z?*V;&R7#U;&V;&Z?*T8$P5 N2
+Q6!Q6"R7"R7#S8$S8#S7#T9$X=)[@+Z@*[@+cH3\A,\B,^C.bG2fK5gK6fK6dI3eJ4gL6hM7jO9jO:kP;lQ<mR=oT?pT@oT@pU@qVAqVApT?nS>nR>lQ<kP;kP:mR=mQ<lP;kP;kP:jO9iN9hM8gL7eJ4dI4_E/Z@*]C-aF0dH3fK6hM7iN8hM7gL7fK6eI4aF0`E0_D/]B-]C-^C.^C.]C-`E0bG2]B-\A,[A+]B-]B-[A+Z?*Y>)Y?*Y>)Z?*Z@+[@+[@+[@+Z?*Z@+Z@*Z?*Z?*Z@+Z?*Y>)Z?*\A,^C.^C._E/`E0_D._D/]C-^C.\B,[@+Z@+Z?*W=(V;&V;&U:%S8$R7#Q6!R6"Q6"P5 O4
+O4 S8#U9%U;&cH3[?+S8#S7#Q6!P5 R7"T9%T9$S8#R7"R7"Z>*S8#P5!N3
+R7"T9$O3
+S8$U:&P5 P5 Z?*`E0W<'S8$dH3bG1Z?*W<'aF1jN9cH2[A+aF1hM8cH3_D.fK6oS?iM8cG1jO9sXCnR=eJ5lP;uZEnS>cH2hM8qVAkP:cH2hL7pU@lP;cH2fK5nS>jO9`E0bG1kO:fK6^C-_E/`F0Z@+V;&Y?*dI3hL7bG1bG1mQ<qUArVAgL6iN9hM8^C.Z@*`E0bG1[A,Y>)bG2fK5[@+X>(_D/aG1Y>)T9%Z?*]C.W='T8$Z?*^C.X=(T8$X>(\B,W<'R6"V;&Z?*V:&R7"V;'\A,X=(S8$W<(]B-Y>)U:&Y>)\B-X=(S8$W<(Z?*V;&R7"S8#U:%S7#O4 P4
+Q6!O4 L1
+O4 S7#Q6"]B-_D/R6"O4
+P5 P5 P5!Q6"R7"R6"O4
+P5 X<(Q6!M2
+S8#T9$O4
+S8#Y>)V;&T9%X=(Y>)^C.[@+Z@+_D.]C-\A,bG1dI3^C.[A+bG1gK6cH3aF1fK5kP:hL7dI4hM8lQ<jN9eJ4hL7lQ;hM8cH2fK5mQ<iN9bG2eJ5kP:gL7`E0bG1gL7eJ5^C._D/dI4dI3^C-W<'W<'Y>)X=([@+bG1dI3`E0cH3mR=mQ<dI4bG2jO9iN9`E0]B-bG2bG2\A,\B,cH2bG1\A,X=(Z?*]B,Y>)V;&Y?)\B,Y>)V;&Z?*]B-X=(T9$W<'Y?*U:%R7#U:&Z?*W<'S8#T8$U:%S8#R7"S8$W<'U9%Q6!P5!S8#S8#O4
+O4 R7"R7"R7"W<'_D/N3
+S8#S8#L1
+O4 S8#S8$O4
+S8#W='U:%S8$U;&W<'[@+_D/Z?*]B-\A,[A,`D/bG1^D.\A,`E0dH3aF1`E/cH2gL6dI4bG1dI3gL7eJ4bG2fK5jO9gL6cG2dI4iM8fK6bG1dI3gL7eJ4`E/aE0dI4bG1\B,]C-aF1`E0\B,[@+W<(T9%T9$W<'\A,]C-\B,^C.cH3fK6aF1aF1gK6hM8dI3bH2gL6gL7bG2_E/cH3fK5^C.Y>)Z@+\A,Y>)V;'Y?)\B,Y?)W<'Z?*\A,X>(U:%W<'Y>)V;&V;&X=(Y?*W<(T9$T9$U:%T9%T9%U:%W<'T9%P5!Q5!T8$T9$R7"P4 O4
+P5 Y>)\A,Z@*bG2P4
+S8#T9$O3
+R7"T8$Q5!P5 W<'Y?*Q6"O4 Z?*gM7Y>)T9$]B-eJ4[A+V;&_D.eJ4\B,W<'^C.fK6aF0[@+aF0hL7cH2\B,aF1jO:fL6]B-cH2lQ<fK5]B,`E0iN9eJ4[A+_D.gL6cH3Z?*[A+cG2aF0Y>)Y?*aF1aF1X=(R7"T9$V;&S8$T9$\A,^C.Y>)Z?*dI3fK5^C-\A,fK5jO9aF1^C-gL7lQ<bG1]C-hM7gL6[A+W<'[A,^C.W<(T9$Z@+_D.X>(S8$Y>)]C.W<(R7#Y>)_E/Y?)S8#U:&Z?*X=(S8$Y>)`E0]B-X=(Y>)\A,Z?*W<(Y>*Z?*U:%O3
+X=)gL6kP;pU?\A-H-
+P5!Q6!O4
+P5!T9%V;&T9%S8$S8#T9$U:%_D/]B-Z@*\A,]B,Z@+[@+[A,[@+\A,]B-\B-\A,]B-_D/^D.^C._D/cH2cG2aF0bG2cH3cH2aF1aF1cH2aF1`E/`E/aF1`E/^C.^C.^C.]B-[A+[@+\A,\A,[A+[A,]C.Z?*Q6!P4 R7"T8$T:%U:&W<'Y?*[@+]B-^C-^D.^D.`E0aF1cH2bG1bG1cH2cH2bG2bG2bG2aF0]C.\A,]B-^C.\A,Y>)Y>*Z?*Y>)W=(Z?*]B,\B,Z@*Y?*Z@+Z?*Z?*[@+]C-_D/`E/^C.\B,X>)W<'Y>)Y>)W<'U9%R7"O4
+`E0rWB
+gRx]HY>)J.
+Headings
+_PID_HLINKS
+<b:Sources SelectedStyle="/APA.XSL" StyleName="APA" xmlns:b="http://schemas.openxmlformats.org/officeDocument/2006/bibliography" xmlns="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"></b:Sources>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ds:datastoreItem ds:itemID="{ADAB69CD-A6BF-43A4-9B0C-C74CB83C10B9}" xmlns:ds="http://schemas.openxmlformats.org/officeDocument/2006/customXml"><ds:schemaRefs><ds:schemaRef ds:uri="http://schemas.openxmlformats.org/officeDocument/2006/bibliography"/></ds:schemaRefs></ds:datastoreItem>
+Microsoft Word 97-2003 Document
+MSWordDoc
+Word.Document.8
+RemitONE Connections 
+ JS Bank 
+ v1.0 
+ Date: 4 May 2016
+RemitONE Connections - JS Bank 
+PAGE  
+Proof Setup
+shutterstock_8931643
+#(-27;@EJOTY^chmrw|
+_Toc294125934
+_Toc294125936
+_Toc294125938
+_Toc294125940
+Normal
+Heading 1
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+Heading 7
+Heading 8
+Heading 9
+Default Paragraph Font
+Table Normal
+No List
+Heading 1 Char
+Heading 2 Char
+Strong
+Medium Grid 2 - Accent 2
+Medium Grid 2 - Accent 2 Char
+Heading 3 Char
+Heading 4 Char
+Plain Table 41
+Plain Table 31
+Emphasis
+Medium Grid 1 - Accent 2
+Header
+Header Char
+Footer
+Footer Char
+Page Number
+Table Grid
+Medium Grid 3 - Accent 2
+Medium Grid 3 - Accent 2 Char
+Highlight
+Footnote Text
+Footnote Text Char
+Footnote Reference
+List Bullet
+List Bullet 2
+List Bullet 3
+List Bullet 4
+List Bullet 5
+Grid Table 31
+Hyperlink
+Heading 5 Char
+Heading 6 Char
+Heading 7 Char
+Heading 8 Char
+Heading 9 Char
+1 / 1.1 / 1.1.1
+Colorful List - Accent 1
+BRectangle 1
+R1Logo
+BStraight Connector 2
+  R1_Cover_Image
+_Toc216328692
+_Toc218946765
+_Toc218948018
+_Toc294125935
+_Toc294125937
+_Toc294125939
+_Toc277757817
+_Toc294125941
+Unknown
+Times New Roman
+Symbol
+Helvetica
+Cambria
+MS Mincho
+Helvetica Light
+Malgun Gothic
+MS Gothic
+Calibri
+Courier New
+Wingdings
+Cambria Math
+http://www.remitone.com/
+Root Entry
+1Table
+WordDocument
+SummaryInformation
+DocumentSummaryInformation
+MsoDataStore
+EO1DM3M
+Properties
+CompObj

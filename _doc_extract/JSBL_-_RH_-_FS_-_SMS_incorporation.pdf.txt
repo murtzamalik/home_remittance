@@ -1,0 +1,85 @@
+PDF_PAGES=3
+PDF_META={'/CreationDate': "D:20151012124741+05'00'", '/ModDate': "D:20151012124741+05'00'", '/Producer': 'Acrobat Distiller 5.0 (Windows)', '/Author': 'Raheel.Ahmed', '/Creator': 'PScript5.dll Version 5.2.2', '/Title': 'Microsoft Word - JSBL - RH - FS - SMS incorporation'}
+
+===== PAGE 1 =====
+       
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Functional Specification Document  
+   SMS Incorporation  
+ 
+ 
+ 
+Ver. 1.0  
+ 
+12 Oct 2015 
+ 
+ 
+ 
+ 
+      
+     Centegy Technologies (Pvt) Ltd 
+                           Formerly Known as Sidat Hyder Morshed Associates (Pvt) Ltd. 
+6th Floor, Beaumont Plaza, Beaumont Road, Karachi‐75530, Pakistan 
+Phone: 5693521‐30, Fax: (92‐21) 568 5625 
+Website: www.Centegytechnologies.com 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 2 =====
+Centegy Technologies (Pvt) Ltd JSBL ‐ RH‐ FS –SMS Incorporation 
+ 12 ‐Oct‐2015
+Page: 2 
+    
+ 
+ 
+Contents 
+ 
+JSBL ‐ Remit Home‐ FS –SMS incorporation ....................................................................... 3 
+Mechanism: ......................................................................................................................... 3 
+ 
+===== PAGE 3 =====
+Centegy Technologies (Pvt) Ltd JSBL ‐ RH‐ FS –SMS Incorporation 
+ 12 ‐Oct‐2015
+Page: 3 
+    
+ 
+JSBL ‐ Remit Home‐ FS –SMS incorporation 
+ 
+ Mechanism: 
+1. Currently JSBL is using its own SMS mechanism. The same mechanism will be used 
+by them and SMS will not be send by Remit application. 
+2. SMS incorporation will be dependent on JSBL provided information like database, 
+DSN, table format etc. 
+3. As per requested by JSBL what Remit application will do is that it will insert SMS call 
+in JSBL provided database’ table.  
+4. SMS incorporation will be done on transaction types that are utilized over different 
+events like File downloading, COTC payment, Own bank transfer etc. 
+5. For all the transaction types with which SMS insertion will be set to Yes, remit 
+application will call the JSBL provided table through JSBL provided DSN and if 
+available then will insert the data in that particular table. 
+6. Remit application job will be just to enter/insert data; hence mechanism like re‐
+send, status management will not be in‐place and are not required by JSBL as well. 
+7. In‐case if table is not accessible then such transaction will be inserted in a new table 
+at remit application. These transactions will be available at a newly developed 
+interface and user will have the facility to re‐send/insert them from there in JSBL 
+table. 
+8. SMS messages against transaction types will be configurable as user may change 
+these messages in future. 
+9. Inquiries/reports if needed then should be made part of this FSD/RS with proper 
+columns and formats. 
+ 

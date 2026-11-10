@@ -1,0 +1,57 @@
+
+===== SHEET: Sheet1 =====
+No    | Action Item    | Description |  |  | IT Feedback | Stake Holders' Role | Priority | 
+1 | API Integration |  Integration process posing seroius challanges to all the stakes holders.Stakes holders involved failed on multiple counts especailly meeting the time lines and functionality of API if completed. Time lags and accuracy can be judged from the fact that only  one API completed in one year time span, two APIs  in UAT stage and five others are  at infancy stage of  development. 
+We have got approval of around 22 exchange companies and most of these will be functional if and only if we arrange an error free intgration.Our current experience is contrary to our partner's requirements.Our partners keep on reminding us their requirements which we are unable to meet due to technology consideration.Some more  companies  approval in pipeline that will need Integration as soon as they are approved and taken on board. |  |  | For any API Integratin, following stakeholders are part of it:
+(1) Business
+(2) Operations
+(3) Information Technology
+(4 ) Vendor
+(5) Remitting Entity
+
+All stakeholder should play active role. Delay from any stakeholder will delay the Project and same was witnessed earlier many times when Business was leading the Project.
+
+Timeline and functionality of API depends on Funtional Specification document that is mutually agreed between all stakeholders mentioned above. Any change in this document will lead to change in timeline and functionality. It happened twice for RIA & thrice for Nobel that requirement mentioned in FS document changed and we incorporated those changes. Hence, it delayed the integration but our technology met their requirement.
+
+Since, we are using PULL model, so we have to follow the document of remitting entity. Usually, after reviewing the document we have to initiate several queries for clarification. Hence, documentation from remitting entity needs completeness. Furthermore, requirement of every remitting entity varies that needs development from start.
+
+As mutually agreed, now IT will lead the Projects. Furthermore, timeline can be shared after GO LIVE of 64 bit application which has some issues and we are waiting for the fix from the vendor. | IT to lead the API Integration and faster up the process; Business will align support from Tie ups abroad.  | Not given any time lines on this. 2 APIs in UAT and 4 in development. | 
+2 | Instant Cash API Issues | The only API completed had issues since the day one.Basic objective of intgration is fast track service to customers with no manual intervention from any end.In our case objective was not achieved.Most of the  transactions required intervention from Head Office as no automation was observed in the process. Transactions got caught up in Remit Home for several days and ultimately cancelled after much follow up with Ops and IT. Business had to appease Partner regarding these lags in payment processing and failure to pay out. On average we receive at least half a dozen calls from Instant Cash for marking cancellation, not to mention the email reminders. This cancellation earned us a bad name not only in UAE but also in other cooriddors as our partner  is operating on  agent based model. Business volume could not be enhanced from Instant Cash as we were never able to transact the business in line with  our promises made to our partner in terms of technolgy platform.   |  |  | The API was integrated properly and business was running smooth. Later, change was implemented for the automated reversal but it was not tested properly as normal account was used as Teller account. The current funds transfer transaction does not support the reversal with Teller account. 
+
+Some transactions were reported for Manual intervention to IT and we responded on timely manner except for two cases.
+
+As highlighed during the meeting, transaction flow should be changed and all stakeholders were agreed on new proposed flow. We have already taken up new propsoed flow implementation with vendor and waitng for their CR.
+ | IT promised to fix the issues  in Instant Cash | 2017-03-15 00:00:00 | 
+3 | UAT Finalization of API – RIA    | UAT done without SIT for RIA. Issues faced in the UAT for both Over the Counter payments as well as Bank transfer |  |  | Any patch that is release by vendor, its UAT is performed by Operations. IT only faciliate the environment. 
+Since, 64 bit application has some issues, we cannot resume UAT at this moment. |  Patch released by Centegy. IT to verify the same and repeat UAT.  | Combine UAT to resume on 27th Feb 2017;  Go live not confirmed by Saad after meeting with Vendor | 
+4 | Noble API | As per Centegy UAT is completed with Noble.   |  |  | Any patch that is release by vendor, its UAT is performed by Operations. IT only faciliate the environment. 
+Since, 64 bit application has some issues, we cannot resume UAT at this moment. | GO LIVE is awaited | Combine UAT to resume on 27th Feb 2017;  Go live not confirmed by Saad after meeting with Vendor | 
+5 | Straight Through Process STP Implementation & Issues | Straight Through Processing (STP )faced error which resulted in complete chaos. Other bank transactions got stuck and remained in limbo for many days. As a result of which we lost the  potential of 50000 in this year. Tie ups like Glaxy Canada left us while Al Ansari were retained after sincere apologies and fire fighting.STP was approved from SBP on January 16,2107 and implimentation from us done before its approval without meeting its prerequisits. Requirement of Pilot run suggested by SBP  was not observed and condition of third party and independent Audit was bypassed.Business continuty was seroiusly disrupted as no alternative delivery channels like IBFT were available to operations due to IT data mangement and running the applications on the same appratus.SBP requirement for running and getting final approval for STP process were not taken due care of as it clearly stipulates that JS Bank should ensure necessary security,relevant checks and controlls,Backup and Business continuity plans in place. |  |  | All the issues that were being reported after Pilot run were resolved on timely manner as vendor was onsite. Problems that were not resolved immediately, IT suggested to perform transactions manually.
+
+Please note that STP was implemented on 1st week of February afer SBP approval while meeting all pre-requisite of SBP and UAT sign off from relevant stakeholders. Please note that the system was in Pilot Phase as per SBP instruction and you also faced the issues in same period.  Third party & independent audit requirement is required after completion of pilot run as per SBP requirement and it is already scheduled. Business continuity was in place and IBFT was processing slow but it was available. There was no problem of running application & DB on same machine as number of transactions were very low and system was in Pilot Phase. There is no such requirement of getting final approval as you have already mentioned in your comments that approval was granted by SBP on 16th January, 2017. Furthermore, necessary checks and controls are already in place. Backups are being taken and BCP site already exists. 
+ | IT & Ops to meet the SBP requirements and resolve issues in STP | 2017-03-15 00:00:00 | 
+
+===== SHEET: Sheet3 =====
+ | As of Oct 2017 |  |  | 
+Sr # |  LIST OF TIE UPS | Operations | Country of Registration | SBP approval
+1 | Xpress Money  | World Wide | UK | SBP approval
+2 | WESTERN UNION  | World Wide | Ireland | SBP approval
+3 | RIA | World Wide | USA | SBP approval
+4 | AFTAB CURRENCY  | UK & Europe | UK | SBP approval
+5 | Inter City Money Ltd  | UK | UK | SBP approval
+6 |  Al Ansari Exchange UAE | UAE | UAE | SBP approval
+7 | Prabhu Group Inc | USA | USA | SBP approval
+8 | U REMIT  | UAE | Canada | SBP approval
+9 | ALICO | UK | UK | SBP approval
+10 | Kuwait Asian Intl  | Kuwait | Kuwait | SBP approval
+11 | Sherzi  | UK | UK | SBP approval
+12 | Gul Travels  | UK | UK | SBP approval
+13 | UJA Inc  | USA | USA | SBP approval
+14 | Instant Cash World Wide | UAE | UK | SBP approval
+15 | Al Mona Exchange  | UAE | UAE | SBP approval
+16 | Glaxy Intl  | Canada | Canada | SBP approval
+17 | International Money Express IME | World Wide | Malaysia | SBP approval
+18 | Super Sonicz UK | UK | UK | SBP approval
+19 | Speed Remit | UK  | UK | SBP approval
+20 | Dirham Exchange UAE | UAE | UAE | SBP approval
+21 | NEC Bahrain | Bahrain | Bahrain | SBP approval

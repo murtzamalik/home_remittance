@@ -1,0 +1,337 @@
+PROFESSIONAL SERVICES AGREEMENT
+THIS SERVICE LEVEL AGREEMENT (the “Agreement”) is made at Karachi on this March 24, 2016, 
+BY AND BETWEEN
+JS Bank Limited, a banking company incorporated under the laws of Islamic Republic of Pakistan and having its registered office at Shaheen Commercial Complex, Dr. Ziauddin Ahmed Road, Karachi-74200 Sindh, Pakistan  (hereinafter referred to as “JSBL” which expression shall, where the context so admits, include its successors-in-interest, nominees, legal representatives, administrators and assigns) of the First Part;
+AND
+INFOBITS, a company incorporated under the laws of Islamic Republic of Pakistan and having its registered office at 204-205, Marine Faisal P.E.C.H.S Block-6 Shahrah-e-Faisal, Karachi (hereinafter referred to as the "Company", which expression shall, where the context so admits, mean and include its successors-in-interest, nominees, legal representatives, administrators and permitted assigns) of the Second Part.
+(JSBL and Company shall collectively be referred to as the “Parties” and singly as “Party”.)
+RECITALS
+WHEREAS:
+a)	JSBL is a banking company desirous of hiring the Services (defined below);
+b)	The Company is an IT software development & data integration company and has represented that it has the requisite resources, necessary infrastructure, approvals and skills to provide the Services to JSBL as detailed herein; and
+c)	based on the representations of the Company, JSBL has agreed to avail the Services from the Company on the terms and conditions as set out in this Agreement.
+NOW, THEREFORE, THIS AGREEMENT WITNESSETH and in consideration of the mutual covenants contained herein, the Parties do hereby agree, undertake and declare as under:
+1. 	INTERPRETATION AND DEFINITIONS
+a) 	In this Agreement, unless the context otherwise requires:
+References to Clauses and Annexes are references to clauses and annexes of this Agreement.
+Words importing gender include the other gender.
+References to persons include bodies corporate firms and unincorporated associations.
+The singular includes the plural and vice versa.
+References to all or any part of any statute or statutory instrument include any statutory amendment, modification or re-enactment in force from time to time and references to any statute include any statutory instrument or regulations made under it; 
+The recitals to this Agreement shall form an integral part thereof; and
+The headings in this Agreement are for the purpose of reference only and shall be ignored in the interpretation of this Agreement. 
+b) 	In this Agreement, unless the context otherwise requires, the following terms shall have the following meaning:
+“Agreement” means this professional services agreement executed between JSBL and the Company on the date mentioned above and any annexures attached hereto; 
+"Personal Data" means any data or information which relates to an individual (including but not limited to JSBL’s staff and/or its customers) and which is held by or is under the control of JSBL and, to the extent the data protection laws apply to the data or information which relates to a corporate entity, "Personal Data" shall include such data and information;
+“Services” means the services to be provided by the Company to JSBL, by way of milestone and deliverable completion, under this Agreement as set out in detail under Annex A and Annex B of this Agreement; and 
+“Working Day” means:
+(i) for JSBL, Monday through Saturday excluding any public holiday(s). The following working hours shall be adhered to in regard to a Working Day: Monday to Friday from 9:00 a.m. to 5:00 p.m. 
+(ii) for the Company, Monday through Saturday excluding any public holiday(s). The following working hours shall be adhered to in regard to a Working Day: Monday to Friday from 9:00 a.m. to 5:00 p.m. 
+2.	TERM AND TERMINATION
+This Agreement shall take effect from the date of signing of this Agreement, as stated herein above, and shall remain in full force and effect until December 31, 2017 unless terminated by either Party in terms of clause 2 (b) below.
+This Agreement may be terminated by either Party by giving thirty (30) Working Days prior written notice to the other Party. 
+c)	In the event of any material breach by either Party of its obligations hereunder, the breaching Party shall have thirty (30) Working Days from receipt of notice from the non-breaching Party to rectify the breach after which time the Agreement shall stand terminated. 
+d) 	Upon termination, neither Party shall have any rights nor obligations to the other Party except as stated in this Agreement. However, all rights and obligations accruing prior to the date of termination shall continue to subsist.  
+3.	SERVICES
+The Company shall provide the Services, by way of completion of milestones and the corresponding deliverables within agreed timelines, as set out in Annex-A and Annex-B. The agreed timelines will start from the date of signing of this Agreement by both Parties.
+4.	CHANGE REQUEST
+JSBL may, from time to time, after signing of this Agreement, raise change requests relating to the Services (“Change Request”).
+Within two (2) Working Days of the receipt of a Change Request by the Company, the Company shall advise JSBL of the scope of the change requested by JSBL and the estimate of man hour(s), if any, and shall provide the costs associated with the Change Request.
+The Company shall charge PKR 5,000/per man hour for the efforts required to incorporate the Change Request.
+Critical and normal nature of Change Request will be handled by mutual agreement between JSBL and the Company.
+5. 	PERFORMANCE AND DELIVERABLE REVIEW
+a)	The Services to be provided by the Company will follow the milestones and the deliverables as set out in Annex A and Annex B of this Agreement. At the completion of each milestone and its corresponding deliverable, as stated in Annex A and Annex B, the Company will inform JSBL about such milestone and deliverable completion in writing.
+b)	At the confirmation of milestone and deliverables completion, each Party will have five (5) Working Days for deliverable review. If the deliverable fails to conform, in all material respects to the terms specified in this Agreement, JSBL will notify the Company of such failure in writing. The Company will then have further five (5) Working Days, after receipt of such notice, to correct or modify the milestone deliverable to the extent necessary so that it conforms to the terms of this Agreement.
+c)	A failure to notify the Company, by JSBL, in writing within the specified number of days after receipt for deliverable review shall mean that JSBL has accepted the deliverable. This process of review and modification (the “review process”) may be repeated, if necessary, until the deliverable conforms to the terms of this Agreement.
+d)	If the deliverable does not conform to the terms of this Agreement within twenty (20) Working Days after the beginning of the review process, JSBL will have the right to impose a penalty of PKR 1000 per Working Day on the Company till such time as the deliverable conforms to the terms of this Agreement. If the deliverable fails to conform to the terms of this Agreement after a further seven (20) Working Days of the Company’s efforts to conform the deliverable to this Agreement, then, notwithstanding anything to the contrary in this Agreement, JSBL shall be entitled to terminate this Agreement and the Company shall refund to JSBL the Service Payments in accordance with clause 6 (a) herein below.
+6.	PAYMENT TERMS
+a) 	In consideration of the Services to be provided and the covenants to be kept and performed by the Company and for the faithful performance of this Agreement, JSBL shall pay and the Company shall receive and accept (as full and final compensation for the Services furnished by Company under this Agreement) the payments as per Annex B attached hereto (“Service Payments”). Provided that, upon termination of this Agreement by JSBL due to breach of this Agreement by the Company or pursuant to Clause 5 (d) hereinabove, the Company shall, within thirty (30) Working Day of the termination taking effect, refund to JSBL the full Service Payments under this Agreement. 
+b) 	Notwithstanding anything contained herein, all or any payment to be made by JSBL to Company shall be made after deducting any or all applicable taxes and levies which JSBL under the law is liable/entitled to deduct from any such payments. 
+c)	JSBL shall be entitled  set off against and deduct and recover from any fees or other sums payable by JSBL  the Company at any time, any tax, levy or other amount whatsoever which may be required  be deducted by order of any Court/Authority or under any law now existent or which may come in existence during the currency of this Agreement as also any and all amounts which may be or become payable by the Company  JSBL under this Agreement or pursuant there.
+d)	The payments made or to be made to the Company in terms of this Clause 6 shall constitute full and final payment to the Company for the Services provided in connection with this Agreement and neither Company nor its personnel shall accept any trade commission, discount, allowance or indirect payment or other consideration in connection with or in relation to this Agreement or to the discharge of the Services hereunder.
+7.	Project Documentation
+a)	The Company shall provide all technical documentation, project management documentation, user manuals, functional and technology training, and other relevant materials to JSBL in respect of the milestones and the deliverables to be provided under this Agreement. 
+b)	Complete application software package and Scope of outstanding work document that is not deliver, fail to deliver or out-of-scope during project life cycle from either parties; at the time of Project Closure phase.
+8.	FUTURE DEVELOPMENTS AND UPGRADES
+a)	The Company shall keep JSBL promptly informed of any technological or regulary changes affecting the Services.
+b)	For any mandatory change/modification directed by State Bank of Pakistan, The Company shall provide upgrades to existing RTGS Gateway Application components as set out in detail under Annex A of this Agreement, at no further cost to JSBL. 
+c)	Any additional requirements requested by JSBL will be subject to mutually agreed additional charges based on the complexity of the additional requirements.
+9.	CONFIDENTIALITY AND PROPRIETARY RIGHTS
+a)	All information concerning JSBL which is provided to Company and vice versa in connection with this Agreement (“Confidential Information”), will be kept confidential by either Party, its affiliates, agents, advisors, directors, officers, or employees and, without the prior written consent of the other, neither Party shall:
+distribute or disclose any of the Confidential Information in any manner;
+permit any third party access to the Confidential Information; and 
+use the Confidential Information for any purpose other than as agreed in writing by the Party providing the information.
+b)	In the event that the either Party received a request to disclose all or any part of the Confidential Information under the terms of a valid and effective subpoena or order issued by a court of competent jurisdiction or by a government body, that Party agrees to promptly notify the other Party of the existence, terms and circumstances surrounding such a report so that the other Party may seek an appropriate injunctive relief to safeguard the Confidential Information. If either Party is compelled to disclose any of the Confidential Information, it will disclose only that portion thereof which it is compelled to disclose and shall use its best efforts to obtain an order or other reliable assurance that confidential treatment will be accorded to the Confidential Information so disclosed. Confidential Information shall not include any information which:
+has become generally available to the public through no fault or action of either Party; or 
+is in the possession of the Parties prior to the date hereof, provided that such information is not known by Parties to be subject to another confidentiality agreement and further provided that such information was obtained independently and without the assistance of either Party; or 
+is or becomes available to the either Party on a non-confidential basis from any third party, the disclosure of which to that Party does not violate any contractual, legal or fiduciary obligation such third party has to the other Party.  
+c)	Without limiting the generality of the foregoing, neither Party will publicly disclose the terms of this Agreement without the prior written consent of the other. Furthermore, neither of the Parties will make any use of Confidential Information of the other Party except as contemplated by this Agreement; acquire any right in or assert any lien against the disclosing Party's Confidential Information except as contemplated by this Agreement; or refuse to promptly return, provide a copy of or destroy such Confidential Information upon the request of the disclosing Party, save for when destruction of such information would result in an impediment in the receiving Party’s performance of this Agreement. In such an event, the receiving Party shall inform the disclosing Party in writing of its inability to do so, state clearly the reasons thereof and the time period in which the request will be complied with. The obligations of confidentiality herein shall remain in full force and effect during the life of this Agreement and two (2) consecutive years after termination thereof. 
+10.	LIMITATION OF LIABILITY AND INDEMNIFICATION 
+a)	In the event of any breach by the Company of its obligations, warranties and/or responsibilities under this Agreement, the Company shall hold JSBL, its subsidiaries, affiliates, officers, directors, employees and representatives harmless and indemnified from and against any and all losses (including without limitation any personal injury or death of any person), damages, claims, costs, liability, payments and obligations and all expenses (including without limitation reasonable legal fees) incurred, suffered, sustained or required to be paid, directly by or sought to be imposed upon JSBL or its subsidiaries, affiliates, officers, directors, employees and representatives.
+b)	The Company shall maintain the highest professional code of conduct in its dealings. The Company, its partners, employees, officers, representatives, contractual staff and other affiliated personnel shall be responsible for any loss, delay or inconvenience caused to JSBL by an act, omission or negligence with respect to the Services and disclosure of Confidential Information or breach of any of the terms of this Agreement. This is without prejudice  any other rights available  JSBL under this Agreement or any other applicable laws.
+11.	FORCE MAJEURE 
+a)	Parties shall not be liable for any non-performance of any obligation under this Agreement caused by any cause which is beyond the affected Party’s reasonable control, including Acts of God, insurrection of civil disorder, war or military operations, national or local emergency, acts or omissions of the local or national government (excluding any actions taken on account of breach of any legal obligation by the affected Party), or other competent authority, industrial disputes which are widespread, fire, lightning, explosion, flood, subsidence and inclement weather (“Force Majeure”).
+b)	Upon the happening of a Force Majeure event which continues for more than fourteen (20) Working Days, JSBL may elect to terminate this Agreement with immediate effect or suspend the performance of this Agreement in whole or in part for the duration of the Force Majeure event. In the event of termination, the Parties shall settle all outstanding amounts owing  the other immediately prior to the occurrence of such Force Majeure event.
+c)	In the event that the Services or any part thereof is suspended on account any Force Majeure event, no fees shall be payable pursuant  this Agreement for the Services or any part thereof throughout the duration of such event but JSBL shall continue  pay in accordance with Clause 4 for all outstanding amounts and all other charges billed for the Services preceding the effective date of suspension
+12.	ARBITRATION / DISPUTE RESOLUTION 
+The Parties shall endeavor to settle all disputes arising out of this Agreement amicably, failing which such disputes shall be settled in accordance with Arbitration Act, 1940 and the rules made thereunder.
+Any dispute arising under or in connection with this Agreement, including any question regarding its existence, validity or termination, shall be submitted to two joint arbitrators, one to be appointed by each of the Party, and failing agreement between the arbitrators, to the decision of the umpire, to be appointed by the arbitrators before entering upon the reference. The award made by such arbitrators or the umpire, as the case may be, shall be final and binding on the Parties. The venue of the arbitration shall be  and the arbitration proceedings shall be conducted in English Language.  
+13.	GOVERNING LAW AND JURISDICTION
+This Agreement shall be governed by and construed in accordance with the laws of . The courts of competent jurisdiction at Karachi, Pakistan shall have exclusive jurisdiction to settle any dispute arising out of or in connection with this Agreement.
+14.	SEVERABILITY
+If any provision of this Agreement is held invalid or otherwise unenforceable, the enforceability of the remaining provisions shall not be impaired thereby. In such case, the Parties shall make every effort to replace the ineffective provision with a new provision which has the same effect, or as approximate an effect as possible as the said provision.
+15.	NOTICES 
+Any notice or other communication given or made or in connection with the matters contemplated by this Agreement shall be in writing.
+Any such notice or other communication shall be addressed and shall be deemed to have been duly given or made as follows:
+(i)	if sent by personal delivery or fax, upon receipt at the address or fax number of the relevant part;
+If sent by first class post or courier, upon delivery to the addressee.
+The relevant addressee and address of each Party for the purpose of this Agreement are:
+Either Party may notify the other Party to this Agreement of a change to its name relevant addressee or address provided that such notification shall only be effective on:
+(i)	the date specified in the notifications i.e. the date on which the change is to take place; or
+(ii)	if no date is specified or the date specified is less than five (5) Working Days after the date on which notice is given, the date falling five (5) Working Days after notice of any such changes has been given.
+16.	AMENDMENTS 
+Any term of this Agreement may be amended or waived with the prior written consent of the both Parties.
+17.	REPRESENTATIONS BY THE COMPANY
+	The Company agrees and undertakes that:
+it shall supervise and direct the performance of Services competently and efficiently, devoting such attention thereto and applying such skills and expertise as may be necessary to perform the Services in accordance with this Agreement. The Company shall be solely responsible for the means, methods, techniques, sequences and procedures used and to see that the Services, when completed or finished complies accurately, both technically and in functionality, with the terms of this Agreement; 
+it shall exercise all reasonable skill, care and diligence in the discharge of the Services agreed to be performed by it under this Agreement. 
+it shall in all professional matters act as a faithful adviser to JSBL;
+in addition to the Services, the Company will provide all the expert technical advice and skills which are normally required for the class of Services for which it is engaged. Where specialist technical advice or assistance is required, beyond that is anticipated under the scope of the Services, the Company may with the prior written agreement of JSBL arrange for the provision of such advice and/or assistance at its own cost. However, Company shall retain full responsibility for all the Services which it is committed to render under this Agreement; 
+it shall give all notices and comply with all the laws and regulations applicable to furnishing and performance of the Services. 
+equipment and materials, if any, that shall be furnished to the Company by JSBL or purchased by the Company with funds wholly supplied or reimbursed by JSBL shall be the property of JSBL and shall be so marked. Upon completion or termination of the Services, the Company shall furnish to JSBL inventories of the equipment and materials referred to above as it then remains and dispose of same as and when directed by JSBL;
+that the Services will be carried out by professionals qualified to perform in a timely and efficient manner and with all reasonable skill and care; 
+it will employ such number of persons as may be required for carrying out and discharging the Company's obligations, duties and responsibilities and for providing adequate, effective and efficient Services. All such persons shall be directly employed by Company, who shall as employer be directly and solely responsible for all such employees and personnel and for the payment of their wages salaries and other benefits;
+it shall not publish descriptive articles, with or without illustrations, with respect to the Services either on its own account or in conjunction with any other party; and
+The Company, its partners, employees, officers, representatives, contractual staff and other affiliated personnel and sub-contractors (if any) shall respect the laws and customs of Pakistan.
+xi).	The Company represents and warrants that it shall ensure that the Services shall be performed in a skilled, diligent, efficient and timely manner as may be reasonably expected of a company specializing in the provision of Services mentioned in the Agreement.
+18.	WARRANTIES AND REPRESENTATIONS
+a)	Both Parties warrant to each other that they have duly obtained all necessary consents and regulatory approvals from their respective competent authorities to enter into this Agreement.
+b)	Each Party represents and warrants to the other Party that neither the execution and delivery of this Agreement, nor the consummation of the transactions contemplated herein, will violate or conflict with: (a) its constitutional documentation; (b) any material provision of any agreement or any other material restriction of any kind to which it is a Party or by which it is bound;  (c) any material statute, law, decree, regulation or order of any governmental authority; or any arrangement whereby it has not paid any collateral amounts to the other Party of any of its officer with regard to the award of contract hereunder or its performance.
+19. 	DATA PROTECTION
+a)	In addition to and notwithstanding any other right or obligation arising under this Agreement, the Company its partners, employees, officers, representatives, contractual staff and other affiliated personnel shall (and shall ensure that its sub-contractors shall) take all appropriate technical and organizational security measures to ensure that Personal Data is protected against loss, destruction and damage, and against unauthorized access, use, modification, disclosure or other misuse, and that only the Company’s personnel designated for the purpose of performing the Services have access to the Personal Data.
+b)	The Company its partners, employees, officers, representatives, contractual staff and other affiliated personnel shall (and shall ensure that its subcontractors, if any, shall) in respect of the Personal Data:
+comply with any request made or direction given by JSBL in connection with the requirements of any data protection laws; and
+not do or permit anything to be done which might jeopardise or contravene the terms of any registration, notification or authorization under the data protection laws; and
+not process any Personal Data (including personal or private information of JSBL’s personnel or JSBL’s customers) as part of the Services unless it is acting on the express written instructions of JSBL, and such Personal Data shall be treated as Confidential Information of JSBL for the purpose of this Agreement; and
+use Personal Data only for the purposes of fulfilling its obligations under this Agreement and  comply with instructions of JSBL from time  time in connection with use of such Personal Data, and not retain Personal Data for any longer than is necessary for these purposes; and
+not disclose Personal Data without the written authority of JSBL (except for the purposes of fulfilling its obligations under this Agreement), and immediately notify JSBL where it becomes aware that a disclosure of Personal Data may be required by law; and
+not transfer Personal Data which has been obtained by or made available  the Company within one country outside that country, or allow persons outside that country  have access  it, without the prior written approval of JSBL; and
+take all reasonable steps to ensure the reliability of the personnel which will have access to any Personal Data and ensure that any  partners, employees, officers, representatives, contractual staff and other affiliated personnel of the Company (or of any of the Company's sub-contractors) requiring access to any Personal Data gives a written undertaking not to access, use, disclose or retain the Personal Data except in performing their duties of employment and is informed that failure to comply with this undertaking may be a criminal offence and may also lead the Company (or, as the case may be, sub-contractor) to take disciplinary action against such partners, employees, officers, representatives, contractual staff and other affiliated personnel; and
+consider all suggestions by JSBL’s personnel  ensure that the level of protection provided for Personal Data is in accordance with this Agreement and  make the changes suggested (at the Company's cost) unless the Company can prove  JSBL’s reasonable satisfaction that they are not necessary or desirable  ensure ongoing compliance with this Clause; and
+immediately notify JSBL when it becomes aware of a breach of this Clause. 
+c)	The Company acknowledges that any unauthorized access, destruction, alteration, addition or impediment to access or use of the Personal Data when stored in any computer, or the publication or communication of any part or document by a person which has come to his knowledge or into his possession or custody by virtue of the performance of this Agreement (other than to a person to whom the Company is authorized to publish or disclose the fact or document) may be a criminal offence and JSBL may, at its discretion, take legal action against the Company.
+20. 	INTELLECTUAL PROPERTY 
+a)	The Company agrees it shall not use any of JSBL’s names, logos, trademarks etc without the express written consent of JSBL. All rights in any software/database prepared by the Company under this Agreement will vest in JSBL.
+b)	Notwithstanding any provision in this Agreement, the Company shall indemnify JSBL and keep JSBL fully and effectively indemnified on demand (and shall pay such sums  JSBL as would indemnify and keep JSBL indemnified) against any and all loss, damage, claims, demands, actions, costs (including legal/atrney fees), charges, expenses and liabilities of whatsoever nature incurred by JSBL arising directly or indirectly out of or in connection with materials (including hardware, software, developments and deliverables) provided by the Company to JSBL pursuant  this Agreement containing material in respect of which any intellectual property rights or proprietary rights belong  any third party or any claim that the possession or use by JSBL of the software, the software documentation and any other specification, information, goods, service or material produced or supplied by the Company under or pursuant  this Agreement infringes at any time the intellectual property rights of any third party wheresoever and howsoever arising ("Intellectual Property Infringement").
+c)	JSBL shall in its discretion allow the Company to conduct the defence to any claim or action in respect of any Intellectual Property Infringement and shall not (unless JSBL takes back the conduct of the defence (which it shall be permitted to do if it does not believe that the Company is conducting the same competently) at any time admit liability or otherwise attempt to settle the said claim or action subject to the Company providing to JSBL's reasonable satisfaction security for any costs or liabilities JSBL may incur by reason of the Company’s conduct of such defence.
+21. 	COMPLIANCE WITH LAWS
+Company shall comply with all applicable laws, ordinances, regulations, and codes concerning Company’s obligations as an employer with regard to the health, safety and payment of its employees, and identification and procurement of required permits, certificates, approvals, and inspections during the performance of this Agreement. 
+22.	CHILD LABOUR
+Company, while rendering services to JSBL, shall not employ child labour, for any nature of work whatsoever, and shall comply with all the laws, rules and regulations regarding prevention of child labor.
+23.	RIGHTS TO AUDIT AND INSPECTION
+23.1	The Company agrees, upon reasonable notice, to allow JSBL, its auditors and/or regulators (including State Bank of Pakistan), to inspect, examine and audit any operational and business records of the Company which are directly relevant to the Services as set forth in this Agreement. 
+23.2	The Company shall co-operate with JSBL’s internal and external auditors to assure a prompt and accurate audit. Company shall also co-operate in good faith with JSBL to correct any practices, which are found to be deficient as a result of any such audit within a reasonable time after receipt of JSBL’s audit report. 
+24. 	UNAUTHORIZED SOLICITATION OF EMPLOYEES
+During the term of this Agreement and six (06) months after the termination of this Agreement, neither Party shall without the prior written consent of the other Party solicit any person who at the commencement of this Agreement is a full time employee of such Party or engaged by the third party contractor providing services to such Party. 
+25.	NON-AGENCY
+In the conduct and performance of this Agreement, the Parties shall always be regarded as independent entities and not as partners, agents or employees of the other Party.
+26.	ASSIGNMENT & SUB-CONTRACTING
+a)	This Agreement is personal in nature, and cannot be assigned by the Company without prior permission of JSBL. JSBL however shall have the right to assign this Agreement to any third party without the consent of Company.
+b)	Company shall have no right to JSBL set or outsource all or any part of this Agreement or its obligations, rights and interests hereunder, to any third party without the prior written approval of JSBL.
+c)	The Parties shall not assign or novate this Agreement. However, any change occurring by operation of law such as merger, amalgamation, acquisition shall be construed as an assignment.
+27.	WORKPLACE HARASSMENT
+Company, its employees or any sub-contractors are subject to the standards of conduct set forth in JSBL’s workplace harassment policy.
+Company is to contact the appropriate authority at JSBL if any complaint or violation of the standards of conduct occurs to resolve the situation.
+If the situation elevates to the point where an investigation is required, then Company’s employees and any sub-contractor’s employees are to fully co-operate with the investigation.
+Company agrees not to retaliate against anyone who reports an incident of harassment or who co-operates in any investigation of such incidents.
+28.	TIME OF ESSENCE
+The Company understand that time is of the essence of this Agreement and it shall take all necessary steps to commence (and cause and ensure continuance of) the provision of the Services to JSBL, immediately commencing from the date of signing of this Agreement.
+29.	WAIVER
+No waiver by either Party of any default by the other in the performance of any of the provisions of this Agreement shall be effective unless in writing duly executed by an authorized representative of the Party and no such waiver shall operate or be construed as a waiver of any other or further whether of alike or of a different character.
+30.	COUNTERPARTS 
+This Agreement may be executed in two (2) counterparts and a copy to be held by each Party. This has the same effect as if the signatures or the counterparts were on a single copy of this Agreement. 
+31.	ENTIRE AGREEMENT
+These terms and conditions constitute the entire agreement between the Parties and supersede all prior communications, proposals, understandings and agreements, written or oral between the Parties with respect to the subject matter of this Agreement.  
+IN WITNESS WHEREOF the Parties, acting through their authorized representatives, have put their respective hands on this Agreement on the day month and year hereinabove mentioned.
+_______________________________
+ (Stamp of JSBL is mandatory)
+For and on behalf of JS BANK LIMITED 
+Name:
+Title:
+CNIC: 
+Power of Attorney #.:
+_____________________________________
+For and on behalf of INFOBITS
+Name: Muhammad Ali Abbasi
+Title: Chief Technology Officer
+CNIC: 42101-1006797-1
+ANNEX – A
+SERVICES 
+SOLUTION INTRODUCTION
+InfoBits STP - RTGS Gateway System provides the integration between Local banking software running at Bank’s site and “Straight through Processing (STP)” running at Central Bank. It is the gateway between Core Banking System and Central Bank. 
+Since the inception of RTGS in Pakistan, enrollment of direct participants is growing and volume of transactions is also increasing. It has been foreseen that in future, volume of transaction will increase dramatically. This growing volume forcing banks to deploy a gateway application between Core Banking System and Central Bank to improving performance of financial messages communications channels.
+The requirement is initiated by JS Bank that a gateway application system between Core banking and State Bank of Pakistan which will act as local STP RTGS solution for MT103/MT102/MT202 messages. It will also be a repository of messages exchanged between State Bank of Pakistan and JS Bank and provide reports for audit and reconciliation. There are three modules in InfoBits RTGS Gateway Application 
+1. Outward message routing 
+2. Inward message routing 
+3. Reporting module
+Methodology 
+InfoBits STP-RTGS Gateway Application is centralize repository for a bank and State Bank of Pakistan for outward and inward messages. It is the gateway between Core Banking Application and State Bank of Pakistan’s PRISM; the application will pull and push messages from Core Banking Application and State Bank of Pakistan’s messages folders initially through “SBP Controller Application” and after deployment of InfoBits Operator Application, RCCC API communication channel will deployed and used in replacement of SBP Controller Application. 
+Overall Straight through Processing (STP) Project has been divided into three Phased 
+Phase-I Compliance of Home Remittance (March 31, 2016)
+Outward
+Remit Home Application user will export all outward messages and will be placed in “Out RemitHome Folder” manually
+Message in annexure “B” format, will extracted by “InfoBits Gateway App” from “Out RemitHome Folder” and converted into MT102 format and will be place in “Outward Message Folder” accessible to “SBP Controller Application” automatically.
+“SBP Controller Application” user will import all MT102 messages from “Outward Message Folder” and transmit the message to SBP RTGS system using “SBP Controller Application”
+Inward
+“SBP Controller Application” user will export all incoming MT102 messages from “SBP Controller Application” and will placed into “Inward Message Folder” using “SBP Controller Application – Export Option” manually.
+InfoBits Gateway App will extracted all inward MT102 messages from “Inward Message Folder” and will convert into annexure “B” format and will be place all those messages into  “Inward RemitHome Folder” automatically.
+Through business as usual, Remit Home Application user will import all inward messages available in “In RemitHome Folder” manually.
+Phase – II Deployment of Message Creation Application 
+In this phase following application modules will be deployed and tested;
+InfoBits Integration Engine to integrate Core Banking Application with RTGS Gateway Application will be deployed and tested for Inward and Outward messages.
+Financial/Accounting entries posting mechanism will also be developed and deployed according to the requirement narrated by JS Bank.
+Deployment of InfoBits Controller Application for message creation will also be the part of this phase.  
+Phase – III   Deployment of RCC Communication Channel in replacement of SBP Controller (Project Finalization) 
+Phase – III   
+Following End-To-End STP approach will be adopted for Inward message routing and outward message routing 
+Inward message routing 
+MT102, MT103 and MT202
+InfoBits RTGS Gateway application will collect financial messages from Central bank’s PRISM System’s message repository through RCCC API data stream communication channel.
+All financial messages will be placed in processing queue for Operator to validated beneficiary account number and account title from core banking application database (through core banking API).
+Once the account information provided in inward financial message is validated from core banking application database, operator will process the message for authorization.
+Authorizer will review the message and authorize the transaction for further processing.
+All authorized transactions will posted in the system and accounting will be performed in core banking application (through core banking API).
+InfoBits STP-RTGS Gateway application will also send email intimation for all incoming messages to respective branch or group along with original message attached automatically.
+Outward message 
+MT102, MT103 and MT202
+All financial messages will be prepared on InfoBits RTGS Gateway application’s operator interface. Once the message is prepared, it will be send to authorization queue.
+Authorizer will review the messages and authorize the transactions for further processing.
+All authorized transactions will posted in the system and accounting will be performed in core banking application database (through core banking API).
+Once accounting is performed successfully in core banking application database (through core banking API), the transactions will be transmitted to Sate Bank’s RTGS System (PRISM) through RCCC API data stream communication channel.
+InfoBits RTGS Gateway application will also send email intimation for all successful/Unsuccessful messages delivery report to respective branch or group along with original message attached automatically.
+Online monitoring queue 
+Online monitoring queue for all incoming and outgoing messages, will be available with a status-wise drop down list
+Message Monitoring Queue 
+InfoBits RTGS Gateway Application removes the unprocessed messages from queue after cut-off time specified by JS Bank and generate a report. Intimation will also be generated for such removal via e mail. Records of all expired messages will be available in the system for future reference only.
+Parameterized scheduler 
+User can set message cutoff time in application. Application will sent message to Central Bank’s message repository as per define cutoff time and after that application will remove the message from the transfer queue. 
+Reporting module 
+Comprehensive reporting module is also available for printing message confirmations; acknowledgements to their respective department/Branches/user groups. 
+Outward Route message detail 
+Report fields are mention below. 
+a. Transaction Reference 
+b. Beneficiary Name 
+c. Beneficiary Account No. 
+d. Beneficiary Bank Name 
+e. Amount 
+f. Remitter Name 
+g. Remitting Bank Name 
+h. Time of lodgment 
+i. Status 
+Inward Route message detail 
+Report fields are mention below. 
+a. Transaction Reference 
+b. Beneficiary Name 
+c. Beneficiary’s Account No. 
+d. Amount 
+e. Remitter Name 
+f. Sender Bank Name
+Reconciliation Module 
+Under the MIS Reporting module, Reconciliation module is helping banks to save their time and efforts to perform reconciliation using specific reconciliation reports. 
+Security Module 
+In Security module, system admin can create/edit and disable users as and when needed. Users can be created in following two predefined roles; 
+- Sys Admin 
+- Basic User
+Hardware Requirement
+Software Requirement
+Deliverables
+Under the solution deployment agreement following are the deliverables against above mention scope of work;
+Software application installation package including installation & configuration manual
+Operating & Administration user manual
+At least one on-site technical resource deployment for minimum three working days at the time of software application Go-live.
+Warranty
+Warranty will be expired after one year from the date of project initiation 
+(ex. Project initiation date is March 20, 2016 then Annual Support Agreement will be due on March 19, 2017 for the period of 2017-2018).
+During warranty period, diagnosis and resolution of the problem/issues in the existing System be covered. 
+Out of duly signed scope document, Requirement(s) raised by JS Bank will be cater through change management, which would be addressed through new proposal with pricing.
+Ongoing Support
+Ongoing Service Contract for a minimum of 1 year.
+After warranty period expired, InfoBits will charge 18% of total project cost for Yearly Software Technical Support.
+Support contract will cover diagnosis and resolution of the problem/issues in the existing System 
+Any mandatory change/modification in RTGS Gateway application directed by State Bank of Pakistan, will be covered under ongoing support contract 
+A separate requisition would be submitted by JS Bank for new development and up gradation, which would be addressed through new proposal with pricing.
+INFOBITS will provide onsite, online, and telephonic support on a business day basis, Business day is defined as 9:00 AM through 7:00 PM Pakistan Time, Monday to Friday excluding holidays and weekends.
+Out of Scope
+Under the ongoing software technical support agreement, followings will remain out of scope;
+Apart from MT102, MT103, MT202, request of any other message type introduced by either State Bank of Pakistan or JS Bank will be considered as out of scope of this proposal.
+New Input Interface on existing message types to manage internal controls.
+New management information report.
+Source System Integration
+Source system integration desired by JS Bank in future for any of their existing or new systems would cost approximately PKR 500,000 per system integration. This cost may vary 10 to 20% depending on the complexity of the integration methodology discussed at that time.
+ANNEX – B
+Remuneration Schedule AND PROJECT DURATION
+Project Pricing 
+Revised discounted Price……………………….PKR 2,500,000.00
+Payment Schedule
+Proposal Signing Terms
+Prices are net-off all taxes and valid till 31st of March, 2016.
+JS Bank will provide dedicated business and technical resources to the project to facilitate our Consultants.
+Invoices of charges are payable within 15 days of their being raised and will bear the date of their issuance.
+Project Schedule
+
+===== TABLE 1 =====
+ |  | Addresses
+ | Company | Att: Mr.Muhammad Ali Abbasi 204-205, Marine Faisal, Block-6 PECHS Shahrah-e-Faisal, Karachi, Pakistan Email: ali.abbasi@infobits.com.pk Telephone: (92300) 9272110 Fax : (9221) ……………………
+ |  | 
+ | JSBL | Att: Mr.    Shaheen Commercial Complex,  Dr. Ziauddin Ahmed Road, Karachi-74200  Sindh, Pakistan  Email: ………………………. Telephone: (9221)…………… Fax : (9221) ……………………
+
+===== TABLE 2 =====
+WITNESSES | 
+ | 
+1 ……………………………… | 
+Name: | 
+CNIC No.: | 
+Address: | 
+2 ……………………………… | 
+Name: | 
+CNIC No.: | 
+Address: | 
+
+===== TABLE 3 =====
+WITNESSES | 
+ | 
+1 ……………………………… | 
+Name: | 
+CNIC No.: | 
+Address: | 
+2 ……………………………… | 
+Name: | 
+CNIC No.: | 
+Address: | 
+
+===== TABLE 4 =====
+Component | Minimum Requirement
+Computer and processor | A computer with an Intel Pentium-compatible CPU that is:  Core i7 6700 3.4GHZ (6TH GENERATION)   Hyper-threading and dual-core processors are supported. Computers based on CPUs that are compatible with the AMD32 and AMD64 (x86-64) and Extended Memory 32/64-bit Technology processor architecture are considered x86/x64-based systems.
+Memory | 8 GB RAM or Higher
+Hard disk | 1 TB of available hard disk space for a complete installation including the operating system and all prerequisite software. The hard disk must be NTFS formatted.
+
+===== TABLE 5 =====
+Microsoft Windows | Windows Server 2012, Windows Server 2008 R2 SP1, Windows 7 SP1, Windows 8.
+Web Server (IIS) | Windows Internet Information Server(IIS) 7 or Higher
+Microsoft .NET Framework | .NET Framework 4 or Higher
+Database | SQL Server Standard Edition 2008 R2 or SQL Server Enterprise Edition 2008 R2
+Adobe PDF Reader | Any Adobe PDF Reader
+
+===== TABLE 6 =====
+S# | Milestone | Price (PKR)
+1 | STP - RTGS Gateway Application - | 2,000,000
+2 | Home Remittance  - Annexure B to SWIFT Converter Utility | 500,000
+3 | Operator Application & Integration with Core Banking App. | 500,000
+ | TOTAL PROJECT COST & TIMEFRAME……….. | 3,000,000
+
+===== TABLE 7 =====
+S# | Milestone | Estimated Time | Due Amount (PKR)
+ | Agreement signing (Up-on Work Order) | - | 1,250,000
+1 | Phase – I Compliance of Home Remittance (March 31 2016) | 2 – 3 Weeks | 400,000
+ | Phase – II Deployment of Message Creation Application  UAT Sign-off | 6 – 8 Weeks | 500,000
+2 | Phase – III   Deployment of RCC Communication Channel in replacement of SBP Controller (Project Finalization)  UAT Sing-off | 4 - 6 Weeks | 350,000

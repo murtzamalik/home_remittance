@@ -1,0 +1,294 @@
+PDF_PAGES=11
+PDF_META={'/ModDate': "D:20150317140411+05'00'", '/Creator': 'Nitro Pro', '/Author': 'JHANZAIB', '/CreationDate': 'D:20150317090328Z', '/Producer': 'Nitro Pro 8  (8. 5. 6. 5)'}
+
+===== PAGE 1 =====
+RAgent Aftab Currency Exchange API
+RAgent.AftabCurrency.com
+This document is prepared to provide an interface of RAgent.Aftabcurrency.com web service for
+external services to retrieve transactions from Aftab Currency Exchange system.
+Version (1.2)
+Drafted By: JHANZAIB AWAN
+March 17, 2015
+===== PAGE 2 =====
+REVISION CHART
+Version Author(s) Description of Version Date Completed Date Modified
+1.2 JhanZaib AwAn ------------ March. 17,2015
+===== PAGE 3 =====
+Contents
+Objective ......................................................................................................................................................4
+Intended Audience....................................................................................................................................4
+Description................................................................................................................................................4
+End Point................................................................................................................................................... 4
+WSDL Location ..........................................................................................................................................4
+General Information ..................................................................................................................................... 5
+Parameters................................................................................................................................................5
+Response................................................................................................................................................... 5
+aceAuthHeader ......................................................................................................................................... 6
+aceAuthHeader Result Entity....................................................................................................................6
+Web Service Methods................................................................................................................................... 7
+GetPaymentInfo (PaymentNo, Object).....................................................................................................7
+GetPaymentStatus (PaymentNo, Object).................................................................................................. 9
+SetPaymentStatus (Object, Object)........................................................................................................10
+Codes.................................................................................................................................................11
+Authentication Values.............................................................................................................................11
+===== PAGE 4 =====
+Objective
+Receiving Agents can integrate their system with Aftab Currency RAgent Web Services, to “receive” the
+transactions via Web Service.
+Intended Audience
+This document is intended for programmers who are already familiar with the web services. This
+document does not include general information about web service; it contains the details of integration
+with Aftab Currency RAgent Web Service API along with I/O parameters.
+Description
+Aftab Currency RAgent Web Service API contains following web methods, namely:
+1. GetPaymentInfo - Transaction information could be queried, by Payment No.
+2. GetPaymentStatus - Transaction status could be queried, by Payment No.
+3. SetPaymentStatus - It update the status and info of a transaction.
+More methods can be added upon Agents’ request and after reviewing the requirements.
+End Point
+Development: <to be Provided>
+WSDL Location
+Development: <to be Provided>
+===== PAGE 5 =====
+General Information
+Parameters
+All methods expect a single Unicode string as parameter. This string is based on Object pattern and will
+contain the values of different parameters as Object.
+Response
+All methods return a Result object as response with payment info if required. Various information regarding
+status and payment can be retrieved from using properties.
+===== PAGE 6 =====
+Authentication
+Each SOAP request to the API contains two parts, the SOAP Header and the SOAP Body and each response
+from the API contains two parts, Result and Details. If Authentication fails or error occurs while processing
+client request, system will generate SOAP exception and error details will be available in Result section.
+aceAuthHeader
+Field
+Name
+Field Length
+and
+Characters
+Description Required Example
+userID up to 15
+letters or
+numbers only
+A userID for the
+corresponding
+use of the
+branch will be
+created
+Yes US00100001
+userPass up to 10
+letters or
+numbers only
+Unique key
+supplied by our
+operation dept.
+Yes xxxxxxxx
+userKey up to 10
+letters or
+numbers only
+Password
+supplied by our
+operation dept.
+Yes
+aceAuthHeader Result Entity
+Field
+Name
+Field Length
+and
+Characters
+Description Required Example
+Rflag up to 1 number
+only
+System will return 1
+on
+success and 0 on
+failure
+Yes 1 = Successful
+0 = Failure
+Code up to 6
+letters
+The value of this
+filed
+will be 6 chars error
+code
+.
+No 100001
+Message up to 50
+letters or
+numbers only
+In case the
+transaction
+fails, the system will
+return the reason for
+failure.
+This will have a
+nonblank
+value in case of
+failure and will be
+blank
+in case of success
+No Invalid parameter
+length
+Description up to 50
+letters or
+numbers only
+Detailed error
+Description
+No Minimum
+length of
+Settlement_Cu
+rrency cannot
+be less than 3
+===== PAGE 7 =====
+Web Service Methods
+GetPaymentInfo (PaymentNo as string, aceAuthHeader as object)
+Method Name: GetPaymentInfo (ByVal p_Parameter as String, aceAuthHeader(Object)).
+Description: It gives Information about transaction in Aftab Currency Exchange system.
+Parameter: PaymentNo as string, aceAuthHeader as Object are required to get payment information from
+Aftab Currency
+Exchange’s system.
+This method returns transaction information from Aftab Currency Web services system and returns as
+Transaction object. A Transaction object contains following sub objects/parts.
+1) aceSender:
+This object contains the information of the Sender. Following table contains the details.
+Sr. # Field Name Data Type Length
+1 Sender Name String 150
+2 SenderAddress String 50
+3 SenderNationality String 50
+4 SenderCity String 300
+5 SenderPostCode String 200
+6 SenderPhone String 50
+7 SenderEmail String 50
+8 SenderIdType String 50
+9 SenderIdNumber String 50
+10 SenderIdIssueDate Date
+11 SenderIDExpireDate Date
+12 SenderOccupation String 250
+2) aceReceiver:
+This object contains the information of the Beneficiary. Following table contains the details.
+Sr. # Field Name Data Type Length
+1 ReceiverName String 150
+2 ReceiverAddress String 250
+3 ReceiverCity String 50
+4 ReceiverPhone String 50
+5 ReceiverAccountNumber String 50
+6 ReceiverBankName String 200
+7 ReceiverBranchName String 100
+===== PAGE 8 =====
+3) aceRemittance:
+This object contains the information of amount to be transferred, service charges, exchange
+rates and other remittance related information. The details are in following table.
+Sr. # Field Name Data Type Length
+1 PaymentNumber String 50
+2 PaymentDate DateTime
+3 PaymentMethod String
+4 ReceiverCurrency String 3
+5 ReceiverAmount Double
+6 SendingReason String 250
+7 PaymentStatus String 50
+8 InvoiceNumber Int 3
+9 BranchCode String 50
+10 PaymentReciverIdType String 50
+11 BenIDNumber String 50
+12 BenPhoneNumber String 50
+13 BenTransID String 50
+14 BranchID String 50
+15 UserID String 50
+4) aceResult (Response Sent to integrator)
+GetPaymentInfo returns an object to integrator in either cases success or failure.
+Sr. # Field Name Data Type Description
+1 Rflag INT
+2 Code INT
+3 Message String
+4 Detail String
+===== PAGE 9 =====
+GetPaymentStatus (PaymentNo as string, aceAuthHeader as object)
+Method Name: GetPaymentStatus (ByVal p_Parameter as String, aceAuthHeader as Object).
+Description: It gives Information about transaction status in Aftab Currency Exchange system.
+Parameter: PaymentNo as String, aceAuthHeader as Object are required to get payment status
+information from Aftab Currency Exchange’s system.
+This method returns transaction status information in Aftab Currency Web services system and returns as
+aceTransactionStatus object. A aceTransactionStatus object contains following sub objects/parts.
+1) aceRemittance:
+This object contains the information of amount to be transferred, service charges, exchange
+rates and other remittance related information. The details are in following table.
+Sr. # Field Name Data Type Length
+1 PaymentNumber String 50
+2 PaymentDate DateTime
+3 PaymentMethod String
+4 ReceiverCurrency String 3
+5 ReceiverAmount Double
+6 SendingReason String 250
+7 PaymentStatus String 50
+8 InvoiceNumber Int 3
+9 BranchCode String 50
+10 PaymentReciverIdType String 50
+11 BenIDNumber String 50
+12 BenPhoneNumber String 50
+13 BenTransID String 50
+14 BranchID String 50
+15 UserID String 50
+2) aceResult (Response Sent to integrator)
+GetPaymentStatus returns an aceResult object to integrator in either cases success or failure.
+Sr. # Field Name Data Type Description
+1 Rflag INT
+2 Code INT
+3 Message String
+4 Detail String
+===== PAGE 10 =====
+SetPaymentStatus (aceRemittance as Object, aceAuthHeader as Object)
+Method Name: SetPaymentStatus (ByVal p_Parameter as Object, aceAuthHeader(Object).
+Description: It Update/Set Information about transaction status in Aftab Currency Exchange system.
+Parameter: aceRemittance as object, aceAuthHeaderas object are required to set payment status and
+other information in Aftab Currency Exchange’s system.
+This method update/set transaction status and other information in Aftab Currency Web Services system
+and returns as aceTransactionStatus object. A Result object contains following sub objects/parts.
+1) aceRemittance:
+This object contains the information of amount to be transferred, service charges, exchange
+rates and other remittance related information. The details are in following table.
+Sr. # Field Name Data Type Length
+1 PaymentNumber String 50
+2 PaymentDate DateTime
+3 PaymentMethod String
+4 ReceiverCurrency String 3
+5 ReceiverAmount Double
+6 SendingReason String 250
+7 PaymentStatus String 50
+8 InvoiceNumber Int 3
+9 BranchCode String 50
+10 PaymentReciverIdType String 50
+11 BenIDNumber String 50
+12 BenPhoneNumber String 50
+13 BenTransID String 50
+14 BranchID String 50
+15 UserID String 50
+2) aceResult (Response Sent to integrator)
+SetPaymentStatus returns an object to integrator in either cases success or failure.
+Sr. # Field Name Data Type Description
+1 Rflag INT
+2 Code INT
+3 Message String
+4 Detail String
+===== PAGE 11 =====
+In case of success, the transaction will show the Remittance status else it will show the Error Code.
+Codes
+Every Web Method returns a Response containing a number as “Code”. Following are some of these
+1000: Success
+10004: Branch Information Missing
+10005: Invalid Payment information
+10006: MTNNum Missing
+10007: Authentication Failure
+10008: System Updation Error Please Contact To Administrator
+10009: DC Rate Not Given
+10010: SC Rate Not Given
+10011: System error occured. Please contact technical support
+Authentication Values
+Every Web Method must be provided following values, the detail of the format is coming further
+1. userID - The unique identification of a legitimate user of Integrator System in AftabCurrency.
+2. userPass - AftabCurrency Password for the user specified above.
+3. userKey - Code Assigned to Sender Location in AftabCurrency System.
+All four values shall be provided by RemitAnywhere on registration for API usage. These will be test
+values.
+Once, the integration is approved by our testing staff, Production values will be provided.

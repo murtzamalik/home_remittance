@@ -1,0 +1,48 @@
+Sigue Money Transfer Partner Network API Access Form
+Source IP Address:  The complete IP address or IP network and mask. 
+Destination IP Address: The complete IP address or IP network and mask.
+Transport Protocol: The desired protocol used by the application. 
+Destination Port: The port from which the application “listens.” 
+Application Name:  The name of the Application that will be “listening” on the Destination Port.
+Initiator (Bi-directional): The machine that will connect to the Destination Port to initiate the session. Please indicate if both machines will need to initiate sessions. 
+
+===== TABLE 1 =====
+Contact Information | Contact Information
+Company Name & Address | Partner Company Name & Address
+SIGUE Corporation | 
+13291 Ralston Ave Sylmar, CA 91342 | 
+Company Contact & Telephone Number | Company Contact & Telephone Number
+Ignacio Ramirez | 
++1 (866)590 4556 ext 7900 | 
+Email Address | Email Address
+Ignacio.ramirez@sigue.com | 
+IT Support (Help Desk) | Technician Contact & Telephone Number
++1 (866)590 4556 ext 7900 | 
+ | 
+Email Address | Email Address
+helpdesk@sigue.com | 
+Access | Access
+HTTPS Service Production – https://api.cmtpartnernetwork.com   HTTPS Service TEST/DEV – https://apitest.cmtpartnernetwork.com | HTTPS Service Production – https://api.cmtpartnernetwork.com   HTTPS Service TEST/DEV – https://apitest.cmtpartnernetwork.com
+
+===== TABLE 2 =====
+Partner Host Information (***Production and Test Server IP should not same) | Partner Host Information (***Production and Test Server IP should not same)
+ | 
+ | 
+Production Server IP address(s) *** | Subnet Mask
+ | 
+ | 
+ | 
+Test/Dev Server IP address(s)*** | Subnet Mask
+ | 
+ | 
+ | 
+ | 
+ | 
+
+===== TABLE 3 =====
+Partner Protocol Information | Partner Protocol Information | Partner Protocol Information | Partner Protocol Information | Partner Protocol Information | Partner Protocol Information
+Source IP & Subnet Mask | Destination IP & Subnet Mask | Transport Protocol | Destination Port | Application Name | Initiator (or Bi-directional)
+ | https://api.cmtpartnernetwork.com | TCP/445 | 443 | API | 
+ |  |  |  |  | 
+ |  |  |  |  | 
+Example: 1.1.1.0/32 | Example: 2.2.2.0/32 | Example: TCP | Example: 80 | Example: Website | Example: Source

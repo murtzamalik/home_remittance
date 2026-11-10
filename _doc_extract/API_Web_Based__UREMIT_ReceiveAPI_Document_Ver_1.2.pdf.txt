@@ -1,0 +1,397 @@
+PDF_PAGES=11
+PDF_META={'/Title': 'rECEIVE API Document', '/Author': 'Basharit Rafique', '/Subject': 'Document Version 1.0', '/Creator': 'Microsoft® Office Word 2007', '/CreationDate': 'D:20130312094745', '/ModDate': 'D:20130312094745', '/Producer': 'Microsoft® Office Word 2007'}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+  
+ 
+2013 
+  
+U Remit International Corporation 
+ 
+373 Front Street, West Suite 2702  
+M5V 3R7, Toronto, Canada 
+ 
+Document Version: 1.1 
+Author: Basharit Rafique 
+ 
+ 
+RECEIVE API DOCUMENT 
+This document contains information about the Receive API Interface designed for payout partners of U 
+Remit International  Corporation. For further information regarding integration, send email to 
+basharit@uremit.ca 
+ 
+
+===== PAGE 2 =====
+2 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+Table of Contents 
+Confidential Notice ....................................................................................................................................... 3 
+API Document Revision History .................................................................................................................... 4 
+Introduction:- ................................................................................................................................................ 5 
+Scope of Receive API:- ................................................................................................................................... 5 
+1. DisplayTranaction:- ........................................................................................................................... 5 
+Input Parameters:- ............................................................................................................................... 5 
+Output Parameters:- ............................................................................................................................ 6 
+2. DisplayTransactionList_Cash (Optional):- ......................................................................................... 6 
+Input Parameters:- ............................................................................................................................... 6 
+Output Parameters:- ............................................................................................................................ 6 
+3. DisplayTransactionList_Bank:- .......................................................................................................... 7 
+Input Parameters:- ............................................................................................................................... 7 
+Output Parameters:- ............................................................................................................................ 7 
+4. PayTranaction:- ................................................................................................................................. 7 
+Input Parameters:- ............................................................................................................................... 7 
+Output Parameters:- ............................................................................................................................ 8 
+5. ChangePassword:- ............................................................................................................................ 8 
+Input Parameters:- ............................................................................................................................... 8 
+Output Parameters:- ............................................................................................................................ 8 
+ID Type List:- .................................................................................................................................................. 9 
+Response Code Details:- ................................................................................................................................ 9 
+Sample Code (C#.NET):- .............................................................................................................................. 10 
+ DisplayTransaction Method:- ............................................................................................. 10 
+ PayTransaction Method:- ...................................................................................................... 10 
+ ChangePassword Method:- ...................................................................................................... 11 
+ 
+  
+===== PAGE 3 =====
+3 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+Confidential Notice 
+ 
+Confidentiality:- 
+This document contains information confidential and proprietary to U Remit International Corporation. 
+The information may not be used, disclosed or reproduced without the prior written authorization of 
+UREMIT and those so authorized may only use the information for the purpose of evaluation consistent 
+with authorization. Based upon the extent of the information provided, individuals with access to this 
+information may be required to sign a nondisclosure confidentiality agreement 
+ 
+Intellectual Property Rights:- 
+ 
+The contents of this document remain the intellectual property of UREMIT at all times. Unauthorized 
+reproduction, photocopying or disclosure to any other party, in whole or in part, without the expressed 
+written consent of UREMIT is prohibited. All authori zed reproductions must be returned to UREMIT 
+immediately upon request 
+ 
+Trademarks:- 
+All trademarks mentioned herein, marked and not marked, are the property of their respective owners 
+  
+===== PAGE 4 =====
+4 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+API Document Revision History 
+ 
+Date Document Version Description Revision By 
+18 Apr 2012 1.0 Preliminary Review  Basharit 
+19 Apr 2012 1.0 Preliminary Review Dhiraj 
+19 Apr 2012 1.0 Final Review Basharit 
+21 Aug 2012 1.0 Amendments Basharit 
+10 Oct 2012 1.1 Amendments Basharit 
+10 Dec 2012 1.1 Amendments Basharit 
+01 Mar 2013 1.2 Amendments Basharit 
+   
+===== PAGE 5 =====
+5 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+Introduction:- 
+UREMIT developed an online Application Programming Interface (API) which can be easily integrated in 
+any system working on any platform. UREMIT’s payout partner will call UREMIT API from their internal 
+software/applications and would be able to pull out the transaction from UREMIT main web based 
+remittance system. This API interface interacts with the UREMIT online remittance application in real 
+time. This document describe s what the interface i s designed to do and how it can be used. It also 
+contains technical information to provide a general working direction for the Payout Partner.  
+The Receive API is designed for Payout Partners that require real-time communication and transmission 
+of messages via web services or SOA 
+Scope of Receive API:- 
+This document covers the generic online interface API developed by UREMIT to allow remittance 
+transactions to be paid out by Payout Partners using their own systems instead of using UREMIT online 
+remittance application interface. This API provides the facility to display and validate the transaction 
+details as well as pull out (Payout) the transaction in real time. All the transmission through this API is 
+real time and will affect the payout partner account in real time 
+Receive API Methods:- 
+1. DisplayTranaction:- 
+This method is used to request the details of a specific transaction which needs to be pay out.  The 
+Payout Partner will provide a UREMIT’s transaction reference number (UTN), and the system will 
+validate the request against the business rules for a payout. If valid, API will respond with full 
+transaction details. This method contains the following Input and Output parameters 
+Input Parameters:- 
+ 
+DisplayTransactionRequest      From Partner To UREMIT  
+Field Name Size Type Description 
+UniqueID* 10 String Unique ID assigned to Partner 
+Password* 20 String Password assigned to Partner  
+SecurityKey* 30 String Security Key assigned to Partner  
+TransactionNo* 20 String Unique Transaction Reference Number of UREMIT 
+* Mandatory Field 
+ 
+===== PAGE 6 =====
+6 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+Output Parameters:- 
+ 
+DisplayTransactionResponse       From UREMIT To Partner 
+Field Name Size Type Description 
+Successful  Bool Result of API Call (True / False) 
+ResponseCode 2 String Code explaining response of API request   See Page 9 
+ResponseMessage 255 String Message response of API request   See Page 8 
+TransactionNo 20 String Unique Transaction Reference Number of UREMIT 
+Status 50 String Current Status of the Transaction 
+TransactionDate  String Transaction send Date 
+ReceiveCountryCode 2 String ISO Code of receive country 
+ReceiveCurrencyCode 3 String ISO Code of Receive Currency 
+AmountToPay  Numeric Amount to be Paid to Receiver 
+AmountToPayInWords 200 String Amount in words to be Paid to Receiver 
+SenderFirstName 50 String First Name of Sender 
+SenderLastName 50 String Last Name of Sender 
+ReceiverFirstName 50 String First Name of Receiver 
+ReceiverLastName 50 String Last Name of Receiver 
+ReceiverAddress 100 String Address of Receiver 
+ReceiverContactNo 50 String Contact No of Receiver 
+ReceiverCity 50 String City of Receiver 
+ReceiverNationality 2 String Nationality of Receiver 
+2. DisplayTransactionList_Cash (Optional):- 
+This method is used to request the List of Cash T ransactions which needs to be pay out.  The Payout 
+Partner will provide the Account No along with login credentials. System will validate the request against 
+the business rules. If valid, it will respond with the list of Cash T ransactions. Please note this method is 
+only to get the list of Cash Transactions. To pull the transa ction, you need to call the PayTransaction 
+method for each transaction appeared in the list.  
+Please note this method is not available by default. You need to confirm with Operations Dept 
+This method contains the following Input and Output parameters 
+ 
+Input Parameters:-  
+ 
+DisplayTransactionListRequest      From Partner To UREMIT  
+Field Name Size Type Description 
+UniqueID* 10 String Unique ID assigned to partner 
+Password* 20 String Password assigned to partner  
+SecurityKey* 30 String Security Key assigned to partner  
+AccountNo* 20 String Partner Account No provided  by UREMIT 
+* Mandatory Field 
+ 
+Output Parameters:- 
+ 
+DisplayTransactionListResponse      From UREMIT To Partner 
+===== PAGE 7 =====
+7 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+Field Name Size Type Description 
+Successful  Bool Result of API Call (True / False) 
+ResponseCode 2 String Code explaining response of API request   See Page 9 
+ResponseMessage 255 String Message response of API request   See Page 9 
+dsTransactionList  String DataSet with Cash Transaction List 
+3. DisplayTransactionList_Bank:- 
+This method is used to request the List of Bank Transactions which needs to be pay out.  The Payout 
+Partner will provide the Account No along with login credentials. System will validate the request against 
+the business rules. If valid, it will respond with the list of Bank Transactions. Please note this method is 
+only to get the list of Bank Transactions. To pull the transaction, you need to call the PayTransaction 
+method for each transaction appeared in the list. This method contains the following Input and Output 
+parameters 
+ 
+Input Parameters:-  
+ 
+DisplayTransactionListRequest      From Partner To UREMIT  
+Field Name Size Type Description 
+UniqueID* 10 String Unique ID assigned to partner 
+Password* 20 String Password assigned to partner  
+SecurityKey* 30 String Security Key assigned to partner  
+AccountNo* 20 String Partner Account No provided  by UREMIT 
+* Mandatory Field 
+ 
+Output Parameters:- 
+ 
+DisplayTransactionListResponse      From UREMIT To Partner 
+Field Name Size Type Description 
+Successful  Bool Result of API Call (True / False) 
+ResponseCode 2 String Code explaining response of API request   See Page 9 
+ResponseMessage 255 String Message response of API request   See Page 9 
+dsTransactionList  String DataSet with Bank Transaction List 
+4. PayTranaction:- 
+This method is used to payout the UREMIT transaction . The Payout Partner will provide a UREMIT’s 
+transaction reference number (UTN) along with the complete ID details of Receiver , and the system will 
+validate the request against the business rules for a payout.  If valid, API will respond with the current 
+status of the transaction. This method contains the following Input and Output parameters 
+Input Parameters:-  
+ 
+PayTransactionRequest      From Partner To UREMIT  
+Field Name Size Type Description 
+UniqueID* 10 String Unique ID assigned to Partner 
+Password* 20 String Password assigned to Partner  
+===== PAGE 8 =====
+8 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+SecurityKey* 30 String Security Key assigned to Partner  
+TransactionNo* 20 String Unique Transaction Reference Number of UREMIT 
+ReceiverIDType* 1 String ID Type Code   See Page 9 
+ReceiverIDPlaceOfIssue* 2 String ISO Code of Receiver ID Place of Issue Country 
+ReceiverIDNumber* 20 String ID Number of Receiving Customer 
+ReceiverIDExpiryDate*  String Valid ID Expiry Date of Receiving Customer 
+(mm/dd/yyyy or dd MMM yyyy) 
+* Mandatory Field 
+ 
+Output Parameters:- 
+ 
+PayTransactionResponse       From UREMIT To Partner 
+Field Name Size Type Description 
+Successful  Bool Result of API Call (True / False) 
+ResponseCode 2 String Code explaining response of API request   See Page 9 
+ResponseMessage 255 String Message response of API request   See Page 9 
+TransactionNo 20 String Unique Transaction Reference Number of UREMIT 
+Status 50 String Current Status of the transaction 
+ReceiveCountryCode 2 String ISO Code of Receive Country 
+ReceiveCurrencyCode 3 String ISO Code of Receive Currency 
+AmountToPay  Numeric Amount to be paid to receiver 
+AmountToPayInWords 200 String Amount in words to be paid to receiver 
+CommissionShareLC  Numeric Commission Share in LC for Receiving Partner 
+CommissionShareUSD  Numeric Commission Share in USD for Receiving Partner 
+5. ChangePassword:- 
+This method is used to Change the password for payout partner 
+ 
+Input Parameters:-  
+ 
+ChangePasswordRequest      From Partner To UREMIT  
+Field Name Size Type Description 
+UniqueID* 10 String Unique ID assigned to partner 
+Password* 20 String Password assigned to partner  
+SecurityKey* 30 String Security Key assigned to partner  
+NewPassword* 30 String New Password to be updated 
+* Mandatory Field 
+ 
+Output Parameters:- 
+ 
+APICallResponse      From UREMIT To Partner 
+Field Name Size Type Description 
+Successful  Bool Result of API Call (True / False) 
+ResponseCode 2 String Code explaining response of API request   See Page 9 
+ResponseMessage 255 String Message response of API request   See Page 9 
+ 
+  
+===== PAGE 9 =====
+9 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+ID Type List:- 
+While calling the PayTranasction method of API, Use the following for Receiver ID Type codes 
+Code Message 
+1 National ID 
+2 Passport 
+3 Work Permit 
+4 Driving License 
+5 Iqama 
+Response Code Details:- 
+You can expect following Response Codes and Messages from the API 
+Code Message 
+01 Successful API Call 
+02 Invalid Unique ID 
+03 Invalid Password 
+04 Invalid Security Key 
+05 User is Not Active 
+06 User Branch is Not Active 
+07 User Account is Not Active 
+08 User Authorization Not Found 
+09 Insufficient Rights to Pay Transaction 
+10 Invalid Transaction No 
+11 Transaction does not belongs to your country 
+12 Transaction does not belongs to your network 
+13 Transaction status is Cancelled 
+14 Transaction status is Paid 
+15 Transaction found and is under screening. Please try later 
+16 Receiver ID Type is invalid 
+17 Receiver ID Place of Issue is invalid 
+18 Receiver ID Number is invalid 
+19 Receiver ID Expiry Date is invalid. Please enter future date 
+00 General Exception 
+52 Invalid Account No 
+53 Insufficient Rights.[Message] 
+ 
+ 
+===== PAGE 10 =====
+10 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+Sample Code (C#.NET):- 
+ DisplayTransaction Method:- 
+ 
+ReceiveAPI.DisplayTransactionRequest dtReq = new ReceiveAPI.DisplayTransactionRequest(); 
+ 
+dtReq.UniqueID = "UniqueID";    //PROVIDED BY UREMIT 
+dtReq.Password = "Password";    //PROVIDED BY UREMIT 
+dtReq.SecurityKey = "EncryptedSecurityKey";  //PROVIDED BY UREMIT 
+dtReq.TransactionNo = "2324587456321";   //PROVIDED BY RECEIVER 
+ 
+ReceiveAPI.ReceiveAPIClient Paycl = new ReceiveAPI.ReceiveAPIClient(); 
+ReceiveAPI.DisplayTransactionResponse dtRes = new ReceiveAPI. DisplayTransactionResponse(); 
+ 
+dtRes = Paycl.PayTransaction(ptReq);  //CALLING API’S DISPLAY TRANSACTION METHOD 
+if (dtRes.Successful)    //VALIDATE IF SUCCESSFULL 
+{ 
+ LabelStatus.Text= dtRes.Status; 
+ LabelResponseMessage.Text= dtRes.ResponseMessage; 
+ LabelAmount.Text= dtRes.Amount; 
+ LabelAmountInwords.Text= dtRes.AmountInWords; 
+ /////////////////////////////////////////////////////////// 
+ //YOUR CODE GOES HERE TO DISPLAY THE TRANSACTION NFORMATION 
+} 
+else 
+{ 
+ /////////////////////////////////////////////////////////// 
+ //YOUR CODE GOES HERE FOR DECLINE MESSAGES 
+} 
+ 
+ PayTransaction Method:- 
+ 
+ReceiveAPI.PayTransactionRequest ptReq = new ReceiveAPI.PayTransactionRequest(); 
+ 
+ptReq.UniqueID = "UniqueID";    //PROVIDED BY UREMIT 
+ptReq.Password = "Password";    //PROVIDED BY UREMIT 
+ptReq.SecurityKey = "EncryptedSecurityKey";  //PROVIDED BY UREMIT 
+ptReq.TransactionNo = "2324587456321";   //PROVIDED BY RECEIVER 
+ptReq.ReceiverIDType = 1;    //CODES PROVIDED BY UREMIT 
+ptReq.ReceiverIDPlaceOfIssue = "IN";   //ISO CODE OF COUNTRY 
+ptReq.ReceiverIDNumber = "999444555";   //ID NUMNER OF RECEIVER 
+ptReq.ReceiverIDExpiryDate = "04/31/2012";   // ID EXPIRY DATE 
+ 
+ReceiveAPI.ReceiveAPIClient Paycl = new ReceiveAPI.ReceiveAPIClient(); 
+ReceiveAPI.PayTransactionResponse ptRes = new ReceiveAPI.PayTransactionResponse(); 
+ 
+ptRes = Paycl.PayTransaction(ptReq);  //CALLING API’S PAY TRANSACTION METHOD 
+if (ptRes.Successful)    //VALIDATE IF SUCCESSFULL 
+{ 
+ LabelStatus.Text=ptRes.Status; 
+ LabelResponseMessage.Text= ptRes.ResponseMessage; 
+ /////////////////////////////////////////////////////////// 
+ YOUR CODE GOES HERE FOR INTERNAL SYSTEM ENTRIES 
+} 
+else 
+{ 
+ /////////////////////////////////////////////////////////// 
+ YOUR CODE GOES HERE FOR DECLINE MESSAGES 
+} 
+ 
+===== PAGE 11 =====
+11 | P a g e  
+U Remit International Corporation, 373 Front Street, West Suite 2702, M5V 3R7, Toronto, Canada 
+ ChangePassword Method:- 
+ 
+ReceiveAPI.ChangePasswordRequest cpReq = new ReceiveAPI. ChangePasswordRequest(); 
+ 
+cpReq.UniqueID = "UniqueID";    //PROVIDED BY UREMIT 
+cpReq.Password = "Password";    //PROVIDED BY UREMIT 
+cpReq.SecurityKey = "EncryptedSecurityKey";  //PROVIDED BY UREMIT 
+cpReq.NewPassword= "NewPassword";   //NEW PASSWORD TO BE UPDATED 
+ 
+ReceiveAPI.ReceiveAPIClient Paycl = new ReceiveAPI.ReceiveAPIClient(); 
+ReceiveAPI.APICallResponse cpRes = new ReceiveAPI. APICallResponse(); 
+ 
+cpRes = Paycl.ChangePassword(cpReq);  //CALLING API’S CHANGE PASSWORD METHOD 
+if (cpRes.Successful)    //VALIDATE IF SUCCESSFULL 
+{ 
+ LabelResponseMessage.Text= cpRes.ResponseMessage; 
+ /////////////////////////////////////////////////////////// 
+ YOUR CODE GOES HERE FOR INTERNAL SYSTEM ENTRIES 
+} 
+else 
+{ 
+ /////////////////////////////////////////////////////////// 
+ YOUR CODE GOES HERE FOR DECLINE MESSAGES 
+} 
+ 
+       

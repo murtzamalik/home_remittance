@@ -1,0 +1,298 @@
+PDF_PAGES=11
+PDF_META={'/CreationDate': "D:20150904095901+05'00'", '/Author': 'Talib8767', '/Creator': 'PScript5.dll Version 5.2.2', '/Producer': 'Acrobat Distiller 7.0 (Windows)', '/ModDate': "D:20150904095901+05'00'", '/Title': 'Microsoft Word - STP Options'}
+
+===== PAGE 1 =====
+Page 1 of 11 
+ 
+STP Implementation Options 
+ 
+Table of Contents 
+Brief Summary .................................................................................................................................................. 2 
+1. File Adapter without “Controller Workplace” ................................................................................................ 3 
+1.1 Description of Functions ........................................................................................................................... 3 
+1.3 Participants Software Check List .............................................................................................................. 4 
+1.4 Identified Pros ........................................................................................................................................... 4 
+1.5 Identified Cons .......................................................................................................................................... 4 
+2. Data Exchange via folders With “Controller Workplace” .............................................................................. 5 
+2.1 Description of Functions ........................................................................................................................... 5 
+2.2 RTGS Client machine Configuration required .......................................................................................... 6 
+2.3 Participants Check List .............................................................................................................................. 6 
+2.4 Identified Pros ........................................................................................................................................... 6 
+2.5 Identified Cons .......................................................................................................................................... 7 
+3. RCCC (Remote Client Communication Component) ..................................................................................... 8 
+3.1 Description of Functions ........................................................................................................................... 8 
+3.2 RTGS Client machine Configuration required .......................................................................................... 8 
+3.3 Participants Check List .............................................................................................................................. 9 
+3.4 Identified Pros ........................................................................................................................................... 9 
+3.5 Identified Cons .......................................................................................................................................... 9 
+4. Transaction Management System TMS/X .................................................................................................... 10 
+4.1 Description of Functions ......................................................................................................................... 10 
+4.2 RTGS Client machine Configuration required ........................................................................................ 10 
+4.3 Participants’ Check List .......................................................................................................................... 11 
+4.4 Identified Pros ......................................................................................................................................... 11 
+4.5 Identified Cons ........................................................................................................................................ 11 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 2 =====
+Page 2 of 11 
+ 
+Brief Summary 
+ RTGS system started its operations in Ju ly 2008. Since its inception, enrollment of the 
+participants is growing and volume of transactions is also increasing. Payment System 
+Department has also introduced Customer Tran sfers (MT103) and Multiple Credit Customer 
+Transfer (MT102). This has further increased volume of transactions.  
+Currently, RTGS Participants are entering transa ctions in RTGS system manually using RTGS 
+Client workplaces installed at their own premises. Same transactions they also have to re-enter in 
+their Core Banking System through its own workpl aces. Multiple re-keying is inefficient and 
+error prone. Soon it will also be impractical to enter all these transactions manually due to 
+increase in volume.  
+Therefore, it was decided to introduce STP (Strai ght Through Processing) to deal with the above 
+mentioned issues. STP will electronically connect  Participant Core Banking system with RTGS 
+system using standard interfaces that are already provided with the RTGS system.  
+In this connection, Participants needs to deve lop an Integration Software that can pick up 
+information from their Core Banking System and transfers it to RTGS system for processing and 
+vice versa.  
+Following are options available for implementing STP in RTGS system.  
+ 
+ File Adapter (without Controller Workplace)  
+ Data Exchange via folders (with Controller Workplace)  
+ RCCC (Remote Client Communication Component)  
+ TMS/X  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 3 =====
+Page 3 of 11 
+ 
+1. File Adapter without “Controller Workplace”  
+In this STP option, both Operator and Controller  workplaces will be removed. The routines of 
+File Adapter will work seamlessly in th e background by sending and receiving payment 
+messages through Input and Output folders to PRISM Server. 
+ 
+ 
+1.1 Description of Functions  
+1. Integration Software picks up information of an  inputted transaction at Participant’s Core 
+Banking System and converts it to SWIFT like format  file (MT103 or MT202). This file is 
+then transferred by Integration Software to Input folder on RTGS Client machine where File 
+Adapter & Simple Checker are installed.  
+2. Simple Checker picks up the message file from Input folder, applies 1 st signature and then 
+transfers it to Intermediate folder. 1st signature is an optional function and can be eliminated 
+if required.  
+3. File adapter interface then picks up transaction from Intermediate folder, applies 2 nd 
+signature, and sends it to PRISM server for settlement.  
+4. Settlement confirmation (MTn96) or pending/error messages are automatically received 
+from PRISM server in SWIFT like format by File adapter that copies it back to Output 
+folder.  
+5. Integration Software fetches the message from Output folder, converts it to native format and 
+provides the message to Core Ba nking System which finally show s it back to user. In this 
+way user gets immediately informed about status of the transaction. 
+ 
+===== PAGE 4 =====
+Page 4 of 11 
+ 
+1.2 RTGS Client machine Configuration required  
+File Adapter & Simple Checker with RTGS libra ries should be installed and client machine 
+should be on private network and connected to PRISM Server.  
+1.3 Participants Software Check List  
+• Create files with messages according to  SWIFT formats and put them in Input folder of File 
+Adapter. Recognize incoming data from Output folder.  
+• Match responses to requests.  
+• Implement routing of received messages betwee n Integration Software and above mentioned 
+folders  
+• Take care about necessary security measures rela ted to file exchange (via FTP or any other 
+mechanism) e.g. managing rights on the above mentioned folders.  
+1.4 Identified Pros  
+1. Seamless operation from end to end with least human interaction.  
+2. Operator and Controller workplaces do not need to be installed.  
+3. Technicalities can be mostly handled by Part icipants because Integration Software is 
+developed by their own technical team.  
+4. Single application Sign on is achieved in creating and sending payment messages.  
+5. Reconciliation efforts can also be automated at  Integration Software level and hence less 
+support requirement of SBP Technical team in case of problem at File Adapter level.  
+1.5 Identified Cons  
+1. Transaction monitoring may be difficult due to unavailability of a user interface like 
+Controller Workplace. However, Participants ca n build some user interface at Integration 
+Software level for effective transaction monitoring.  
+2. No local database is available for the storag e of messages. Backup of messages needs to be 
+stored in separate folders for reconciliation purpose. 
+3. Manual reconciliation may be difficult.  
+4. Handling/Management of files is required. Secu rity controls need to be placed for that 
+purpose. 
+===== PAGE 5 =====
+Page 5 of 11 
+ 
+5. It may be difficult to locate where technical pr oblems have occurred due  to unavailability of 
+Controller Workplace 
+2. Data Exchange via folders With “Controller Workplace”  
+In this STP option, Operator Workplace will be  removed although Controller Workplace still 
+exists. Controller Workplace works by sending and receiving payment messages through Input 
+and Output folders to PRISM Server. Copy of these messages is also stored in local database for 
+easy reference in the future. Major difference between this and 1 st option is that, manual 
+intervention is required at Controller Workplace level for sending transactions to PRISM Server. 
+ 
+ 
+2.1 Description of Functions  
+1. Integration Software creates a SWIFT like me ssage by using information provided by Core 
+Banking System. This message is then transferre d by Integration Software to Input folder on 
+RTGS Client machine where Controller Workplace & Simple Checker are installed.  
+2. Simple Checker picks up message f ile from Input folder, applies 1 st signature and then 
+transfers it to Intermediate folder. 1 st signature is an optional f unction and can be eliminated 
+if required.  
+3. Controller Workplace then picks up transaction fr om Intermediate folder stores it in Local 
+Database and shows it to Authorizer for approval. 
+4. Authorizer of Participant bank, after review & verifi cation, sends this tr ansaction to PRISM 
+server via Controller Workplace. Signature is also applied at this level.  
+5. If Authorizer finds message credentials incorrect, he can send it back to the Integration 
+Software. It is done by copying the message back  to Output folder vi a Controller Workplace 
+===== PAGE 6 =====
+Page 6 of 11 
+ 
+without sending it to PRISM Server. Integrati on Software then fetches Output folder and 
+provides the message to the Core Banking System which shows it back to user for correction.  
+6. When transaction is sent to PRISM server, settlement confirmation or ‘Error Message’ is 
+automatically received from PRISM server by C ontroller Workplace that copies it back to 
+Output folder as well as local database.  
+7. Integration Software fetches Output folder and provides messa ge to the Core Banking 
+System which shows it back to user for information/correction. 
+2.2 RTGS Client machine Configuration required  
+RTGS libraries should be instal led. Local database in MS Acce ss is installed with Controller 
+Workplace and client machine is connected to PRISM server.  
+2.3 Participants Check List  
+• Create files with messages according to SWIFT like formats and then put them in Input 
+folder of Controller Workplace. Recognize incoming data from Output folder.  
+• Setting options of Controller Workplace so th at it can automatically import messages from 
+Input folder  
+• Setting options of Controller Workplace so that it can export messages to Output folder  
+• Match responses to requests.  
+• Implement routing of received messages between Core Banking system and above mentioned 
+folders.  
+• Taking care about necessary security measures related to file exchange (via FTP or any other 
+mechanism) e.g. managing rights on the above mentioned folders.  
+2.4 Identified Pros  
+1. Operator Workplace doesn’t need to be instal led. Payment messages come directly in Input 
+folder from Core Banking system through Inte gration Software deve loped by Participant’s 
+technical team.  
+2. Technicalities can be mostly handled by Part icipants because Integration Software is 
+developed by their own technical team.  
+3. Controller workplace is available for sendi ng and viewing transactions. This saves 
+development efforts required for some m onitoring application as mentioned in 1 st  S T P  
+option. Local database will also be available for storing messages locally.  
+4. Reconciliation will be easier due to availability of Controller Workplace. 
+===== PAGE 7 =====
+Page 7 of 11 
+ 
+5. It may be easier to locate where technical problems have occurred, i.e. at Participant end or at 
+PRISM end due to availability of Controller Workplace.  
+2.5 Identified Cons  
+6. Although re-keying is eliminated, but manual interv ention of Authorizer is  still required for 
+sending payment message to PRISM Server using Controller Workplace  
+7. Increased support requirement of  SBP Technical team in case of problem in Controller 
+Workplace as compare to 1st option.  
+8. Handling/Management of files will still be required. 
+  
+===== PAGE 8 =====
+Page 8 of 11 
+ 
+3. RCCC (Remote Client Communication Component) 
+In this STP option, both Operat or and Controller Workplaces don’t exist. RCCC is basically an 
+API developed by CMA (RTGS vendor) specifically  for the purpose of STP. This API provides 
+many functions that may be required by Participants’ technical teams for implementing STP. 
+ 
+ 
+ 
+3.1 Description of Functions  
+1. Integration Software interacts with RCCC by using DCOM and RP C. By using RCCC, 
+Integration Software can dire ctly send/receive messages to  PRISM server. Information 
+required is passed via function parameters to PRISM Server. 
+2. Settlement confirmations/error messages can be easily received by the Integration Software 
+from PRISM server as a return parameter of RCCC function.  
+3. It is preferred to use local database for making a copy of all the messages exchange in 
+between Integration Software and PRISM server. It makes reconciliation process easier.  
+4. It is also preferred to make some user inte rface in Integration Software that shows message 
+exchange in between Integration Software and PRISM server. It also makes reconciliation 
+process easier.  
+ 
+3.2 RTGS Client machine Configuration required  
+RCCC installed and connected to PRISM server. RTGS libraries installed. Local database (if 
+used) installed.  
+===== PAGE 9 =====
+Page 9 of 11 
+ 
+ 
+3.3 Participants Check List  
+• Embed RCCC library interface into Participant’s Integration Software.  
+• Provide message fields and parameters to RCCC as per PRISM server formats.  
+• Match responses to requests. 
+• Recognize incoming data as function return parameter. 
+• Implement routing of received messages between Core Banking System and PRISM Server  
+ 
+3.4 Identified Pros  
+1. Both Operator and Controller workplaces don’t need to be installed.  
+2. Technicalities can be handled by Participants ’ technical teams because all interfacing is 
+developed by them.  
+3. More control over interfaces.  
+4. Seamless working will be achieved.  
+5. Single application Sign on is achieved in creating and sending payment messages.  
+6. Local database can be created (if required) and it will make reconciliation easier.  
+7. More secure than file based options 
+ 
+3.5 Identified Cons  
+1. Integration Software with transaction monitoring facility needs to be developed.  
+2. More technicalities involved. Integration Software will be more complex. 
+3. It may be difficult to locate where technical pr oblems have occurred due  to unavailability of 
+Controller Workplace 
+  
+===== PAGE 10 =====
+Page 10 of 11 
+ 
+4. Transaction Management System TMS/X 
+In this STP option, CMA (Vendor of RTGS) will provide a complete solution. It may be a hybrid 
+solution and use any possible combination of  the above mentioned options depending upon 
+Participant’s requirements. Integration Software may also be developed by CMA.  
+ 
+ 
+ 
+4.1 Description of Functions  
+1. All integration will be done by CMA with re spect to sending and receiving messages from 
+Participant’s Core Banking system and PRISM server. Any of the above mentioned options 
+or their combination may be used. 
+2. It is preferred to use local database for making a copy of all the messages exchange in 
+between Integration Software and PRISM server. It makes reconciliation process easier.  
+3. It is also preferred to make some user inte rface in Integration Software that shows message 
+exchange in between Integration Software and PRISM server. It also makes reconciliation 
+process easier.  
+ 
+4.2 RTGS Client machine Configuration required  
+RTGS libraries should be insta lled. Local database in MS Access should be installed. Other 
+installations depend upon Partic ipant’s requirements and type of solution recommended by 
+CMA. 
+  
+===== PAGE 11 =====
+Page 11 of 11 
+ 
+4.3 Participants’ Check List  
+• Participant shall contact separately to CMA for the development of complete solution 
+including Integration Software.  
+• Participant will explain the interfaces with Core Banking system to CMA for development  
+4.4 Identified Pros  
+1. CMA as a vendor of RTGS can better unders tand RTGS interfaces. They can design & 
+develop high quality Integration Software as per requirements of Participants. 
+2.  Limited development efforts will be required by Participant’s technical teams because all 
+interfaces will be developed by CMA.  
+3.  Seamless working & single Sign On can be achieved if required by Participant.  
+4. Support/Maintenance can also be provided by CMA if required by Participant. 
+4.5 Identified Cons  
+1. Technical dependency on CMA.  
+2. More expensive than other options. 
+3. Separate contracting with CMA by participant is required. 
+ 

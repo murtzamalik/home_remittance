@@ -1,0 +1,30 @@
+PDF_PAGES=1
+PDF_META={'/Producer': 'GPL Ghostscript 9.06', '/CreationDate': "D:20160328163707+05'00'", '/ModDate': "D:20160328163707+05'00'", '/Title': 'JS Bank - Invoice - 1.xls', '/Creator': 'PScript5.dll Version 5.2.2', '/Author': 'Dell'}
+
+===== PAGE 1 =====
+SALES TAX INVOICE 
+              Sindh Sales Tax Registration No. 2035897-7 
+DATE: March 28, 2016 
+204,205, Marine Faisal, P.E.C.H.S SALES TAX INVOICE # IB-2016/0070 
+Shahrah-e-Faisal, Karachi Pakistan 
+Phone 0213 23039489, 0304-2288144 
+BILL TO: 
+FOR: 
+JS Bank Limited 
+Shaheen Commercial Complex, Dr. Ziauddin Ahmed Road 
+PO Box 4847, Karachi, Pakistan 
+Phone : +92 21 283043-49 
+DESCRIPTION HOURS RATE AMOUNT (PKR) 
+RTGS STP GATEWAY SOLUTION, SPECIAL DISCOUNTED 
+PRICE: PKR 2,500,000 
+MILESTONE: 
+PROJECT ADVANCE (50% OF PROJECT COST) 1,250,000.00                     
+SUBTOTAL  1,250,000.00 Rs               
+SALES TAX RATE  14.00% 
+SALES TAX  175,000.00                        
+OTHER  
+TOTAL...(Inclusive Sales Tax)  1,425,000.00 Rs               
+Make all cheques payable to INFOBITS 
+RTGS STP GATEWAY 
+SOLUTION 
+THANK YOU FOR YOUR BUSINESS! 

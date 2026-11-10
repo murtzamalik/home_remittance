@@ -1,0 +1,36 @@
+# Dependencies & build
+**/node_modules/
+**/target/
+**/build/
+**/dist/
+**/.mvn/wrapper/maven-wrapper.jar
+
+# Env & secrets
+**/.env
+**/.env.*
+!**/.env.example
+**/credentials*.json
+
+# Logs & temp
+**/*.log
+**/*.log.*
+**/*.tmp
+**/ocal
+.DS_Store
+**/.DS_Store
+
+# IDE
+**/.idea/
+**/.vscode/
+**/*.iml
+
+# Nested Azure git backups (monorepo)
+**/.git.bak.azure/
+
+# Large archives / full DB dump (use db/ scripts instead)
+*.zip
+JS_HOMEREMIT_LOCAL_06072022.sql
+
+# Frontend local artifacts
+Home_Remittance_FrontEnd/build/
+Home_Remittance_FrontEnd/node_modules/

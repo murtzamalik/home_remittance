@@ -1,0 +1,202 @@
+PDF_PAGES=15
+PDF_META={'/Author': 'Muihammad Ahmed Ullah', '/Creator': 'Microsoft® Office Word 2007', '/CreationDate': 'D:20160411070524', '/ModDate': 'D:20160411070524', '/Producer': 'Microsoft® Office Word 2007'}
+
+===== PAGE 1 =====
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Remit Home Deployment Manual 
+Ver. 1.0 
+ 
+===== PAGE 2 =====
+ Remit Home 
+2 | P a g e  
+ 
+Contents 
+A) Web.Config Settings: ................................................................................................... 3 
+B) Report’s Web Config: .................................................................................................. 4 
+C) Service’s Web Config: .................................................................................................. 4 
+D) Main JS Setting: ........................................................................................................... 5 
+E) IIS Setting: ................................................................................................................... 5 
+F) Crystal Report Deployment: ...................................................................................... 13 
+G) Header and Logo images Setting: ............................................................................... 15 
+===== PAGE 3 =====
+ Remit Home 
+3 | P a g e  
+Detailed Application Deployment Manual  
+ 
+A) Web.Config Settings: 
+1) Application’s Web Config  
+In application’s web configuration file the following details needs to be update according to the 
+deployment in environment: 
+a) In  following  change the IP of web server will be replace by the current IP address (as 
+shown in Fig) in both attribute, (if required changes should be done on of name of the 
+folder where service and pool file are reside). 
+ 
+b) Following attribute should be set to “False” in client environment to stop debugging. 
+ 
+c) The following attributes must be change and revalidated in “DSN” key according to the new 
+client environment: 
+ User ID  Database User Id 
+ Password Database User’s Password 
+ Initial Catalog Database Name 
+ Data Source  Server Name where Database resides 
+ 
+===== PAGE 4 =====
+ Remit Home 
+4 | P a g e  
+B) Report’s Web Config: 
+1) The following attributes must be change and revalidated in “DSN” key in Reports web 
+configuration file, according to the new client environment : 
+ User ID  Database User Id 
+ Password Database User’s Password 
+ Initial Catalog Database Name 
+ Data Source  Server Name where Database resides 
+ 
+ 
+C) Service’s Web Config: 
+1) The following attributes must be change and revalidated in “DSN” key in Web Service’s web 
+configuration file, according to the new client environment : 
+ User ID  Database User Id 
+ Password Database User’s Password 
+ Initial Catalog Database Name 
+ Data Source  Server Name where Database resides 
+ 
+ 
+2) If applicable the folder path or name should be updated in Web Service’s web configuration 
+file 
+ 
+ 
+===== PAGE 5 =====
+ Remit Home 
+5 | P a g e  
+D) Main JS Setting: 
+1) The on following position changes should be done in Main.js file according the setting of 
+client environment, here “IP” should be change b y  New Web Server IP and “SHMA-CR” will 
+be replace be folder the crystal reports resides.  
+ 
+The Main .js file will be available at on following path ”ABC\APP\shmalib\jscript\Shma” where 
+ABC represent name of web site folder where web application reside. 
+E) IIS Setting: 
+1) First, ensure that IIS 6 Management Compatibility is installed on IIS 7, for this go into 
+Control Panel  Administrative Tools  Server Manager, now Click on Role in left pane 
+and then Click on Web Server. 
+ 
+2) Adding New Website 
+===== PAGE 6 =====
+ Remit Home 
+6 | P a g e  
+To create a default website on server the following step need to be done, open IIS Manager and 
+click on Add Website. 
+ 
+In the following windows enter the details in required fields i.e. Site Name: Name of Website, 
+Physical Path: Location where Website folder is physically resided. (The Port is an optional field in 
+case of default website and should be leave as “80”, but if server is hosting multiple websites the 
+port needs to define as per client environment. 
+Note: if port is define in website configuration the same port should be define or update in all web 
+configuration associated to that web site.    
+ 
+3) Right click on available sub folder(s) in tree and Select Convert to Application 
+===== PAGE 7 =====
+ Remit Home 
+7 | P a g e  
+ 
+4) Right click on “Website” folder and select Manage Application  Advanced Settings. In 
+Advanced Settings dialog box select Application Pool and click on (…) ellipse button. Select 
+“Application Pool” dialog box appears. Select appropriate (Application’s development 
+Frame work) ASP.NET Frame work from drop down list. Click OK button 
+ 
+===== PAGE 8 =====
+ Remit Home 
+8 | P a g e  
+ 
+Note: This same step is followed for Services as well. 
+5) Select Presentation folder and double click on Default Document icon 
+ 
+===== PAGE 9 =====
+ Remit Home 
+9 | P a g e  
+6) If the required ASP.NET Framework Service Pack or ASP.NET Framework is not available then 
+following Error will appeared. 
+ 
+Note: This problem most likely face on those application(s) which are built on ASP.NET Framework1.1 
+e.g. Soneri Bank, BOK etc. To resolve this issue go on following link and download 
+http://www.microsoft.com/download/en/details.aspx?id=33 
+a) Create directory named v1.1.4322 under %windir%\Microsoft.NET\Framework64 
+ 
+===== PAGE 10 =====
+ Remit Home 
+10 | P a g e  
+b) Install the downloaded software. (Microsoft .NET Framework 1.1 Service Pack 1) 
+ 
+c) Copy the contents of %windir%\Microsoft.NET\Framework\v1.1.4322 to 
+%windir%\Microsoft.NET\Framework64\v1.1.4322 
+ 
+===== PAGE 11 =====
+ Remit Home 
+11 | P a g e  
+d) To ensure that the "Enable 32-bit Applications" attribute is enabled for the application 
+pool, since ASP.NET 1.1 is 32-bit only. Open IIS Manager and go to Application Pools. In 
+right pane, check and see ASP.NET 1.1 is installed and status is Started 
+ 
+7) Right click the Presentation folder and in right hand Actions pane click ADD link. Add 
+Login.aspx and click OK. 
+ 
+===== PAGE 12 =====
+ Remit Home 
+12 | P a g e  
+8) (Applicable only on those application which were build on ASP.NET Framework 1.1) In IIS 
+manager select “Server Name” in left hand pane and in right hand pane ISAPI and CGI 
+Restriction, check to ensure ASP.NET v1.1.4322 restriction is Allowed. 
+ 
+ 
+ 
+===== PAGE 13 =====
+ Remit Home 
+13 | P a g e  
+9) To adding up new Application Pool click on left Pane on application pool and then  click on 
+“Add Application Pool” in right Pane. 
+ 
+On the following window insert the “Name” of application pool ideally should be same as 
+the name of the Application /Service /Report Folder. 
+ 
+F) Crystal Report Deployment: 
+Crystal report 12 required 32bit environment, for this purpose we need to setup separate virtual 
+directory on IIS and change link in calling form to view report, the following procedure should 
+be follows to deploy Crystal Report (32bit) on Windows 2008 64x environment. 
+1) Install Crystal report 12 redistributable kit (cr2008sp3_redist.zip) 
+2) Deploy Crystal reports folder at Web server 
+3) Set connection string in web config file 
+4) Run IIS Manager 
+5) Create New Application Pool In IIS Manager 
+ 
+a) At Defined “Crystal Report Application Pool” click on right click and select “Advance 
+Setting”: 
+===== PAGE 14 =====
+ Remit Home 
+14 | P a g e  
+ 
+Now set the “Enable 32-bit Applications” equal to “True” and click on “OK” 
+ 
+===== PAGE 15 =====
+ Remit Home 
+15 | P a g e  
+G) Header and Logo images Setting: 
+1) To Update images go logon to the application with administrative user and go on following 
+menu: 
+Parameter>>Global>>Global Values 
+In Global Values select the “Type”, and now on right pane select “IMAGEPATH” as shown 
+picture: 
+ 
+After the selection of “IMAGEPATH” Click on values option available in left Pane. On 
+following screen the value old value of images can reset through changing there path 
+according to the current environment. 
+ 
+ 
+ 

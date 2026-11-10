@@ -1,0 +1,1541 @@
+PDF_PAGES=35
+PDF_META={'/Title': 'HBL-RemitHome- API Doc', '/Author': 'munira.jaffrey', '/Creator': 'Microsoft® Office Word 2007', '/CreationDate': 'D:20170518115554', '/ModDate': 'D:20170518115554', '/Producer': 'Microsoft® Office Word 2007'}
+
+===== PAGE 1 =====
+ 
+JSBL 
+ 
+ 
+ 
+ 
+ 
+ 
+                                                   
+ 
+ 
+RH-Connect 
+ 
+RemitHome Web Service (Push Model) 
+ 
+Version 01.02.07 
+ 
+                                                       12th May 2017 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 2 =====
+ 
+ 
+Table of Content 
+ 
+REMITHOME WEB SERVICE API (PUSH MODEL) .......................... 3 
+INTRODUCTION: ........................................................................... 3 
+INTENDED AUDIENCE: .................................................................. 3 
+WSDL LOCATION .......................................................................... 3 
+TEST AND PRODUCTION ENVIRONMENTS ................................... 3 
+NETWORK CONNECTIVITY............................................................ 3 
+BUSINESS SCOPE .......................................................................... 4 
+TRANSACTION SET: ...................................................................... 5 
+PROCESS FLOW ............................................................................ 5 
+GENERAL INFORMATION ............................................................. 6 
+API METHODS DETAIL .................................................................. 7 
+API RESPONSE CODES ................................................................ 33 
+  
+===== PAGE 3 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 3 
+ 
+RemitHome Web Service API (Push Model) 
+Introduction: 
+ 
+The RemitHome Web Service API (Push Model) enables third party applications to connect 
+with RemitHome and perform validations, inquiries and execute transactions.  
+ 
+RemitHome Web Service API support s both real time and delayed transfer/processing of 
+funds into a beneficiary bank account (direct credit) or for cash over the counter payments. 
+With RemitHome web service API, remittin g entities will be able to effect the payments  
+directly into HBL’s core banking system and get acknowledgements. 
+ 
+Intended Audience: 
+ 
+Although, this document is primarily targeted for programmers, it also has some content for 
+business users. This document presents the detail  of integration with the RemitHome Web 
+Service API(Push Model) .  
+ 
+WSDL Location 
+ 
+WSDL file is provided separately along with this document . The actual web -service URL will 
+be communicated to the partner before the commencement of testi ng and before going live 
+(for production site). 
+ 
+Test and Production Environments 
+ 
+In addition to the production environment, a separate test environment will be made 
+available to the partners upon request to facilitate testing of their client application. 
+Network Connectivity 
+ 
+The web-service interface (for both test and production systems) would be made available to 
+the partner on the Internet accessible via a public IP address . Only the designated partner’s 
+source IP addresses will be white -listed at HBL’s firewall and the web -service will not be 
+accessible to any other IP. The web -service will listen on a custom SSL port. The SSL 
+certificate will be shared in advance with the partner. 
+  
+===== PAGE 4 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 4 
+ 
+Business Scope  
+ 
+In general, transaction processing is divided into two processing modes, (can be define d in 
+transaction request). 
+ 
+a) Real Time Transaction Processing. 
+b) Delayed Transaction Processing. 
+RemitHome API by default attempts to process tra nsaction in real -time mode , however, if 
+the transaction cannot be processed in real -time, then it will be moved to delayed 
+transaction processing mode  (if instructed by the requester application).  Response to 
+requesting application will send accordingly. 
+ 
+Transaction can be move to Delayed Transaction Processing mode for following reasons. 
+ 
+ Invalid or incomplete account information [Only For Transaction Mode=2] 
+ Transactions belonging to other local banks that could not provide real -time 
+interface. 
+ Delay in AML Verification. 
+ 
+In latest patch of PUSH API,  a new value [ Transaction Mode=3] has been introduced for 
+delay mode processing. Own Account transactions sent with this mode value must contain 
+valid Account Information for smooth processing otherwise PUSH API would be reject the 
+transaction even in the delay mode. 
+ 
+Following types of payments are covered in RemitHome API: 
+ Cash over the Counter (COTC) transactions: In this case  Remitting Entity will forward 
+COTC transactions to RemitHome web server API and transaction will be ready for 
+collection by beneficiary from any branch.  
+ Account Credit transactions: In this case remitting entity will provide credit directly to 
+beneficiary account including non-HBL local  bank accounts  after verifica tion of 
+beneficiary account details.  
+o HBL customer accounts. 
+o Third-party bank beneficiary accounts 
+  
+===== PAGE 5 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 5 
+ 
+Transaction Set: 
+RemitHome Web Service API (Push Model) provides following set of web methods for third 
+party integration. 
+ 
+Category Web Method Name Description 
+General Inquiries FetchAccountTitle To fetch title against account holder bank id 
+and A/c number. 
+ BalanceInquiry  Remitting Entity A/c balance inquiry. 
+ BankCodes To get list of allowed third party banks 
+Transaction Inquiry GetTransactionStatus  To get status of previously sent transactions. 
+Transactions Request TransfertoCOTC  To forward cash over the counter transaction. 
+ TransfertoAccount  To forward direct credit transaction 
+ 
+Process Flow 
+ RemitHome web service API exposes corresponding classes against each web methods  
+for submission of requests and retrieval of responses. 
+ 
+ Each Request authenticated by following Parameters. 
+ Agent ID.   (Provided by Bank) 
+ User ID.     (Provided by Bank) 
+ Password. (Provided by Bank) 
+ 
+ After authentication gets successful then the corresponding activity executed, otherwise 
+“Authentication Failure Response” sent in response.  
+ 
+ Each request is acknowledged by sending valid Response Code and Response Message to 
+requester, which shows activity status either Successful or Failure.  
+ 
+  
+===== PAGE 6 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 6 
+ 
+General Information  
+ 
+Request 
+All methods expect a single Object as parameter. This Object will contain the diffe rent values 
+as Object’s properties.  
+ 
+Response  
+All methods return a response object  with updated status of the corresponding inquiry, 
+status or payments request. The information is contained within the object properties. 
+ 
+  
+===== PAGE 7 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 7 
+ 
+ 
+API Methods Detail  
+ 
+ Fetch Account Title: 
+Method Name: FetchAccountTitle (FetchAccountTitleRequest) 
+ 
+This method is used for verification of beneficiary account information. 
+Web method will returns FetchAccountTitleResponse Object for  Account Information of the 
+Beneficiary Account if exists. 
+   
+ Fetch Account Title Request:      
+ 
+Request Attributies Detail: 
+Sr. 
+No 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 Agent ID 
+ 
+String 10 Agent ID provided by Bank M 
+2 UserID 
+ 
+String 50 User ID of Agent’s user provided by Bank M 
+3 Password 
+ 
+String 20 Password of Agent’s user provided by Bank M 
+4 CallerRef 
+ 
+String 50 Other information for tracking purpose. O 
+5 BankID 
+ 
+String 10 Bank ID of Beneficiary account’s bank . 
+Updated Bank ID(s) can be retrieved by using 
+API Web Method  GetIBFTBank 
+M 
+6 Account 
+Number 
+String 30 Account Number of the beneficiary. M 
+7 Reserved1 String  50 For future use O 
+8 Reserved2 String 50 For future use O 
+ 
+
+===== PAGE 8 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 8 
+ 
+ 
+ Fetch Account Title Response :           
+ 
+Response Attributes Detail: 
+ 
+Sr.
+No 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional/ 
+Conditional 
+1 ResponseCode String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 CallerRef 
+ 
+String 50 Other information for tracking purpose. O 
+4 BankID String 10 Bank ID of Beneficiary’s Bank. 
+Updated Bank ID(s) can be retrieved by using 
+API Web Method  GetIBFTBankCodes 
+M 
+5 Account Number String 30 Same Account Number of the beneficiary will 
+be return. 
+M 
+6 AccountTitle String 50 Account Title of the beneficiary C 
+7 AccountStatus String 3 Beneficiary Account Status (not available for 
+IBFT banks) 
+   001 – Active  
+   002 – In-Active  
+   003 – Closed 
+C 
+8 AccountCurrency String 3 Beneficiary Account Currency (not available for 
+IBFT banks)  
+C 
+9 Reserved 1 String  50 For Future use O 
+10 Reserved 2 String  50 For Future use O 
+ 
+  
+
+===== PAGE 9 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 9 
+ 
+                                 
+ 
+ Cash Over the Counter Transfer  
+ Method Name: TransferCOTC (TransactionCotcRequest) 
+This method is used to forward COTC transaction to RemitHome and after processing 
+transaction will be available to collect from branch by beneficiary.  
+ 
+Note: Method overloaded to incorporate new fields 
+ 
+ Transfer COTC Request :     
+      
+ 
+
+===== PAGE 10 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 10 
+ 
+ 
+    
+ 
+ 
+Request Attributes Detail: 
+Sr.
+No 
+Field Data 
+Type 
+Max 
+Lengt
+h 
+Description Mandatory/ 
+Optional 
+1 AgentID String 10 Agent ID provided by Bank M 
+2 UserID String 50 User ID of Agent’s user provided by 
+Bank 
+M 
+3 Password String 20 Password of Agent’s user provided 
+by Bank 
+M 
+4 CallerRef String 50 Other Information for tracking 
+purpose 
+O 
+5 Unique ReferenceNo String 25 Agent’s Unique Transaction 
+Number. 
+ 
+M 
+6 Transaction Mode Number (1) 1 – Real-time only mode. 
+(Reject the transaction if it 
+cannot be processed in real-time) 
+2 – Delayed mode allowed. 
+(if real -time processing is not 
+possible then process transaction 
+in delay mode) 
+M 
+7 RemitterFirstName String 100 Remitter First Name M 
+8 RemitterMiddle Name String 100 Remitter Middle Name O 
+9 RemitterLastName String 100 Remitter Last Name O 
+10 RemitterAddress1 String 100 RemitterAddress1 M 
+11 RemitterAddress2 String 100 RemitterAddress2 O 
+12 RemitterAddress3 String 100 RemitterAddress3 O 
+13 RemitterMobileNo 
+ 
+String 20 Remitter Mobile Number O 
+14 BeneficiaryFirst Name String 100 Beneficiary First Name M 
+15 BeneficiaryMiddleName String 100 Beneficiary Middle Name O 
+16 BeneficiaryLast Name String 100 Beneficiary Last Name O 
+===== PAGE 11 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 11 
+ 
+17 Beneficiary MobileNo String 20 Beneficiary Mobile No O 
+18 Beneficiary Address1 String 100 BeneficiaryAddress1 O 
+19 Beneficiary Address2 String 100 BeneficiaryAddress2 O 
+20 Beneficiary Address3 String 100 BeneficiaryAddress3 O 
+21 BeneficiaryIDType 
+ 
+String 4 Beneficiary Identification type 
+0001-Computerize National ID 
+0002-Passport ID 
+0003-Other 
+O 
+22 BeneficiaryID 
+ 
+String 20 Beneficiary Identification Number  O 
+23 BeneficiaryDateOfBirth Date 8 Beneficiary Date of Birth M 
+24 BeneficiaryIDExpiryDate 
+ 
+Date 8 Beneficiary ID expiry Date M 
+25 FathrerORHusband 
+Name 
+String 100 Father or husband name of 
+beneficiary 
+O 
+26 PayInCurrency String 3 ISO 4217 Currency Codes, e.g. 
+PKR 
+O 
+27 PayOutCurrency 
+ 
+String 3 ISO 4217 Currency Codes, e.g. 
+PKR 
+M 
+28 Transaction Amount Double (20,2
+) 
+Transaction Amount in Payout 
+Currency 
+M 
+29 RemitPurpose String 200 Remittance Purpose M 
+30 Reserved 1 String  50 For future use O 
+31 Reserved 2 String  50 For future use O 
+32 Membership String 25 Member Ship ID/Number O 
+33 ProductCode 
+ 
+String 50 Product Code O 
+34 ProductName 
+ 
+String 250 Product Name O 
+35 RelationshipWithBenefi
+ciary 
+ 
+String 25 Relationship with Beneficiary  
+Ex: Brother, Sister, Mother and 
+etc. 
+O 
+36 RemitterNationality 
+ 
+String 250 Remitter’s Nationality 
+Ex: Pakistani 
+O 
+37 RemitterDOB 
+ 
+Date 8 Remitter’sDate of Birth. 
+ 
+If no data is provided then 
+default value (09/09/1901) is 
+O 
+===== PAGE 12 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 12 
+ 
+used. 
+38 RemitterPOB 
+ 
+String 30 Remitter’s Place of Birth 
+Ex: Karachi 
+O 
+39 BeneficiaryNationality 
+ 
+String 250 Beneficiary’s Nationality 
+Ex: Pakistani 
+O 
+40 BeneficiaryPOB String 30 Beneficiary’s Place of Birth 
+Ex: Hyderabad 
+O 
+41 A1 
+ 
+String 250 For future use O 
+42 A2 String 250 For future use O 
+43 A3 String 250 For future use O 
+44 A4 String 250 For future use O 
+45 A5 String 250 For future use O 
+46 A6 String 250 For future use O 
+47 RemitterId 
+ 
+String 250 Remitter’s Id 
+Ex: 12345 
+O 
+48 R1 
+ 
+String 250 For future use O 
+49 R2 String 250 For future use O 
+50 R3 String 250 For future use O 
+51 R4 String 250 For future use O 
+52 R5 String 250 For future use O 
+53 R6 String 250 For future use O 
+54 R7 String 250 For future use O 
+55 R8 String 250 For future use O 
+56 R9 String 250 For future use O 
+ 
+  
+===== PAGE 13 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 13 
+ 
+ 
+ Transfer COTC Response :        
+ 
+          
+ 
+Response Attributes Detail: 
+Sr. 
+No 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 Response Code String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 CallerRef String 50 Other information for tracking 
+purpose 
+O 
+4 TranReferenceNo 
+ 
+String 25 RemitHome Transaction Number. M 
+5 Unique 
+ReferenceNo 
+ 
+String 25 Agent’s Unique Transaction Number. M 
+6 Reserved 1 String  50 For future use O 
+7 Reserved 2 String  50 For future use O 
+ 
+  
+
+===== PAGE 14 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 14 
+ 
+ Account Credit Transfer  
+ Method Name: TransfertoAccount (TransfertoAccountRequest) 
+This Method is used to processes direct credit transaction in beneficiary account including third 
+party banks. 
+ 
+Note: Method overloaded to incorporate new fields 
+ 
+ Transfer Account Credit Request :        
+ 
+  
+ 
+ 
+ 
+ 
+
+===== PAGE 15 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 15 
+ 
+Request Attributes Detail: 
+ 
+Sr.
+No 
+Field Data 
+Type 
+Max 
+Lengt
+h 
+Description Mandatory/ 
+Optional 
+1 AgentID String 10 Agent ID provided by Bank M 
+2 UserID String 50 User ID of Agent’s user provided by Bank M 
+3 Password String 20 Password of Agent’s user provided by 
+Bank 
+M 
+4 CallerRef String 50 Other information for tracking purpose. O 
+5 Unique 
+ReferenceNo 
+String 25 Agent’s Unique Transaction Number. 
+ 
+M 
+6 Transaction Mode Number (1) 1 – Real-time only mode. 
+(Reject the transaction if it cannot be 
+processed in real-time) 
+ 
+2 – Delayed mode allowed. 
+(if real-time processing is not possible 
+then process transaction in delay 
+mode) 
+3 – Delayed mode allowed .  
+Same as above but will reject the 
+transactions for Invalid Account/In 
+Active Account. 
+M 
+7 RemitterFirst 
+Name 
+String 100 Remitter First Name 
+ 
+M 
+8 RemitterMiddle 
+Name 
+String 100 Remitter Middle Name 
+ 
+O 
+9 RemitterLast Name String 100 Remitter Last Name 
+ 
+O 
+10 RemitterAddress1 String 100 RemitterAddress1 
+ 
+M 
+11 RemitterAddress2 String 100 RemitterAddress2 
+ 
+O 
+12 RemitterMobileNo 
+ 
+String 20 Remitter Mobile Number O 
+13 RemitterAddress3 
+ 
+String 100 RemitterAddress3 
+ 
+O 
+14 BeneficiaryFirst 
+Name 
+String 100 Beneficiary First Name 
+ 
+M 
+15 BeneficiaryMiddle
+Name 
+String 100 Beneficiary Middle Name 
+ 
+O 
+===== PAGE 16 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 16 
+ 
+16 BeneficiaryLast 
+Name 
+String 100 Beneficiary Last Name 
+ 
+O 
+17 FathrerORHusband 
+Name 
+String 100 Father or husband name of 
+beneficiary 
+O 
+18 BeneficiaryDateOf
+Birth 
+Date 8 Beneficiary Date of Birth M 
+19 BeneficiaryIDExpiry
+Date 
+ 
+Date 8 Beneficiary ID expiry Date M 
+20 PayInCurrency String 3 ISO 4217 Currency Codes, e.g. PKR  O 
+21 PayOutCurrency String 3 ISO 4217 Currency Codes, e.g. PKR M 
+22 Beneficairy 
+Account 
+String 30 Account Number of the beneficiary  M 
+23 BankID String 10 Beneficiary Bank Code M 
+24 Transaction 
+Amount 
+Double (20,2) Transaction Amount in Payout  
+Currency 
+M 
+25 RemitPurpose String 200 Remittance Purpose M 
+26 Branch Code String 4 Branch Code of Beneficiary’s Bank  
+ 
+O 
+27 Branch Name 
+ 
+String 30 Beneficiary Branch Name O 
+28 Branch Address1 
+ 
+String 30 Beneficiary Branch Address Line1 O 
+29 Branch Address2 
+ 
+String 30 Beneficiary Branch Address Line1 O 
+30 Branch Address3 
+ 
+String 30 Beneficiary Branch Address Line1 O 
+31 Reserved 1 String  50 For future use O 
+32 Reserved 2 String  50 For future use O 
+33 Membership String 25 Member Ship ID/Number O 
+35 ProductCode 
+ 
+String 50 Product Code O 
+36 ProductName 
+ 
+String 250 Product Name O 
+37 RelationshipWithB
+eneficiary 
+ 
+String 25 Relationship with Beneficiary  
+Ex: Brother, Sister, Mother and etc. 
+O 
+38 RemitterNationalit
+y 
+ 
+String 250 Remitter’s Nationality 
+Ex: Pakistani 
+O 
+===== PAGE 17 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 17 
+ 
+39 RemitterDOB 
+ 
+Date 8 Remitter’sDate of Birth. 
+ 
+If no data is provided then default 
+value (09/09/1901) is used. 
+O 
+40 RemitterPOB 
+ 
+String 30 Remitter’s Place of Birth 
+Ex: Karachi 
+O 
+41 BeneficiaryNationa
+lity 
+ 
+String 250 Beneficiary’s Nationality 
+Ex: Pakistani 
+O 
+42 BeneficiaryPOB String 30 Beneficiary’s Place of Birth 
+Ex: Hyderabad 
+O 
+43 A1 
+ 
+String 250 For future use O 
+44 A2 String 250 For future use O 
+45 A3 String 250 For future use O 
+46 A4 String 250 For future use O 
+47 A5 String 250 For future use O 
+48 A6 String 250 For future use O 
+49 RemitterId 
+ 
+String 250 Remitter’s Id 
+Ex: 12345 
+O 
+50 R1 
+ 
+String 250 For future use O 
+51 R2 String 250 For future use O 
+52 R3 String 250 For future use O 
+53 R4 String 250 For future use O 
+54 R5 String 250 For future use O 
+55 R6 String 250 For future use O 
+56 R7 String 250 For future use O 
+57 R8 String 250 For future use O 
+58 R9 String 250 For future use O 
+59 BeneficiaryMobil
+eNo 
+ 
+String 20 Beneficiary’s Mobile No. O 
+60 BeneficiaryIDTyp
+e 
+ 
+String 4 Beneficiary Identification type 
+0001-Computerize National ID 
+0002-Passport ID 
+0003-Other 
+O 
+===== PAGE 18 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 18 
+ 
+ Transfer Account Credit Response :        
+         
+ 
+Response Attributes Detail: 
+Sr. 
+No. 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 ResponseCode String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 CallerRef String 50 Other information for tracking 
+purpose. 
+O 
+4 TranReferenceNo String 25 RemitHome Transaction Number. M 
+5 Unique 
+ReferenceNo 
+ 
+String 25 Agent’s Unique Transaction Number. 
+ 
+M 
+6 Reserved 1 String  50 For future use O 
+7 Reserved 2 String  50 For future use O 
+ 
+  
+
+===== PAGE 19 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 19 
+ 
+ 
+ Transaction Status  
+ Method Name: GetTransactionStatus (TransactionStatusRequest) 
+ 
+Web Method to return status of previously forwarded transactions in RemitHome system. 
+ 
+ Transaction Status Request :        
+ 
+ 
+Request Attributes Detail: 
+ 
+Sr. 
+No. 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 AgentID String 10 Agent ID provided by Bank M 
+2 UserID String 50 User ID of Agent’s user provided by Bank M 
+3 Password String 20 Password of Agent’s user provided by 
+Bank 
+M 
+4 CallerRef String 50 Other information for tracking 
+purpose. 
+O 
+5 Unique 
+ReferenceNo 
+ 
+String 25 Unique Reference Number to get the 
+transaction status. 
+M 
+6 Reserved 1 String  50 For future use O 
+7 Reserved 2 String  50 For future use O 
+ 
+ 
+ 
+ Transaction Status Response :        
+
+===== PAGE 20 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 20 
+ 
+ 
+ 
+Response Attributes Detail: 
+Sr. 
+No. 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 ResponseCode String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 CallerRef String 50 Other information for tracking 
+purpose. 
+O 
+4 Unique 
+ReferenceNo 
+ 
+String 25 Same Unique Reference Number M 
+5 Status Code Number 1 Status Code of transaction returned 
+by RemitHome System 
+0 – Processed 
+1 – Available for collection. 
+2- Successfully forwarded to third 
+party bank for on work processing. 
+3 – Under Processing. 
+4-Transaction Cancelled 
+M 
+6 Status Description String 50 Description of Status code for better 
+understanding 
+M 
+7 Reserved 1 String  50 For future use O 
+8 Reserved 2 String  50 For future use O 
+ 
+ 
+  
+
+===== PAGE 21 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 21 
+ 
+ 
+ Bank Codes  
+ Method Name: GetBankCodes(BankCodeRequest) 
+ 
+Web Method to get updated Bank codes. Array of object will be returned. 
+ 
+ Bank Codes Request :      
+   
+ 
+Request Attributes Detail: 
+Sr. 
+No. 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 AgentID String 10 Agent ID provided by Bank M 
+2 UserID String 50 User ID of Agent’s user provided by Bank M 
+3 Password String 20 Password of Agent’s user provided by 
+Bank 
+M 
+4 CallerRef String 50 Other Information for tracking 
+purpose. 
+O 
+ 
+ 
+ 
+ Bank Codes Response :       Array of Objects 
+ 
+ 
+ 
+  
+
+===== PAGE 22 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 22 
+ 
+Response Attributes Detail: 
+Sr. 
+No. 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 ResponseCode String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 Banks[] UD  BankID : Bank ID, 
+BankName : Bank Name, 
+IsRealTimeFTAllowed: Real time Fund 
+transfer allowed or not.  
+M 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 23 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 23 
+ 
+ Cash Over the Counter Transfer (Method for new fields) 
+ Method Name: 
+TransfertoCOTCNewFields(TransactionCotcNewfieldsRequest,Membership,Relationshipwit
+hBeneficiary) 
+This method is used to forward COTC transaction to RemitHome and after processing 
+transaction will be available to collect from branch by beneficiary.  
+ 
+Note: Method overloaded to incorporate new fields 
+ 
+ Transfer COTC New fields Request :        
+     
+    
+ 
+ 
+
+===== PAGE 24 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 24 
+ 
+Request Attributes Detail: 
+Sr.
+No 
+Field Data 
+Type 
+Max 
+Lengt
+h 
+Description Mandatory/ 
+Optional 
+1 AgentID String 10 Agent ID provided by Bank M 
+2 UserID String 50 User ID of Agent’s user provided by 
+Bank 
+M 
+3 Password String 20 Password of Agent’s user provided 
+by Bank 
+M 
+4 CallerRef String 50 Other Information for tracking 
+purpose 
+O 
+5 Unique ReferenceNo String 25 Agent’s Unique Transaction 
+Number. 
+ 
+M 
+6 Transaction Mode Number (1) 1 – Real-time only mode. 
+(Reject the transaction if it 
+cannot be processed in real-time) 
+2 – Delayed mode allowed. 
+(if real -time processing is not 
+possible then process transaction 
+in delay mode) 
+M 
+7 RemitterFirstName String 100 Remitter First Name M 
+8 RemitterMiddle Name String 100 Remitter Middle Name O 
+9 RemitterLastName String 100 Remitter Last Name O 
+10 RemitterAddress1 String 100 RemitterAddress1 M 
+11 RemitterAddress2 String 100 RemitterAddress2 O 
+12 RemitterAddress3 String 100 RemitterAddress3 O 
+13 RemitterMobileNo 
+ 
+String 20 Remitter Mobile Number O 
+14 BeneficiaryFirst Name String 100 Beneficiary First Name M 
+15 BeneficiaryMiddleName String 100 Beneficiary Middle Name O 
+16 BeneficiaryLast Name String 100 Beneficiary Last Name O 
+17 Beneficiary MobileNo String 20 Beneficiary Mobile No O 
+18 Beneficiary Address1 String 100 BeneficiaryAddress1 O 
+===== PAGE 25 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 25 
+ 
+19 Beneficiary Address2 String 100 BeneficiaryAddress2 O 
+20 Beneficiary Address3 String 100 BeneficiaryAddress3 O 
+21 BeneficiaryIDType 
+ 
+String 4 Beneficiary Identification type 
+0001-Computerize National ID 
+0002-Passport ID 
+0003-Other 
+O 
+22 BeneficiaryID 
+ 
+String 20 Beneficiary Identification Number  O 
+23 BeneficiaryDateOfBirth Date 8 Beneficiary Date of Birth O 
+24 BeneficiaryIDExpiryDate 
+ 
+Date 8 Beneficiary ID expiry Date O 
+25 FathrerORHusband 
+Name 
+String 100 Father or husband name of 
+beneficiary 
+O 
+26 PayInCurrency String 3 ISO 4217 Currency Codes, e.g. 
+PKR 
+O 
+27 PayOutCurrency 
+ 
+String 3 ISO 4217 Currency Codes, e.g. 
+PKR 
+M 
+28 Transaction Amount Double (20,2
+) 
+Transaction Amount in Payout 
+Currency 
+M 
+29 RemitPurpose String 200 Remittance Purpose M 
+30 Reserved 1 String  50 For future use O 
+31 Reserved 2 String  50 For future use O 
+32 Membership String 25 Member Ship ID/Number O 
+33 RelationshipwithBenefi
+ciary 
+String 50 Relationship with Beneficiary  
+Ex: Brother, Sister, Mother and 
+etc.. 
+O 
+34 ProductCode 
+ 
+String 50 Product Code O 
+35 ProductName 
+ 
+String 250 Product Name O 
+36 RemitterNationality 
+ 
+String 250 Remitter’s Nationality 
+Ex: Pakistani 
+O 
+37 RemitterDOB 
+ 
+Date 8 Remitter’sDate of Birth. 
+ 
+If no data is provided then 
+default value (09/09/1901) is 
+used. 
+O 
+38 RemitterPOB 
+ 
+String 30 Remitter’s Place of Birth 
+Ex: Karachi 
+O 
+===== PAGE 26 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 26 
+ 
+39 BeneficiaryNationality 
+ 
+String 250 Beneficiary’s Nationality 
+Ex: Pakistani 
+O 
+40 BeneficiaryPOB String 30 Beneficiary’s Place of Birth 
+Ex: Hyderabad 
+O 
+41 A1 
+ 
+String 250 For future use O 
+42 A2 String 250 For future use O 
+43 A3 String 250 For future use O 
+44 A4 String 250 For future use O 
+45 A5 String 250 For future use O 
+46 A6 String 250 For future use O 
+47 RemitterId 
+ 
+String 250 Remitter’s Id 
+Ex: 12345 
+O 
+48 R1 
+ 
+String 250 For future use O 
+49 R2 String 250 For future use O 
+50 R3 String 250 For future use O 
+51 R4 String 250 For future use O 
+52 R5 String 250 For future use O 
+53 R6 String 250 For future use O 
+54 R7 String 250 For future use O 
+55 R8 String 250 For future use O 
+56 R9 String 250 For future use O 
+ 
+  
+===== PAGE 27 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 27 
+ 
+ 
+ Transfer COTC Response :        
+ 
+          
+ 
+Response Attributes Detail: 
+Sr. 
+No 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 Response Code String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 CallerRef String 50 Other information for tracking 
+purpose 
+O 
+4 TranReferenceNo 
+ 
+String 25 RemitHome Transaction Number. M 
+5 Unique 
+ReferenceNo 
+ 
+String 25 Agent’s Unique Transaction Number. M 
+6 Reserved 1 String  50 For future use O 
+7 Reserved 2 String  50 For future use O 
+ 
+  
+
+===== PAGE 28 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 28 
+ 
+ Account Credit Transfer (Method for new fields) 
+ Method Name: TransfertoAccountNewFields(TransfertoAccountNewfieldsRequest, 
+Membership,RelationshipwithBeneficiary) 
+This Method is used to processes direct credit transaction in beneficiary account including third 
+party banks. 
+ 
+Note: Method overloaded to incorporate new fields 
+ 
+ Transfer Account New Fields Request :        
+ 
+ 
+ 
+ 
+
+===== PAGE 29 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 29 
+ 
+Request Attributes Detail: 
+ 
+Sr.
+No 
+Field Data 
+Type 
+Max 
+Lengt
+h 
+Description Mandatory/ 
+Optional 
+1 AgentID String 10 Agent ID provided by Bank M 
+2 UserID String 50 User ID of Agent’s user provided by Bank M 
+3 Password String 20 Password of Agent’s user provided by 
+Bank 
+M 
+4 CallerRef String 50 Other information for tracking purpose. O 
+5 Unique 
+ReferenceNo 
+String 25 Agent’s Unique Transaction Number. 
+ 
+M 
+6 Transaction Mode Number (1) 1 – Real-time only mode. 
+(Reject the transaction if it cannot be 
+processed in real-time) 
+ 
+2 – Delayed mode allowed. 
+(if real-time processing is not possible 
+then process transaction in delay 
+mode) 
+3 – Delayed mode allowed .  
+Same as above but will reject the 
+transactions for Invalid Account/In 
+Active Account. 
+M 
+7 RemitterFirst 
+Name 
+String 100 Remitter First Name 
+ 
+M 
+8 RemitterMiddle 
+Name 
+String 100 Remitter Middle Name 
+ 
+O 
+9 RemitterLast Name String 100 Remitter Last Name 
+ 
+O 
+10 RemitterAddress1 String 100 RemitterAddress1 
+ 
+M 
+11 RemitterAddress2 String 100 RemitterAddress2 
+ 
+O 
+12 RemitterMobileNo 
+ 
+String 20 Remitter Mobile Number O 
+13 RemitterAddress3 
+ 
+String 100 RemitterAddress3 
+ 
+O 
+14 BeneficiaryFirst 
+Name 
+String 100 Beneficiary First Name 
+ 
+M 
+15 BeneficiaryMiddle
+Name 
+String 100 Beneficiary Middle Name 
+ 
+O 
+===== PAGE 30 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 30 
+ 
+16 BeneficiaryLast 
+Name 
+String 100 Beneficiary Last Name 
+ 
+O 
+17 FathrerORHusband 
+Name 
+String 100 Father or husband name of 
+beneficiary 
+O 
+18 BeneficiaryDateOf
+Birth 
+Date 8 Beneficiary Date of Birth O 
+19 BeneficiaryIDExpiry
+Date 
+ 
+Date 8 Beneficiary ID expiry Date O 
+20 PayInCurrency String 3 ISO 4217 Currency Codes, e.g. PKR  O 
+21 PayOutCurrency String 3 ISO 4217 Currency Codes, e.g. PKR M 
+22 Beneficairy 
+Account 
+String 30 Account Number of the beneficiary  M 
+23 BankID String 10 Beneficiary Bank Code M 
+24 Transaction 
+Amount 
+Double (20,2) Transaction Amount in Payout  
+Currency 
+M 
+25 RemitPurpose String 200 Remittance Purpose M 
+26 Branch Code String 4 Branch Code of Beneficiary’s Bank  
+ 
+O 
+27 Branch Name 
+ 
+String 30 Beneficiary Branch Name O 
+28 Branch Address1 
+ 
+String 30 Beneficiary Branch Address Line1 O 
+29 Branch Address2 
+ 
+String 30 Beneficiary Branch Address Line1 O 
+30 Branch Address3 
+ 
+String 30 Beneficiary Branch Address Line1 O 
+31 Reserved 1 String  50 For future use O 
+32 Reserved 2 String  50 For future use O 
+33 Membership String 25 Member Ship ID/Number O 
+34 RelationshipwithBe
+neficiary 
+String 50 Relationship with Beneficiary  
+Ex: Brother, Sister, Mother and etc.. 
+O 
+35 ProductCode 
+ 
+String 50 Product Code O 
+36 ProductName 
+ 
+String 250 Product Name O 
+37 RelationshipWithB
+eneficiary 
+ 
+String 25 Relationship with Beneficiary  
+Ex: Brother, Sister, Mother and etc. 
+O 
+===== PAGE 31 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 31 
+ 
+38 RemitterNationalit
+y 
+ 
+String 250 Remitter’s Nationality 
+Ex: Pakistani 
+O 
+39 RemitterDOB 
+ 
+Date 8 Remitter’sDate of Birth. 
+ 
+If no data is provided then default 
+value (09/09/1901) is used. 
+O 
+40 RemitterPOB 
+ 
+String 30 Remitter’s Place of Birth 
+Ex: Karachi 
+O 
+41 BeneficiaryNationa
+lity 
+ 
+String 250 Beneficiary’s Nationality 
+Ex: Pakistani 
+O 
+42 BeneficiaryPOB String 30 Beneficiary’s Place of Birth 
+Ex: Hyderabad 
+O 
+43 A1 
+ 
+String 250 For future use O 
+44 A2 String 250 For future use O 
+45 A3 String 250 For future use O 
+46 A4 String 250 For future use O 
+47 A5 String 250 For future use O 
+48 A6 String 250 For future use O 
+49 RemitterId 
+ 
+String 250 Remitter’s Id 
+Ex: 12345 
+O 
+50 R1 
+ 
+String 250 For future use O 
+51 R2 String 250 For future use O 
+52 R3 String 250 For future use O 
+53 R4 String 250 For future use O 
+54 R5 String 250 For future use O 
+55 R6 String 250 For future use O 
+56 R7 String 250 For future use O 
+57 R8 String 250 For future use O 
+58 R9 String 250 For future use O 
+59 BeneficiaryMobil
+eNo 
+ 
+String 20 Beneficiary’s Mobile No. O 
+===== PAGE 32 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 32 
+ 
+60 BeneficiaryIDTyp
+e 
+ 
+String 4 Beneficiary Identification type 
+0001-Computerize National ID 
+0002-Passport ID 
+0003-Other 
+O 
+ 
+ Transfer Account Credit Response :        
+         
+ 
+Response Attributes Detail: 
+Sr. 
+No. 
+Field Data 
+Type 
+Max 
+Length 
+Description Mandatory/ 
+Optional 
+1 ResponseCode String 4 Response for the Success or Failure M 
+2 ResponseMessage String 1000 Result Message M 
+3 CallerRef String 50 Other information for tracking 
+purpose. 
+O 
+4 TranReferenceNo String 25 RemitHome Transaction Number. M 
+5 Unique 
+ReferenceNo 
+ 
+String 25 Agent’s Unique Transaction Number. 
+ 
+M 
+6 Reserved 1 String  50 For future use O 
+7 Reserved 2 String  50 For future use O 
+ 
+  
+
+===== PAGE 33 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 33 
+ 
+API Response Codes 
+Codes Details Service 
+Category 
+0000 Successful General 
+0001 Successful, transaction accepted in delayed mode FT 
+1004 Invalid Input Parameters/Values missing General 
+1005 Authentication Failure General 
+1006 System Failure General 
+1010 Invalid Parameter Length Found General 
+1014 PRI Transaction Not found Transaction 
+Status 
+1021 Transaction Timeout General 
+1032 AML Down (Service is not running) FT 
+1033 AML Status Rejected  (New) FT 
+1034 AML Status Blocked  (New) FT 
+1035 Invalid IBAN FT/Title Fetch 
+1037 Transaction Auto Reversed  (New) FT 
+1038 Transaction Reverse Unsuccessful (New) FT 
+9009 Mandatory fields missing! Currency field(s) mandatory! FT 
+9012 COTC STP limit exceeded! FT 
+9015 Own accounts STP limit exceeded! FT 
+9016 Duplicate Unique Reference No found. Record Cancelled FT 
+9019 Commercial Payment FT 
+9026 Unique Reference Number Limit exceeds! FT 
+9028 Title Fetch Unsuccessful FT/Title Fetch 
+9029 Insufficient Balance FT 
+9030 Fund Transfer Failed FT 
+9031 API settings are not configured or In Active General 
+9043 Invalid Account FT/Title Fetch 
+9045 Invalid Other Bank Account-
+FT/Title Fetch 
+9046 AML Transaction Timeout FT 
+9047 In Active Account, Transaction is not allowed.   FT 
+9048 Account Title does not match with Beneficiary Name!  Account-FT 
+9049 Invalid Account Length   Account- 
+FT/Title Fetch 
+9999 Any unknown error occurred during web method call. 
+[Message will be displaying the actual error] 
+General 
+[Note: It is not possible to accommodate each error with separate response code. Therefore, in 
+some cases ‘9999’ can also be returned. Except for two response codes [0000, 0001] each response 
+code is being use to represent transaction failure] 
+ 
+ 
+ 
+ 
+===== PAGE 34 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 34 
+ 
+Delay Mode Transaction Response Codes Handling 
+ 
+Successful Transaction in Delay Mode 
+Successful transaction in delay mode  even returns ‘0000’ response code along with the 
+message. If sent transaction could not process successfully then it would forward to 
+RHAPI in delay mode and return ‘1001’ response along with following messages showing 
+the actual reason. 
+Codes Details 
+0001 Transaction forwarded to Delay mode  due to: AML Status : Transaction Blocked 
+0001 Transaction forwarded to Delay mode  due to: AML Status : AML Down 
+0001 Transaction forwarded to Delay mode  due to: AML Status : AML Timeout 
+0001 Transaction forwarded to Delay mode  due to: Illegal Character found in Account 
+0001 Transaction forwarded to Delay mode  due to: Special Character not allowed 
+0001 Transaction forwarded to Delay mode   due to:  Transaction Timeout during Title 
+Fetch 
+0001 Transaction forwarded to Delay mode  due to: Invalid Account 
+0001 Transaction forwarded to Delay mode  due to: In Active Account 
+0001 Transaction forwarded to Delay mode  due to: Invalid Account Length 
+0001 Transaction forwarded to Delay mode  due to: Title Fetch Failed 
+0001 Transaction forwarded to Delay mode  due to: Account Title does not match with 
+Beneficiary Name 
+ 
+0001 Transaction forwarded to Delay mode  due to: Invalid IBFT Bank ID 
+0001 Transaction forwarded to Delay mode  due to: Invalid IBAN 
+0001 Transaction forwarded to Delay mode  due to: Transaction Timeout during Fund 
+Transfer 
+0001 Transaction forwarded to Delay mode  due to: Insufficient Balance 
+0001 Transaction forwarded to Delay mode  due to: Other Bank Fund Transfer Failed 
+0001 Transaction forwarded to Delay mode  due to: COTC STP Limit 
+0001 Transaction forwarded to Delay mode  due to: Account STP Limit 
+0001 Transaction forwarded to Delay mode  due to: Other Bank STP Limit 
+  
+Rejected Transaction in Delay Mode 
+Whether transaction sent in Real time or Delay mode, RHAPI will never accept the 
+transactions with following response codes.  
+Codes Details 
+1010 Invalid Parameter Length Found 
+1021 Web Service Timeout Error Occurred 
+1004 Invalid Input Parameters/Values missing 
+1005 Authentication Failure 
+1006 System Failure 
+9009 Mandatory fields missing! 
+9016 Duplicate Unique Reference No found. Record Cancelled! 
+9019 Commercial Payment 
+===== PAGE 35 =====
+JSBL-RemitHome- API Doc 
+ 
+12-05-17                                                                  Release Note Page 35 
+ 
+ 
+ 
+9026 Unique Reference Number Limit exceeds! 
+9031 API settings are not configured or In Active 
+1004 Invalid Beneficiary ID Type of Beneficiary ID Number 
+Invalid Beneficiary ID Expiry Date! 
+Invalid Beneficiary Date of Birth! 

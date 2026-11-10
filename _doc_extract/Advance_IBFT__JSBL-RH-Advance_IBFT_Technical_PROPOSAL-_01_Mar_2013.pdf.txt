@@ -1,0 +1,543 @@
+PDF_PAGES=12
+PDF_META={'/CreationDate': "D:20130305145442+05'00'", '/ModDate': "D:20130305145442+05'00'", '/Producer': 'Acrobat Distiller 5.0 (Windows)', '/Author': 'Munira.Jaffrey', '/Creator': 'PScript5.dll Version 5.2', '/Title': 'Microsoft Word - JSBL-RH-Advance IBFT Technical PROPOSAL- 01 Mar 2013'}
+
+===== PAGE 1 =====
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TECHNICAL & FINANCIAL PROPOSAL 
+ 
+Inward Remittance Management System 
+ 
+ 
+Licensing & Implementation of 
+ 
+ 
+ 
+(Acquisition ‐ Advance IBFT) 
+ 
+ 
+Dated 
+ 
+01 March 2013 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SIDAT HYDER MORSHED 
+ASSOCIATES (Pvt) Ltd. 
+ 
+MANAGEMENT CONSULTANTS 
+6th Floor, Beaumont Plaza, Beaumont Road, Karachi‐75530, Pakistan 
+Phone: 5693521‐30, Fax: (92‐21) 568 5625 
+Website: www.sidathyder.com.pk 
+ 
+===== PAGE 2 =====
+    
+ 
+ 
+ 
+ 
+Table of Contents 
+ 
+1 Technical Proposal ................................................................................................ 1 
+1.1 Request for Proposal ...................................................................................... 1 
+1.2 JBL Business Requirement ............................................................................. 1 
+1.3 Understanding of Scope ................................................................................. 2 
+1.4 RemitHome Functional Coverage .................................................................. 3 
+1.5 Other Enhancements/Customization (if any) ................................................ 4 
+1.6 Deployment Location ..................................................................................... 4 
+1.7 Access to Business Partners ........................................................................... 4 
+2 Time Schedule ....................................................................................................... 5 
+2.1 Time Frame .................................................................................................... 5 
+2.2 Other Terms and Conditions .......................................................................... 5 
+3 Assignment Methodology ..................................................................................... 6 
+3.1 Installation, Configuration, UAT and Training ............................................... 6 
+3.2 Pilot Implementation Support ....................................................................... 6 
+3.3 Other .............................................................................................................. 7 
+4 Financials ............................................................................................................... 8 
+4.1 Fee Structure .................................................................................................. 8 
+4.2 Other Fees ...................................................................................................... 9 
+5 Other Matters ...................................................................................................... 10 
+5.1 Specific ......................................................................................................... 10 
+5.2 General ......................................................................................................... 10 
+ 
+===== PAGE 3 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 1 
+ 
+ 
+1 Technical Proposal 
+ 
+1.1 Request for Proposal 
+ 
+1.1.1 The proposal is submitted with reference to ‘RemitHome’ BRD received from JSBL dated 23rd 
+Jan 2013 and final scope email dated 22 Feb 2013. 
+ 
+1.2 JBL Business Requirement  
+ 
+1.2.1 As per the directives of SBP an access should be allowed to Exchange Companies and their 
+Agents to process IBFT transactions directly from the interface provided to them with maker 
+checker controls. In this context following is the requirement to design an interface within the 
+Remit Home System to process IBFT transactions directly by Exchange Companies and their 
+Agents. 
+ 
+1.2.2 To automate the IBFT process, it is essential to have integration between RHS and IBFT option 
+of JSBL internet banking; whereby transactions appearing in RHS under IBFT processing queue 
+should be pushed to 1Link for title fetch and subsequent verification on T‐24 for available 
+balance in Remit Home System and necessary financials in case of successful response from 
+both end. 
+ 
+1.2.3 Frontend interface similar or a customer portal should be designed within Remit Home System 
+to provide limited access to Exchange Companies and their Agents to process IBFT 
+transactions. 
+ 
+1.2.4 Static maintenance option for setting up IBFT transactions limit of Agents of Exchange 
+Companies per day per beneficiary should be available with maker checker control to allow 
+Exchange Companies for setting up IBFT limit for their agents. 
+ 
+1.2.5 This option will provide control to Exchange Companies to restrict execution of IBFT 
+transactions beyond the limit as set by the Exchange company for each Agent. 
+ 
+1.2.6 AGENT ROLE TO PROCESS IBFT 
+- Approved Agent of Exchange Company will book IBFT by login into the Frontend interface of 
+Remit Home System. 
+- Once the transaction is booked and saved by  the Agent the transaction will be moved to 
+“Pending for Authorization Queue” 
+- In case, where Agent exceeds the per day IBFT limit granted to the Agent and maintained in 
+the Remit Home System by its principle Exc hange Company, the system should not allow 
+the agent to save the transaction with pop‐up message “PER DAY IBFT LIMIT EXCEEDED” 
+- As soon as the transaction is booked by the Agent Exchange Company, the Remit Home 
+System will send Title Fetch request to 1Link.  
+- 1Link will respond to the Title Fetch request and upon successful response from 1Link, Remit 
+Home System will send FT request to T ‐24 through calling API with the transaction 
+description (such as transaction type, date/time and STAN) and will be saved at T ‐24 as 
+input mode. 
+- If the balance in the relevant Exchange Company is insufficient, then system should show a 
+popup message on the Remit Home Screen that the “BALANCE IS INSUFFICIENT” 
+- T‐24 system will identify the Home Remit agent transaction based on special character. 
+- Designated personnel of Agent’s Principle Ex change Company will lo gin into the Frontend 
+interface of Remit Home System to authorize the transaction if the transaction details are 
+===== PAGE 4 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 2 
+ 
+ 
+found in order. As soon as transaction is authorized on Remit Home System, IBFT advice 
+and FT transaction message will be sent to T ‐24 for the FT transaction that is saved in input 
+mode in T‐24 to authorize the same by passing following accounting entries. 
+ 
+Debit / Credit Description Amount 
+Debit RE Account xxxx.xx 
+Credit IBFT Suspense Account xxxx.xx 
+ 
+- T‐24 system will then send a successful respon se message to 1Link through API to execute the 
+transaction.  
+- If the FT remains unauthorized for 15 minutes in T ‐24, then it will be moved to “HOLD” status 
+and will only be authorized or deleted manua lly upon the request of authorized personnel 
+of relevant exchange company via email. 
+- Similarly, the designated personnel of Exchange Companies principle office should also have 
+access on Remit Home System and be able to process IBFT transactions in accordance with 
+the process defined above. 
+ 
+1.3 Understanding of Scope 
+ 
+1.3.1 RemitHome will provide new Acquisition Module for Advance IBFT functionality with the new 
+User Interfaces with the real time connectivity with JS middle ware at the back end. 
+ 
+1.3.2 Agent Mechanism will be available with the user rights for Data Entry and Authorization. 
+ 
+1.3.3 Agent/Sub –Agent Limit Management will be available. 
+ 
+1.3.4  Turn around Time (TAT) will be applicable between Sub‐Agent Data Entry and Agent 
+Authorization level and in the event of TAT expiry; transaction will be marked as Hold.  
+ 
+===== PAGE 5 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 3 
+ 
+ 
+1.4 RemitHome Functional Coverage 
+ 
+1.4.1 Parameter Module 
+a. Limit Management 
+b. AML Validation 
+c. Time Management 
+ 
+1.4.2 Security Module 
+a. User Rights at Option Level 
+b. Captcha 
+ 
+1.4.3  Sub‐Agent ‐ Data Entry 
+a. Data entry for IBFT and OWN bank customer 
+b. A/C number length will be restricted upon selection of Bank  
+(Detail’s will be provided to User just like Internet banking) 
+          Example: Please enter complete 13 or 20 digits A/C number following the layout below 
+                           BBBB –AAAAAAAAAAAAAAAA (20 digits) 
+c. IBFT‐ Title will be fetched from 1‐Link 
+d. Own Account Credit‐ Title will be fetched from CBS through middle ware 
+1.4.4 Sub‐Agent Data Verification 
+a. Data Verification with fetched title successfully. 
+b.  Limit will be applied between Sub‐Agent and Master Agent as per below: 
+‐          Maximum limit for the day 
+‐          Maximum number of transaction per day 
+‐          Maximum Amount per Transaction 
+c.  Upon saving the transaction financial entry will generated for 
+ NR A/C – Dr 
+Beneficiary A/C  ‐ Cr.  
+                                       Note: Transaction will be saved in Un‐Authorized Mode and shadow balance will be created. 
+d. OFAC check will be applied. 
+e.  TAT (turn Around Time) will be applied based on configuration. 
+ 
+1.4.5   Agent ‐ Data Authorization 
+                 Transaction will be available for Authorizer to Authorize following: 
+ 
+a. Outstanding Authorization 
+- A separate interface will be available to authorize the outstanding transaction. 
+- Upon clicking [Authorize] button financial transaction status will be send to Core banking   
+Through middle ware after which actual balances will be updated. 
+- Upon clicking [Reject] button financial transaction status will be changed as “Reject” and same 
+effect  will be sent to Core Banking through middle ware after which shadow balance will be  
+cleared without  any actual effect in Accounts. 
+b. Expired  Authorization 
+- A separate interface will be available to authorize the TAT Expired Transaction. 
+- This Transaction will need to be released by JS user. 
+-  Once Transaction is released, Agent can authorize the transaction. 
+- Upon clicking [Authorize] button financial transaction status will be send to Core banking  
+===== PAGE 6 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 4 
+ 
+ 
+through middle ware after which actual balances will be updated. 
+- Upon clicking [Reject] button financial transaction status will be changed as “Reject” and same 
+ effect will be sent to Core Banking through middle ware after which shadow balance will be 
+ cleared without any actual effect in Accounts. 
+c. Block  Authorization 
+- A separate interface will be available to Release the AML Block Transaction. 
+- Once Transaction is released, Agent can authorize the transaction. 
+- Upon clicking [Authorize] button financial transaction status will be send to Core banking  
+through middle ware after which actual balances will be updated. 
+- Upon clicking [Reject] button financial transaction status will be changed as “Reject” and same  
+effect will be sent to Core Banking through middle ware after which shadow balance will be  
+cleared without any actual effect in Accounts. 
+1.4.6 Reporting 
+1.     Transaction Confirmation 
+2.     Customer Profile 
+3.     Transaction Status report 
+4.     AML Report 
+5.     Transaction Lifecycle Report 
+6.     Remitting Entity based Volume Report 
+7.     Transaction receipt / Acknowledgement  
+Note: Reports Specs will be finalized later with the consultation of client  
+ 
+1.5 Other Enhancements/Customization (if any) 
+ 
+1.5.1 The Time and Fee to complete the scope covered under enhancements/customization 
+will determined after analyzing scope.  
+ 
+1.5.2 This includes development, user acceptance testing, training and pilot implementation 
+support assistance.  
+ 
+1.5.3 The design and development work will be start within four (4) calendar weeks from the 
+date of receipt of purchase order (PO). 
+ 
+1.6 Deployment Location 
+ 
+1.6.1 The application shall be installed and implemented at Bank’s selected pilot branch in 
+Karachi, Pakistan and may be relocated by the Bank at any other of its branch after prior 
+written intimation to us as provided in the Agreement. However, we are not responsible 
+for the re‐installation, configuration, training or implementation at any new location. 
+ 
+1.7 Access to Business Partners 
+ 
+1.7.1 The business partners of the Bank shall be entitled to access only the software from the 
+centralized location of the bank in order to perform their business operations.  
+ 
+1.7.2 We are not responsible for providing any training or implementation support to such 
+business partners. If required, separate proposal will be submitted. 
+ 
+===== PAGE 7 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 5 
+ 
+ 
+ 
+2 Time Schedule 
+ 
+2.1 Time Frame 
+ 
+2.1.1 The time to complete the assignment according to scope of work (as refer in scope of work 
+above) will be 12 calendar weeks.  
+ 
+2.1.2 This includes application new interfaces development, deployment/configuration, user 
+acceptance, end‐user training and pilot implementation support assistance. 
+ 
+2.2 Other Terms and Conditions 
+ 
+2.2.1 The application will be deployed within six (6) calendar weeks from the date of receipt of 
+purchase order (PO). 
+ 
+2.2.2 Implementation time given is based on the assumption that the configuration, static data and 
+other resource required from the Bank for setting up the application will be provided in time. 
+If this would not be available in the specified time then this will increase the implementation 
+time frame.  
+ 
+2.2.3 The free warranty period of six (06) calendar months will be commenced from the time of 
+application installation. 
+ 
+2.2.4 The maintenance period of twelve (12) calendar months (under a separate agreement) will be 
+started soon after completion of warranty period. 
+ 
+ 
+                   
+===== PAGE 8 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 6 
+ 
+ 
+ 
+3 Assignment Methodology 
+ 
+3.1 Installation, Configuration, UAT and Training 
+ 
+3.1.1 To install and configure the Software application with the help of Bank and then conduct a 
+detailed walkthrough/user acceptance session to identify any issues which may cause 
+difficulty during system implementation and enhance the system to the limited extent 
+required to cater to such difficulties. 
+ 
+3.1.2 User training will be provided to the designated staff. The training will comprise of a detailed 
+session during which the entire system features will be demonstrated to the user. It is 
+required that the prospective user is computer literate and has appropriate business 
+knowledge related to the module. 
+ 
+3.1.3 During the training session the selection of test scenarios for the exercise will be the 
+responsibility of the BANK. We would suggest that some complex scenarios be selected so 
+that the system is fully tested and difficulties do not arise during implementation. 
+ 
+3.2 Pilot Implementation Support 
+ 
+3.2.1 To provide support assistance during the pilot implementation period of specified calendar 
+months. Under this, SHMA will be engaging non‐dedicated resources to analyze, recommend, 
+discuss and assist in proper implementation.  
+ 
+3.2.2 The above activity will include entering transactions on a day‐to‐day basis in the system in 
+parallel to the existing system, either computerized or manual operations. The data entry and 
+checking of reports at this stage will be the responsibility of the BANK, however, SHMA will 
+provide assistance to the BANK’s staff in terms of investigating and sorting out any problems 
+identified.   
+ 
+3.2.3 The support assistance does not include rectification of data due to wrong data entry/process 
+execution; however, SHMA will facilitate the client to rectify the same. Similarly, the support 
+assistance does not include rectification of data due to malfunctioning/disturbance in the 
+hardware, operating system, and form/report development tool and database engine. 
+ 
+3.2.4 The support during pilot implementation, warranty period, maintenance and support period 
+will be provided five working days a week (i.e. Monday to Friday – From 9:30 AM to 5:30 PM) 
+without permanent sitting of resource person at Bank premises. 
+ 
+3.2.5 In the case of any issues or errors/bug reported, consultant obligation shall be to exercise its 
+best efforts to modify or rectify the software so as to correct the defective performance, 
+within a reasonable time frame, the priority of which will be decide with mutual consent by 
+the Bank and SHMA (High Priority within 2 days, Medium Priority within 4 days and Low 
+Priority within 10 days).  
+ 
+3.2.6 We do not make any warranties, expressed or implied, towards successful implementation of 
+the project / software, as we understand that besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+tradition and practice our best efforts & resources will be deployed towards generation of 
+desired results.  
+===== PAGE 9 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 7 
+ 
+ 
+ 
+3.2.7 Manual entry, data conversion and its authenticity will be the responsibility of the BANK; 
+however, we will assist the BANK’s technical staff in transformation of data into a form 
+acceptable to our application system.   
+ 
+3.3 Other  
+ 
+3.3.1 The ownership of the Test & Live servers along with database and software shall be the 
+responsibility of the BANK. Similarly, we are not responsible for providing any kind of 
+Hardware, Operating System, Database Engine, and Front‐End Tool Software maintenance or 
+support services. 
+ 
+3.3.2 We have provided a timeline for implementation of the Software at the Bank after taking into 
+account the capacity to absorb technology. It is envisaged that a satisfactory level of 
+implementation is achieved within the estimated time as allocated.  
+ 
+3.3.3 Depending on the deployment model, other services may also be required to setup, configure 
+& optimize the network layer. The same will be charged on the basis of resource engagement 
+and actual time spent as per rates quoted and agreed.  
+===== PAGE 10 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 8 
+ 
+ 
+ 
+4 Financials 
+ 
+4.1 Fee Structure 
+ 
+4.1.1 The total product license fee according to the scope of work (as mentioned in Scope of Work) 
+will be PKR 1,900,000/‐ (i.e. 1.9 Million) 
+ 
+4.1.2 The product license fee includes application License, Configuration, Training and 
+Implementation Support Assistance at Pilot Branch. 
+ 
+4.1.3 The fee quoted is given on the basis that the mentioned application coverage (standard or 
+enterprise) would be ordered at the time of placing written purchase order (PO).  
+ 
+4.1.4 The fee is inclusive of all local taxes and would be adjustable subject to changes in the scope 
+of work. 
+ 
+4.1.5 An additional license fee for each additional application server/proce ssor install will be 25 
+percent of the license fee mentioned above (other than UAT and DRS server). 
+ 
+4.1.6 We will charge out of pocket expenses (for visits outside Karachi, Pakistan) which includes 
+traveling, boarding and lodging cost at actual plus the per diem cost of @ Rs. 2,000/‐ per 
+person per day for our staff traveling during the period of this assignment and extended 
+support period.   
+ 
+4.1.7 The fee of the assignment does not include the cost of Hardware, Operating System License 
+fee, Database Engine License Fee, and Front‐End Tool Software License.  
+ 
+4.1.8 As per our general policy, we do not provide so urce code, therefore, the fee mentioned above 
+is without source code. 
+ 
+4.1.9 The mode of payment for product license fee is as follows: 
+ 
+No. Schedule Percentage
+01. Mobilization Advance 40% 
+02. Upon Completion of Deployment and Walk thru 30% 
+03. Upon Completion of Complete UAT  20% 
+04. Upon Completion of Two (02) Calendar Weeks LIVE Run 10%
+ 
+  
+===== PAGE 11 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 9 
+ 
+ 
+ 
+ 
+4.2 Other Fees 
+ 
+ Maintenance & Support Fee (Advance Package) 
+ 
+4.2.1 Free warranty period of six (06) calendar months will be commenced from the time of 
+application installation.  
+ 
+4.2.2 The maintenance period of twelve (12) calendar months (under a separate agreement) will be 
+started soon after completion of warranty period. 
+ 
+4.2.3 If the BANK requires maintenance and support services (bugs and error fixing and minor 
+improvements) on expiry of warranty period, a separate agreement will require to be signed. 
+The maintenance and support fee ‘Basic Package’ will be eighteen (18%) percent of absolute 
+(License + Customization/Enhancement) fee on yearly basis in advance.  
+ 
+Enhancement/Customization Fee 
+ 
+4.2.4 If the BANK requires enhancement or change at any time, a “Change Request” will be initiated 
+by BANK. In response to this SHMA will submit a quotation identifying scope of work along 
+with a time schedule and fee for BANK approval.  
+ 
+4.2.5 As per agreed scope of work, SHMA is committed to provide maximum 10 Reports and/or 
+Inquiries free of charge. In addition to this, all reports / inquires will be considered as 
+additional work and chargeable @ Rs. 25,000 per report / inquiry. 
+ 
+4.2.6 The mode of payment will be 50 percent at the time receipt of purchase order (PO) where as 
+remaining 50 percent will be at the time of UAT approval (before deployment in LIVE 
+environment). 
+ 
+Support Assistance Fee 
+ 
+4.2.7 If the BANK requires the services of our firm to provide configuration, training and 
+implementation support assistance after specifie d pilot branch or after the specified calendar 
+months, then this will be charged for on number of hour basis. A full day charge (8 man hours) 
+will apply for all visits & stays outside Karachi. 
+ 
+4.2.8 A separate implementation fee @ Rs. 2,000/‐ per man hour in addition, the traveling, 
+boarding and lodging and other related costs will be charged on actual basis.  
+ 
+4.2.9 The mode of payment will be monthly based upon number of actual hours spend during a 
+calendar month.   
+ 
+ 
+ 
+ 
+===== PAGE 12 =====
+JS Bank Limited                                                                                                                                          Technical Proposal – RemitHome  
+ 
+ 
+Page: 10 
+ 
+ 
+5 Other Matters 
+ 
+5.1 Specific 
+ 
+5.1.1 The proposal is valid for acceptance until a period of One (1) months from the proposal date. 
+ 
+5.1.2 We will be in a position to commence work on the assignment within four weeks after receipt 
+of Purchase Order. 
+ 
+5.2 General 
+ 
+5.2.1 The provision of suitable working space, environment with access to computer systems as well 
+as stationery and backup media for our project team for all aspects will be the responsibility of 
+the client. 
+ 
+5.2.2 The client, during the execution of the assignment or for a period of one year following the 
+end of the assignment, will not make or attempt  to make an offer of employment to any of 
+our employees, either those working on the assignment or otherwise.  
+ 
+5.2.3 We would recommend that the company appoint a liaison person for this assignment whom 
+we can contact for information when necessary. An effective liaison will greatly speed up the 
+completion of the assignment. 
+ 
+5.2.4 We do not make any warranties, expressed or im plied, towards successful implementation of 
+the project / software, as we understand that  besides the software there are a number of 
+other variables that will contribute towards an effective implementation. However as per 
+tradition and practice our best efforts & resour ces will be deployed towards generation of 
+desired results.  
+ 
+5.2.5 For multi‐location deployment, setting  up of Wide Area Network and connectivity will be the 
+responsibility of the client. Likewise, database administration, replication, backup and 
+optimization will also be handled by the client resources.  
+  
+ 

@@ -1,0 +1,424 @@
+PDF_PAGES=9
+PDF_META={'/Producer': 'Nitro PDF PrimoPDF', '/CreationDate': "D:20160212154711-05'00'", '/ModDate': "D:20160212154711-05'00'", '/Title': 'Microsoft Word - Centegy-RTGS-Integrator-ReqSpecs-1 0', '/Creator': 'PrimoPDF http://www.primopdf.com', '/Author': 'Taufiq.Ahmed'}
+
+===== PAGE 1 =====
+ 
+Requirement Specifications 
+ 
+JSBL 
+  
+Requirement Specifications – 1.0 
+12 Feb 2016  
+Centegy Technologies (Pvt) Ltd 
+www.centegytechnologies.com 
+       
+Banking Solutions 
+Centegy Technologies (Pvt) Ltd  
+www.centegytechnologies.com  
+===== PAGE 2 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 2 
+ 
+Contents 
+ 
+Table of Contents 
+ 
+1.  Overview & Background ................................................................................ ................................................... ......................................3 
+2.  Bank Requirement Scope ............................................................................... ................................................... ......................................4 
+3.  Architectural Diagram ................................................................................ ................................................... ..........................................6 
+4.  Integration with Banking Modules ..................................................................... ................................................... ..................................7 
+5.  Integration with SBP RTGS (PRISM) .................................................................... ................................................... ..................................8 
+6.  Integration with Financial System .................................................................... ................................................... ....................................9 
+ 
+ 
+  
+===== PAGE 3 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 3 
+ 
+1.  Overview & Background 
+ 
+The transaction volume of RTGS has been significant ly increased and is expected to be increased furthe r due to the decision taken by 
+SBP to allow customers’ funds transfers for lower li mits. Therefore, considering the increasing trend in RTGS transfers SBP has initiated 
+STP project to automate the RTGS payments to minimize manual workload of customers’ requests for RTGS. 
+ 
+This will not only help us in reducing the TAT due to duplicate efforts put in by the relevant departments due to manual posting in core 
+banking system and PRISM but will also help us in i mproving our processing capabilities to manage addi tional transactional volume 
+within the window allowed by SBP for RTGS payments. 
+ 
+Straight through Processing (STP) is an initiative used in the financial world to optimize the speed a t which transactions are processed. 
+This is performed by allowing information that has been electronically entered to be transferred from one party to another in the 
+settlement process without the need for re-keying the same pieces of information repeatedly over the life cycle of the transaction. 
+ 
+About RTGS System  
+RTGS system started its operations in July 2008. Since its inception, enrollment of the participants is growing and volume of transactions 
+is also increasing.  
+ 
+Payment System Department has also introduced Customer Transfers (MT103) and Multiple Credit Customer Transfer (MT102). This has 
+further increased volume of transactions. 
+ 
+Currently, RTGS Participants are entering transactions in RTGS system manually using RTGS Client workplaces installed at their own 
+premises. Same transactions they also have to re-enter in their Core Banking System through its own workplaces. Multiple re-keying is 
+inefficient and error prone. Soon it will also be impractical to enter all these transactions manually due to increase in volume. 
+ 
+Therefore, it was decided to introduce STP (Straight Through Processing) to deal with the above mentioned issues. STP will electronically 
+connect Participant Core Banking system with RTGS system using standard interfaces that are already provided with the RTGS system. 
+ 
+In this connection, Participants needs to develop an Integration Software that can pick up information from their Core Banking System 
+and transfers it to RTGS system for processing and vice versa. 
+  
+===== PAGE 4 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 4 
+ 
+2.  Bank Requirement Scope 
+ 
+However, since the bank has opted option of File Ada pter without “Controller”; therefore it is essentia l to develop “INTEGRATION 
+SOFTWARE” to cater the need of “controller” which cu rrently provided by SBP as part of PRISM to perform  multiple functions, which 
+includes but not limited to authorization of MT102, MT103, MT202, Balance enquiry, monitoring of inflows a nd outflows, free format 
+messaging and any other functionality which is currently available in the PRISM Controller provided by SBP. 
+ 
+The integration software should have the capability of interfacing with partner applications i.e. Remit Home System, CMS Application, T-
+24 and any other application which requires to be integrated with integration software. 
+ 
+Upon receiving the RTGS instructions from any of th e partner application, the integration software, shou ld convert the message based 
+on its payment type (as per SBP’ prescribed formats of MT-102, MT-103 and MT-202) and push the outward MTs to PRISM by following 
+all the relevant protocols to meet SBP’ requirements. Similarly, the integration software should have the capability to receive incoming 
+RTGS received via PRISM from other banks for various departments/customers of the bank. 
+  
+===== PAGE 5 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 5 
+ 
+Scope Requirement  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+S 
+ 
+ 
+ 
+ 
+S
+Scope Finalization  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Supporting SWIFT Messages: MT-102/103/202/296/299/900/910 
+ 
+ 
+ 
+ 
+  
+Ref  Module  Option -1 Option -2 Option -3 Optio n-4 Bank Requirement  
+A Integration with 
+Banking modules 
+PUSH model APIs 
+(Integrator’s own) 
+ 
+ 
+PULL model APIs 
+(Client/Bank own) 
+ 
+ 
+File based for 
+both (IN and 
+OUT) 
+ 
+ 
+ISO messages 
+(Phase 2) 
+ 
+Module  Option  
+Home 
+Remittance 
+ 1 
+Treasury  1 
+ 
+B Integration with 
+Financial System  
+APIs (Integrator’s 
+own) 
+APIs (Client/Bank 
+own) 
+ 
+File based for 
+both (IN and 
+OUT) 
+ISO messages 
+(Phase 2) 
+Option – 2 
+C Integration with 
+SBP/RTGS/PRISM  
+Through RCCC/API 
+provided by SBP 
+File based for both 
+(IN and Out) 
+  Option - 1 
+ 
+Ref  Interfacing  Scope Requirement  
+A Integration with Banking modules  Home 
+Remittance 
+- APIs (Integrator’s own)  
+Treasury  - APIs (Integrator’s own)  
+ 
+B Integration with Financial System  API (Bank’s provided)  
+ 
+C Integration with SBP -RTGS(PRISM)  Through RCCC/API provided by SBP  
+ 
+===== PAGE 6 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 6 
+ 
+ 
+3.  Architectural Diagram 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+INTEGRATOR and CB– Financial app/Middleware 
+Integration with SBP RTGS Integration with Banking Modules  
+ 
+Remit Home 
+RTGS / SBP  
+Financial System / Middle Layer 
+Data/Format/parsing/creation/ 
+Validation (MT 102/MT 103 etc)  
+Authorization/User 
+management/Security  
+Business Validation 
+(Authorization, limit, AML etc) - 
+Financial Postings  
+(Optional) 
+Integration 
+with  
+SBP-RTGS 
+(RCCC based) 
+ 
+Integration 
+with 
+Banking-
+App 
+(API Based) 
+Integration With 
+Financial App (API Based) 
+RTGS-Integrator 
+Data/Information  
+Repository Maintenance 
+ 
+Treasury 
+CMS 
+Others 
+===== PAGE 7 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 7 
+ 
+4.  Integration with Banking Modules 
+ 
+Banking applications (Home remittances, Treasury etc) 
+ 
+• Send data by calling API method provided by Integrator. 
+• Get data acceptance response from Integrator, acknowledging that transactions have been received. 
+• Get the status information of the data send by calling status method of Integrator. 
+• Get data by calling API method provided by Integrator. 
+• Update the status of transactions that they have received (Incoming transactions) by calling API method. 
+Note : For ‘RemitHome’ application a windows service will be developed by that will keep on checking the statuses of the data sent 
+to RTGS-Integrator. 
+   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+  
+ 
+BANKING  
+ 
+• Home Remittances 
+• Treasury 
+• Trade 
+• CMS 
+• Others 
+ 
+I 
+N 
+T 
+E 
+G 
+R 
+A 
+T 
+O 
+R 
+ 
+API’s 
+ 
+ 
+INTEGRATOR 
+• MT formation 
+• MT parsing 
+• Biz validations 
+• AML validations 
+• Error logging 
+• Swift Data entry Options 
+• A/C engine 
+• Controller availability 
+• Data/Info repository 
+• Reports/Inquiries 
+• Data logging/trails 
+• User Management 
+• Security module 
+• Integration with SBP/RTGS 
+• Integration with CB-systems 
+• Integration with CB -Financial 
+===== PAGE 8 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 8 
+ 
+5.  Integration with SBP RTGS (PRISM) 
+ 
+• Integrator will integrate with SBP-RTGS through provided API/RCCC. 
+• Integrator will send the data to SBP-RTGS and update the response received from SBP-RTGS. 
+   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+    
+ 
+ 
+ 
+ 
+ 
+SBP-RTGS 
+(PRISM) 
+ 
+API’s 
+(RCCC) 
+ 
+INTEGRATOR  
+1.  MT formation 
+2.  MT parsing 
+3.  Biz validations 
+4.  AML validations 
+5.  Error logging 
+6.  Swift Data entry Options 
+7.  A/C engine 
+8.  Controller availability 
+9.  Data/Info repository 
+10.  Reports/Inquiries 
+11.  Data logging/trails 
+12.  Integration with SBP/RTGS 
+13.  Integration with CB-systems 
+14.  Integration with CB-Financial 
+===== PAGE 9 =====
+RTGS-Integrator  Req Specs 1.0 
+ 
+Centegy Technologies                                                                  12 Feb 2016    P age 9 
+ 
+6.  Integration with Financial System 
+ 
+• Integrator will integrate with financial system through provided API’s. 
+ 
+   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+    
+ 
+ 
+ 
+ 
+ 
+Financial 
+Application  
+ 
+APIs 
+ 
+INTEGRATOR  
+1.  MT formation 
+2.  MT parsing 
+3.  Biz validations 
+4.  AML validations 
+5.  Error logging 
+6.  Swift Data entry Options 
+7.  A/C engine 
+8.  Controller availability 
+9.  Data/Info repository 
+10.  Reports/Inquiries 
+11.  Data logging/trails 
+12.  Integration with SBP/RTGS 
+13.  Integration with CB-systems 
+14.  Integration with CB-Financial 

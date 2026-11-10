@@ -1,0 +1,22 @@
+<SWIFT_msg_fields>
+ <msg_format>S</msg_format>
+ <msg_sub_format>I</msg_sub_format>
+ <msg_sender>CITIPKKXAXXX</msg_sender>
+ <msg_receiver>SBPPPKKRXXXX</msg_receiver>
+ <msg_type>202</msg_type>
+ <msg_priority>N</msg_priority>
+ <msg_copy_srv_id></msg_copy_srv_id>
+ <msg_pde>Y</msg_pde>
+ <msg_del_notif_rq>N</msg_del_notif_rq>
+ <msg_user_priority>0030</msg_user_priority>
+ <msg_user_reference>4321</msg_user_reference>
+ <msg_mac_result>43495449504B4B58415858580087D1124E00</msg_mac_result>
+ <block4>:20:4321
+:21:NONREF
+:32A:110620PKR110,
+:53A:/D/020211000280034
+CITIPKKX
+:58A:/020211000100031
+ASCMPKKA
+:72:/CODTYPTR/001</block4>
+</SWIFT_msg_fields>

@@ -1,0 +1,426 @@
+PDF_PAGES=16
+PDF_META={'/Creator': 'Online2PDF.com', '/Producer': 'Online2PDF.com', '/CreationDate': 'D:20180105140359'}
+
+===== PAGE 1 =====
+Hashcash Consultants   HC Remit Proposal Document 
+1 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+HC Remit Proposal Document 
+ 
+5th January,2018 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 2 =====
+Hashcash Consultants   HC Remit Proposal Document 
+2 
+ 
+Copyright Notice 
+ 
+©2017HashcashConsultants. All Rights Reserved. This documentation is the sole property of Hashcash 
+Consultants. Hashcash Consultants believes the information in this document or page is accurate a s of its 
+publication date; such information is subject to change without notice. Hashcash Consultants acknowledges 
+the proprietary rights of other companies to the trademarks, product names and such other intellectual 
+property rights mentioned in this document. This document is not for general d istribution and is meant for 
+use solely by the person or entity that it has been specifically issued to and can be u sed for the sole 
+purpose it is intended to be used for as communicated by Hashcash Consultants  in writing. Except as 
+expressly permitted by Hashcash Consultants in writing, neither this documentation nor any part of it may 
+be reproduced, stored in a retrieval system, or transmitted in any form or by any means, electronic, 
+mechanical, printing, photocopying, recording or otherwise, without the prior written p ermission of 
+Hashcash Consultants and/ or any named intellectual property rights holders under this document. 
+  
+===== PAGE 3 =====
+Hashcash Consultants   HC Remit Proposal Document 
+3 
+ 
+Content 
+ 
+1. Introduction ...................................................................................................................................... 4 
+2. HC Remit Product Description .......................................................................................................... 4 
+3. International Remittance Use Case description ............................................................................... 6 
+4. Proposed Architecture .................................................................................................................... 13 
+5. Engagement Model ......................................................................................................................... 14 
+6. Commercial Terms .......................................................................................................................... 15 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 4 =====
+Hashcash Consultants   HC Remit Proposal Document 
+4 
+ 
+1. Introduction 
+ 
+The following proposal is for the implementation of the HC Remit product for a real-time settlement for 
+remittances using blockchain. The scope of this document is limited to a pilot ph ase and production 
+implementation between Bank’s and a Remittance Partner. 
+The proposed implementation leverages a blockchain platform to exchange remittance messages real 
+time between banks and remittance exchanges. Settlement is carried out by debiting a prefunded  
+account maintained by the receiving bank. Invoices and AML/KYC information can also be exchanged 
+securely by recording the bytecode over blockchain and sharing the document using No SQL databases. 
+The implementation is expected to significantly reduce transaction costs and increase effi ciency owing 
+toinstant reconciliation, visibility of prefunded account and elimination of Swift messaging costs. 
+ 
+2. HC Remit Product description 
+ 
+HC Remit is Hashcash's product for faster low cost cross currency payments.  
+ 
+ 
+ 
+  
+
+===== PAGE 5 =====
+Hashcash Consultants   HC Remit Proposal Document 
+5 
+ 
+ 
+Product Benefits 
+ Eliminate higher transaction cost arising from using SWIFT networks and Payment Gateways. 
+ Onboard new banks to your cross-border network faster as opposed to traditional remi ttance 
+systems. 
+ Automate critical business processes using Smart Contracts. 
+ Lower maintenance and recurring costs for your remittance system. 
+ Safe, secure and authentic transaction handling. 
+ 
+ 
+Product Features 
+ Live tracking of transactions with all parties using the Remittance Dashboard. 
+ Monitor your funds and NOSTRO accounts through real time tracking. 
+ Cross currency Remittance. 
+ New banks can be easily on boarded to the network. 
+ 
+ 
+ 
+High Level Architecture 
+ 
+ 
+ 
+ 
+
+===== PAGE 6 =====
+Hashcash Consultants   HC Remit Proposal Document 
+6 
+ 
+ 
+3. International Remittance inBeneficiary Country 
+ 
+The below use case enables customers registered with Bank to remit to Beneficiary country. Settlement 
+is real time and messaging on SWIFT system is replaced by API services and blockchain transactions. 
+Customer Flow 
+1. Customer registers with an account with a Bank and is assigned a friendly ID such as 
+Bob@alrajhi.com 
+2. He goes to the retail remittance page and is shown a form as below: 
+ 
+4.  He enter the beneficiary address for the transaction. Instead of Bank Account No., Beneficiary 
+Name, Routing Number, SWIFT Code, IFSC Code etc., the proposed system requires that user only 
+provides the receiver's ID that is provided to him when signing up. This ID is issued by the bank or can 
+be asked from the user through a registration process. An existing identifier such as Bank Account No., 
+Unique Identification Number, Mobile number can be used. 
+ 
+ 
+
+===== PAGE 7 =====
+Hashcash Consultants   HC Remit Proposal Document 
+7 
+ 
+5. The beneficiary address that is submitted can also be verified before the actual trans action is 
+submitted for remittance. This helps avoid reworking on the customer and bank's part i f the 
+transaction details are incorrect. The customer is shown the beneficiary details before submission  and 
+the transaction only goes through once the details are verified. 
+ 
+ 
+6.  The customer enters the currency to be remitted and the amount to be remitted. He is shown the 
+current exchange rate from the bank's APIs or from Global Distributed Exchange's ord erbook if so 
+desired. 
+ 
+ 
+ 
+  
+
+===== PAGE 8 =====
+Hashcash Consultants   HC Remit Proposal Document 
+8 
+ 
+7.  The customer is shown the amount that will be credited to the beneficiary bank acco unt and the 
+fees that he needs to pay for the remittance. He needs to acknowledge the details to proceed with the 
+remittance. 
+ 
+ 
+8.  Once the customer confirms the details, a compliance check for the Sender and Receiver of the 
+transaction is carried out. The sender's compliance details such as KYC/AML/CTF are verified by the 
+sender's compliance server. The remittance initiating party then shares the details of the transac tion 
+with the receiving party. The receiving party's compliance server then does a complete comp liance 
+check for the beneficiary's details. If all the compliance requisites are met, bo th the parties agree to 
+initiate the transaction. 
+ 
+ 
+ 
+ 
+9. Once compliance checks are completed the transaction is submitted to blockchain. 
+
+===== PAGE 9 =====
+Hashcash Consultants   HC Remit Proposal Document 
+9 
+ 
+ 
+ 
+10. The receiving party receives the transaction on the blockchain. It verifies with the  compliance 
+server that the incoming transaction has been authorized and all compliance requi rements have been 
+met. Once these details are verified, the receiving end debits the office account and  credits the 
+beneficiary's account. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+===== PAGE 10 =====
+Hashcash Consultants   HC Remit Proposal Document 
+10 
+ 
+Proposed Model 
+ 
+ 
+Movement of Fiat Currency 
+Actual Settlement between the transacting parties happens through established conventional means. 
+the sending party hold s pre-funded Nostro accounts either through direct or correspondent 
+relationship with the receiving party. Alternatively, transacting parties can net off transactions and then 
+settle either at the end of the day or any other designated time period. Transaction  to domestic banks 
+not on network can be initiated through the domestic payment network in Beneficiary Country (Money 
+Transfer Solutions).
+ 
+
+===== PAGE 11 =====
+Hashcash Consultants   HC Remit Proposal Document 
+11 
+ 
+ 
+Proposal for Project 
+ 
+ 
+POC Scope: 
+• POC Web-appwith Business Adaptor integrated with network 
+• Compliance and Federation servers integrated with test databases 
+• End-to-end transaction on Blockchain with Test Nodes 
+ 
+Pilot Scope: 
+• Client-side app for UAT testing 
+• Integration with Payment Processor, regulatory systems and compliance databases  
+Phase 1 : POC 
+Proof of Concept on 
+Cloud Setup 
+ 
+ 
+Phase 2 : UAT   
+Integration with   core 
+banking systems   and 
+CIS 
+End-to-end testing of 
+complete setup with 
+pre-defined business 
+use cases  
+Posting offers to 
+Testnet orderbook                                       
+ Phase 3 : Pilot 
+Production 
+Migration to live 
+systems for pilot 
+testing. Integration 
+with  Nostro Account 
+ 
+Phase 4 : 
+Production 
+Roll out to selected 
+customers for 
+staged introduction 
+===== PAGE 12 =====
+Hashcash Consultants   HC Remit Proposal Document 
+12 
+ 
+• Report generation and system monitoring screen  
+ 
+Production Scope: 
+•  Client App and APIs for remittance to beneficiary’s 
+• Real time settlement  
+• Dashboard with visibility of Prefunded account 
+• Monitoring tools for both parties 
+ 
+Proposed Technology: 
+• HC Net 
+• Oracle 12C database for Account Management and Audit 
+• Java for Front End development and APIs for integration 
+• Apache Tomcat Webserver 
+• RHEL 7.0 Operating System for Servers 
+• Amazon AWS for POC and hosting Node 
+ 
+ 
+Project Benefits 
+• Remittances to other countries using UIN’s / Mobile Number / UPI VPAs 
+• Faster Reconciliation and KYC and AML verification 
+• Elimination of SWIFT costs  
+• Generation and Transfer of Nostro/Prefunded Account Statement  
+• Data stored on blockchain for auditory purpose 
+• Secure document transfer 
+• Operational cost reduction 
+===== PAGE 13 =====
+Hashcash Consultants   HC Remit Proposal Document 
+13 
+ 
+ 
+ 
+ Platform Benefits 
+• Greater transaction per second on network -  3000 TPS and 290 million transactions per day 
+• Low cost per transaction and Open Source Platform 
+• Customer data is anonymous on blockchain 
+• Proven scalability as operates a global public network  
+ 
+Applications 
+• Retail Remittances 
+• International E-commerce payments 
+• Payment disbursements 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 14 =====
+Hashcash Consultants   HC Remit Proposal Document 
+14 
+ 
+4. Proposed Architecture  
+ 
+1. 3-point architecture with separation of Web, App and DB servers 
+2. All rest services communication protocol are https  
+3 Information shared over the cloud setup does not contain any customer data 
+ 
+5. Engagement Model 
+  
+POC  
+ Fixed Price Model 
+Pilot   
+Time and Material 
+Model  
+  
+ Production 
+Offshore Dedicated 
+Resource Model 
+ 
+
+===== PAGE 15 =====
+Hashcash Consultants   HC Remit Proposal Document 
+15 
+ 
+6. Commercial Terms 
+ 
+Kindly find the proposed commercials for the project below. The below commercials are as per the 
+scope of the project as per our discussions till now. 
+ 
+ 
+Phase Phase Description Bill amount to be cleared 
+  Offsite Consulting Model 
+R0  POC - Exhibit HC Remit features in POC 0 USD 
+R1 
+ Requirement Gathering 
+  Core and Horizon Server Setup 
+ Compliance server setup 
+ Federation Server Setup 
+ Bank Dashboard 
+ Unit Testing and System Testing with 
+Dummy Data 
+12500 USD on completion of 80% of 
+ST Test Cases 
+R2 
+ Integration with core banking system 
+ KYC/AML system integration 
+ Nostro Visibility 
+ Report Generation 
+ Client App Integration 
+ UT and ST with Dummy Data 
+7500 USD on completion of 80% of 
+ST Test Cases 
+R3  UAT on live customer data replica 5000 USD on completion* 
+R4  AMC /production cost in post-production 
+phase - First Year 
+15000 USD** 
+for production support, application 
+maintenance, customization for 
+other business use cases, public 
+network transaction cost and 
+infrastructure maintenance 
+R5  AMC /production cost in post-production 
+phase - Second Year 
+15000USD*** 
+for production support, application 
+maintenance, customization for 
+additional partners and 
+infrastructure maintenance 
+ 
+ *Total implementation fee is USD 25000, last instalment of USD 500 0 to be paid on completion of Go-live  
+**Fee for transacting in Network for first year, to be paid from the day of compl etion of one year from the day of 
+completion of UAT 
+*** Fee for transacting in Network for second year, to be paid from the day of compl etion of two years from the 
+day of completion of UAT 
+ 
+ 
+AMC Scope 
+ 
+ Customization of HC Remit for additional Partners 
+===== PAGE 16 =====
+Hashcash Consultants   HC Remit Proposal Document 
+16 
+ 
+ Annual Maintenance of Platform and Integration 
+ Production Support 
+ Infrastructure Maintenance 
+ Transaction Costs 
+ 
+Terms and Conditions 
+ 
+ The commercials defined are limited to the scope defined in the proposal. 
+ Any requirement gap found after requirement gathering freezes will be charged separately based 
+on the execution phase of the project, timeline & volume of change as CR implementation phase. 
+ Please note any requirement change at the time of UAT would cause the CR costing higher as it 
+may cause to UAT regression testing. 
+ All commercials quoted in this proposal are exclusive of any in-country and withholding taxes. 
+These will be applicable and payable by the customer. 
+ Hashcash Consultants shall not be responsible for any installation, commissioning or maintenance 
+of any software or hardware unless supplied by Hashcash Consultants 
+ Customer to be solely responsible for the content of the data and materials transmitted on the 
+services and blockchain. 
+ 

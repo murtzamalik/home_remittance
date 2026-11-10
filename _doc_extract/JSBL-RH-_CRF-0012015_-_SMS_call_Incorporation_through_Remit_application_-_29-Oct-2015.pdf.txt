@@ -1,0 +1,133 @@
+PDF_PAGES=3
+PDF_META={'/CreationDate': "D:20151105121548+05'00'", '/ModDate': "D:20151105121548+05'00'", '/Producer': 'Acrobat Distiller 5.0 (Windows)', '/Author': 'raheel.ahmed', '/Creator': 'PScript5.dll Version 5.2.2', '/Title': 'Microsoft Word - JSBL-RH- CRF-0012015 - SMS call Incorporation through Remit application - 29-Oct-2015'}
+
+===== PAGE 1 =====
+Remit Home 
+Client – Requirement/Change Request Form (CRF) 
+ 
+Proprietary & Confidential 
+ 
+ Page: 1/3 
+ 
+Client                 : JSBL Project : RemitHome 
+Reference No  : 001/2015 dated 29‐Oct‐2015  
+Requested By  : Mr. Yakub Sheikhji  Coordinator : Raheel Ahmed 
+Request On      : 27‐Oct‐2015 CRF Date : 29 ‐Oct‐2015  
+Specs Sign‐On :  27‐Oct‐2015 UAT Sign ‐On  : 
+Invoice On       : Previous CRF Ref:  
+Priority:     High      Normal      Low        Version: Status:     Review      Development     UAT    Close 
+Description of Change Requested:  
+ 
+- SMS call incorporation through remit application in JSBL’s Core bank table
+ 
+NOTE: Attach copy of email / letter with CRF if request was received through email / letter 
+ 
+Decision: (To be filled by CLIENT) 
+ Accepted         Rejected / Declined            Accepted subject to comments             Not Required 
+Comments: 
+__________________________________________________________________________________________________ 
+ 
+ 
+ 
+ 
+ 
+Request Type:  Change                   Bug                   Data                 Additional Functionality     
+ 
+Change Type:  Major                    Medium                                  Minor                 
+ 
+Chargeable:  Yes          No 
+===== PAGE 2 =====
+Remit Home 
+Client – Requirement/Change Request Form (CRF) 
+ 
+Proprietary & Confidential 
+ 
+ Page: 2/3 
+ 
+ 
+Brief Description of Changes:  
+ 
+Changes required in:        ○ Program           ○ Database             
+Scope Of Work :  
+ 
+1. Currently JSBL is using its own SMS mechanism. The same mechanism will be used by them and SMS 
+will not be send by Remit application. 
+2. SMS incorporation will be dependent on JSBL provided information like database, DSN, table format 
+etc. 
+3. As per requested by JSBL what Remit application will do is that it will insert SMS call in JSBL 
+provided database’ table.  
+4. SMS incorporation will be done on status(es) and transaction mode. 
+5. For all the status(es) and transaction mode(s) for which entry is made  remit application will call the 
+JSBL provided table through JSBL provided DSN and if available then will insert the data in that 
+particular table. 
+6. Remit application job will be enter/insert data in JSBL provided table and will also retain that 
+transaction/record in remit application so that user can re‐send the data from newly developed 
+interface. 
+7. In‐case if table is not accessible then such transaction will be inserted in a new table at remit 
+application. These transactions will be available at a newly developed interface and user will have 
+the facility to re‐send/insert them from there in JSBL table. 
+8. SMS messages against statuses and mode of transaction will be configurable as user may change 
+these messages in future. 
+9. Data asked to be inserted in JSBL table will be according to the information provided requirement 
+specification document. 
+• ID    Unique Reference Number 
+• Cell    Beneficiary Mobile Number 
+• Message   Customized message against status and mode. 
+• Entry Date   Insertion date 
+• FLAG   N ‐ Fixed 
+• Transaction Nature  C – Fixed 
+• Transaction Type  Mode of transaction 
+• Channel   RH 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+===== PAGE 3 =====
+Remit Home 
+Client – Requirement/Change Request Form (CRF) 
+ 
+Proprietary & Confidential 
+ 
+ Page: 3/3 
+ 
+ 
+Any change in that data will be taken as new/change in requirement. 
+ 
+10. JSBL provided report and its format. 
+• S.NO  
+• Mobile Number  
+• Message Contents  
+• Sender  
+• Mode  
+• Remitter Name  
+• Bene Name  
+• URN  
+• Amount  
+• Branch  
+ 
+Any report/inquiry requirement other than above will be taken as new/change in requirement. 
+ 
+Time & Fee Estimates:  
+ 
+• Total Fee in PKR :   38 0000 
+• Discounted Fee  :   350000 
+                                                   
+The mode of payment will be as per below: 
+ 
+Sr.# Schedule Percentage%
+01 On signing of Change Request 50%
+02 On completion of UAT 50%
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 

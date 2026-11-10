@@ -1,0 +1,3766 @@
+PDF_PAGES=94
+PDF_META={'/Author': 'Arif Saleem', '/Creator': 'Writer', '/Producer': 'LibreOffice 5.0', '/CreationDate': "D:20160226115233Z'"}
+
+===== PAGE 1 =====
+Web Services API Specification
+RemitONE Money Transfer Management Solution
+Version 1.10
+February 2016
+
+===== PAGE 2 =====
+Table of Contents
+1.Introduction...............................................................................................................6
+Connection Parameters..................................................................................................6
+Response Format..........................................................................................................7
+Listing of provided Web Services....................................................................................8
+Admin API................................................................................................................8
+Sending Agent API....................................................................................................8
+Receiving Bank/Agent API.........................................................................................9
+2.Web Service Method Details......................................................................................10
+Admin API..............................................................................................................10
+getSourceCountries.............................................................................................10
+getDestinationCountries.......................................................................................10
+getSellRates........................................................................................................11
+getAgents...........................................................................................................12
+getAgentRates....................................................................................................13
+getAgentCharges.................................................................................................14
+getCountryCharges..............................................................................................15
+getTransactionStatus...........................................................................................16
+getTransactionStatusByAgentTransRef..................................................................17
+getDeliveryBanks.................................................................................................17
+getDeliveryBankBranches.....................................................................................18
+createDeliveryBankBranch....................................................................................19
+updateDeliveryBankBranch...................................................................................20
+getCollectionPoints..............................................................................................21
+createCollectionPoint...........................................................................................22
+updateCollectionPoint..........................................................................................23
+getTransactions...................................................................................................25
+assignTransactions..............................................................................................26
+getErrorTransactions............................................................................................27
+processCashCollectionTransactionByBank..............................................................28
+requestCancellation.............................................................................................28
+getMobileNetworkOperators.................................................................................29
+createMobileNetworkCreditType...........................................................................30
+updateMobileNetworkCreditType..........................................................................31
+uploadCSVData...................................................................................................32
+Sending Agent API..................................................................................................34
+getAgentDetails...................................................................................................34
+getDestinationCountries.......................................................................................34
+getRates.............................................................................................................35
+getCurrentCredit..................................................................................................36
+createRemitter....................................................................................................36
+searchRemitter....................................................................................................38
+RemitONE Web Services API Specification 2
+===== PAGE 3 =====
+updateRemitter...................................................................................................39
+createBeneficiary.................................................................................................41
+searchBeneficiary................................................................................................43
+getRemitterBeneficiaries......................................................................................44
+updateBeneficiary................................................................................................45
+assignBeneficiary.................................................................................................47
+createTransaction................................................................................................47
+confirmTransaction..............................................................................................50
+insertTransaction.................................................................................................50
+getTransactionDetails...........................................................................................53
+getRemitterTransactions......................................................................................56
+getTransactionStatus...........................................................................................57
+getTransactionStatusByAgentTransRef..................................................................58
+getCharges.........................................................................................................59
+getDeliveryBanks.................................................................................................60
+getDeliveryBankBranches.....................................................................................61
+getCollectionPoints..............................................................................................61
+transactionPaymentCleared..................................................................................62
+getCashCollectionTransactionDetails.....................................................................63
+processCashCollectionTransaction.........................................................................65
+getErrorTransactions............................................................................................66
+requestCancellation.............................................................................................67
+Receiving Bank/Agent API........................................................................................69
+getPayoutTransactions.........................................................................................69
+getPayoutTransactionDetails.................................................................................72
+acceptPayoutTransactions....................................................................................74
+getPendingPayoutTransactions.............................................................................78
+processPayoutTransaction....................................................................................81
+errorPayoutTransaction........................................................................................82
+getErrorTransactions............................................................................................83
+3.Testing Web Services Functionality............................................................................85
+Using Web Services in a Live Environment: Some suggestions.......................................85
+Appendix A : Destination Country ISO Codes................................................................87
+Appendix B : Remitter ID Type Codes...........................................................................94
+Appendix C : Beneficiary ID Type Codes.......................................................................94
+Appendix D : Payment Method Codes...........................................................................94
+Appendix E : Service Level (Delivery Speed) Codes.......................................................95
+Appendix F : Source of Income Codes..........................................................................95
+Appendix G : Remittance Purpose Codes......................................................................95
+Appendix H : Transaction Statuses...............................................................................96
+RemitONE Web Services API Specification 3
+===== PAGE 4 =====
+1.Introduction
+The RemitONE WebServices Infrastructure uses the REST protocol. Our services use the 
+POST method for invoking the service, and hence all data must be provided as POST 
+variables. The response is provided as structured XML.
+This document outlines the input and output parameters for each of the RemitONE 
+WebServices.
+Connection Parameters
+The BASE_URL is the URL at which the WebServices are hosted. This BASE_URL is then 
+followed by the required GROUP name, and then the required METHOD name.
+For example,
+BASE_URL = https://www.remitone.com/ws/
+GROUP = transaction
+METHOD = createTransaction
+This would give a complete URL of :
+https://www.remitone.com/ws/transaction/createTransaction
+The client application would need to make a POST to this URL to invoke this particular 
+WebService. In the specification below, a * indicates a required input parameter.
+Every invocation must contain the following parameters (as POST variables) :
+Name Type Notes
+username * Text
+password * Text
+pin * Text
+These will be provided to you when your WebService Account is activated.
+All other parameters will depend on the particular WebService being invoked. 
+RemitONE Web Services API Specification 4
+===== PAGE 5 =====
+Response Format
+A Successful Response will always contain the following XML structure :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    [Specific response for the particular Web Service]
+                </result>
+            </response>
+An Error Response is as follows :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>FAIL</status>
+                <result>
+                    <message>[Error message]</message>
+                </result>
+            </response>
+An Error Response with Validation errors is as follows :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>FAIL</status>
+                <result>
+                    <message>VALIDATION FAILED</message>
+                    <errors>
+                        <error>[Validation error message]</error>
+                        <error>[Validation error message]</error>
+                        <error>[Validation error message]</error>
+                    </errors>
+                </result>
+            </response>
+RemitONE Web Services API Specification 5
+===== PAGE 6 =====
+Listing of provided Web Services
+Admin API
+1. getSourceCountries
+2. getDestinationCountries
+3. getSellRates
+4. getAgents
+5. getAgentRates
+6. getAgentCharges
+7. getCountryCharges
+8. getTransactionStatus
+9. getTransactionStatusByAgentTransRef
+10. getDeliveryBanks
+11. getDeliveryBankBranches
+12. getCollectionPoints
+Sending Agent API
+1. getAgentDetails
+2. getDestinationCountries
+3. getRates
+4.getCurrentCredit
+5. createRemitter
+6. searchRemitter
+7.updateRemitter
+8. createBeneficiary
+9. searchBeneficiary
+10. updateBeneficiary
+11. assignBeneficiary
+12. createTransaction
+13. confirmTransaction
+14. insertTransaction
+15. getTransactionStatus
+16. getTransactionStatusByAgentTransRef
+17. getCharges
+18. getDeliveryBanks
+19. getDeliveryBankBranches
+20. getCollectionPoints
+RemitONE Web Services API Specification 6
+===== PAGE 7 =====
+21. transactionPaymentCleared
+22. getCashCollectionTransactionDetails
+23. processCashCollectionTransaction
+Receiving Bank/Agent API
+1. getPayoutTransactions
+2. getPayoutTransactionDetails
+3. acceptPayoutTransactions
+4. getPendingPayoutTransactions
+5. processPayoutTransaction
+6. errorPayoutTransaction
+RemitONE Web Services API Specification 7
+===== PAGE 8 =====
+2.Web Service Method Details
+Admin API
+getSourceCountries
+Group : admin
+Method : getSourceCountries
+This method provides a list of available source countries on the system.
+Input fields :
+none (apart from username, password and pin which are required in every invocation).
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <countries>
+                        <country>
+                            <id>001</id>
+                            <name>United Kingdom</name>
+                            <iso_code>UK</iso_code>
+                            <currency>GBP</currency>
+                            <allowed_currencies>
+                                <currency>GBP</currency>
+                            </allowed_currencies>
+                        </country>
+                        <country>
+                            <id>002</id>
+                            <name>United States</name>
+                            <iso_code>US</iso_code>
+                            <currency>USD</currency>
+                            <allowed_currencies>
+                                <currency>USD</currency>
+                            </allowed_currencies>
+                        </country>
+                    </countries>
+                </result>
+            </response>
+getDestinationCountries
+Group : country
+Method : getDestinationCountries
+This method provides a list of available destination countries on the system.
+RemitONE Web Services API Specification 8
+===== PAGE 9 =====
+Input fields :
+none (apart from username, password and pin which are required in every invocation).
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <countries>
+                        <country>
+                            <id>998</id>
+                            <name>Bangladesh</name>
+                            <iso_code>BD</iso_code>
+                            <currency>BDT</currency>
+                            <allowed_currencies>
+                                <currency>BDT</currency>
+                            </allowed_currencies>
+                        </country>
+                        <country>
+                            <id>999</id>
+                            <name>Philippines</name>
+                            <iso_code>PH</iso_code>
+                            <currency>PHP</currency>
+                            <allowed_currencies>
+                                <currency>PHP</currency>
+                            </allowed_currencies>
+                        </country>
+                    </countries>
+                </result>
+            </response>
+getSellRates
+Group : admin
+Method : getSellRates
+This method provides current rates from the system for the source and destination 
+countries provided.
+Input fields:
+Name Type Notes
+source_country * Text The name of the Source Country,
+as per the output of 
+getSourceCountries.
+destination_country * Text The name of the Destination 
+Country, as per the output of 
+getDestinationCountries.
+RemitONE Web Services API Specification 9
+===== PAGE 10 =====
+source_currency Text The 3 letters ISO currency code, 
+as listed in Appendix A
+destination_currency Text The 3 letters ISO currency code, 
+as listed in Appendix A
+delivery_bank Text The name of the delivery bank, 
+as per the output of 
+getDeliveryBanks.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <rate>
+                        <account>39.5000</account>
+                        <cash_collection>39.0000</cash_collection>
+                        <card>39.5000</card>
+                        <home_delivery>38.0000</home_delivery>
+                        <utility_bill>39.6000</utility_bill>
+                        <mobile_transfer>36.0000</mobile_transfer>
+                    </rate>
+                </result>
+            </response>
+getAgents
+Group : admin
+Method : getAgents
+This method provides a list of available agents on the system.
+Input fields :
+none (apart from username, password and pin which are required in every invocation).
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<responseId>4</responseId>
+<status>SUCCESS</status>
+<result>
+<agents>
+<agent>
+<name>Test Agent</name>
+<username>testagent</username>
+<code>2000</code>
+<country>Singapore</country>
+</agent>
+RemitONE Web Services API Specification 10
+===== PAGE 11 =====
+<agent>
+<name>PRIME EXCHANGE CO PTE LTD</name>
+<username>primex</username>
+<code>2007</code>
+<country>Singapore</country>
+</agent>
+</agents>
+</result>
+</response>
+getAgentRates
+Group : admin
+Method : getAgentRates
+This method provides the current rates for an agent on the system.
+Input fields:
+Name Type Notes
+agent_code * Code The  Agent code, as per the output of 
+getAgents.
+dest_country * Text The name of the Destination Country, as
+per the output of 
+getDestinationCountries.
+source_currency Text The 3 letters ISO currency code, as 
+listed in Appendix A
+destination_currency Text The 3 letters ISO currency code, as 
+listed in Appendix A
+delivery_bank Text The name of the delivery bank, as per 
+the output of getDeliveryBanks.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <rate>
+                        <account>39.5000</account>
+                        <cash_collection>39.0000</cash_collection>
+                        <card>39.5000</card>
+                        <home_delivery>38.0000</home_delivery>
+                        <utility_bill>39.6000</utility_bill>
+                        <mobile_transfer>36.0000</mobile_transfer>
+                    </rate>
+                </result>
+RemitONE Web Services API Specification 11
+===== PAGE 12 =====
+            </response>
+getAgentCharges
+Group: admin
+Method: getAgentCharges
+Input fields:
+Name Type Notes
+agent_code * Code The  Agent code, as per the output of 
+getAgents.
+destination_country * Text Name of country retrieved from calling 
+getDestinationCountries
+source_currency Text The 3 letters ISO currency code, as listed 
+in Appendix A
+destination_currency Text The 3 letters ISO currency code, as listed 
+in Appendix A
+trans_type * Text Account / Cash Collection / Card Transfer / 
+Home Delivery / Mobile Transfer
+payment_method * Code See Appendix D for codes.
+service_level * Code See Appendix E for codes.
+delivery_bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+sms_confirmation * Boolean t / f
+sms_notification * Boolean t / f
+amount_type * Whether the amount is specified in the 
+source currency or the destination 
+currency. Possible values : SOURCE / 
+DESTINATION. 
+amount_to_send * Numeric
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <source_currency>GBP</source_currency>
+                    <source_amount>100</source_amount>
+RemitONE Web Services API Specification 12
+===== PAGE 13 =====
+                    <rate>37.53</rate>
+                    <destination_currency>PHP</destination_currency>
+                    <destination_amount>3753.00</destination_amount>
+                    <commission>10.50</commission>
+                    <agent_fee>0.00</agent_fee>
+                    <hq_fee>0.50</hq_fee>
+                    <total_charges>11.00</total_charges>
+                    <tax>3.40</tax>
+                </result>
+            </response>
+getCountryCharges
+Group: admin
+Method: getCountryCharges
+Input fields:
+Name Type Notes
+source_country * Text Name of country retrieved from calling 
+getSourceCountries
+destination_country * Text Name of country retrieved from calling 
+getDestinationCountries
+source_currency Text The 3 letters ISO currency code, as listed 
+in Appendix A
+destination_currency Text The 3 letters ISO currency code, as listed 
+in Appendix A
+trans_type * Text Account / Cash Collection / Card Transfer / 
+Home Delivery / Mobile Transfer
+payment_method * Code See Appendix D for codes.
+service_level * Code See Appendix E for codes.
+delivery_bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+sms_confirmation * Boolean t / f
+sms_notification * Boolean t / f
+amount_type * Whether the amount is specified in the 
+source currency or the destination 
+currency. Possible values : SOURCE / 
+DESTINATION. 
+amount_to_send * Numeric
+RemitONE Web Services API Specification 13
+===== PAGE 14 =====
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <source_currency>GBP</source_currency>
+                    <source_amount>100</source_amount>
+                    <rate>37.53</rate>
+                    <destination_currency>PHP</destination_currency>
+                    <destination_amount>3753.00</destination_amount>
+                    <commission>10.50</commission>
+                    <agent_fee>0.00</agent_fee>
+                    <hq_fee>0.50</hq_fee>
+                    <total_charges>11.00</total_charges>
+                    <tax>3.40</tax>
+                </result>
+            </response>
+getTransactionStatus
+Group: transaction
+Method: getTransactionStatus
+Input fields:
+Name Type Notes
+trans_ref * Text
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <trans_ref>RA0003101</trans_ref>
+                    <agent_trans_ref>ABC12345678</agent_trans_ref>
+                    <benef_trans_ref>ABC12345678</benef_trans_ref>
+                    <status>SENT_FOR_PAY</status>
+                    <compliance_check_required>f</compliance_check_required>
+                    <compliance_checked>f</compliance_checked>
+                </result>
+            </response>
+            
+RemitONE Web Services API Specification 14
+===== PAGE 15 =====
+getTransactionStatusByAgentTransRef
+Group: transaction
+Method: getTransactionStatusByAgentTransRef
+Input fields:
+Name Type Notes
+trans_ref * Text Agent's unique transaction reference (if 
+provided at the time of creation). See 
+getTransactionStatus above to request the 
+transaction status using the RemitONE's 
+transaction reference.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <trans_ref>RA0003101</trans_ref>
+                    <agent_trans_ref>ABC12345678</agent_trans_ref>
+                    <benef_trans_ref>ABC12345678</benef_trans_ref>
+                    <status>SENT_FOR_PAY</status>
+                    <compliance_check_required>f</compliance_check_required>
+                    <compliance_checked>f</compliance_checked>
+                </result>
+            </response>
+getDeliveryBanks
+Group: deliveryBank
+Method: getDeliveryBanks
+Input fields:
+Name Type Notes
+dest_country Text The name of the Destination Country, as per
+the output of getDestinationCountries.
+Example Output XML :
+RemitONE Web Services API Specification 15
+===== PAGE 16 =====
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>42</responseId>
+                <status>SUCCESS</status>
+                <result>
+                    <delivery_banks>
+                        <delivery_bank>
+                            <bank_id>14</bank_id>
+                            <name>delivery bank</name>
+                            <country_id>999</country_id>
+                            <bank_code>del123</bank_code>
+                            <swift_code>sw123</swift_code>
+                            <address>address 123</address>
+                            <city>city123</city>
+                            <state>state123</state>
+                            <telephone>123</telephone>
+                            <account_number_mask>123</account_number_mask>
+                            <enabled>t</enabled>
+                        </delivery_bank>
+                    </delivery_banks>
+                </result>
+            </response>
+        
+getDeliveryBankBranches
+Group: deliveryBankBranch
+Method: getDeliveryBankBranches
+Input fields:
+Name Type Notes
+delivery_bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>44</responseId>
+                <status>SUCCESS</status>
+                <result>
+                    <delivery_bank_branches>
+                        <delivery_bank_branch>
+                            <id>1</id>
+                            <name>Branch123</name>
+                            <branch_code>BRANCH-123</branch_code>
+                            <enabled>t</enabled>
+                            <delivery_bank>1</delivery_bank>
+RemitONE Web Services API Specification 16
+===== PAGE 17 =====
+                            <city>city123</city>
+                            <state>state123</state>
+                            <telephone>012345678</telephone>
+                            <manager>manager123</manager>
+                        </delivery_bank_branch>
+                    </delivery_bank_branches>
+                </result>
+            </response>
+createDeliveryBankBranch
+Group: deliveryBankBranch
+Method: createDeliveryBankBranch
+Input fields:
+Name Type Notes
+name Text The name of the delivery bank branch.
+branch_code Text The code of the delivery bank branch.
+enabled Boolean Enable/Disable this delivery bank branch.
+bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+address Text The address of the delivery bank branch.
+city Text The city of the delivery bank branch.
+state Text The state of the delivery bank branch.
+telephone Text The telephone number of the delivery bank 
+branch prefixed by + or 00 followed by the 
+country code.
+manager Text The manager's name of the delivery bank 
+branch.
+email Text The email of the delivery bank branch.
+third_party_id Text An optional third party identifier.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>44</responseId>
+                <status>SUCCESS</status>
+                <result>
+RemitONE Web Services API Specification 17
+===== PAGE 18 =====
+                <id>1</id>
+                <name>My Collection Point</name>
+                  <branch_code>CODE</branch_code>
+                <enabled>t</enabled>
+                <delivery_bank>1</delivery_bank>
+                <address>123 Street</address>
+                <city>London</city>
+                <state>London</state>
+                <telephone>004412356789</telephone>
+                <manager>John Doe</manager>
+                <email>delivery@bank.branch</email>
+                <third_party_id>123</third_party_id>
+                </result>
+            </response>
+updateDeliveryBankBranch
+Group: deliveryBankBranch
+Method: updateDeliveryBankBranch
+Input fields:
+Name Type Notes
+id Integer The id of the delivery bank branch.
+name Text The name of the delivery bank branch.
+branch_code Text The code of the delivery bank branch.
+enabled Boolean Enable/Disable this delivery bank branch.
+bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+address Text The address of the delivery bank branch.
+city Text The city of the delivery bank branch.
+state Text The state of the delivery bank branch.
+telephone Text The telephone number of the delivery bank 
+branch prefixed by + or 00 followed by the 
+country code.
+manager Text The manager's name of the delivery bank 
+branch.
+email Text The email of the delivery bank branch.
+third_party_id Text An optional third party identifier.
+RemitONE Web Services API Specification 18
+===== PAGE 19 =====
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>44</responseId>
+                <status>SUCCESS</status>
+                <result>
+                <id>1</id>
+                <name>My Collection Point</name>
+                  <branch_code>CODE</branch_code>
+                <enabled>t</enabled>
+                <delivery_bank>1</delivery_bank>
+                <address>123 Street</address>
+                <city>London</city>
+                <state>London</state>
+                <telephone>004412356789</telephone>
+                <manager>John Doe</manager>
+                <email>delivery@bank.branch</email>
+                <third_party_id>123</third_party_id>
+                </result>
+            </response>
+getCollectionPoints
+Group: collectionPoint
+Method: getCollectionPoints
+Input fields:
+Name Type Notes
+delivery_bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>45</responseId>
+                <status>SUCCESS</status>
+                <result>
+                    <collection_points>
+                        <collection_point>
+                            <collection_id>1</collection_id>
+                            <name>colltion123</name>
+                            <bank>Bank 123</bank>
+                            <delivery_bank>1</delivery_bank>
+                            <address>address123</address>
+                            <city>city123</city>
+                            <state>state123</state>
+                            <country_id>123</country_id>
+RemitONE Web Services API Specification 19
+===== PAGE 20 =====
+                            <code>COLLECTION-123</code>
+                            <telephone>012345678</telephone>
+                            <fax>fax123</fax>
+                            <email>email123</email>
+                            <working_hours>1</working_hours>
+                            <contact_person>person123</contact_person>
+                            <default_in_country>t</default_in_country>
+                            <enabled>t</enabled>
+                            <collection_pin_prefix>123</collection_pin_prefix>
+                            <rate_markup>1</rate_markup>
+                        </collection_point>
+                    </collection_points>
+                </result>
+            </response>
+createCollectionPoint
+Group: collectionPoint
+Method: createCollectionPoint
+Input fields:
+Name Type Notes
+name Text The name of the collection point.
+bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+country_id Integer The id of the Destination Country, as per 
+the output of getDestinationCountries.
+code Text The code of the collection point.
+address Text The address of the collection point.
+city Text The city of the collection point.
+state Text The state of the collection point.
+telephone Text The telephone number of the collection 
+point prefixed by + or 00 followed by the 
+country code.
+fax Text The fax number of the collection point 
+prefixed by + or 00 followed by the country 
+code.
+email Text The email of the collection point.
+RemitONE Web Services API Specification 20
+===== PAGE 21 =====
+working_hours Text The working hours of the collection point.
+contact_person Text The name of the person to contact in the 
+collection point.
+default_in_country Boolean Set this collection point as the default one 
+for the specified country.
+enabled Boolean Enable/Disable this collection point.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>42</responseId>
+                <status>SUCCESS</status>
+                <result>
+                <collection_id>1</collection_id>
+              <name>My Collection Point</name>
+              <bank>My delivery Bank</bank>
+              <delivery_bank>1</delivery_bank>
+              <address>123 Street</address>
+              <city>London</city>
+              <state>London</state>
+              <country_id>999</country_id>
+              <code>CODE</code>
+v                  <telephone>0044123456789</telephone>
+              <fax>0044123456789</fax>
+              <email>collection@point.com</email>
+              <working_hours>8am to 7pm</working_hours>
+              <contact_person>John Doe</contact_person>
+              <default_in_country>f</default_in_country>
+              <enabled>t</enabled>
+              <collection_pin_prefix>CP</collection_pin_prefix>
+              <rate_markup></rate_markup>
+              </result>
+            </response>
+updateCollectionPoint
+Group: collectionPoint
+Method: updateCollectionPoint
+Input fields:
+Name Type Notes
+collection_id Integer The id of the collection point.
+name Text The name of the collection point.
+RemitONE Web Services API Specification 21
+===== PAGE 22 =====
+bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+country_id Integer The id of the Destination Country, as per 
+the output of getDestinationCountries.
+code Text The code of the collection point.
+address Text The address of the collection point.
+city Text The city of the collection point.
+state Text The state of the collection point.
+telephone Text The telephone number of the collection 
+point prefixed by + or 00 followed by the 
+country code.
+fax Text The fax number of the collection point 
+prefixed by + or 00 followed by the country 
+code.
+email Text The email of the collection point.
+working_hours Text The working hours of the collection point.
+contact_person Text The name of the person to contact in the 
+collection point.
+default_in_country Boolean Set this collection point as the default one 
+for the specified country.
+enabled Boolean Enable/Disable this collection point.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>42</responseId>
+                <status>SUCCESS</status>
+                <result>
+                <collection_id>1</collection_id>
+              <name>My Collection Point</name>
+              <bank>My delivery Bank</bank>
+              <delivery_bank>1</delivery_bank>
+              <address>123 Street</address>
+              <city>London</city>
+              <state>London</state>
+              <country_id>999</country_id>
+              <code>CODE</code>
+v                  <telephone>0044123456789</telephone>
+              <fax>0044123456789</fax>
+              <email>collection@point.com</email>
+              <working_hours>8am to 7pm</working_hours>
+              <contact_person>John Doe</contact_person>
+              <default_in_country>f</default_in_country>
+              <enabled>t</enabled>
+              <collection_pin_prefix>CP</collection_pin_prefix>
+              <rate_markup></rate_markup>
+RemitONE Web Services API Specification 22
+===== PAGE 23 =====
+              </result>
+            </response>
+getTransactions
+Group : transaction
+Method : getTransactions
+Input fields :
+Name Type Notes
+from_date Date YYYY-MM-DD (Either this date is required 
+or the processed_from_date)
+to_date Date YYYY-MM-DD (Either this date is required 
+or the processed_to_date)
+processed_from_da
+te
+Date Time YYYY-MM-DD HH:MM
+processed_to_date Date Time YYYY-MM-DD HH:MM
+country_code Text 2 letter country ISO code. (Country code 
+as set-up in the system)
+country_type Text SOURCE / DESTINATION 
+(Required if country_code is provided)
+trans_corridor Text ALL / INTERNATIONAL / DOMESTIC
+(If not provided, will default to ALL)
+compliance_needed Boolean t/f
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<count>1</count>
+<transactions>
+<transaction>
+<trans_ref>RA20079112</trans_ref>
+<trans_type>Account</trans_type>
+<status>HQ_OK</status>
+<creation_date>2010-05-07 16:25:12.26266</creation_date>
+<processed_date>2010-05-09 16:25:12</processed_date>
+<originating_country>SG</originating_country>
+<destination_country>BD</destination_country>
+RemitONE Web Services API Specification 23
+===== PAGE 24 =====
+<source_currency>SGD</source_currency>
+<source_amount>85.00</source_amount>
+<commission>5.00</commission>
+<tax>5.00</tax>
+<dest_currency>BDT</dest_currency>
+<dest_amount>4188.80</dest_amount>
+<rate>49.2800</rate>
+<remitter_name>ALI IMAN</remitter_name>
+<remitter_id>1210</remitter_id>
+<payment_method>1</payment_method>
+<benef_name>HASSAN SYFULLAH</benef_name>
+                  <benef_mobile>07512457841</benef_mobile>
+<source_agent_name>JOE BLOGGS</source_agent_name>
+<source_agent_teller_name>JOHN 
+TELLER</source_agent_teller_name>
+<bank_buy_rate>53.3200</rate>
+<source_conv_rate>48.1400</source_conv_rate>
+<dest_conv_rate>49.2800</dest_conv_rate>
+<compliance_needed>f</compliance_needed>
+                        <compliance_checked>f</compliance_checked>
+</transaction>
+</transactions>
+</result>
+</response>
+assignTransactions
+Group : transaction
+Method : assignTransactions
+Input fields :
+Name Type Notes
+trans_refs Text Comma separated list of transaction 
+references.
+I.e. 
+RA123451234
+or
+RA123451234, RA123451251, 
+RA123453614
+proc_bank_name Text Name of the Processing Bank 
+(Abbreviated Bank Name)
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+RemitONE Web Services API Specification 24
+===== PAGE 25 =====
+            <responseId>326</responseId>
+            <status>SUCCESS</status>
+            <result>
+                <transactions>
+                    <transaction>
+                        <trans_ref>RC000647000434</trans_ref>
+                        <proc_bank_name>HSBC_UK</proc_bank_name>
+                    </transaction>
+                    <transaction>
+                        <trans_ref>RA000606000286</trans_ref>
+                        <proc_bank_name>HSBC_UK</proc_bank_name>
+                    </transaction>
+                </transactions>
+            </result>
+        </response>
+        
+getErrorTransactions
+Group : transaction
+Method : getErrorTransactions
+Input fields :
+Name Type Notes
+from_date Date YYYY-MM-DD
+to_date Date YYYY-MM-DD
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>326</responseId>
+            <status>SUCCESS</status>
+            <result>
+    <count>{$trans_count}</count>
+    <transactions>
+        <transaction>
+<trans_ref>CC123456789</trans_ref>
+<agent_trans_ref></agent_trans_ref>
+<trans_type>CASH_COLLECTION</trans_type>
+<status>ERROR</status>
+<error_date>2016-02-26</error_date>
+<error_reason>Invalid Beneficiary ID</error_reason>
+ <previous_status_before_error>SENT_FOR_PAY</previous_status_before_error>
+<error_user_id>1</error_user_id>
+<error_username>admin</error_username>
+<error_agent_code>123</error_agent_code>
+<error_agent_name>Admin</error_agent_name>
+RemitONE Web Services API Specification 25
+===== PAGE 26 =====
+<remitter_id>10000</remitter_id>
+<remitter_name>John Doe</remitter_name>
+<beneficiary_id>1</beneficiary_id>
+<beneficiary_name>Jane Doe</beneficiary_name>
+<destination_country>China</destination_country>
+<originating_country>France</originating_country>
+<source_currency>EUR</source_currency>
+<source_transfer_amount>42</source_transfer_amount>
+<rate>13.37</rate>
+<destination_currency>CNY</destination_currency>
+<destination_amount>561.54</destination_amount>
+<delivery_date></delivery_date>
+  </transaction>
+    </transactions>
+</result>
+        </response>
+        
+processCashCollectionTransactionByBank
+Group : transaction
+Method : processingCashCollectionTransactionByBank
+Input fields :
+Name Type Notes
+trans_refs Text text
+bank_name Text Name of the Processing Bank 
+(Abbreviated Bank Name)
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<trans_ref>RA20079121</trans_ref>
+<process_result>SUCCESS</process_result>
+<message></message>
+</result>
+</response>
+requestCancellation
+Group : transaction
+Method : requestCancellation
+RemitONE Web Services API Specification 26
+===== PAGE 27 =====
+Input fields :
+Name Type Notes
+trans_ref Text Transaction reference
+I.e. 
+RA123451234
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>326</responseId>
+            <status>SUCCESS</status>
+            <result>
+    <trans_ref>RA123451234</trans_ref>
+    <message>Transaction successfully aborted</message>
+</result>
+        </response>
+        
+getMobileNetworkOperators
+Group : mobileNetworkOperator
+Method : getMobileNetworkOperators
+Input fields :
+Name Type Notes
+country_id Integer The id of the Destination Country, as per the 
+output of getDestinationCountries.
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>42</responseId>
+            <status>SUCCESS</status>
+            <result>
+    <count>1</count>
+    <mnos>
+        <mno>
+<mobile_network_id>1</mobile_network_id>
+<name>AT&T</name>
+<code>ATT</code>
+RemitONE Web Services API Specification 27
+===== PAGE 28 =====
+<country_id>999</country_id>
+<number_pattern></number_pattern>
+<regex_pattern></regex_pattern>
+<enabled>t</enabled>
+  </mno>
+    </mnos>
+  </result>
+        </response>
+createMobileNetworkCreditType
+Group : mobileNetworkCreditType
+Method : createMobileNetworkCreditType
+Input fields :
+Name Type Notes
+name Text The name of the mobile network credit type.
+code Text The code of the mobile network credit type.
+mobile_network_id Integer The id of the Mobile Network Operator, as per 
+the output of getMobileNetworkOperators.
+type Text The code of the mobile network credit type.
+I.e.
+Fixed
+Open
+currency Text The currency ISO code of the mobile network 
+credit type.
+amount Float The amount of the mobile network credit type 
+(used when the type is set to Fixed)
+minimum Float The minimum amount of the mobile network 
+credit type (used when the type is set to Open).
+maximum Float The maximum amount of the mobile network 
+credit type (used when the type is set to Open).
+enabled Boolean Enable/Disable the mobile network credit type.
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>42</responseId>
+            <status>SUCCESS</status>
+RemitONE Web Services API Specification 28
+===== PAGE 29 =====
+            <result>
+    <credit_type_id>1</credit_type_id>
+    <mobile_network_id>1</mobile_network_id>
+    <name>My Credit Type</name>
+    <code>CODE</code>
+    <country_id>999</country_id>
+    <type>Fixed</type>
+    <currency>GBP</currency>
+    <minimum></minimum>
+    <maximum></maximum>
+    <amount>13.37</amount>
+    <enabled>t</enabled>
+</result>
+        </response>
+        
+updateMobileNetworkCreditType
+Group : mobileNetworkCreditType
+Method : updateMobileNetworkCreditType
+Input fields :
+Name Type Notes
+credit_type_id Integer The id of the mobile network credit type.
+name Text The name of the mobile network credit type.
+code Text The code of the mobile network credit type.
+mobile_network_id Integer The id of the Mobile Network Operator, as per 
+the output of getMobileNetworkOperators.
+type Text The code of the mobile network credit type.
+I.e.
+Fixed
+Open
+currency Text The currency ISO code of the mobile network 
+credit type.
+amount Float The amount of the mobile network credit type 
+(used when the type is set to Fixed)
+minimum Float The minimum amount of the mobile network 
+credit type (used when the type is set to Open).
+maximum Float The maximum amount of the mobile network 
+credit type (used when the type is set to Open).
+enabled Boolean Enable/Disable the mobile network credit type.
+RemitONE Web Services API Specification 29
+===== PAGE 30 =====
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>42</responseId>
+            <status>SUCCESS</status>
+            <result>
+    <credit_type_id>1</credit_type_id>
+    <mobile_network_id>1</mobile_network_id>
+    <name>My Credit Type</name>
+    <code>CODE</code>
+    <country_id>999</country_id>
+    <type>Fixed</type>
+    <currency>GBP</currency>
+    <minimum></minimum>
+    <maximum></maximum>
+    <amount>13.37</amount>
+    <enabled>t</enabled>
+</result>
+        </response>
+        
+uploadCSVData
+Group : CSV
+Method : uploadCSVData
+Input fields :
+Name Type Notes
+csv_type Text The type of the CSV file that is being uploaded.
+At the moment, we support the following types:
+collection_point
+commission_slab
+delivery_bank
+delivery_bank_branch
+sell_rate
+csv_file File The CSV file to upload.
+Example Output XML for type=collection_point :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>42</responseId>
+            <status>SUCCESS</status>
+            <results>
+RemitONE Web Services API Specification 30
+===== PAGE 31 =====
+    <total>5</total>
+    <success>
+  <total>1</total>
+  <messages>
+<message>Line 3: My Collection Point inserted 
+successfully</message>
+  </messages>
+    </success>
+    <failure>
+  <total>1</total>
+  <messages>
+<message>Line 5: Error performing operation, row not 
+inserted!</message>
+  </messages>
+    </failure>
+     <missing_name>
+  <total>1</total>
+  <messages>
+<message>Line 2: Missing data in Name field, row not 
+inserted!</message>
+  </messages>
+    </missing_name>
+    <missing_value>
+  <total>1</total>
+  <messages>
+<message>Line 4: The Bank XXX does not exist in 
+database, row not inserted!</message>
+  </messages>
+    </missing_value>
+    <duplicate>
+  <total>1</total>
+  <messages>
+<message>Line 1: The Collection Point already exists in 
+the database, row not inserted!</message>
+  </messages>
+    </duplicate>
+      </results>
+        </response>
+        
+RemitONE Web Services API Specification 31
+===== PAGE 32 =====
+_________________________________________________________________________
+Sending Agent API
+getAgentDetails
+Method : getAgentDetails
+This method provides the agent credentials including the agent name, country, currency 
+and the destination countries.
+Input fields :
+none (apart from username, password and pin which are required in every invocation).
+Example output XML:
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+    <status>SUCCESS</status>
+    <result>
+        <agent>
+            <id>13</id>
+            <username>agent_bidi</username>
+            <name>Agnets</name>
+            <country>United Kingdom-USD</country>
+            <currency>USD</currency>
+            <destination_countries>
+                <country>
+                    <name>Lebanon</name>
+                    <code>LB</code>
+                    <currency>LBP</currency>
+                </country>
+                <country>
+                    <name>United Kingdom-USD</name>
+                    <code>UK-USD</code>
+                    <currency>USD</currency>
+                </country>
+            </destination_countries>
+        </agent>
+    </result>
+</response>
+getDestinationCountries
+Group : country
+Method : getDestinationCountries
+RemitONE Web Services API Specification 32
+===== PAGE 33 =====
+This method provides a list of available destination countries on the system.
+Input fields :
+none (apart from username, password and pin which are required in every invocation).
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <countries>
+                        <country>
+                            <id>998</id>
+                            <name>Bangladesh</name>
+                            <iso_code>BD</iso_code>
+                            <currency>BDT</currency>
+                        </country>
+                        <country>
+                            <id>999</id>
+                            <name>Philippines</name>
+                            <iso_code>PH</iso_code>
+                            <currency>PHP</currency>
+                        </country>
+                    </countries>
+                </result>
+            </response>
+getRates
+Group : rates
+Method : getRates
+This method provides current rates from the system.
+Input fields:
+Name Type Notes
+source_currency Text Optional
+dest_country * Text The name of the Destination 
+Country, as per the output of 
+getDestinationCountries.
+dest_currency Text Optional
+Delivery Bank Name Text Optional
+Example Output XML :
+RemitONE Web Services API Specification 33
+===== PAGE 34 =====
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <rate>
+                        <account>39.5000</account>
+                        <cash_collection>39.0000</cash_collection>
+                        <card>39.5000</card>
+                        <home_delivery>38.0000</home_delivery>
+                        <utility_bill>39.6000</utility_bill>
+                        <mobile_transfer>36.0000</mobile_transfer>
+                    </rate>
+                </result>
+            </response>
+getCurrentCredit
+Group : agent
+Method : getCurrentCredit
+Input fields :
+none
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+         <response>
+             <status>SUCCESS</status>
+             <result>
+                 <credit>
+                     <currency>CAD</currency>
+                     <available_credit>1952</available_credit>
+                     <date_last_updated>2009-06-19 17:03:15</date_last_updated>
+                 </credit>
+             </result>
+         </response>
+createRemitter
+Group : remitter
+Method : createRemitter
+Input fields :
+Name Type Notes
+firstname * Text
+RemitONE Web Services API Specification 34
+===== PAGE 35 =====
+lastname * Text
+type * Text registered / nonregistered
+nationality Text 2 letter country ISO code. Please refer to 
+Appendix A.
+gender Text Male / Female
+status * Text valid / expired / blocked
+comments Text
+address1 * Text
+address2 Text
+city * Text
+state Text
+postcode Text
+email Text
+telephone Text
+mobile Text
+dob Date YYYY-MM-DD. Required if type is 'registered'.
+id_type Code See Appendix B for codes. Required if type is 
+'registered'.
+id_details Text Required if type is 'registered'.
+id_issued_by Text Required if type is 'registered'.
+id_issue_place Text Required if type is 'registered'.
+id_start Date YYYY-MM-DD. Required if type is 'registered'.
+id_expiry Date YYYY-MM-DD. Required if type is 'registered'.
+id2_type Code See Appendix B for codes. 
+id2_details Text
+id2_issued_by Text
+id2_issue_place Text
+id2_start Date YYYY-MM-DD
+id2_expiry Date YYYY-MM-DD
+account_number Text
+sort_code Text
+groups Text Comma separate string 
+e.g Default,Group2,Group3
+credit_balance Text
+RemitONE Web Services API Specification 35
+===== PAGE 36 =====
+credit_currency Text
+Id1_scan File png, gif, jpg, jpeg, bmp and pdf
+Id2_scan File png, gif, jpg, jpeg, bmp and pdf
+                      
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <new_remitter_id>10024</new_remitter_id>
+            </response>
+searchRemitter
+Group : remitter
+Method : searchRemitter
+Input fields :
+Name Type Notes
+remitter_id Text Required if the full name is not provided.
+firstname Text Required if remitter_id is not provided.
+lastname Text Required if remitter_id is not provided.
+dob Date YYYY-MM-DD
+address_line1 Text
+city Text
+postcode Text
+telephone Text
+mobile Text
+email Text
+id1_type Text See Appendix C for codes
+id1_details Text
+remitter_type Text registered / nonregistered
+Example Output XML :
+RemitONE Web Services API Specification 36
+===== PAGE 37 =====
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <remitters>
+                        <remitter>
+                            <remitter_id>10001</remitter_id>
+<status>enabled</status>
+                            <firstname>James</firstname>
+                            <lastname>Smith</lastname>
+                            <address1>100 Rue Bleue</address1>
+                            <address2></address2>
+                            <city>Ottawa</city>
+                            <state></state>
+                            <postcode>OW878</postcode>
+                            <country>Canada</country>
+                            <telephone>54654675</telephone>
+                            <mobile></mobile>
+                            <email></email>
+                            <dob>23-07-1979</dob>
+                            <nationality>CA</nationality>
+                            <id_type>passport</id_type>
+                            <id_details>4395346</id_details>
+                            <id_issued_by>CAPA</id_issued_by>
+                            <id_issue_place>Ottawa</id_issue_place>
+                            <id_start>03-07-2005</id_start>
+                            <id_expiry>03-07-2015</id_expiry>
+          <id2_type>driving_license</id2_type>
+                            <id2_details>12367598</id2_details>
+                            <id2_issued_by>CAPA</id2_issued_by>
+                            <id2_issue_place>Ottawa</id2_issue_place>
+                            <id2_start>06-09-2002</id2_start>
+                            <id2_expiry>06-09-2012</id2_expiry>
+                            <comments></comments>
+                            <groups>Default,Group2,Group3</groups>
+                            <credit_balance>100.00</credit_balance>
+                            <credit_currency>GBP</credit_currency>
+                        </remitter>
+                    </remitters>
+                </result>
+            </response>
+updateRemitter
+Group : remitter
+Method : updateRemitter
+Input fields :
+Name Type Notes
+remitter_id * Text
+RemitONE Web Services API Specification 37
+===== PAGE 38 =====
+firstname Text
+lastname Text
+type Text registered / nonregistered
+nationality Text 2 letter country ISO code. Please refer to 
+Appendix A.
+status Text valid / expired / blocked
+comments Text
+address1 Text
+address2 Text
+city Text
+state Text
+postcode Text
+email Text
+telephone Text
+mobile Text
+dob Date YYYY-MM-DD
+id_type Code See Appendix B for codes
+id_details Text
+id_issued_by Text
+id_issue_place Text
+id_start Date YYYY-MM-DD
+id_expiry Date YYYY-MM-DD
+id2_type Code See Appendix B for codes
+id2_details Text
+id2_issued_by Text
+id2_issue_place Text
+id2_start Date YYYY-MM-DD
+id2_expiry Date YYYY-MM-DD
+account_number Text
+sort_code Text
+groups Text Comma separate string 
+e.g Default,Group2,Group3
+Id1_scan File png, gif, jpg, jpeg, bmp and pdf
+Id2_scan File png, gif, jpg, jpeg, bmp and pdf
+RemitONE Web Services API Specification 38
+===== PAGE 39 =====
+NOTE: All valid fields must be provided on update, otherwise existing fields may be 
+blanked out.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <remitter>
+                        <remitter_id>10018</remitter_id>
+                        <firstname>Joe</firstname>
+                        <lastname>Blogger</lastname>
+                    </remitter>
+                </result>
+            </response>
+createBeneficiary
+Group : beneficiary
+Method : createBeneficiary
+Input fields :
+Name Type Notes
+name * Text
+address1 * Text
+address2 Text
+address3 Text
+city * Text
+state Text
+postcode Text
+country * Text Country Name, as per output of 
+getDestinationCountries 
+dob Date YYYY-MM-DD
+telephone Text
+mobile Text
+email Text
+id_type Code See Appendix C for codes
+RemitONE Web Services API Specification 39
+===== PAGE 40 =====
+id_details Text
+card_number Text The actual number if known, or 
+REQUESTED if the bank needs to 
+create a new card
+account_number Text
+bank Text
+bank_branch Text
+bank_branch_city Text
+bank_branch_state Text
+bank_branch_telephone Text
+bank_branch_manager Text
+benef_bank_swift_code Text
+benef_bank_ifsc_code Text
+benef_bank_account_name Text
+homedelivery_notes Text
+enabled Text t=true, f=false (By default if left blank,
+beneficiary will be enabled)
+remitter_id * Number The remitter this beneficiary is linked 
+to
+suspicious Text t=true, f=false (By default if left blank,
+beneficiary is NOT suspicious)
+suspicion_reason Text
+Id_scan File png, gif, jpg, jpeg, bmp and pdf
+NOTE: If the Bank needs to create a new Card for the beneficiary, then specify the Card 
+Number as 'REQUESTED'. This data will then be fed to the Bank dealing with that country 
+for creation of the ATM Card.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <new_beneficiary_id>7</new_beneficiary_id>
+            </response>
+RemitONE Web Services API Specification 40
+===== PAGE 41 =====
+searchBeneficiary
+Group : beneficiary
+Method : searchBeneficiary
+Input fields :
+Name Type Notes
+beneficiary_id Number
+name * Text
+city Text
+state Text
+postcode Text
+country * Text Required, as per output of 
+getDestinationCountries
+dob Date YYYY-MM-DD
+telephone Text
+mobile Text
+id_details Text
+account_number Text
+card_number Text
+enabled Text
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <beneficiaries>
+                        <beneficiary>
+                            <beneficiary_id>4</beneficiary_id>
+                            <name>Jahangir Khan</name>
+                            <address1>34 Small Lane</address1>
+                            <address2></address2>
+                            <address3></address3>
+                            <city>Mymensingh</city>
+                            <state></state>
+                            <postcode></postcode>
+                            <country>Bangladesh</country>
+                            <dob></dob>
+                            <telephone>38254235</telephone>
+                            <mobile>7367365</mobile>
+                            <email>jk@work.com</email>
+RemitONE Web Services API Specification 41
+===== PAGE 42 =====
+<status>t</status>
+                            <id_type>NATIONALID</id_type>
+                            <id_details>35345345435</id_details>
+                            <account_number>4534534534534</account_number>
+                            <bank>Agrani Bank</bank>
+                            <bank_branch>Agrani Chittagong</bank_branch>
+                            <bank_branch_city>Chittagong</bank_branch_city>
+                            <bank_branch_state>Chittagong</bank_branch_state>
+                            <bank_branch_telephone>87787876</bank_branch_telephone>
+                            <bank_branch_manager>Mr Manager</bank_branch_manager>
+                            <benef_bank_swift_code>SW736435</benef_bank_swift_code>
+                            <benef_bank_ifsc_code>IFSC435</benef_bank_ifsc_code>
+                            <benef_bank_account_name>Savings AC</benef_bank_account_name>
+                            <card_number>345345435</card_number>
+                            <homedelivery_notes></homedelivery_notes>
+                            <suspicious>f</suspicious>
+                            <suspicion_reason></suspicion_reason>
+                        </beneficiary>
+                    </beneficiaries>
+                </result>
+            </response>
+getRemitterBeneficiaries
+Group : beneficiary
+Method : getRemitterBeneficiaries
+Input fields :
+Name Type Notes
+remitter_id Number
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <beneficiaries>
+                        <beneficiary>
+                            <beneficiary_id>4</beneficiary_id>
+                            <name>Jahangir Khan</name>
+                            <address1>34 Small Lane</address1>
+                            <address2></address2>
+                            <address3></address3>
+                            <city>Mymensingh</city>
+                            <state></state>
+                            <postcode></postcode>
+                            <country>Bangladesh</country>
+                            <dob></dob>
+RemitONE Web Services API Specification 42
+===== PAGE 43 =====
+                            <telephone>38254235</telephone>
+                            <mobile>7367365</mobile>
+                            <email>jk@work.com</email>
+                            <status>t</status>
+                            <id_type>NATIONALID</id_type>
+                            <id_details>35345345435</id_details>
+                            <account_number>4534534534534</account_number>
+                            <bank>Agrani Bank</bank>
+                            <bank_branch>Agrani Chittagong</bank_branch>
+                            <bank_branch_city>Chittagong</bank_branch_city>
+                            <bank_branch_state>Chittagong</bank_branch_state>
+                            <bank_branch_telephone>87787876</bank_branch_telephone>
+                            <bank_branch_manager>Mr Manager</bank_branch_manager>
+                            <benef_bank_swift_code>SW736435</benef_bank_swift_code>
+                            <benef_bank_account_name>Savings AC</benef_bank_account_name>
+                            <card_number>345345435</card_number>
+                            <homedelivery_notes></homedelivery_notes>
+                            <suspicious>f</suspicious>
+                            <suspicion_reason></suspicion_reason>
+                        </beneficiary>
+                    </beneficiaries>
+                </result>
+            </response>
+updateBeneficiary
+Group : beneficiary
+Method : updateBeneficiary
+Input fields :
+Name Type Notes
+beneficiary_id * Number
+name Text
+address1 Text
+address2 Text
+address3 Text
+city Text
+state Text
+postcode Text
+country Text As per output of 
+getDestinationCountries
+dob Date YYYY-MM-DD
+telephone Text
+RemitONE Web Services API Specification 43
+===== PAGE 44 =====
+mobile Text
+email Text
+id_type Code See Appendix C for codes
+id_details Text
+card_number Text
+account_number Text
+bank Text
+bank_branch Text
+bank_branch_city Text
+bank_branch_state Text
+bank_branch_telephone Text
+bank_branch_manager Text
+benef_bank_swift_code Text
+benef_bank_ifsc_code Text
+benef_bank_account_name Text
+homedelivery_notes Text
+enabled Text t=true, f=false
+suspicious Text t=true, f=false
+suspicion_reason Text
+Id_scan File png, gif, jpg, jpeg, bmp and pdf
+NOTE: All valid fields must be provided on update, otherwise existing fields may be 
+blanked out.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <beneficiary>
+                        <beneficiary_id>7</beneficiary_id>
+                        <name>Faisal Siddique</name>
+                    </beneficiary>
+                </result>
+            </response>
+RemitONE Web Services API Specification 44
+===== PAGE 45 =====
+assignBeneficiary
+Group : remitter
+Method : assignBeneficiary
+Input fields :
+Name Type Notes
+remitter_id * Number
+beneficiary_id * Number
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <remitter>
+                        <remitter_id>10001</remitter_id>
+                        <firstname>James</firstname>
+                        <lastname>Foo</lastname>
+                    </remitter>
+                    <beneficiary>
+                        <beneficiary_id>3</beneficiary_id>
+                        <name>ZIAD MANNAN</name>
+                    </beneficiary>
+                </result>
+            </response>
+createTransaction
+Group: transaction
+Method: createTransaction
+Input fields:
+Name Type Notes
+remitter_id * Number
+beneficiary_id * Number
+destination_country * Text Name of country retrieved from calling 
+getDestinationCountries
+agent_trans_ref Text Agent's reference number for transaction
+trans_type * Text Account / Cash Collection / Card Transfer / 
+Home Delivery / Mobile Transfer
+RemitONE Web Services API Specification 45
+===== PAGE 46 =====
+purpose * Code See Appendix G for codes
+source_of_income * Code See Appendix F for codes
+collection_point Text Name of collection point where money will 
+be collected by beneficiary. Required if 
+transaction is of type Cash Collection. All 
+the fields starting with 'collection_' below 
+only apply to Cash Collection transactions.
+collection_point_code Text Collection point code.
+collection_point_bank Text Name of bank or organisation that the 
+collection point is under. Required if 
+transaction is of type Cash Collection.
+collection_point_address Text Collection point address.
+collection_point_city Text Collection point city.
+collection_point_state Text Collection point state.
+collection_point_telephone Text Collection point telephone number.
+collection_pin Numeric A PIN number which the beneficiary needs 
+to provide on cash pick-up. This may be 
+required, please check with your partner.
+benef_utilitybillcompany Text Name of the Utility Company where money
+will be paid. Required if transaction is of 
+type Utility Bill.
+benef_utilitybillaccountno Text Customer Account No. Required if 
+transaction is of type Utility Bill.
+benef_utilitybillinvoice Text Invoice No.
+benef_utilitybillbank Text Bank to Pay.
+benef_utilitybillbankcode Text Bank IBAN/SWIFT Code.
+benef_utilitybilldescription Text Bill Description.
+benef_mobiletransfer_number Text The mobile number of the beneficiary for 
+mobile transfer.
+benef_mobiletransfer_network Text The mobile phone network of the 
+beneficiary for mobile transfer.
+payment_method * Code See Appendix D for codes.
+amount_deposited * Numeric Needed for Bank Transfer Payment Method
+date_deposited * Date Needed for Bank Transfer Payment Method
+bank_branch_deposited * Text Needed for Bank Transfer Payment Method
+service_level * Code See Appendix E for codes.
+sms_confirmation * Boolean t / f
+RemitONE Web Services API Specification 46
+===== PAGE 47 =====
+sms_notification * Boolean t / f
+sms_mobile Text Mobile number for Remitter to send SMS to
+sms_benef_confirmation Boolean t / f
+sms_benef_mobile Text Mobile number for Beneficiary to send SMS
+to
+source_currency Text Source currency, if blank will use default
+dest_currency Text Dest currency, if blank will use default
+amount_type * Whether the amount is specified in the 
+source currency or the destination 
+currency. Possible values : SOURCE / 
+DESTINATION. 
+amount_to_send * Numeric
+NOTE: After invoking this method, confirmTransaction must be called with the 
+trans_session_id to successfully create the transaction.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <trans_session_id>245861246457499</trans_session_id>
+                    <remitter_id>10019</remitter_id>
+                    <remitter_name>MUHAMMAD KHAN</remitter_name>
+                    <beneficiary_id>5</beneficiary_id>
+                    <beneficiary_name>BENEF TEST</beneficiary_name>
+                    <trans_type>Card Transfer</trans_type>
+                    <destination_country>Philippines</destination_country>
+                    <source_currency>CAD</source_currency>
+                    <source_transfer_amount>100.00</source_transfer_amount>
+                    <rate>37.5300</rate>
+                    <destination_currency>PHP</destination_currency>
+                    <destination_amount>3753.00</destination_amount>
+                    <commission>10.50</commission>
+                    <agent_fee>0.00</agent_fee>
+                    <hq_fee>0.50</hq_fee>
+                    <tax>3.40</tax>
+                    <remitter_pay_amount>114.40</remitter_pay_amount>
+                    <agent_deduction>4.20</agent_deduction>
+                    <agent_to_pay_hq>110.20</agent_to_pay_hq>
+                    <delivery_date>2009-07-02 00:00:00</delivery_date> 
+  <payment_token>2fe1ebbfa197c7d4e4762d154602762ef941c110</payment_token>
+                </result>
+            </response>
+RemitONE Web Services API Specification 47
+===== PAGE 48 =====
+confirmTransaction
+Group: transaction
+Method: confirmTransaction
+Input fields:
+Name Type Notes
+trans_session_id * Numeric Temporary ID generated by the 
+system and returned as result of 
+createTransaction
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <reference_number>RB0003113</reference_number>
+                    <remitter_id>10019</remitter_id>
+                    <remitter_name>MUHAMMAD KHAN</remitter_name>
+                    <beneficiary_id>5</beneficiary_id>
+                    <beneficiary_name>BENEF TEST</beneficiary_name>
+                    <status>{$trans->status}</status>
+                  <trans_type>Card Transfer</trans_type>
+                    <destination_country>Philippines</destination_country>
+                    <source_currency>CAD</source_currency>
+                    <source_transfer_amount>100.00</source_transfer_amount>
+                    <rate>37.5300</rate>
+                    <destination_currency>PHP</destination_currency>
+                    <destination_amount>3753.00</destination_amount>
+                    <commission>10.50</commission>
+                    <agent_fee>0.00</agent_fee>
+                    <hq_fee>0.50</hq_fee>
+                    <tax>3.40</tax>
+                    <remitter_pay_amount>114.40</remitter_pay_amount>
+                    <agent_deduction>4.20</agent_deduction>
+                    <agent_to_pay_hq>110.20</agent_to_pay_hq>
+                    <delivery_date>2009-07-02 00:00:00</delivery_date>
+  <payment_token>2fe1ebbfa197c7d4e4762d154602762ef941c110</payment_token>
+        <compliance_check_required>f</compliance_check_required>
+        <collection_pin>762634</collection_pin>
+        <agent_trans_ref>GHT33762634</agent_trans_ref>
+        <benef_trans_ref>GHT33762634</benef_trans_ref>
+                </result>
+            </response>
+insertTransaction
+Group: transaction
+RemitONE Web Services API Specification 48
+===== PAGE 49 =====
+Method: insertTransaction
+Input fields:
+Name Type Notes
+agent_trans_ref * Text Transaction reference from the sending 
+system.
+trans_type* Account / Cash Collection / Card Transfer / 
+Home Delivery / Mobile Transfer
+purpose Text See 'Description' on Appendix G
+source_of_income Text See 'Description' on Appendix F
+remitt_name Text
+remitt_addr Text
+remitt_tel Text
+remitt_id_type Text
+remitt_id_details Text
+remitt_nationality Text 2 letter country ISO code. Please refer to 
+Appendix A.
+remitt_dob Date YYYY-MM-DD
+benef_name Text
+benef_address Text
+benef_address2 Text
+benef_address3 Text
+benef_city Text
+benef_state Text
+benef_postcode Text
+benef_tel Text
+benef_mobile Text
+benef_id_type Text
+benef_id_details Text
+benef_ac Text
+benef_bank Text
+benef_bank_swift_code Text
+benef_branch Text
+benef_branch_code Text
+RemitONE Web Services API Specification 49
+===== PAGE 50 =====
+benef_branch_address Text
+benef_branch_tel Text
+benef_branch_city Text
+benef_branch_state Text
+benef_card_number Text
+collection_point Text
+collection_point_code Text
+collection_point_bank Text
+collection_point_addres
+s
+Text
+collection_point_city Text
+collection_pin Text
+benef_mobiletransfer_n
+umber
+Text
+benef_mobiletransfer_n
+etwork
+Text
+payment_method* Code See Appendix D for codes.
+source_currency* Text
+source_amount* Numeric
+dest_currency* Text
+dest_amount* Numeric
+rate* Numeric
+commission* Numeric
+source_tax Numeric
+originating_country* Text 2 letter country ISO code. Please refer to 
+Appendix A.
+destination_country* Text 2 letter country ISO code. Please refer to 
+Appendix A.
+service_level Code See Appendix E for codes.
+sms_notification* Boolean t / f
+sms_confirmation* Boolean t / f
+sms_benef_confirmatio
+n*
+Boolean t / f
+agent_fee Numeric
+agent_comments Text
+RemitONE Web Services API Specification 50
+===== PAGE 51 =====
+sms_remitter_mobile Text
+sms_benef_mobile Text
+NOTE: Required fields will vary depending on the Transaction Type and configurations of 
+the receiving system. Currently this methods is only used for importing Transactions from 
+another RemitONE system.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+    <status>SUCCESS</status>
+    <result>
+        <trans_ref>RA0003101</trans_ref>
+        <agent_trans_ref>ABC1234567sss8</agent_trans_ref>
+        <remitter_id>1111</remitter_id>
+        <remitter_name>John Smith</remitter_name>
+        <beneficiary_id>2222</beneficiary_id>
+        <beneficiary_name>Jane Doe</beneficiary_name>
+        <trans_type>Cash Collection</trans_type>
+        <destination_country>GH</destination_country>
+        <source_currency>USD</source_currency>
+        <source_transfer_amount>94</source_transfer_amount>
+        <rate>1.9900</rate>
+        <destination_currency>GHS</destination_currency>
+        <destination_amount>187.06</destination_amount>
+        <commission>2.50</commission>
+        <tax>1.00</tax>
+        <agent_fee></agent_fee>
+        <hq_fee>0.00</hq_fee>
+        <remitter_pay_amount>97.50</remitter_pay_amount>
+        <agent_deduction>0.00</agent_deduction>
+        <agent_to_pay_hq>97.50</agent_to_pay_hq>
+        <delivery_date>2012-01-01 00:00:00+00</delivery_date>
+    </result>
+</response>
+getTransactionDetails
+Group: transaction
+Method: getTransactionDetails
+Get details of a single transaction that has been created by the Agent.
+Input fields:
+Name Type Notes
+trans_ref * Text
+RemitONE Web Services API Specification 51
+===== PAGE 52 =====
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<transaction>
+<trans_ref>RA20079127</trans_ref>
+<status>HQ_OK</status>
+<creation_date>2010-05-11 10:28:02.244553</creation_date>
+<bank_branch_name></bank_branch_name>
+<bank_branch_code></bank_branch_code>
+<bank_accept_date>2010-05-11 
+10:28:35.435216</bank_accept_date>
+<bank_branch_accept_date></bank_branch_accept_date>
+<delivery_date>2010-05-18 00:00:00</delivery_date>
+<processed_date></processed_date>
+<processed_by></processed_by>
+<delivery_date>2010-05-18 00:00:00</delivery_date>
+<trans_type>Account</trans_type>
+<benef_name>
+<![CDATA[ZIAD HASSAN SYFULLAH]]>
+</benef_name>
+<benef_tel>
+<![CDATA[]]>
+</benef_tel>
+<benef_mobile>
+<![CDATA[07512487412]]>
+</benef_mobile>
+<benef_email>
+<![CDATA[]]>
+</benef_email>
+<collection_point>
+<![CDATA[BOGRA]]>
+</collection_point>
+<collection_point_code>
+<![CDATA[]]>
+</collection_point_code>
+<collection_pin>
+<![CDATA[]]>
+</collection_pin>
+<benef_id_type>
+<![CDATA[NONE]]>
+</benef_id_type>
+<benef_id_detail>
+<![CDATA[]]>
+</benef_id_detail>
+<benef_ac>
+<![CDATA[1234567890]]>
+</benef_ac>
+<benef_bank>
+<![CDATA[PRIME BANK LIMITED]]>
+</benef_bank>
+<benef_bank_swift_code>
+<![CDATA[ABC123]>
+</benef_bank_swift_code>
+<benef_bank_ifsc_code>12340678912</benef_bank_ifsc_code>
+<benef_branch>
+RemitONE Web Services API Specification 52
+===== PAGE 53 =====
+<![CDATA[AGRABAD]]>
+</benef_branch>
+<benef_bank_city>
+<![CDATA[CHITTAGONG]]>
+</benef_bank_city>
+<benef_bank_state>
+<![CDATA[CHITTAGONG]]>
+</benef_bank_state>
+<benef_card_number>
+<![CDATA[]]>
+</benef_card_number>
+<benef_address1>
+<![CDATA[BOGRA]]>
+</benef_address1>
+<benef_address2>
+<![CDATA[]]>
+</benef_address2>
+<benef_address3>
+<![CDATA[]]>
+</benef_address3>
+<benef_city>
+<![CDATA[BOGRA]]>
+</benef_city>
+<benef_state>
+<![CDATA[]]>
+</benef_state>
+<benef_postcode>
+<![CDATA[]]>
+</benef_postcode>
+<benef_mobiletransfer_number>
+<![CDATA[01234567]]>
+</benef_mobiletransfer_number>
+<benef_mobiletransfer_network>
+<![CDATA[mobileNetwork]]>
+</benef_mobiletransfer_network>
+<benef_mobiletransfer_network_credit_type><!
+[CDATA[]]></benef_mobiletransfer_network_credit_type>
+<delivery_notes>
+<![CDATA[]]>
+</delivery_notes>
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+<remitter_name>
+<![CDATA[ALI IMAN]]>
+</remitter_name>
+<remitter_id>1210</remitter_id>
+<remitter_address>
+<![CDATA[#26-02, 9 TEMASEK BOULEVARD, SINGAPORE, 
+SINGAPORE]]>
+</remitter_address>
+<remitter_tel>
+<![CDATA[]]>
+</remitter_tel>
+<remitter_mobile>
+<![CDATA[]]>
+RemitONE Web Services API Specification 53
+===== PAGE 54 =====
+</remitter_mobile>
+<send_country>SG</send_country>
+<send_currency>SGD</send_currency>
+<send_amount>157.57</send_amount>
+<rate>49.2800</rate>
+<commission>5.00</commission>
+<fees>0</fees>
+<paid>162.57</paid>
+<receive_country>BD</receive_country>
+<receive_currency>BDT</receive_currency>
+<receive_amount>7765.05</receive_amount>
+<bank_sequence>2929</bank_sequence>
+<pay_method></pay_method>
+<issue_date></issue_date>
+<bank_ref></bank_ref>
+        <benef_trans_ref>GHT33762634</benef_trans_ref>
+<bank_comments></bank_comments>
+<bank_credit_date></bank_credit_date>
+<bank_clear_date></bank_clear_date>
+</transaction>
+</result>
+</response>
+       
+getRemitterTransactions
+Group : transaction
+Method : getTransactions
+Get details of a remitter's transactions for the past three months
+Input fields :
+Name Type Notes
+remitter_id Number
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<count>1</count>
+<transactions>
+<transaction>
+<trans_ref>RA20079112</trans_ref>
+<trans_type>Account</trans_type>
+<status>HQ_OK</status>
+<creation_date>2010-05-07 16:25:12.26266</creation_date>
+<originating_country>SG</originating_country>
+<destination_country>BD</destination_country>
+RemitONE Web Services API Specification 54
+===== PAGE 55 =====
+<source_currency>SGD</source_currency>
+<source_amount>85.00</source_amount>
+<commission>5.00</commission>
+<tax>5.00</tax>
+<dest_currency>BDT</dest_currency>
+<dest_amount>4188.80</dest_amount>
+<rate>49.2800</rate>
+<remitter_name>ALI IMAN</remitter_name>
+<remitter_address>123 New Street</remitter_address>
+<remitter_city>London</remitter_city>
+<remitter_tel>012345678</remitter_tel>
+<remitter_mobile>012345678</remitter_mobile>
+<remitter_id_type>passport</remitter_id_type>
+<remitter_id_details>54321</remitter_id_details>
+<remitter_id>11217</remitter_id>
+<payment_method>1</payment_method>
+<benef_name>Kevin Smith</benef_name>
+<benef_mobile>0987654321</benef_mobile>
+<benef_ac>87654321</benef_ac>
+<benef_bank_swift_code></benef_bank_swift_code>
+<benef_bank_ifsc_code></benef_bank_ifsc_code>
+<benef_branch>Main Branch</benef_branch>
+<collection_point_bank></collection_point_bank>
+<account_transfer_bank>United 
+Bank</account_transfer_bank>
+<benef_mobiletransfer_number><!
+[CDATA[]]></benef_mobiletransfer_number>
+<benef_mobiletransfer_network><!
+[CDATA[]]></benef_mobiletransfer_network>
+<benef_mobiletransfer_network_credit_type><!
+[CDATA[]]></benef_mobiletransfer_network_credit_type>
+<delivery_notes><![CDATA[]]></delivery_notes>
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+<source_agent_name>JOE BLOGGS</source_agent_name>
+<source_agent_teller_name>JOHN 
+TELLER</source_agent_teller_name>
+<bank_buy_rate>53.3200</rate>
+<source_conv_rate>48.1400</source_conv_rate>
+<dest_conv_rate>49.2800</dest_conv_rate>
+</transaction>
+</transactions>
+</result>
+</response>
+getTransactionStatus
+Group: transaction
+Method: getTransactionStatus
+Input fields:
+RemitONE Web Services API Specification 55
+===== PAGE 56 =====
+Name Type Notes
+trans_ref * Text Transaction reference from the RemitONE 
+system. See 
+getTransactionStatusByAgentTransRef below
+to request using the agent's transaction 
+reference.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <trans_ref>RA0003101</trans_ref>
+                    <agent_trans_ref>ABC12345678</agent_trans_ref>
+                    <benef_trans_ref>ABC12345678</benef_trans_ref>
+                    <status>SENT_FOR_PAY</status>
+                    <compliance_check_required>f</compliance_check_required>
+                    <compliance_checked>f</compliance_checked>
+                </result>
+            </response>
+        
+getTransactionStatusByAgentTransRef
+Group: transaction
+Method: getTransactionStatusByAgentTransRef
+Input fields:
+Name Type Notes
+trans_ref * Text Agent's unique transaction reference (if 
+provided at the time of creation). See 
+getTransactionStatus above to request the 
+transaction status using the RemitONE's 
+transaction reference.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <trans_ref>RA0003101</trans_ref>
+                    <agent_trans_ref>ABC12345678</agent_trans_ref>
+                    <benef_trans_ref>ABC12345678</benef_trans_ref>
+                    <status>SENT_FOR_PAY</status>
+RemitONE Web Services API Specification 56
+===== PAGE 57 =====
+                    <compliance_check_required>f</compliance_check_required>
+                    <compliance_checked>f</compliance_checked>
+                </result>
+            </response>
+        
+getCharges
+Group: transaction
+Method: getCharges
+Input fields:
+Name Type Notes
+destination_country * Text Name of country retrieved from calling 
+getDestinationCountries
+trans_type * Text Account / Cash Collection / Card Transfer /
+Home Delivery / Mobile Transfer
+payment_method * Code See Appendix D for codes.
+service_level * Code See Appendix E for codes.
+sms_confirmation * Boolean t / f
+sms_notification * Boolean t / f
+amount_type * Whether the amount is specified in the 
+source currency or the destination 
+currency. Possible values : SOURCE / 
+DESTINATION. 
+amount_to_send * Numeric
+Source Currency Text Same code as you get when calling 
+getSourceCountries
+Destination currency Text Same code as you get when calling
+getDestinationCountries
+If source and destination currencies are not entered,then the default source 
+and destination currencies will be used instead.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <status>SUCCESS</status>
+                <result>
+                    <source_currency>GBP</source_currency>
+                    <source_amount>100</source_amount>
+RemitONE Web Services API Specification 57
+===== PAGE 58 =====
+                    <rate>37.53</rate>
+                    <destination_currency>PHP</destination_currency>
+                    <destination_amount>3753.00</destination_amount>
+                    <commission>10.50</commission>
+                    <agent_fee>0.00</agent_fee>
+                    <hq_fee>0.50</hq_fee>
+                    <total_charges>11.00</total_charges>
+                    <tax>3.40</tax>
+                </result>
+            </response>
+getDeliveryBanks
+Group: deliveryBank
+Method: getDeliveryBanks
+Input fields:
+Name Type Notes
+dest_country Text The name of the Destination Country, as per
+the output of getDestinationCountries.
+Example Output XML :
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>42</responseId>
+                <status>SUCCESS</status>
+                <result>
+                    <delivery_banks>
+                        <delivery_bank>
+                            <bank_id>14</bank_id>
+                            <name>delivery bank</name>
+                            <country_id>999</country_id>
+                            <bank_code>del123</bank_code>
+                            <swift_code>sw123</swift_code>
+                            <address>address 123</address>
+                            <city>city123</city>
+                            <state>state123</state>
+                            <telephone>123</telephone>
+                            <account_number_mask>123</account_number_mask>
+                            <enabled>t</enabled>
+                        </delivery_bank>
+                    </delivery_banks>
+                </result>
+            </response>
+getDeliveryBankBranches
+RemitONE Web Services API Specification 58
+===== PAGE 59 =====
+Group: deliveryBankBranch
+Method: getDeliveryBankBranches
+Input fields:
+Name Type Notes
+delivery_bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>44</responseId>
+                <status>SUCCESS</status>
+                <result>
+                    <delivery_bank_branches>
+                        <delivery_bank_branch>
+                            <id>1</id>
+                            <name>Branch123</name>
+                            <branch_code>BRANCH-123</branch_code>
+                            <enabled>t</enabled>
+                            <delivery_bank>1</delivery_bank>
+                            <city>city123</city>
+                            <state>state123</state>
+                            <telephone>012345678</telephone>
+                            <manager>manager123</manager>
+                        </delivery_bank_branch>
+                    </delivery_bank_branches>
+                </result>
+            </response>
+getCollectionPoints
+Group: collectionPoint
+Method: getCollectionPoints
+Input fields:
+Name Type Notes
+delivery_bank Text The name of the delivery bank, as per the 
+output of getDeliveryBanks.
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>45</responseId>
+                <status>SUCCESS</status>
+                <result>
+RemitONE Web Services API Specification 59
+===== PAGE 60 =====
+                    <collection_points>
+                        <collection_point>
+                            <collection_id>1</collection_id>
+                            <name>colltion123</name>
+                            <bank>Bank 123</bank>
+                            <delivery_bank>1</delivery_bank>
+                            <address>address123</address>
+                            <city>city123</city>
+                            <state>state123</state>
+                            <country_id>123</country_id>
+                            <code>COLLECTION-123</code>
+                            <telephone>012345678</telephone>
+                            <fax>fax123</fax>
+                            <email>email123</email>
+                            <working_hours>1</working_hours>
+                            <contact_person>person123</contact_person>
+                            <default_in_country>t</default_in_country>
+                            <enabled>t</enabled>
+                            <collection_pin_prefix>123</collection_pin_prefix>
+                            <rate_markup>1</rate_markup>
+                        </collection_point>
+                    </collection_points>
+                </result>
+            </response>
+transactionPaymentCleared
+Group: transaction
+Method: transactionPaymentCleared
+Marks a transaction which is in status PENDING_CLEARANCE (i.e still requires payment) as
+payment cleared to say that the payment has been made. 
+Input fields:
+Name Type Notes
+trans_ref Text Enter either trans_ref and agent_trans_ref
+agent_trans_ref Text
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <responseId>45</responseId>
+                <status>SUCCESS</status>
+                <result>
+                   <trans_ref>RC12321321321</trans_ref> 
+                   <message>Transaction payment cleared successfully</message>
+     </result>
+            </response>
+RemitONE Web Services API Specification 60
+===== PAGE 61 =====
+getCashCollectionTransactionDetails
+Group: transaction
+Method: getCashCollectionTransactionDetails
+Look up for cash collection transaction as a BIDI agent.
+Name Type Notes
+trans_ref Text Transaction reference number
+collection_pin_number Text Collection pin number
+security_question Text Security question
+security_answer Text Security answer
+Input fields:
+Need to input the trans_ref or/and collection_pin_number depending on the configuration 
+setting.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+    <status>SUCCESS</status>
+    <result>
+        <transaction>
+            <trans_ref>RC000224000133</trans_ref>
+            <status>HQ_OK</status>
+            <creation_date>2014-09-19 10:41:40.755687+00</creation_date>
+            <purpose>FAMILY SUPPORT</purpose>
+            <bank_branch_name></bank_branch_name>
+            <bank_branch_code></bank_branch_code>
+            <bank_accept_date></bank_accept_date>
+            <bank_branch_accept_date></bank_branch_accept_date>
+            <delivery_date>2014-09-22 10:41:00+00</delivery_date>
+            <processed_date></processed_date>
+            <processed_by></processed_by>
+            <delivery_date>2014-09-22 10:41:00+00</delivery_date>
+            <trans_type>Cash Collection</trans_type>
+            <benef_name>
+                <![CDATA[MUM AND DAD]]>
+</benef_name>
+            <benef_tel>
+                <![CDATA[45124897217421]]>
+</benef_tel>
+            <benef_mobile>
+                <![CDATA[]]>
+</benef_mobile>
+            <benef_email>
+                <![CDATA[hani.safa@remitone.com]]>
+RemitONE Web Services API Specification 61
+===== PAGE 62 =====
+</benef_email>
+            <collection_point>
+                <![CDATA[COLLECTION POINT  UK]]>
+</collection_point>
+            <collection_point_bank>
+                <![CDATA[DELIVERY BANK UK]]>
+</collection_point_bank>
+            <collection_point_code>
+                <![CDATA[]]>
+</collection_point_code>
+            <collection_pin>
+                <![CDATA[1497974]]>
+</collection_pin>
+            <benef_id_type>
+                <![CDATA[NONE]]>
+</benef_id_type>
+            <benef_id_detail>
+                <![CDATA[]]>
+</benef_id_detail>
+            <benef_ac>
+                <![CDATA[]]>
+</benef_ac>
+            <benef_bank_swift_code>
+                <![CDATA[]]>
+</benef_bank_swift_code>
+            <benef_bank>
+                <![CDATA[]]>
+</benef_bank>
+            <benef_branch>
+                <![CDATA[]]>
+</benef_branch>
+            <benef_branch_code>
+                <![CDATA[]]>
+</benef_branch_code>
+            <benef_bank_city>
+                <![CDATA[]]>
+</benef_bank_city>
+            <benef_bank_state>
+                <![CDATA[]]>
+</benef_bank_state>
+            <benef_card_number>
+                <![CDATA[]]>
+</benef_card_number>
+            <benef_address1>
+                <![CDATA[]]>
+</benef_address1>
+            <benef_address2>
+                <![CDATA[]]>
+</benef_address2>
+            <benef_address3>
+                <![CDATA[]]>
+</benef_address3>
+            <benef_city>
+                <![CDATA[]]>
+</benef_city>
+            <benef_state>
+                <![CDATA[WALTHAMSTOW]]>
+RemitONE Web Services API Specification 62
+===== PAGE 63 =====
+</benef_state>
+            <benef_postcode>
+                <![CDATA[E17]]>
+</benef_postcode>
+            <benef_mobiletransfer_number>
+                <![CDATA[]]>
+</benef_mobiletransfer_number>
+            <benef_mobiletransfer_network>
+                <![CDATA[]]>
+</benef_mobiletransfer_network>
+            <delivery_notes>
+                <![CDATA[]]>
+</delivery_notes>
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+            <remitter_name>
+                <![CDATA[HANI SAFA]]>
+</remitter_name>
+            <send_country>UK-USD</send_country>
+            <send_currency>USD</send_currency>
+            <send_amount>10.00</send_amount>
+            <rate>1.00000000</rate>
+            <receive_country>UK-USD</receive_country>
+            <receive_currency>USD</receive_currency>
+            <receive_amount>10.00</receive_amount>
+            <bank_sequence></bank_sequence>
+            <pay_method></pay_method>
+            <issue_date></issue_date>
+            <bank_ref></bank_ref>
+            <benef_trans_ref>RC000224000133</benef_trans_ref>
+            <bank_comments></bank_comments>
+            <bank_credit_date></bank_credit_date>
+            <bank_clear_date></bank_clear_date>
+        </transaction>
+    </result>
+</response>
+       
+processCashCollectionT ransaction
+Group: transaction
+Method: processCashCollectionTransaction
+Process cash collection transaction as a BIDI agent.
+RemitONE Web Services API Specification 63
+===== PAGE 64 =====
+Name Type Notes
+trans_ref Text Transaction reference number
+collection_pin_number Text Collection pin number
+benef_id_type Text Beneficiary ID Type
+beneficiary_id_no Text Beneficiary ID number
+security_question Text Security question
+security_answer Text Security answer
+Input fields:
+Need to input the trans_ref or/and collection_pin_number depending on the 
+configuration setting.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+    <status>SUCCESS</status>
+    <result>
+        <trans_ref>RC000224000133</trans_ref>
+        <process_result>SUCCESS</process_result>
+        <message></message>
+    </result>
+</response>
+getErrorTransactions
+Group : transaction
+Method : getErrorTransactions
+Input fields :
+Name Type Notes
+from_date Date YYYY-MM-DD
+to_date Date YYYY-MM-DD
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>326</responseId>
+RemitONE Web Services API Specification 64
+===== PAGE 65 =====
+            <status>SUCCESS</status>
+            <result>
+    <count>{$trans_count}</count>
+    <transactions>
+        <transaction>
+<trans_ref>CC123456789</trans_ref>
+<agent_trans_ref></agent_trans_ref>
+<trans_type>CASH_COLLECTION</trans_type>
+<status>ERROR</status>
+<error_date>2016-02-26</error_date>
+<error_reason>Invalid Beneficiary ID</error_reason>
+ <previous_status_before_error>SENT_FOR_PAY</previous_status_before_error>
+<error_user_id>1</error_user_id>
+<error_username>admin</error_username>
+<error_agent_code>123</error_agent_code>
+<error_agent_name>Admin</error_agent_name>
+<remitter_id>10000</remitter_id>
+<remitter_name>John Doe</remitter_name>
+<beneficiary_id>1</beneficiary_id>
+<beneficiary_name>Jane Doe</beneficiary_name>
+<destination_country>China</destination_country>
+<originating_country>France</originating_country>
+<source_currency>EUR</source_currency>
+<source_transfer_amount>42</source_transfer_amount>
+<rate>13.37</rate>
+<destination_currency>CNY</destination_currency>
+<destination_amount>561.54</destination_amount>
+<delivery_date></delivery_date>
+  </transaction>
+    </transactions>
+</result>
+        </response>
+requestCancellation
+Group : transaction
+Method : requestCancellation
+Input fields :
+Name Type Notes
+trans_ref Text Transaction reference
+I.e. 
+RA123451234
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+RemitONE Web Services API Specification 65
+===== PAGE 66 =====
+            <responseId>326</responseId>
+            <status>SUCCESS</status>
+            <result>
+    <trans_ref>RA123451234</trans_ref>
+    <message>Transaction successfully aborted</message>
+</result>
+        </response>
+        
+RemitONE Web Services API Specification 66
+===== PAGE 67 =====
+       
+Receiving Bank/Agent API
+getPayoutTransactions
+Group: transaction
+Method: getPayoutTransactions
+Get all transactions that have been assigned to receiving Bank/Agent for payout. Note: 
+Calling this method does not assign the transactions to the Bank/Agent. The transaction(s)
+must be explicitly accepted by calling the method acceptPayoutTransactions for the 
+transaction(s) to be accepted so that the Bank/Agent can payout the transaction.
+Input fields:
+none (apart from username, password and pin which are required in every invocation).
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<count>1</count>
+<transactions>
+<transaction>
+<trans_ref>RA20079112</trans_ref>
+<status>HQ_OK</status>
+<creation_date>2010-05-07 16:25:12.26266</creation_date>
+<bank_branch_name></bank_branch_name>
+<bank_branch_code></bank_branch_code>
+<bank_accept_date>2010-05-07 
+16:25:12.26266</bank_accept_date>
+<bank_branch_accept_date></bank_branch_accept_date>
+<delivery_date>2010-05-14 00:00:00</delivery_date>
+<processed_date></processed_date>
+<processed_by></processed_by>
+<delivery_date>2010-05-14 00:00:00</delivery_date>
+<trans_type>Account</trans_type>
+<benef_name>
+<![CDATA[HASSAN SYFULLAH]]>
+</benef_name>
+<benef_tel>
+<![CDATA[]]>
+</benef_tel>
+<benef_email>
+<![CDATA[]]>
+</benef_email>
+<collection_point>
+<![CDATA[BOGRA]]>
+</collection_point>
+<collection_point_code>
+RemitONE Web Services API Specification 67
+===== PAGE 68 =====
+<![CDATA[]]>
+</collection_point_code>
+<collection_pin>
+<![CDATA[]]>
+</collection_pin>
+<benef_id_type>
+<![CDATA[NONE]]>
+</benef_id_type>
+<benef_id_detail>
+<![CDATA[]]>
+</benef_id_detail>
+<benef_ac>
+<![CDATA[1234567890]]>
+</benef_ac>
+<benef_bank>
+<![CDATA[PRIME BANK LIMITED]]>
+</benef_bank>
+<benef_bank_swift_code>
+<![CDATA[ABC123]>
+</benef_bank_swift_code>
+<benef_branch>
+<![CDATA[AGRABAD]]>
+</benef_branch>
+<benef_bank_city>
+<![CDATA[CHITTAGONG]]>
+</benef_bank_city>
+<benef_bank_state>
+<![CDATA[CHITTAGONG]]>
+</benef_bank_state>
+<benef_card_number>
+<![CDATA[]]>
+</benef_card_number>
+<benef_address1>
+<![CDATA[BOGRA]]>
+</benef_address1>
+<benef_address2>
+<![CDATA[]]>
+</benef_address2>
+<benef_address3>
+<![CDATA[]]>
+</benef_address3>
+<benef_city>
+<![CDATA[BOGRA]]>
+</benef_city>
+<benef_state>
+<![CDATA[]]>
+</benef_state>
+<benef_postcode>
+<![CDATA[]]>
+</benef_postcode>
+<benef_mobiletransfer_number>
+<![CDATA[01234567]]>
+</benef_mobiletransfer_number>
+<benef_mobiletransfer_network>
+<![CDATA[mobileNetwork]]>
+</benef_mobiletransfer_network>
+<delivery_notes>
+<![CDATA[]]>
+</delivery_notes>
+RemitONE Web Services API Specification 68
+===== PAGE 69 =====
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+<remitter_name>
+<![CDATA[ALI IMAN]]>
+</remitter_name>
+<remitter_id>1210</remitter_id>
+<remitter_address>
+<![CDATA[#123, 10 TEMASEK STREET, SINGAPORE, 
+SINGAPORE]]>
+</remitter_address>
+        <remitter_city><![CDATA[]]></remitter_city>
+    <remitter_state><![CDATA[]]></remitter_state>
+        <remitter_type><![CDATA[]]></remitter_type>
+<remitter_orgtype><![CDATA[]]></remitter_orgtype>
+<remitter_gender><![CDATA[]]></remitter_gender>
+<remitter_occupation><![CDATA[]]></remitter_occupation>
+<remitter_id1_type><![CDATA[]]></remitter_id1_type>
+<remitter_id1_details><!
+[CDATA[]]></remitter_id1_details>
+<remitter_id1_issue_place><!
+[CDATA[]]></remitter_id1_issue_place>
+<remitter_id1_expiry><![CDATA[]]></remitter_id1_expiry>
+    <remitter_nationality><!
+[CDATA[]]></remitter_nationality>
+<remitter_dob></remitter_dob>
+<remitter_tel>
+<![CDATA[]]>
+</remitter_tel>
+<remitter_mobile>
+<![CDATA[]]>
+</remitter_mobile>
+<send_country>SG</send_country>
+<send_currency>SGD</send_currency>
+<send_amount>85.00</send_amount>
+<rate>49.2800</rate>
+<commission>5.00</commission>
+<fees>0</fees>
+<paid>90.00</paid>
+<receive_country>BD</receive_country>
+<receive_currency>BDT</receive_currency>
+<receive_amount>4188.80</receive_amount>
+<bank_sequence>82</bank_sequence>
+<pay_method></pay_method>
+<issue_date></issue_date>
+<bank_ref></bank_ref>
+<bank_comments></bank_comments>
+<bank_credit_date></bank_credit_date>
+<bank_clear_date></bank_clear_date>
+</transaction>
+</transactions>
+</result>
+</response>
+       
+RemitONE Web Services API Specification 69
+===== PAGE 70 =====
+getPayoutTransactionDetails
+Group: transaction
+Method: getPayoutTransactionDetails
+Get details of a single transaction that has been allocated to Bank/Agent for payout.
+Input fields:
+Name Type Notes
+trans_ref * Text
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<transaction>
+<trans_ref>RA20079127</trans_ref>
+<status>HQ_OK</status>
+<creation_date>2010-05-11 10:28:02.244553</creation_date>
+<bank_branch_name></bank_branch_name>
+<bank_branch_code></bank_branch_code>
+<bank_accept_date>2010-05-11 
+10:28:35.435216</bank_accept_date>
+<bank_branch_accept_date></bank_branch_accept_date>
+<delivery_date>2010-05-18 00:00:00</delivery_date>
+<processed_date></processed_date>
+<processed_by></processed_by>
+<delivery_date>2010-05-18 00:00:00</delivery_date>
+<trans_type>Account</trans_type>
+<benef_name>
+<![CDATA[ZIAD HASSAN SYFULLAH]]>
+</benef_name>
+<benef_tel>
+<![CDATA[]]>
+</benef_tel>
+<benef_email>
+<![CDATA[]]>
+</benef_email>
+<collection_point>
+<![CDATA[BOGRA]]>
+</collection_point>
+<collection_point_code>
+<![CDATA[]]>
+</collection_point_code>
+<collection_pin>
+<![CDATA[]]>
+</collection_pin>
+<benef_id_type>
+<![CDATA[NONE]]>
+</benef_id_type>
+<benef_id_detail>
+<![CDATA[]]>
+RemitONE Web Services API Specification 70
+===== PAGE 71 =====
+</benef_id_detail>
+<benef_ac>
+<![CDATA[1234567890]]>
+</benef_ac>
+<benef_bank>
+<![CDATA[PRIME BANK LIMITED]]>
+</benef_bank>
+<benef_bank_swift_code>
+<![CDATA[ABC123]>
+</benef_bank_swift_code>
+<benef_branch>
+<![CDATA[AGRABAD]]>
+</benef_branch>
+<benef_bank_city>
+<![CDATA[CHITTAGONG]]>
+</benef_bank_city>
+<benef_bank_state>
+<![CDATA[CHITTAGONG]]>
+</benef_bank_state>
+<benef_card_number>
+<![CDATA[]]>
+</benef_card_number>
+<benef_address1>
+<![CDATA[BOGRA]]>
+</benef_address1>
+<benef_address2>
+<![CDATA[]]>
+</benef_address2>
+<benef_address3>
+<![CDATA[]]>
+</benef_address3>
+<benef_city>
+<![CDATA[BOGRA]]>
+</benef_city>
+<benef_state>
+<![CDATA[]]>
+</benef_state>
+<benef_postcode>
+<![CDATA[]]>
+</benef_postcode>
+<benef_mobiletransfer_number>
+<![CDATA[01234567]]>
+</benef_mobiletransfer_number>
+<benef_mobiletransfer_network>
+<![CDATA[mobileNetwork]]>
+</benef_mobiletransfer_network>
+<delivery_notes>
+<![CDATA[]]>
+</delivery_notes>
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+<remitter_name>
+<![CDATA[ALI IMAN]]>
+</remitter_name>
+<remitter_id>1210</remitter_id>
+RemitONE Web Services API Specification 71
+===== PAGE 72 =====
+<remitter_address>
+<![CDATA[#123, 10 TEMASEK STREET, SINGAPORE, 
+SINGAPORE]]>
+</remitter_address>
+        <remitter_city><![CDATA[]]></remitter_city>
+    <remitter_state><![CDATA[]]></remitter_state>
+        <remitter_type><![CDATA[]]></remitter_type>
+<remitter_orgtype><![CDATA[]]></remitter_orgtype>
+<remitter_gender><![CDATA[]]></remitter_gender>
+<remitter_occupation><![CDATA[]]></remitter_occupation>
+<remitter_id1_type><![CDATA[]]></remitter_id1_type>
+<remitter_id1_details><![CDATA[]]></remitter_id1_details>
+<remitter_id1_issue_place><!
+[CDATA[]]></remitter_id1_issue_place>
+<remitter_id1_expiry><![CDATA[]]></remitter_id1_expiry>
+    <remitter_nationality><![CDATA[]]></remitter_nationality>
+<remitter_dob></remitter_dob>
+<remitter_tel>
+<![CDATA[]]>
+</remitter_tel>
+<remitter_mobile>
+<![CDATA[]]>
+</remitter_mobile>
+<send_country>SG</send_country>
+<send_currency>SGD</send_currency>
+<send_amount>157.57</send_amount>
+<rate>49.2800</rate>
+<commission>5.00</commission>
+<fees>0</fees>
+<paid>162.57</paid>
+<receive_country>BD</receive_country>
+<receive_currency>BDT</receive_currency>
+<receive_amount>7765.05</receive_amount>
+<bank_sequence>2929</bank_sequence>
+<pay_method></pay_method>
+<issue_date></issue_date>
+<bank_ref></bank_ref>
+        <benef_trans_ref>GHT33762634</benef_trans_ref>
+<bank_comments></bank_comments>
+<bank_credit_date></bank_credit_date>
+<bank_clear_date></bank_clear_date>
+</transaction>
+</result>
+</response>
+       
+acceptPayoutTransactions
+Group: transaction
+Method: acceptPayoutTransactions
+Accept transaction(s) so that the Bank/Agent can pay them out to beneficiaries.
+Input fields:
+RemitONE Web Services API Specification 72
+===== PAGE 73 =====
+Name Type Notes
+trans_ref * Text Multiple transactions can be 
+accepted in one call by providing 
+the transaction references of all 
+the transactions separated by 
+commas.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<total_count>2</total_count>
+<success_count>2</success_count>
+<failed_count>0</failed_count>
+<transactions>
+<transaction>
+<trans_ref>RA20079112</trans_ref>
+<operation_result>SUCCESS</operation_result>
+<message></message>
+</transaction>
+<transaction>
+<trans_ref>RA20079121</trans_ref>
+<operation_result>SUCCESS</operation_result>
+<message></message>
+</transaction>
+</transactions>
+</result>
+</response>
+       
+getCashCollectionTransactionDetails
+Group: transaction
+Method: getCashCollectionTransactionDetails
+Look up for cash collection transaction as a BIDI agent.
+Name Type Notes
+trans_ref Text Transaction reference number
+collection_pin_number Text Collection pin number
+security_question Text Security question
+security_answer Text Security answer
+RemitONE Web Services API Specification 73
+===== PAGE 74 =====
+Input fields:
+Need to input the trans_ref or/and collection_pin_number depending on the configuration 
+setting.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+    <status>SUCCESS</status>
+    <result>
+        <transaction>
+            <trans_ref>RC000224000133</trans_ref>
+            <status>HQ_OK</status>
+            <creation_date>2014-09-19 10:41:40.755687+00</creation_date>
+            <purpose>FAMILY SUPPORT</purpose>
+            <bank_branch_name></bank_branch_name>
+            <bank_branch_code></bank_branch_code>
+            <bank_accept_date></bank_accept_date>
+            <bank_branch_accept_date></bank_branch_accept_date>
+            <delivery_date>2014-09-22 10:41:00+00</delivery_date>
+            <processed_date></processed_date>
+            <processed_by></processed_by>
+            <delivery_date>2014-09-22 10:41:00+00</delivery_date>
+            <trans_type>Cash Collection</trans_type>
+            <benef_name>
+                <![CDATA[MUM AND DAD]]>
+</benef_name>
+            <benef_tel>
+                <![CDATA[45124897217421]]>
+</benef_tel>
+            <benef_mobile>
+                <![CDATA[]]>
+</benef_mobile>
+            <benef_email>
+                <![CDATA[hani.safa@remitone.com]]>
+</benef_email>
+            <collection_point>
+                <![CDATA[COLLECTION POINT  UK]]>
+</collection_point>
+            <collection_point_bank>
+                <![CDATA[DELIVERY BANK UK]]>
+</collection_point_bank>
+            <collection_point_code>
+                <![CDATA[]]>
+</collection_point_code>
+            <collection_pin>
+                <![CDATA[1497974]]>
+</collection_pin>
+            <benef_id_type>
+                <![CDATA[NONE]]>
+</benef_id_type>
+            <benef_id_detail>
+                <![CDATA[]]>
+</benef_id_detail>
+            <benef_ac>
+RemitONE Web Services API Specification 74
+===== PAGE 75 =====
+                <![CDATA[]]>
+</benef_ac>
+            <benef_bank_swift_code>
+                <![CDATA[]]>
+</benef_bank_swift_code>
+            <benef_bank>
+                <![CDATA[]]>
+</benef_bank>
+            <benef_branch>
+                <![CDATA[]]>
+</benef_branch>
+            <benef_branch_code>
+                <![CDATA[]]>
+</benef_branch_code>
+            <benef_bank_city>
+                <![CDATA[]]>
+</benef_bank_city>
+            <benef_bank_state>
+                <![CDATA[]]>
+</benef_bank_state>
+            <benef_card_number>
+                <![CDATA[]]>
+</benef_card_number>
+            <benef_address1>
+                <![CDATA[]]>
+</benef_address1>
+            <benef_address2>
+                <![CDATA[]]>
+</benef_address2>
+            <benef_address3>
+                <![CDATA[]]>
+</benef_address3>
+            <benef_city>
+                <![CDATA[]]>
+</benef_city>
+            <benef_state>
+                <![CDATA[WALTHAMSTOW]]>
+</benef_state>
+            <benef_postcode>
+                <![CDATA[E17]]>
+</benef_postcode>
+            <benef_mobiletransfer_number>
+                <![CDATA[]]>
+</benef_mobiletransfer_number>
+            <benef_mobiletransfer_network>
+                <![CDATA[]]>
+</benef_mobiletransfer_network>
+            <delivery_notes>
+                <![CDATA[]]>
+</delivery_notes>
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+            <remitter_name>
+RemitONE Web Services API Specification 75
+===== PAGE 76 =====
+                <![CDATA[HANI SAFA]]>
+</remitter_name>
+            <send_country>UK-USD</send_country>
+            <send_currency>USD</send_currency>
+            <send_amount>10.00</send_amount>
+            <rate>1.00000000</rate>
+            <receive_country>UK-USD</receive_country>
+            <receive_currency>USD</receive_currency>
+            <receive_amount>10.00</receive_amount>
+            <bank_sequence></bank_sequence>
+            <pay_method></pay_method>
+            <issue_date></issue_date>
+            <bank_ref></bank_ref>
+            <benef_trans_ref>RC000224000133</benef_trans_ref>
+            <bank_comments></bank_comments>
+            <bank_credit_date></bank_credit_date>
+            <bank_clear_date></bank_clear_date>
+        </transaction>
+    </result>
+</response>
+getPendingPayoutTransactions
+Group: transaction
+Method: getPendingPayoutTransactions
+Get all transactions that are to be paid to beneficiaries by the Bank/Agent. So these are 
+transactions that were allocated to the Bank/Agent and the Bank/Agent explicitly accepted
+them.
+Input fields:
+none (apart from username, password and pin which are required in every invocation).
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<count>1</count>
+<transactions>
+<transaction>
+<trans_ref>RT20278150</trans_ref>
+<status>SENT_FOR_DELIVERY</status>
+<creation_date>2010-03-21 
+17:09:13.622815</creation_date>
+<bank_branch_name>DAULATPUR</bank_branch_name>
+<bank_branch_code>47-1170</bank_branch_code>
+<bank_accept_date>2010-03-21 
+RemitONE Web Services API Specification 76
+===== PAGE 77 =====
+17:39:48.760175</bank_accept_date>
+<bank_branch_accept_date></bank_branch_accept_date>
+<delivery_date>2010-03-21 00:00:00</delivery_date>
+<processed_date></processed_date>
+<processed_by></processed_by>
+<delivery_date>2010-03-21 00:00:00</delivery_date>
+<trans_type>Cash Collection</trans_type>
+<benef_name>
+<![CDATA[MD SAIFUL ISLAM]]>
+</benef_name>
+<benef_tel>
+<![CDATA[08215112686]]>
+</benef_tel>
+<benef_email>
+<![CDATA[]]>
+</benef_email>
+<collection_point>
+<![CDATA[DAULATPUR, PUBALI]]>
+</collection_point>
+<collection_point_code>
+<![CDATA[47-1170]]>
+</collection_point_code>
+<collection_pin>
+<![CDATA[12345678]]>
+</collection_pin>
+<benef_id_type>
+<![CDATA[NATIONAL_ID]]>
+</benef_id_type>
+<benef_id_detail>
+<![CDATA[]]>
+</benef_id_detail>
+<benef_ac>
+<![CDATA[]]>
+</benef_ac>
+<benef_bank>
+<![CDATA[PUBALI BANK LIMITED]]>
+</benef_bank>
+<benef_bank_swift_code>
+<![CDATA[ABC123]>
+</benef_bank_swift_code>
+<benef_branch>
+<![CDATA[DAULATPUR]]>
+</benef_branch>
+<benef_bank_city>
+<![CDATA[MANIKGONJ]]>
+</benef_bank_city>
+<benef_bank_state>
+<![CDATA[MANIKGONJ]]>
+</benef_bank_state>
+<benef_card_number>
+<![CDATA[]]>
+</benef_card_number>
+<benef_address1>
+<![CDATA[MANIKGONJ]]>
+</benef_address1>
+<benef_address2>
+<![CDATA[]]>
+</benef_address2>
+<benef_address3>
+RemitONE Web Services API Specification 77
+===== PAGE 78 =====
+<![CDATA[]]>
+</benef_address3>
+<benef_city>
+<![CDATA[MANIKGONJ]]>
+</benef_city>
+<benef_state>
+<![CDATA[]]>
+</benef_state>
+<benef_postcode>
+<![CDATA[]]>
+</benef_postcode>
+<benef_mobiletransfer_number>
+<![CDATA[01234567]]>
+</benef_mobiletransfer_number>
+<benef_mobiletransfer_network>
+<![CDATA[mobileNetwork]]>
+</benef_mobiletransfer_network>
+<delivery_notes>
+<![CDATA[]]>
+</delivery_notes>
+<utility_company><![CDATA[]]></utility_company>
+<utility_account_no><![CDATA[]]></utility_account_no>
+<utility_invoice><![CDATA[]]></utility_invoice>
+<utility_bank><![CDATA[]]></utility_bank>
+<utility_bank_code><![CDATA[]]></utility_bank_code>
+<utility_description><![CDATA[]]></utility_description>
+<remitter_name>
+<![CDATA[ALI IMAN]]>
+</remitter_name>
+<remitter_id>1210</remitter_id>
+<remitter_address>
+<![CDATA[#123, 10 TEMASEK STREET, SINGAPORE, 
+SINGAPORE]]>
+</remitter_address>
+        <remitter_city><![CDATA[]]></remitter_city>
+    <remitter_state><![CDATA[]]></remitter_state>
+        <remitter_type><![CDATA[]]></remitter_type>
+<remitter_orgtype><![CDATA[]]></remitter_orgtype>
+<remitter_gender><![CDATA[]]></remitter_gender>
+<remitter_occupation><![CDATA[]]></remitter_occupation>
+<remitter_id1_type><![CDATA[]]></remitter_id1_type>
+<remitter_id1_details><!
+[CDATA[]]></remitter_id1_details>
+<remitter_id1_issue_place><!
+[CDATA[]]></remitter_id1_issue_place>
+<remitter_id1_expiry><![CDATA[]]></remitter_id1_expiry>
+    <remitter_nationality><!
+[CDATA[]]></remitter_nationality>
+<remitter_dob></remitter_dob>
+<remitter_tel>
+<![CDATA[98012322]]>
+</remitter_tel>
+<remitter_mobile>
+<![CDATA[]]>
+</remitter_mobile>
+<send_country>SG</send_country>
+<send_currency>SGD</send_currency>
+<send_amount>345.00</send_amount>
+<rate>49.4000</rate>
+RemitONE Web Services API Specification 78
+===== PAGE 79 =====
+<commission>5.00</commission>
+<fees>0</fees>
+<paid>350.00</paid>
+<receive_country>BD</receive_country>
+<receive_currency>BDT</receive_currency>
+<receive_amount>17043.00</receive_amount>
+<bank_sequence>65</bank_sequence>
+<pay_method></pay_method>
+<issue_date></issue_date>
+<bank_ref></bank_ref>
+<bank_comments></bank_comments>
+<bank_credit_date></bank_credit_date>
+<bank_clear_date></bank_clear_date>
+</transaction>
+</transactions>
+</result>
+</response>
+       
+processPayoutTransaction
+Group: transaction
+Method: processPayoutTransaction
+Inform the RemitONE system that a transaction that was accepted by the Bank/Agent for 
+payout has paid out and should be marked as processed with the details provided.
+Input fields:
+Name Type Notes
+trans_ref * Text
+pay_method * Text How the transaction was paid 
+out.
+bank_credit_date Date YYYY-MM-DD
+bank_clear_date Date YYYY-MM-DD
+po_clear_date Date YYYY-MM-DD
+benef_id_type Text The type of ID the beneficiary 
+provided at payout (if applicable)
+benef_id_details Text The details of the ID provided at 
+payout.
+issue_date Date YYYY-MM-DD
+bank_ref Text
+bank_comments Text
+RemitONE Web Services API Specification 79
+===== PAGE 80 =====
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<trans_ref>RA20079121</trans_ref>
+<process_result>SUCCESS</process_result>
+<message></message>
+</result>
+</response>
+       
+errorPayoutTransaction
+Group: transaction
+Method: errorPayoutTransaction
+Inform the RemitONE system that there is something wrong with this transaction that 
+prevents the Bank/Agent being able to payout the transaction so it should be marked as 
+ERROR.
+Input fields:
+Name Type Notes
+trans_ref * Text
+error_reason * Text The overall reason for error.
+error_details Text Details of the error.
+Example Output XML :
+<?xml version="1.0" encoding="utf-8"?>
+<response>
+<status>SUCCESS</status>
+<result>
+<trans_ref>RA20079084</trans_ref>
+<error_result>SUCCESS</error_result>
+</result>
+</response>
+       
+RemitONE Web Services API Specification 80
+===== PAGE 81 =====
+getErrorTransactions
+Group : transaction
+Method : getErrorTransactions
+Input fields :
+Name Type Notes
+from_date Date YYYY-MM-DD
+to_date Date YYYY-MM-DD
+Example Output XML :
+        <?xml version="1.0" encoding="utf-8"?>
+        <response>
+            <responseId>326</responseId>
+            <status>SUCCESS</status>
+            <result>
+    <count>{$trans_count}</count>
+    <transactions>
+        <transaction>
+<trans_ref>CC123456789</trans_ref>
+<agent_trans_ref></agent_trans_ref>
+<trans_type>CASH_COLLECTION</trans_type>
+<status>ERROR</status>
+<error_date>2016-02-26</error_date>
+<error_reason>Invalid Beneficiary ID</error_reason>
+ <previous_status_before_error>SENT_FOR_PAY</previous_status_before_error>
+<error_user_id>1</error_user_id>
+<error_username>admin</error_username>
+<error_agent_code>123</error_agent_code>
+<error_agent_name>Admin</error_agent_name>
+<remitter_id>10000</remitter_id>
+<remitter_name>John Doe</remitter_name>
+<beneficiary_id>1</beneficiary_id>
+<beneficiary_name>Jane Doe</beneficiary_name>
+<destination_country>China</destination_country>
+<originating_country>France</originating_country>
+<source_currency>EUR</source_currency>
+<source_transfer_amount>42</source_transfer_amount>
+<rate>13.37</rate>
+<destination_currency>CNY</destination_currency>
+<destination_amount>561.54</destination_amount>
+<delivery_date></delivery_date>
+  </transaction>
+    </transactions>
+</result>
+        </response>
+RemitONE Web Services API Specification 81
+===== PAGE 82 =====
+RemitONE Web Services API Specification 82
+===== PAGE 83 =====
+3.Testing Web Services Functionality
+It is possible to test the output of the WebServices if the system is in debugging mode.
+The URL for accessing forms for each of the WebServices is :
+SYSTEM_URL/wstest/index.html
+For example, https://www.remitone.com/wstest/index.html
+You can enter values for each of the WebService Forms and the result will be presented 
+back as neatly formatted HTML.
+If the system is in live mode, then the result will be returned as pure XML, and hence you 
+can still use the 'View Source' option in the Web Browser to see the XML that is returned.
+Using Web Services in a Live Environment: Some suggestions
+Sending Agent API
+Although it is possible to use the WebServices  in any way that seems fit, we would 
+suggest the following procedure.
+1. Obtain a list of valid Destination Countries using getDestinationCountries. This 
+can be done on a weekly or monthly basis.
+2. Obtain the current Agent Credit level using getCurrentCredit. The credit response
+will also indicate the source currency that the system is expecting transactions to 
+be created in.
+3. Create a new remitter using createRemitter, or search for an existing one using 
+searchRemitter.
+4. Create a new beneficiary using createBeneficiary, or search for an existing one 
+using searchBeneficiary.
+5. Create a transaction between this remitter and beneficiary by calling 
+createTransaction.
+6. Receive a transaction creation response containing the actual charges as calculated 
+by the system, compliance check results, and a temporary transaction session id. It 
+is the responsibility of the user to examine these results.
+7. Once the user is satisfied with the results, call confirmTransaction and provide 
+the temporary transaction session id from step 6 above to actually create the 
+transaction in the system.
+8. At some later time, getTransactionStatus or 
+getTransactionStatusByAgentTranRef can be used to determine whether the 
+transaction has been processed.
+RemitONE Web Services API Specification 83
+===== PAGE 84 =====
+Receiving Agent API
+In general, we suggest the following procedure :
+1. Call getPayoutTransactions to get a list of transactions that need to be paid out 
+by your Processing Bank.
+2. Call acceptPayoutTransactions to 'accept' the transactions that you agree to 
+payout. This will bring the status of the transactions to SENT_FOR_PAY or 
+SENT_FOR_DELIVERY.
+3. From your own systems, payout the transactions to the beneficiaries.
+4. For each transaction that is paid out, call processPayoutTransaction.
+5. If there is an error in processing a transaction call errorPayoutTransaction. 
+These transactions will then need to be corrected by Admin and then passed back 
+for payout.
+RemitONE Web Services API Specification 84
+===== PAGE 85 =====
+Appendix A : Destination Country ISO Codes
+                Name                          | ISO code | Currency 
+ Afghanistan                                  | AF       | AFA 
+ Albania                                      | AL       | ALL 
+ Algeria                                      | DZ       | DZD
+ American Samoa                               | AS       | 
+ Andorra                                      | AD       | ADP 
+ Angola                                       | AO       | AON 
+ Anguilla                                     | AI       | 
+ Antarctica                                   | AQ       | 
+ Antigua and Barbuda                          | AG       | 
+ Argentina                                    | AR       | ARS
+ Armenia                                      | AM       | AMD
+ Aruba                                        | AW       | AWG 
+ Australia                                    | AU       | AUD
+ Austria                                      | AT       | EUR 
+ Azerbaijan                                   | AZ       | AZN
+ Bahamas                                      | BS       | BSD 
+ Bahrain                                      | BH       | BHD
+ Bangladesh                                   | BD       | BDT
+ Barbados                                     | BB       | BBD
+ Belarus                                      | BY       | BYR
+ Belgium                                      | BE       | EUR 
+ Belize                                       | BZ       | BZD 
+ Benin                                        | BJ       | 
+ Bermuda                                      | BM       | BMD
+ Bhutan                                       | BT       | BTN 
+ Bolivia                                      | BO       | BOB 
+ Bosnia and Herzegovina                       | BA       | BAM
+ Botswana                                     | BW       | BWP 
+ Bouvet Island                                | BV       | 
+ Brazil                                       | BR       | BRE 
+ British Indian Ocean Territory               | IO       | 
+ Brunei Darussalam                            | BN       | BND 
+RemitONE Web Services API Specification 85
+===== PAGE 86 =====
+ Bulgaria                                     | BG       | BGL 
+ Burkina Faso                                 | BF       | 
+ Burundi                                      | BI       | BIF 
+ Cambodia                                     | KH       | KHR
+ Cameroon                                     | CM       | XAF
+ Canada                                       | CA       | CAD 
+ Cape Verde                                   | CV       | CVE 
+ Cayman Islands                               | KY       | KYD 
+ Central African Republic                     | CF       | XAF
+ Chad                                         | TD       | XAF
+ Chile                                        | CL       | CLF
+ China                                        | CN       | CNY 
+ Christmas Island                             | CX       | 
+ Cocos (Keeling) Islands                      | CC       | 
+ Colombia                                     | CO       | COP
+ Comoros                                      | KM       | 
+ Congo                                        | CG       | 
+ Congo, the Democratic Republic of the        | CD       | 
+ Cook Islands                                 | CK       | 
+ Costa Rica                                   | CR       | CRC 
+ Cote D_Ivoire                                | CI       | 
+ Croatia                                      | HR       | HRK
+ Cuba                                         | CU       | CUP 
+ Cyprus                                       | CY       | CYP
+ Czech Republic                               | CZ       | CZK
+ Denmark                                      | DK       | DKK
+ Djibouti                                     | DJ       | DJF 
+ Dominica                                     | DM       | 
+ Dominican Republic                           | DO       | DOP
+ Ecuador                                      | EC       | ECS 
+ Egypt                                        | EG       | EGP
+ El Salvador                                  | SV       | SVC 
+ Equatorial Guinea                            | GQ       | 
+ Eritrea                                      | ER       | 
+ Estonia                                      | EE       | EEK
+ Ethiopia                                     | ET       | ETB
+RemitONE Web Services API Specification 86
+===== PAGE 87 =====
+ Falkland Islands (Malvinas)                  | FK       | 
+ Faroe Islands                                | FO       | 
+ Fiji                                         | FJ       | FJD 
+ Finland                                      | FI       | EUR
+ France                                       | FR       | EUR
+ French Guiana                                | GF       | 
+ French Polynesia                             | PF       | 
+ French Southern Territories                  | TF       | 
+ Gabon                                        | GA       | 
+ Gambia                                       | GM       | GMD 
+ Georgia                                      | GE       | 
+ Germany                                      | DE       | EUR 
+ Ghana                                        | GH       | GHC 
+ Gibraltar                                    | GI       | GIP 
+ Greece                                       | GR       | GRD 
+ Greenland                                    | GL       | 
+ Grenada                                      | GD       | 
+ Guadeloupe                                   | GP       | 
+ Guam                                         | GU       | 
+ Guatemala                                    | GT       | GTQ
+ Guinea                                       | GN       | GNF
+ Guinea-Bissau                                | GW       | GWP
+ Guyana                                       | GY       | GYD 
+ Haiti                                        | HT       | HTG 
+ Heard Island and Mcdonald Islands            | HM       | 
+ Holy See (Vatican City State)                | VA       | 
+ Honduras                                     | HN       | HNL 
+ Hong Kong                                    | HK       | HKD
+ Hungary                                      | HU       | HUF 
+ Iceland                                      | IS       | ISK 
+ India                                        | IN       | INR 
+ Indonesia                                    | ID       | IDR 
+ Iran, Islamic Republic of                    | IR       | 
+ Iraq                                         | IQ       | IQD 
+ Ireland                                      | IE       | EUR 
+ Israel                                       | IL       | ILS
+RemitONE Web Services API Specification 87
+===== PAGE 88 =====
+ Italy                                        | IT       | EUR 
+ Jamaica                                      | JM       | JMD
+ Japan                                        | JP       | JPY 
+ Jordan                                       | JO       | JOD 
+ Kazakhstan                                   | KZ       | 
+ Kenya                                        | KE       | KES 
+ Kiribati                                     | KI       | 
+ Korea, Democratic People's Republic of       | KP       | 
+ Korea, Republic of                           | KR       | 
+ Kuwait                                       | KW       | KWD 
+ Kyrgyzstan                                   | KG       | 
+ Lao People's Democratic Republic             | LA       | 
+ Latvia                                       | LV       | 
+ Lebanon                                      | LB       | LBP
+ Lesotho                                      | LS       | LSL 
+ Liberia                                      | LR       | LRD 
+ Libyan Arab Jamahiriya                       | LY       | LYD
+ Liechtenstein                                | LI       | 
+ Lithuania                                    | LT       | 
+ Luxembourg                                   | LU       | EUR 
+ Macao                                        | MO       | 
+ Macedonia, the Former Yugoslav Republic of   | MK       | 
+ Madagascar                                   | MG       | MGF
+ Malawi                                       | MW       | MWK 
+ Malaysia                                     | MY       | MYR
+ Maldives                                     | MV       | 
+ Mali                                         | ML       | 
+ Malta                                        | MT       | MTL 
+ Marshall Islands                             | MH       | 
+ Martinique                                   | MQ       | 
+ Mauritania                                   | MR       | MRO 
+ Mauritius                                    | MU       | MUR 
+ Mayotte                                      | YT       | 
+ Mexico                                       | MX       | MXP 
+ Micronesia, Federated States of              | FM       | 
+ Moldova, Republic of                         | MD       | 
+RemitONE Web Services API Specification 88
+===== PAGE 89 =====
+ Monaco                                       | MC       | 
+ Mongolia                                     | MN       | MNT 
+ Montserrat                                   | MS       | 
+ Morocco                                      | MA       | MAD
+ Mozambique                                   | MZ       | MZN 
+ Myanmar                                      | MM       | 
+ Namibia                                      | NA       | 
+ Nauru                                        | NR       | 
+ Nepal                                        | NP       | NPR
+ Netherlands                                  | NL       | EUR 
+ Netherlands Antilles                         | AN       | ANG 
+ New Caledonia                                | NC       | 
+ New Zealand                                  | NZ       | NZD
+ Nicaragua                                    | NI       | NIO 
+ Niger                                        | NE       | 
+ Nigeria                                      | NG       | NGN 
+ Niue                                         | NU       | 
+ Norfolk Island                               | NF       | 
+ Northern Mariana Islands                     | MP       | 
+ Norway                                       | NO       | NOK 
+ Oman                                         | OM       | OMR
+ Pakistan                                     | PK       | PKR 
+ Palau                                        | PW       | 
+ Palestinian Territory, Occupied              | PS       | 
+ Panama                                       | PA       | PAB 
+ Papua New Guinea                             | PG       | PGK 
+ Paraguay                                     | PY       | PYG
+ Peru                                         | PE       | PEN 
+ Philippines                                  | PH       | PHP
+ Pitcairn                                     | PN       | 
+ Poland                                       | PL       | PLZ 
+ Portugal                                     | PT       | EUR 
+ Puerto Rico                                  | PR       | 
+ Qatar                                        | QA       | QAR
+ Reunion                                      | RE       | 
+ Romania                                      | RO       | ROL 
+RemitONE Web Services API Specification 89
+===== PAGE 90 =====
+ Russian Federation                           | RU       | 
+ Rwanda                                       | RW       | RWF 
+ Saint Helena                                 | SH       | 
+ Saint Kitts and Nevis                        | KN       | 
+ Saint Lucia                                  | LC       | 
+ Saint Pierre and Miquelon                    | PM       | 
+ Saint Vincent and the Grenadines             | VC       | 
+ Samoa                                        | WS       | WST 
+ San Marino                                   | SM       | 
+ Sao Tome and Principe                        | ST       | 
+ Saudi Arabia                                 | SA       | SAR 
+ Senegal                                      | SN       | 
+ Serbia and Montenegro                        | CS       | 
+ Seychelles                                   | SC       | SCR 
+ Sierra Leone                                 | SL       | SLL
+ Singapore                                    | SG       | SGD
+ Slovakia                                     | SK       | 
+ Slovenia                                     | SI       | 
+ Solomon Islands                              | SB       | SBD 
+ Somalia                                      | SO       | SOS 
+ South Africa                                 | ZA       | ZAR 
+ South Georgia and the South Sandwich Islands | GS       | 
+ Spain                                        | ES       | EUR
+ Sri Lanka                                    | LK       | LKR 
+ Sudan                                        | SD       | SDP
+ Suriname                                     | SR       | 
+ Svalbard and Jan Mayen                       | SJ       | 
+ Swaziland                                    | SZ       | SZL
+ Sweden                                       | SE       | SEK 
+ Switzerland                                  | CH       | CHF 
+ Syrian Arab Republic                         | SY       | 
+ Taiwan, Province of China                    | TW       | 
+ Tajikistan                                   | TJ       | 
+ Tanzania, United Republic of                 | TZ       | 
+ Thailand                                     | TH       | THB
+ Timor-Leste                                  | TL       | 
+RemitONE Web Services API Specification 90
+===== PAGE 91 =====
+ Togo                                         | TG       | 
+ Tokelau                                      | TK       | 
+ Tonga                                        | TO       | TOP
+ Trinidad and Tobago                          | TT       | TTD 
+ Tunisia                                      | TN       | TND 
+ Turkey                                       | TR       | TRL 
+ Turkmenistan                                 | TM       | 
+ Turks and Caicos Islands                     | TC       | 
+ Tuvalu                                       | TV       | 
+ Uganda                                       | UG       | UGX
+ Ukraine                                      | UA       | 
+ United Arab Emirates                         | AE       | AED
+ United Kingdom                               | GB       | GBP
+ United States                                | US       | USD
+ United States Minor Outlying Islands         | UM       | 
+ Uruguay                                      | UY       | UYP 
+ Uzbekistan                                   | UZ       | 
+ Vanuatu                                      | VU       | VUV 
+ Venezuela                                    | VE       | VEB
+ Vietnam                                      | VN       | 
+ Virgin Islands, British                      | VG       | 
+ Virgin Islands, U.s.                         | VI       | 
+ Wallis and Futuna                            | WF       | 
+ Western Sahara                               | EH       | 
+ Yemen                                        | YE       | YER
+ Zambia                                       | ZM       | ZMK
+ Zimbabwe                                     | ZW       | ZWD
+RemitONE Web Services API Specification 91
+===== PAGE 92 =====
+Appendix B : Remitter ID Type Codes
+Code Description
+Passport Passport
+Driving_License Driving License
+National_Insurance National Insurance No.
+National_ID National ID
+Utility_Bill Utility Bill
+Other Other
+Appendix C : Beneficiary ID Type Codes
+Code Description
+PASSPORT Passport
+CHEQUEBOOK Cheque Book
+DRIVINGLICENSE Driving License
+NATIONALID National ID
+VOTINGCARD Voting Card
+OTHER Other form of ID
+Appendix D : Payment Method Codes
+Code Description
+1 Cash
+2 Cheque
+3 Bank Transfer
+RemitONE Web Services API Specification 92
+===== PAGE 93 =====
+Note: These codes may vary – please confirm with your Administrator
+Appendix E : Service Level (Delivery Speed) Codes
+Code Description
+1 5 Days
+2 Next Day
+3 Immediate
+Note: These codes may vary – please confirm with your Administrator
+Appendix F : Source of Income Codes
+Code Description
+1 Salary
+2 Business
+3 Return on Investment
+4 Gift
+5 Pension
+Note: These codes may vary – please confirm with your Administrator
+Appendix G : Remittance Purpose Codes
+Code Description
+1 Family Support
+2 Medical Support
+3 Education Support
+4 Investment
+5 Charity
+RemitONE Web Services API Specification 93
+===== PAGE 94 =====
+Appendix H : Transaction Statuses
+Status Description
+PENDING_CLEARANCE Transaction has been created in the system but the remitter has 
+not paid for transaction. Awaiting payment before transaction will 
+be ready for processing.
+ENTERED Transaction awaiting approval by sending agent before 
+processing. 
+AGENT_OK Transaction awaiting HQ approval or routing before processing.
+HQ_READY Transaction has been approved by HQ and will be sent to 
+processing bank/agent in the next batch. This only applies if you 
+are using batch processing.
+HQ_OK Transaction awaiting processing bank/agent approval before ready
+for processing.
+HQ_OK_PAID Transaction awaiting processing bank/agent approval before ready
+for processing but transaction has been credited to processing 
+bank/agent already. This status only applies in error correction 
+scenarios.
+SENT_FOR_PAY Transaction ready to be paid out by processing bank/agent.
+SENT_FOR_DELIVERY Transaction ready to be paid out by processing bank/agent 
+branch.
+PROCESSED Transaction has been processed.
+ABORTED Transaction has been accepted by processing bank/agent but now
+it has been requested to be cancelled. Awaiting processing 
+bank/agent approval for cancellation or rejection of cancellation 
+request.
+ERROR Transaction has some problem with it and is going through error 
+correction cycle.
+DELETED Transaction has been cancelled.
+RemitONE Web Services API Specification 94

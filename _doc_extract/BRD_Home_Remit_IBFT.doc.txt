@@ -1,0 +1,301 @@
+Home Remit Funds Transfer Transaction
+Business Requirement Description (BRD) Document
+Prepared for: 
+Alternative Delivery Channel 
+ IT JSBL
+Date Submitted: 
+28-Aug-2012
+Document No.: 
+Version: 
+Table of Contents
+Introduction
+Requirements Description
+Successful Scenario
+Sub Agent IBFT Transaction
+Agent IBFT Transaction
+Sub Agent FT Transaction
+Unsuccessful Scenario
+Sub Agent IBFT and FT Transaction
+Information Flow
+Transaction Description Formats
+Reports
+Limit Management
+Account Mapping
+The emphasis of this document is on the business requirements of Home Remit FT and IBFT transaction. In order to design the system that meets all of the business requirements, in this document data flow diagrams have been provided which clearly shows flow of information between various systems involved in the process. 
+Moreover, failure of transaction case has also been covered in this document mentioning all of the steps that will be performed during a single Home Remit FT and IBFT transaction. 
+In order to accomplish the Home Remit FT and IBFT transaction, development will be required at T24 level which is presented in a step by step manner in this document. 
+Successful scenario       
+Sub Agent IBFT Transaction scenario 
+Home Remit System will send Title Fetch request to 1LINK
+1LINK will respond to the Title Fetch request
+Home Remit System on 1LINK
+s response will send FT request to T24 through calling of API, the transaction description (such as transaction type, date/time and STAN format given on page no 9) will be saved at T24 as input mode 
+The FT request will stand in the queue at T24 system 
+T24 system will identify the Home Remit sub agent transaction based on special character 
+Home Remit System will authorize the transaction
+Home Remit System will send IBFT advice and FT transaction message data elements to T24
+T24 will check the FT transaction message data elements with the relevant FT transaction description that is saved as input mode at T24, after verification T24 system will debit exchange company account and credit 1LINK suspense account 
+T24 system will than send successful response message to 1LINK through API to execute the advice transaction
+Agent IBFT Transaction scenario 
+s response will send IBFT request to T24 though calling API
+T24 system will identify the Home Remit agent transaction based on special character
+Home Remit System will send IBFT advice and IBFT transaction message data elements 
+T24 system will debit exchange company account and credit 1LINK suspense account 
+Sub Agent FT Transaction scenario 
+Home Remit System will send Title Fetch request to JS Bank
+JS Bank will respond to the Title Fetch request
+Home Remit System on JS Bank
+s response will send FT request through calling different FT API, the transaction description (such as transaction type, date/time and STAN format given on page no 7) will be saved at T24 as input mode 
+Home Remit System will send FT advice and FT transaction message data elements to T24
+T24 will check the FT transaction message data elements with the relevant FT transaction description that is saved as input mode at T24, after verification T24 system will debit exchange company account and credit JS Bank account 
+T24 system will than send successful response message through calling API to execute the advice transaction
+Un-Successful scenario       
+s response will send FT request to T24 through calling of API
+The timer of authorization expiry starts at Home Remit System
+The timer indicates transaction expiry at Home Remit System before receiving reply from T24
+Home Remit sub agent will send an e-mail to T24 and similarly mark those expired transactions in the queue at Home Remit System manually to be deleted from the system 
+Inquiry module has to be implemented at T24 end which will allow to manually delete expired transactions based on transaction details i.e. date and time field and STAN received an e-mail from Home Remit sub agent
+The expiry of transaction scenario will be same for both FT and IBFT transaction, however different queues will be maintained i.e. one for FT expiry transactions and another for IBFT expiry transactions. Similarly, e-mail will be generated to T24 for manually deleting the relevant expiry transaction from T24 system.
+Successful scenario (Sub Agent IBFT transaction)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+ SHAPE  \* MERGEFORMAT 
+Successful scenario (Sub Agent FT transaction)
+Expiry of Authorization time scenario (Sub Agent IBFT and FT transaction)
+Description:
+The above diagram depicts a scenario where authorization of transaction time expires. After sending FT request to T24 the authorization timer starts, if response is not received within the defined timeline than expired transaction will be e-mailed by sub agent of Home Remit System as well as transactions will be marked manually in the Home Remit System to be deleted from the system. Similarly, inquiry module will be implemented at T24 which will allow deleting the expired transaction based on its data field (date/time and STAN) at T24 manually received in the e-mail from Home Remit System sub agent. 
+Please note that the above scenario will be same for both FT transaction and IBFT transaction. The only difference will be maintenance of different queues that is in case of FT transaction expiry different queue will be maintained to that of IBFT expired transaction queue.
+For Sub Agent IBFT INPUT
+HR-SAINIBFT.401234560224152500
+[System Alias]HR-[SubAgent Input]SAINIBFT.PROCCODE[40]STAN[123456]DATE[0224]TIME[152500]
+For Sub Agent IBFT Authorization Request
+HR-SAATIBFT.401234560224152500
+ [System Alias]HR-[Sub AgentAuthorization IBFT]AUTHIBFT.PROCCODE[40]STAN[123456]DATE[0224]TIME[152500]
+For Sub Agent IFT INPUT
+HR-SAINIFT.401234560224152500
+[System Alias]HR-[SubAgent Input]SAINIFT.PROCCODE[40]STAN[123456]DATE[0224]TIME[152500]
+For Sub Agent IFT Authorization Request
+HR-SAATIFT.401234560224152500
+ [System Alias]HR-[Sub AgentAuthorization IBFT]AUTHIFT.PROCCODE[40]STAN[123456]DATE[0224]TIME[152500]
+For Agent IBFT
+HR-AGINIBFT.401234560224152500
+[System Alias]HR-[AgentInput]AGININIBFT.PROCCODE[40]STAN[123456]DATE[0224]TIME[152500]
+For Agent IFT
+HR-AGINIFT.401234560224152500
+[System Alias]HR-[AgentInput]AGININIFT.PROCCODE[40]STAN[123456]DATE[0224]TIME[152500]
+Reports 
+Reports will be generated for below transactions at Home Remit System;
+Successful Sub Agent IBFT transaction
+Successful Agent IBFT transaction 
+Successful Sub Agent FT transaction 
+Unsuccessful Sub Agent IBFT transaction
+Unsuccessful Agent IBFT transaction 
+Unsuccessful Sub Agent FT transaction 
+Limit Management 
+Different limit will be managed at sub agent and agent IBFT transaction as well as at sub agent and agent FT transaction. 
+Account Mapping 
+The system will incorporate per user account mapping based on exchange companies. That is each exchange company user will be able to access certain accounts. 
+Information Technology - ADC
+Business Requirement Description
+Document Version 1.0
+ PAGE 
+3. Save FT transaction description as input mode 
+Response
+7. On authorization send successful response
+5. IBFT advice & FT transaction message data elements
+4. Authorize request
+2. Send FT request (transaction description)
+1. Title fetch
+5. Send manual e-mail mentioning all expired transactions to T24 and mark them manually in Home Remit System to be deleted
+T24 System
+Home Remit System
+6. Inquiry module to manually delete the expired transaction (fields include transaction date/time and STAN) received in the e-mail from Home Remit System sub agent
+6. Check the transaction data elements with saved description and Debit exchange company account
+Credit 1LINK suspense account 
+4. Mark Authorization timeout
+2. Send FT request with transaction description
+JS Bank
+5. FT advice & FT transaction message data elements
+Credit JS Bank account 
+3. Save FT transaction description as input mode
+w~w~wpd
+ucTI7.
+IDATx^
+Z-h^|:
+!Tm,G!
+PZ4=|i?
+,%zV,i~
+q6=I"O
+,SuMRqN#
+zi|kGAe
+(T-_'<R!
+<Q I5.
+V:yZK,
+=CO&$EX
+{Q-6eU
+\6$V+y
+<9n#T#?
+EF!s<"v6
+rx<yxx
+XULU5$
+o.:JHi
+80:5b`Y$
+Bel\M!
+.%kI?B
+!g:"H6
+,[1tIcbp
+<l/Rt,
+FJkw*5%hX
+6l*rZW3
+Ld>"'G
+fotIbC
+XW(edQiM*
+&8G02l
++LXT|/
+?6ftt0
+`A;#[A
+y25SUmk
+"@m(JuQs
+{dedc!
+#{dtKN
+SHUMaHk
+gtuWj#
+K0?Qi2
+kaA|JAI(
+&lhm<_Nb
+;mP6dJ
+:r8  C
+@@C0q?
+Ej~S!<
+^vA6)Oo
+GMG8a<
+PedC{F
+BI@jQ`
+{+mb89m;-
+D)} Sg
+t!IT:Qg"@G
+B)\[H9
+`>QYpXb
+]Y,n6-;
+uwy9@QQ
+""*[%/
+_ZU@j_p
+{H_ y_
+[{/[}'[
+)o{c76,4p:
+CE62&~
++7l,S;
+QD3Sm5
+9F3fYj
+(R4agak
+Y`6dS+
++;[LVT
+S0D`PR
+-~6OD!^
+e/&59%
+ W\exL
+q9*yF\k
+P3V2~lEh
+g<`8"d
+@%9-+9
+QnOENi
+~?a!H~
+aqiI0R
+i2502X&"
+narAAp
+]7|pdr}
+=Rm6ZN
+8t}RX5W
+VQFTGG
+#5P(Mr
+H2lUoW
+pcl\8M
+hk!?24
+ADa@>8
+HrCu9Y\
+)"CEV(|
+6o >md
+=rt:w|
+c1}Vl^L
+}Naf!;<d
+jA,Qj|^
+'CNab$
+[.l^?qd
+8Abc1@Ze
+d:cX"4
+D$-A`4
+0\fd|s
+R&~%REx
+9Y}Vja
+ggNOV*
+(I5'=[q
+sCn)T])
+V__67?
+w:V#VJ
+]2cH[w%
+uFCS^B
+l$POFI%
+r].Bw3+
+]ZWL/A
+{jYy~L
+RnF=+r
+ky~-MAc
+xb~o4h
+'H3mz]
+{!xW<Y@
+l-s`$_
+*whRTUMUN
+Q>%RZ&
+kznBFr
+.g(]OC
+`v^EEe0@
+)VGiIIu}
+eiReE9i
+BE-q);
+F~N0d 
+*HYr]k
+!!DpATI'
+Y9E+Vo
+X8$j_h
+X]c{SKk4B
+;LIK9l
+QTjSP4vm
+7D#;a/
+2{$:eDd
+oyrv7D
+naila.shah
+Normal.dot
+Microsoft Office Word
+Microsoft Office Word Document
+MSWordDoc
+Word.Document.8
+jslogo
+Normal
+Heading 2
+Heading 3
+Heading 4
+Heading 5
+Heading 6
+Heading 7
+Default Paragraph Font
+Table Normal
+No List
+Instructions
+Instructions Char
+Header
+Footer
+Page Number
+ Char Char
+Unknown
+Times New Roman
+Symbol
+Garamond
+Verdana
+Tahoma
+Wingdings
+Courier New
+Root Entry
+1Table
+WordDocument
+SummaryInformation
+DocumentSummaryInformation
+CompObj
